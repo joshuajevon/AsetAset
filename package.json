@@ -4,7 +4,8 @@
     "scripts": {
         "install:env": "composer install && php artisan key:generate && npm i && npm run dev",
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "tailwind:watch": "npx tailwindcss -i ./resources/css/base.css -o ./public/css/build.css --watch"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.14",
