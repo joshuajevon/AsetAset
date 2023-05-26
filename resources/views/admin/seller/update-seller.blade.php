@@ -28,7 +28,7 @@
 
             <div>
                 <label for="" class="form-label">Seller Address</label>
-                <input type="text" class="form-control @error('seller_address') is-invalid @enderror" id="" name="seller_address" value="{{$seller->seller_address)}}">
+                <input type="text" class="form-control @error('seller_address') is-invalid @enderror" id="" name="seller_address" value="{{$seller->seller_address}}">
             </div>
 
             @error('seller_address')

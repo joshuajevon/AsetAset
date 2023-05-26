@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -10,11 +11,13 @@ class AssetController extends Controller
 {
 
     public function view(){
-        return view('admin.asset.view-asset');
+        $assets = Asset::all();
+        return view('admin.asset.view-asset', compact('assets'));
     }
 
     public function create(){
-        return view('admin.asset.create-asset');
+        $sellers = Seller::all();
+        return view('admin.asset.create-asset', compact('sellers'));
     }
 
     public function store(Request $request){
@@ -27,9 +30,13 @@ class AssetController extends Controller
         //     'BookImg' => 'required|mimes:png,jpg',
         // ]);
 
-        $extension = $request->file('image')->getClientOriginalExtension();
-        $file_name = $request->profile_region.'-'.$request->profile_name.'.'.$extension;
-        $request->file('image')->storeAs('/public/asset/image', $file_name);
+        $extension1 = $request->file('image')->getClientOriginalExtension();
+        $image_name = time().$request->name.'-'.$request->category.'.'.$extension1;
+        $request->file('image')->storeAs('/public/asset/image', $image_name);
+
+        $extension2 = $request->file('attachment')->getClientOriginalExtension();
+        $attachment_name = time().$request->name.'-'.$request->category.'.'.$extension2;
+        $request->file('attachment')->storeAs('/public/asset/attachment', $attachment_name);
 
         Asset::create([
             'name' => $request->name,
@@ -39,8 +46,8 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'description' => $request->description,
-            'attachment' => $request->attachment,
-            'image' => $file_name,
+            'attachment' => $attachment_name,
+            'image' => $image_name,
             ]);
         return redirect(route('view-asset'));
     }
@@ -56,10 +63,10 @@ class AssetController extends Controller
 
         if($image){
             Storage::delete('public/image/structure'.$asset->image);
-            $file_name = $request->profile_region.'-'.$request->profile_name.'.'.$image->getClientOriginalName();
-            $image->storeAs('/public/image/structure', $file_name);
+            $image_name = $request->profile_region.'-'.$request->profile_name.'.'.$image->getClientOriginalName();
+            $image->storeAs('/public/image/structure', $image_name);
             $asset->update([
-                'image' => $file_name
+                'image' => $image_name
             ]);
         }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SellerController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,7 @@ Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
 Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
-
+        Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');
         // CRUD assets
         Route::prefix('/asset')->group(function(){
             Route::get('/', [AssetController::class, 'view'])->name('view-asset');
@@ -47,7 +48,14 @@ Route::middleware('isAdmin')->group(function(){
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = Auth::user();
+
+    if($user->isAdmin == 1){
+        return redirect(route('admin-dashboard'));
+    }else{
+        return view('dashboard');
+    }
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

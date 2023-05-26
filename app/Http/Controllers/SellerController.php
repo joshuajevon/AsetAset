@@ -19,6 +19,12 @@ class SellerController extends Controller
 
     public function store(Request $request){
 
+        $request->validate([
+            'seller_name' => 'required|string',
+            'seller_address' => 'required|string',
+            'seller_phone' => 'required|numeric',
+        ]);
+
         Seller::create([
             'seller_name' => $request->seller_name,
             'seller_address' => $request->seller_address,
