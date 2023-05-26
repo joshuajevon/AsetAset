@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('province');
             $table->string('city');
             $table->unsignedBigInteger('price');
-            $table->string('seller');
+            $table->unsignedBigInteger('seller_id');
+            $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade')->onUpdate('cascade');
             $table->string('description');
             $table->string('attachment');
-            $table->string('file');
+            $table->string('image');
             $table->timestamps();
         });
     }

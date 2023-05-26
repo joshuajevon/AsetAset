@@ -15,9 +15,13 @@ class Asset extends Model
         'province',
         'city',
         'price',
-        'seller',
+        'seller_id',
         'description',
         'attachment',
-        'file'
+        'image'
     ];
+
+    public function seller(){
+        return $this->belongsTo(Seller::class, 'seller_id');
+    }
 }

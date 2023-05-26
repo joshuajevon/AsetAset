@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +17,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[HomeController::class, 'home'])->name('welcome');
+
+Route::middleware('isAdmin')->group(function(){
+    Route::prefix('/admin')->group(function(){
+
+        // CRUD assets
+        Route::prefix('/asset')->group(function(){
+            Route::get('/', [AssetController::class, 'view'])->name('view-asset');
+            // Route::get('/view/{region}', [AssetController::class, 'filterRegion']);
+            Route::get('/create', [AssetController::class, 'create'])->name('create-asset');
+            Route::post('/store', [AssetController::class, 'store'])->name('store-asset');
+            Route::get('/edit/{id}', [AssetController::class, 'edit'])->name('edit-asset');
+            Route::patch('/update/{id}', [AssetController::class, 'update'])->name('update-asset');
+            Route::delete('/delete/{id}', [AssetController::class, 'delete'])->name('delete-asset');
+        });
+
+        //CRUD seller
+        Route::prefix('/seller')->group(function(){
+            Route::get('/', [SellerController::class, 'view'])->name('view-seller');
+            Route::get('/create', [SellerController::class, 'create'])->name('create-seller');
+            Route::post('/store', [SellerController::class, 'store'])->name('store-seller');
+            Route::get('/edit/{id}', [SellerController::class, 'edit'])->name('edit-seller');
+            Route::patch('/update/{id}', [SellerController::class, 'update'])->name('update-seller');
+            Route::delete('/delete/{id}', [SellerController::class, 'delete'])->name('delete-seller');
+        });
+    });
+
 });
 
 Route::get('/dashboard', function () {
