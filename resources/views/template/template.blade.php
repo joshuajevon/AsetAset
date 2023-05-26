@@ -11,12 +11,26 @@
     <link rel="stylesheet" href="{{ asset('css/base/build.css') }}?t={{ env('VERSION_TIME') }}">
 
     <!-- vite-->
-    @vite('resources/css/app.css')
+    @vite('resources/css/base.css')
+
+    {{-- Google Font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <!-- css & js-->
     @yield('head')
 </head>
 
-@yield('body')
+<body class="bg-cLightGrey">
+    @yield('body')
+
+    <script src="{{ asset('js/navigation-bar.js') }}?t={{ env('VERSION_TIME') }}"></script>
+</body>
 
 </html>
