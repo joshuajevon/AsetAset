@@ -99,6 +99,15 @@
             @enderror
 
             <div>
+                <label for="" class="form-label">Status</label>
+                <input type="text" class="form-control @error('status') is-invalid @enderror" id="" name="status" value="{{old('status')}}">
+            </div>
+
+            @error('status')
+                <div class="alert alert-danger" role="alert">{{$message}}</div>
+            @enderror
+
+            <div>
                 <label for="" class="form-label">Attachment</label>
                 <input type="file" class="form-control @error('attachment') is-invalid @enderror" id="" name="attachment" value="{{old('attachment')}}">
             </div>

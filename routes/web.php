@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
+Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
+
 Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');

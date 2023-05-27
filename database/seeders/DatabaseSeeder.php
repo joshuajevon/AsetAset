@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\Owner::factory(5)->create();
+        \App\Models\Seller::factory(5)->create();
+        \App\Models\Asset::factory(20)->create();
+
         $this->call([
             AdminSeeder::class,
         ]);

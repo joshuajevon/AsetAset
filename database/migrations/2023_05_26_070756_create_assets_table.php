@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade')->onUpdate('cascade');
             $table->string('description');
+            $table->string('status');
             $table->string('attachment');
             $table->string('image');
             $table->timestamps();

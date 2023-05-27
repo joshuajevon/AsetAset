@@ -18,6 +18,7 @@ class Asset extends Model
         'seller_id',
         'owner_id',
         'description',
+        'status',
         'attachment',
         'image'
     ];

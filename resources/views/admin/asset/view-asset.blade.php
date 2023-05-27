@@ -24,6 +24,7 @@
             <td>seller</td>
             <td>owner</td>
             <td>description</td>
+            <td>status</td>
             <td>attachment</td>
             <td>image</td>
         </th>
@@ -38,6 +39,7 @@
                 <td>{{ $asset->seller->seller_name }}</td>
                 <td>{{ $asset->owner->owner_name }}</td>
                 <td>{{ $asset->description }}</td>
+                <td>{{ $asset->status }}</td>
                 <td>{{ $asset->attachment }}</td>
                 <td>
                     <img src="{{asset('/storage/asset/image/'.$asset->image)}}" class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">

@@ -48,6 +48,7 @@ class AssetController extends Controller
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
             'description' => $request->description,
+            'status' => $request->status,
             'attachment' => $attachment_name,
             'image' => $image_name,
             ]);
@@ -92,6 +93,7 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect(route('view-asset'));
     }
