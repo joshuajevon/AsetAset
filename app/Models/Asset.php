@@ -16,12 +16,17 @@ class Asset extends Model
         'city',
         'price',
         'seller_id',
+        'owner_id',
         'description',
         'attachment',
         'image'
     ];
 
     public function seller(){
-        return $this->belongsTo(Seller::class, 'id');
+        return $this->belongsTo(Seller::class,'seller_id','id');
+    }
+
+    public function owner(){
+        return $this->belongsTo(Owner::class,'owner_id','id');
     }
 }

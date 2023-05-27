@@ -80,6 +80,15 @@
                 </select>
             </div>
 
+            <div class="mb-3">
+                <label for="exampleInputAuthor" class="form-label">Owner</label>
+                <select class="form-select" aria-label="Default select example" name="owner_name">
+                    @foreach ($owners as $owner)
+                        <option value="{{ $owner->id }}">{{ $owner->owner_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div>
                 <label for="" class="form-label">Description</label>
                 <textarea name="description" id="" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror" value="{{old('description')}}"></textarea>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Owner;
 use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AssetController extends Controller
 {
@@ -17,7 +19,8 @@ class AssetController extends Controller
 
     public function create(){
         $sellers = Seller::all();
-        return view('admin.asset.create-asset', compact('sellers'));
+        $owners = Owner::all();
+        return view('admin.asset.create-asset', compact('sellers','owners'));
     }
 
     public function store(Request $request){
@@ -30,12 +33,10 @@ class AssetController extends Controller
         //     'BookImg' => 'required|mimes:png,jpg',
         // ]);
 
-        $extension1 = $request->file('image')->getClientOriginalExtension();
-        $image_name = time().$request->name.'-'.$request->category.'.'.$extension1;
+        $image_name = time().'-'.Str::random(10).'-'. $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('/public/asset/image', $image_name);
 
-        $extension2 = $request->file('attachment')->getClientOriginalExtension();
-        $attachment_name = time().$request->name.'-'.$request->category.'.'.$extension2;
+        $attachment_name = time().'-'.Str::random(10).'-'. $request->file('attachment')->getClientOriginalName();
         $request->file('attachment')->storeAs('/public/asset/attachment', $attachment_name);
 
         Asset::create([
@@ -45,6 +46,7 @@ class AssetController extends Controller
             'city' => $request->city,
             'price' => $request->price,
             'seller_id' => $request->seller_name,
+            'owner_id' => $request->owner_name,
             'description' => $request->description,
             'attachment' => $attachment_name,
             'image' => $image_name,
@@ -54,19 +56,31 @@ class AssetController extends Controller
 
     public function edit($id){
         $asset = Asset::findOrFail($id);
-        return view('admin.asset.update-asset', compact('asset'));
+        $sellers = Seller::all();
+        $owners = Owner::all();
+        return view('admin.asset.update-asset', compact('asset','sellers','owners'));
     }
 
     public function update(Request $request, $id){
         $image = $request->file('image');
+        $attachment = $request->file('attachment');
         $asset = Asset::findOrFail($id);
 
         if($image){
-            Storage::delete('public/image/structure'.$asset->image);
-            $image_name = $request->profile_region.'-'.$request->profile_name.'.'.$image->getClientOriginalName();
-            $image->storeAs('/public/image/structure', $image_name);
+            Storage::delete('public/asset/image/'.$asset->image);
+            $image_name = time().'-'.Str::random(10).'-'. $request->file('image')->getClientOriginalName();
+            $image->storeAs('/public/asset/image/', $image_name);
             $asset->update([
                 'image' => $image_name
+            ]);
+        }
+
+        if($attachment){
+            Storage::delete('public/asset/attachment/'.$asset->attachment);
+            $attachment_name = time().'-'.Str::random(10).'-'. $request->file('attachment')->getClientOriginalName();
+            $attachment->storeAs('/public/asset/attachment/', $attachment_name);
+            $asset->update([
+                'attachment' => $attachment_name
             ]);
         }
 
@@ -78,7 +92,6 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'description' => $request->description,
-            'attachment' => $request->attachment,
         ]);
         return redirect(route('view-asset'));
     }

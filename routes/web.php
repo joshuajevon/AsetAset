@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,16 @@ Route::middleware('isAdmin')->group(function(){
             Route::get('/edit/{id}', [SellerController::class, 'edit'])->name('edit-seller');
             Route::patch('/update/{id}', [SellerController::class, 'update'])->name('update-seller');
             Route::delete('/delete/{id}', [SellerController::class, 'delete'])->name('delete-seller');
+        });
+
+        //CRUD owner
+        Route::prefix('/owner')->group(function(){
+            Route::get('/', [OwnerController::class, 'view'])->name('view-owner');
+            Route::get('/create', [OwnerController::class, 'create'])->name('create-owner');
+            Route::post('/store', [OwnerController::class, 'store'])->name('store-owner');
+            Route::get('/edit/{id}', [OwnerController::class, 'edit'])->name('edit-owner');
+            Route::patch('/update/{id}', [OwnerController::class, 'update'])->name('update-owner');
+            Route::delete('/delete/{id}', [OwnerController::class, 'delete'])->name('delete-owner');
         });
     });
 

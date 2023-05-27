@@ -22,6 +22,7 @@
             <td>city</td>
             <td>price</td>
             <td>seller</td>
+            <td>owner</td>
             <td>description</td>
             <td>attachment</td>
             <td>image</td>
@@ -35,6 +36,7 @@
                 <td>{{ $asset->city }}</td>
                 <td>{{ $asset->price }}</td>
                 <td>{{ $asset->seller->seller_name }}</td>
+                <td>{{ $asset->owner->owner_name }}</td>
                 <td>{{ $asset->description }}</td>
                 <td>{{ $asset->attachment }}</td>
                 <td>

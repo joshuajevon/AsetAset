@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
-        return view('welcome');
+        $assets = Asset::all();
+        return view('welcome',  compact('assets'));
     }
 
     public function dashboard(){
