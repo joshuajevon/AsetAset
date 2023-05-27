@@ -1,4 +1,4 @@
-<nav id="navbar" class="text-base fixed w-full">
+<nav id="navbar" class="text-base fixed w-full z-50">
     <div class="c-container bg-cBlack mx-auto flex h-20 w-full items-center gap-8 ">
         <a class="block text-cGold" href="/">
             <span class="sr-only">Home</span>

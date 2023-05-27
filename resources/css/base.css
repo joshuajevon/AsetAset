@@ -6,6 +6,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 @layer components {
     .nav-link {
         @apply text-cGold transition hover:text-cGold/75 font-bold
