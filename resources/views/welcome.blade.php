@@ -64,7 +64,7 @@
         {{-- Items --}}
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             @foreach ($assets as $asset)
-                <a href="#"
+                <a href="{{route('asset-by-id', $asset->id)}}"
                     class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
                     <div class="relative aspect-square flex justify-center items-center border border-cDarkGrey">
                         <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"
@@ -74,7 +74,7 @@
                     <div class="relative bg-white flex flex-col justify-center items-center gap-4">
                         <p class="text-base">{{ $asset->name }}</p>
                         <h3 class="text-xl text-cGold font-bold">
-                            {{ $asset->price }}
+                            @currency ($asset->price)
                         </h3>
                         <div class="flex justify-center items-center gap-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

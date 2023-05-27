@@ -40,7 +40,7 @@
             <td>{{ $asset->category }}</td>
             <td>{{ $asset->province }}</td>
             <td>{{ $asset->city }}</td>
-            <td>{{ $asset->price }}</td>
+            <td>@currency ($asset->price)</td>
             <td>{{ $asset->seller->seller_name }}</td>
             <td>{{ $asset->seller->seller_address }}</td>
             <td>{{ $asset->seller->seller_phone }}</td>

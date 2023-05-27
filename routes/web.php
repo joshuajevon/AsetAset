@@ -21,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
+Route::get('/asset',[HomeController::class, 'asset'])->name('asset');
+
+Route::get('/tentang-kami',[HomeController::class, 'tentangKami'])->name('tentangKami');
+
+Route::get('/panduan',[HomeController::class, 'panduan'])->name('panduan');
+
+Route::get('/hubungi-kami',[HomeController::class, 'hubungiKami'])->name('hubungiKami');
+
 Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
 
 Route::middleware('isAdmin')->group(function(){

@@ -19,25 +19,25 @@
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'aset') underline @endif" href="/">
+                        <a class="nav-link @if ($page == 'aset') underline @endif" href="/asset">
                             ASET
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'tentang-kami') underline @endif" href="/">
+                        <a class="nav-link @if ($page == 'tentang-kami') underline @endif" href="/tentang-kami">
                             TENTANG KAMI
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'tentang-kami') underline @endif" href="/">
+                        <a class="nav-link @if ($page == 'panduan') underline @endif" href="/panduan">
                             PANDUAN
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'hubungi-kami') underline @endif" href="/">
+                        <a class="nav-link @if ($page == 'hubungi-kami') underline @endif" href="/hubungi-kami">
                             HUBUNGI KAMI
                         </a>
                     </li>
@@ -46,17 +46,30 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <div class="lg:gap-4 hidden lg:flex">
-                    <a class="block rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75"
-                        href="/login">
-                        Login
-                    </a>
+                @guest
+                    <div class="lg:gap-4 hidden lg:flex">
+                        <a class="block rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75"
+                            href="/login">
+                            Login
+                        </a>
 
-                    <a class="hidden rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 sm:block border border-cGold"
-                        href="/register">
-                        Daftar
-                    </a>
-                </div>
+                        <a class="hidden rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 sm:block border border-cGold"
+                            href="/register">
+                            Daftar
+                        </a>
+                    </div>
+                @endguest
+
+                @auth
+                    <p class="text-cWhite">
+                        {{Auth::user()->name}}
+                    </p>
+                    <a class="text-cWhite" href="/profile">Profile</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="text-cWhite">Logout</button>
+                    </form>
+                @endauth
 
                 <button class="block rounded bg-cGold p-2.5 text-cWhite transition hover:text-cWhite lg:hidden"
                     onclick="toggleNavbar()">
