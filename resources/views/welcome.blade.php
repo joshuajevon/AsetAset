@@ -12,7 +12,7 @@
 
     <div class="c-container h-screen flex justify-center items-center">
         <h1 class="text-3xl font-bold underline">
-            Hello world Test!
+            Hello World!
         </h1>
     </div>
 
