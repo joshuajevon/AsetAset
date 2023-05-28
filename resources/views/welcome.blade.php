@@ -61,11 +61,11 @@
             </form>
         </div>
 
-        @if ($found > 0)
+        {{-- @if ($found > 0) --}}
             <h1>Hasil pencarian mengenai "{{ $result }}"</h1>
-        @else
+        {{-- @else
             tidak ada
-        @endif
+        @endif --}}
 
 
         <div class="grid grid-cols-3 md:grid-cols-4 gap-8">
