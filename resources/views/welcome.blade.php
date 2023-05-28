@@ -71,65 +71,60 @@
         <div class="grid grid-cols-3 md:grid-cols-4 gap-8">
             {{-- Filter --}}
             <div class="hidden md:flex flex-col bg-cWhite grow col-span-1 h-fit">
-                <div class="p-4 bg-cDarkGrey">
-                    <h1 class="font-bold text-center">Filter Pencarian</h1>
+                <div class="py-4 px-8 bg-cDarkGrey">
+                    <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
                 </div>
 
                 <form action="{{route('welcome')}}" method="get">
-                    <div class="p-4 flex flex-col gap-2">
-                        <h2 class="font-bold">Jenis Aset</h2>
-                        @foreach($categories as $category)
-                            <div class="flex items-center gap-2">
-                                <input id="filter-apartemen" type="checkbox" name="categories[]" value="{{ $category }}" class="appearance-none checked:bg-cGold" />
-                                <label for="filter-apartemen">{{ $category }}</label>
-                            </div>
-                        @endforeach
+                    <div class="pt-4 pb-8 px-8 flex flex-col gap-8">
+                        <div class="flex flex-col gap-2">
+                            <h2 class="text-lg font-bold">Jenis Aset</h2>
+                            @foreach($categories as $category)
+                                <div class="text-base flex items-center gap-2">
+                                    <input id="filter-{{ $category }}" type="checkbox" name="categories[]" value="{{ $category }}" class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0" />
+                                    <label for="filter-{{ $category }}">{{ $category }}</label>
+                                </div>
+                            @endforeach
+                        </div>
 
-                        {{-- <div class="flex items-center gap-2">
-                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                            <label for="filter-apartemen">Apartemen</label>
+                        <div class="flex flex-col gap-2">
+                            <h2 class="text-lg font-bold">Wilayah</h2>
+                            <select class="cursor-pointer rounded-md" name="provinsi" id="provinsi">
+                                <option value="" disabled selected>Pilih Provinsi</option>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                              </select>
+                            <select class="cursor-pointer rounded-md" name="kota" id="kota">
+                                <option value="" disabled selected>Pilih Kota</option>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                              </select>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                            <label for="filter-apartemen">Apartemen</label>
+
+                        <div class="flex flex-col gap-2">
+                            <h2 class="text-lg font-bold">Rentang Harga</h2>
+                            <div class="flex items-center border rounded-md pl-4">
+                                <span>Rp.</span>
+                                <input class="w-full rounded-lg border-none" type="number" name="harga-min" id="filter-harga-min" placeholder="Harga Minimum">
+                            </div>
+                            <div class="flex items-center border rounded-md pl-4">
+                                <span>Rp.</span>
+                                <input class="w-full rounded-lg border-none" type="number" name="harga-max" id="filter-harga-max" placeholder="Harga Maksimum">
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                            <label for="filter-apartemen">Apartemen</label>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                            <label for="filter-apartemen">Apartemen</label>
-                        </div> --}}
                     </div>
 
-                    <button type="submit">Terapkan</button>
+                    <div class="p-8 bg-cDarkGrey flex justify-center items-center">
+                        <button class="gold-btn" type="submit">Terapkan</button>
+                    </div>
                 </form>
 
 
-                <div class="p-4 flex flex-col gap-2">
-                    <h2 class="font-bold">Wilayah</h2>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                </div>
 
-                <div class="p-4 flex flex-col gap-2">
-                    <h2 class="font-bold">Rentang Harga</h2>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                </div>
 
             </div>
 

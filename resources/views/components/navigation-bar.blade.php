@@ -180,7 +180,7 @@
 
         <div class="c-container py-3 flex border-b-2 border-cGold gap-2">
             <a class="gold-btn" href="/">
-                Login
+                Masuk
             </a>
 
             <a class="white-btn"

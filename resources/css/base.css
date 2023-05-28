@@ -2,15 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    font-family: 'Roboto', sans-serif;
-}
+@layer base {
+    [type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea {
+        @apply border-cDarkGrey focus:border-none focus:ring-0
+    }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+    select {
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
+    }
 }
 
 @layer components {
