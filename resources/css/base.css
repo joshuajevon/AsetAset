@@ -21,4 +21,12 @@ button:focus {
     .c-container{
         @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24
     }
+
+    .gold-btn{
+        @apply rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75
+    }
+
+    .white-btn{
+        @apply rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold
+    }
 }

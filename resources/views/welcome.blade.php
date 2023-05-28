@@ -62,9 +62,9 @@
         </div>
 
 
-        <div class="grid grid-cols-4 gap-8">
+        <div class="grid grid-cols-3 md:grid-cols-4 gap-8">
             {{-- Filter --}}
-            <div class="flex flex-col bg-cWhite grow col-span-1 h-fit">
+            <div class="hidden md:flex flex-col bg-cWhite grow col-span-1 h-fit">
                 <div class="p-4 bg-cDarkGrey">
                     <h1 class="font-bold text-center">Filter Pencarian</h1>
                 </div>
@@ -125,8 +125,22 @@
                     {{ $assets->links() }}
                 </div>
 
+                {{-- Mobile filter button --}}
+                <button class="md:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                    Filter</button>
+                {{-- Mobile Filter Popup --}}
+                <dialog id="dialog-filter">
+                    <p>Filter</p>
+                    <form method="dialog">
+                      <button class="gold-btn">OK</button>
+                    </form>
+                  </dialog>
+
                 {{-- Items --}}
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                     @foreach ($assets as $asset)
                         <a href="{{ route('asset-by-id', $asset->id) }}"
                             class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">

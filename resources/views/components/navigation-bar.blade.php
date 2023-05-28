@@ -179,11 +179,11 @@
         </a>
 
         <div class="c-container py-3 flex border-b-2 border-cGold gap-2">
-            <a class="rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75" href="/">
+            <a class="gold-btn" href="/">
                 Login
             </a>
 
-            <a class="rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold"
+            <a class="white-btn"
                 href="/">
                 Daftar
             </a>

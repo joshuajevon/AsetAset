@@ -22,3 +22,8 @@ var topSplide = new Splide("#top-splide", {
     },
 });
 topSplide.mount();
+
+
+function openFilter(){
+    document.querySelector("#dialog-filter").showModal();
+}
