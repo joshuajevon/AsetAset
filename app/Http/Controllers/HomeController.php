@@ -8,16 +8,32 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(Request $request){
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
-        } else{
-            // $assets = Asset::orderBy('created_at', 'desc')->simplePaginate(16);
-            $assets = Asset::paginate(16);
+
+        // else{
+                // $assets = Asset::orderBy('created_at', 'desc')->simplePaginate(16);
+                // $assets = Asset::paginate(16);
+            // }
+
+        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+
+        $selectedCategories = $request->input('categories', []);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
         }
 
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+        }else{
+            $assets = $query->paginate(16);
+        }
+
+        $result = $request->input('search');
 
         // $assets = Asset::all()->paginate(16);
-        return view('welcome',  compact('assets'));
+        return view('welcome',  compact('assets','categories','result'));
     }
 
     public function assetById($id){

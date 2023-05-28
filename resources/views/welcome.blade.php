@@ -61,6 +61,12 @@
             </form>
         </div>
 
+        @if ($found > 0)
+            <h1>Hasil pencarian mengenai "{{ $result }}"</h1>
+        @else
+            tidak ada
+        @endif
+
 
         <div class="grid grid-cols-3 md:grid-cols-4 gap-8">
             {{-- Filter --}}
@@ -69,29 +75,37 @@
                     <h1 class="font-bold text-center">Filter Pencarian</h1>
                 </div>
 
-                <div class="p-4 flex flex-col gap-2">
-                    <h2 class="font-bold">Jenis Aset</h2>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
+                <form action="{{route('welcome')}}" method="get">
+                    <div class="p-4 flex flex-col gap-2">
+                        <h2 class="font-bold">Jenis Aset</h2>
+                        @foreach($categories as $category)
+                            <div class="flex items-center gap-2">
+                                <input id="filter-apartemen" type="checkbox" name="categories[]" value="{{ $category }}" class="appearance-none checked:bg-cGold" />
+                                <label for="filter-apartemen">{{ $category }}</label>
+                            </div>
+                        @endforeach
+
+                        {{-- <div class="flex items-center gap-2">
+                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
+                            <label for="filter-apartemen">Apartemen</label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
+                            <label for="filter-apartemen">Apartemen</label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
+                            <label for="filter-apartemen">Apartemen</label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
+                            <label for="filter-apartemen">Apartemen</label>
+                        </div> --}}
                     </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input id="filter-apartemen" type="checkbox" class="appearance-none checked:bg-cGold" />
-                        <label for="filter-apartemen">Apartemen</label>
-                    </div>
-                </div>
+
+                    <button type="submit">Terapkan</button>
+                </form>
+
 
                 <div class="p-4 flex flex-col gap-2">
                     <h2 class="font-bold">Wilayah</h2>
