@@ -45,10 +45,10 @@
 
         {{-- Search Bar --}}
         <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2">
+            <form class="w-full gap-2 text-base">
                 <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
-                    <input
-                        class="w-full bg-transparent border-none placeholder:text-cWhite text-base active:border-none active:outline-none"
+                    <input type="text"
+                        class="w-full bg-transparent border-none placeholder:text-cWhite"
                         id="search" name="search" placeholder="Pencarian...">
                     <button type="button" class="flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -62,21 +62,23 @@
         </div>
 
         {{-- @if ($found > 0) --}}
-            <h1>Hasil pencarian mengenai "{{ $result }}"</h1>
+        <div class="p-8 bg-cDarkGrey rounded-lg">
+            <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+        </div>
         {{-- @else
             tidak ada
         @endif --}}
 
 
-        <div class="grid grid-cols-3 md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
-            <div class="hidden md:flex flex-col bg-cWhite grow col-span-1 h-fit">
-                <div class="py-4 px-8 bg-cDarkGrey">
+            <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
+                <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey rounded-t-lg">
                     <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
                 </div>
 
                 <form action="{{route('welcome')}}" method="get">
-                    <div class="pt-4 pb-8 px-8 flex flex-col gap-8">
+                    <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8">
                         <div class="flex flex-col gap-2">
                             <h2 class="text-lg font-bold">Jenis Aset</h2>
                             @foreach($categories as $category)
@@ -118,14 +120,10 @@
                         </div>
                     </div>
 
-                    <div class="p-8 bg-cDarkGrey flex justify-center items-center">
-                        <button class="gold-btn" type="submit">Terapkan</button>
+                    <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex justify-center items-center rounded-b-lg">
+                        <button class="gold-btn w-full" type="submit">Terapkan</button>
                     </div>
                 </form>
-
-
-
-
             </div>
 
             {{-- Aset galeri --}}
@@ -135,7 +133,7 @@
                 </div>
 
                 {{-- Mobile filter button --}}
-                <button class="md:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
+                <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
                         <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                       </svg>

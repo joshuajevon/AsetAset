@@ -31,6 +31,8 @@
 <body class="bg-cLightGrey">
     @yield('body')
 
+    <x-footer />
+
     <script src="{{ asset('js/navigation-bar.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 

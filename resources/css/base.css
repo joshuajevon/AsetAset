@@ -22,10 +22,10 @@
     }
 
     .gold-btn{
-        @apply rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75
+        @apply flex justify-center items-center rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75
     }
 
     .white-btn{
-        @apply rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold
+        @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold
     }
 }
