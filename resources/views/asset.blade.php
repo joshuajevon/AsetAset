@@ -17,7 +17,7 @@
     </section>
 
     {{-- Asets --}}
-    <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+    <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
         <div class="flex justify-center items-center gap-8">
             <h1 class="text-4xl font-bold text-cGold">Galeri Aset</h1>
