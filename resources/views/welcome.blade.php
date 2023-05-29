@@ -132,12 +132,10 @@
                         </div>
                     @endif
 
-                    @if ($assets->count() > 16)
                     {{-- Top Pagination --}}
                     <div id="top-pagination" class="pagination">
                         {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                     </div>
-                    @endif
 
                     {{-- Sort and Mobile Filter --}}
                     <div class="flex justify-between sm:justify-start items-center gap-4">
@@ -213,12 +211,10 @@
                     </div>
                 @endif
 
-                @if ($assets->count() > 16)
-                    {{-- Bottom pagination --}}
-                    <div id="bottom-pagination" class="pagination">
-                        {{ $assets->appends(['filter' => $selectedFilter])->links() }}
-                    </div>
-                @endif
+                {{-- Bottom pagination --}}
+                <div id="bottom-pagination" class="pagination">
+                    {{ $assets->appends(['filter' => $selectedFilter])->links() }}
+                </div>
             </div>
         </div>
 

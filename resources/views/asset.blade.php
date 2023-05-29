@@ -38,7 +38,8 @@
                                 <div class="text-base flex items-center gap-2">
                                     <input id="filter-{{ $category }}" type="checkbox" name="categories[]"
                                         value="{{ $category }}"
-                                        class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0" {{ in_array($category, $selectedCategories) ? 'checked' : '' }} />
+                                        class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
+                                        {{ in_array($category, $selectedCategories) ? 'checked' : '' }} />
                                     <label for="filter-{{ $category }}">{{ $category }}</label>
                                 </div>
                             @endforeach
@@ -75,13 +76,13 @@
                             <h2 class="text-lg font-bold">Rentang Harga</h2>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-min">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="min-price"  value="{{ $minPrice }}"
-                                    id="filter-harga-min" placeholder="Harga Minimum">
+                                <input class="w-full rounded-lg border-none" type="number" name="min-price"
+                                    value="{{ $minPrice }}" id="filter-harga-min" placeholder="Harga Minimum">
                             </div>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-max">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="max-price"  value="{{ $maxPrice }}"
-                                    id="filter-harga-max" placeholder="Harga Maksimum">
+                                <input class="w-full rounded-lg border-none" type="number" name="max-price"
+                                    value="{{ $maxPrice }}" id="filter-harga-max" placeholder="Harga Maksimum">
                             </div>
                         </div>
                     </div>
@@ -106,12 +107,10 @@
                         </div>
                     @endif
 
-                    @if ($assets->count() > 16)
                     {{-- Top Pagination --}}
                     <div id="top-pagination" class="pagination">
                         {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                     </div>
-                    @endif
 
                     {{-- Sort and Mobile Filter --}}
                     <div class="flex justify-between sm:justify-start items-center gap-4">
@@ -183,12 +182,10 @@
                     </div>
                 @endif
 
-                @if ($assets->count() > 16)
                 {{-- Bottom pagination --}}
                 <div id="bottom-pagination" class="pagination">
                     {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                 </div>
-                @endif
             </div>
         </div>
 
