@@ -22,6 +22,7 @@ export default {
                 cWhite: "#FFFFFF",
                 cLightGrey: "#EFEFEF",
                 cDarkGrey: "#D9D9D9",
+                cDarkerGrey: "#292929",
             },
         },
     },
