@@ -12,22 +12,8 @@
     <x-navigation-bar page="aset" />
 
     {{-- Search Bar --}}
-    <section class="c-container pt-32 pb-16 flex flex-col gap-8 lg:gap-12 xl:gap-16">
-        <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2 text-base" >
-                <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
-                    <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite" id="search"
-                        name="search" placeholder="Pencarian...">
-                    <button type="button" class="flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </button>
-                </div>
-            </form>
-        </div>
+    <section class="c-container flex justify-center items-center pt-32 pb-16">
+        <x-search-bar />
     </section>
 
     {{-- Asets --}}
@@ -38,11 +24,6 @@
             <div class="flex-1 h-1 bg-cGold"></div>
         </div>
 
-        @if ($result)
-            <div class="p-8 bg-cDarkGrey rounded-lg">
-                <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
-            </div>
-        @endif
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
             <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -72,14 +53,14 @@
                                 <option value="Jawa Tengah">Jawa Tengah</option>
                                 <option value="Jawa Barat">Jawa Barat</option>
                                 <option value="Jawa Timur">Jawa Timur</option>
-                              </select>
+                            </select>
                             <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                 <option value="" disabled selected>Pilih Kota</option>
                                 <option value="Jakarta Barat">Jakarta Barat</option>
                                 <option value="Bandung">Bandung</option>
                                 <option value="Surakarta">Surakarta</option>
                                 <option value="Surabaya">Surabaya</option>
-                              </select>
+                            </select>
                         </div>
 
                         <div class="flex flex-col gap-2">
@@ -105,62 +86,95 @@
 
             {{-- Aset galeri --}}
             <div class="flex flex-col gap-8 col-span-3">
-                <div class="">
-                    <select name="" id="">
-                        <option value="">A</option>
-                    </select>
-                    {{ $assets->links() }}
-                </div>
-
-                {{-- Mobile filter button --}}
-                <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-filter" viewBox="0 0 16 16">
-                        <path
-                            d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                    Filter</button>
-                {{-- Mobile Filter Popup --}}
-                <dialog id="dialog-filter">
-                    <p>Filter</p>
-                    <form method="dialog">
-                        <button class="gold-btn">OK</button>
-                    </form>
-                </dialog>
-
                 @if ($assets->count() == 0)
-                    not found
+                    <div class="p-8 text-red-700 bg-red-200 rounded-lg">
+                        <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia. <a
+                                href="/" class="underline text-blue-500">Klik disini</a> untuk kembali ke Beranda</h1>
+                    </div>
+                @else
+                    <div class="p-8 bg-cDarkGrey rounded-lg">
+                        <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+                    </div>
+
+                    {{-- Top Pagination --}}
+                    {{-- <div id="top-pagination" class="pagination">
+                        {{ $assets->appends(['filter' => $selectedFilter])->links() }}
+                    </div> --}}
+
+                    {{-- Sort and Mobile Filter --}}
+                    <div class="flex justify-between sm:justify-start items-center gap-4">
+                        {{-- Sorting --}}
+                        <div class="flex justify-start items-center gap-2">
+                            <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
+                            <form action="{{ route('welcome') }}" method="GET">
+                                <select class="cursor-pointer rounded-md" name="filter" id="filter"
+                                    onchange="this.form.submit()">
+                                    <option value="" selected disabled>-- Pilih Filter --</option>
+                                    <option value="latest" {{ Request::query('filter') === 'latest' ? 'selected' : '' }}>
+                                        Terbaru</option>
+                                    <option value="price_low_high"
+                                        {{ Request::query('filter') === 'price_low_high' ? 'selected' : '' }}>Nilai
+                                        Termurah
+                                    </option>
+                                    <option value="price_high_low"
+                                        {{ Request::query('filter') === 'price_high_low' ? 'selected' : '' }}>Nilai
+                                        Termahal
+                                    </option>
+                                </select>
+                            </form>
+                        </div>
+
+                        {{-- Mobile filter button --}}
+                        <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit py-2 rounded-md"
+                            onclick="openFilter()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-filter" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            Filter</button>
+                        {{-- Mobile Filter Popup --}}
+                        <dialog id="dialog-filter">
+                            <p>Filter</p>
+                            <form method="dialog">
+                                <button class="gold-btn">OK</button>
+                            </form>
+                        </dialog>
+                    </div>
+
+                    {{-- Items --}}
+                    <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+                        @foreach ($assets as $asset)
+                            <a href="{{ route('asset-by-id', $asset->id) }}"
+                                class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
+                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" class="aspect-square object-cover"
+                                        alt="asset">
+
+                                <div
+                                    class="relative bg-white flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
+                                    <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
+                                    <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold">
+                                        @currency ($asset->price)
+                                    </h3>
+                                    <div class="flex justify-center items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                        </svg>
+                                        <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
                 @endif
 
-                {{-- Items --}}
-                <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
-                    @foreach ($assets as $asset)
-                        <a href="{{ route('asset-by-id', $asset->id) }}"
-                            class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
-                            <div class="relative aspect-square flex justify-center items-center border border-cDarkGrey">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" class="object-contain "
-                                    alt="asset">
-                            </div>
-
-                            <div
-                                class="relative bg-white flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
-                                <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold">
-                                    @currency ($asset->price)
-                                </h3>
-                                <div class="flex justify-center items-center gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                    </svg>
-                                    <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
+                {{-- Bottom pagination --}}
+                {{-- <div id="bottom-pagination" class="pagination">
+                    {{ $assets->appends(['filter' => $selectedFilter])->links() }}
+                </div> --}}
             </div>
         </div>
 

@@ -1,0 +1,18 @@
+.pagination span {
+    gap: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+.pagination a {
+    border-radius: 0.375rem;
+}
+
+.pagination span[aria-current="page"] span {
+    background-color: #C5AF66;
+    color: white;
+    border-color: #C5AF66;
+}
+
+.pagination span[aria-disabled="true"]{
+    opacity: 0.5;
+}
