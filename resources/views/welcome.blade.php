@@ -124,7 +124,7 @@
 
             {{-- Aset galeri --}}
             <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-3">
-                <div>
+                <div id="top-pagination" class="pagination">
                     {{ $assets->links() }}
                 </div>
                 {{-- Sort and Mobile Filter --}}
@@ -192,7 +192,7 @@
                     @endforeach
                 </div>
 
-                <div id="bottom-pagination">
+                <div id="bottom-pagination" class="pagination">
                     {{ $assets->links() }}
                 </div>
             </div>
