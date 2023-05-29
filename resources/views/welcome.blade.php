@@ -63,7 +63,8 @@
                                 <div class="text-base flex items-center gap-2">
                                     <input id="filter-{{ $category }}" type="checkbox" name="categories[]"
                                         value="{{ $category }}"
-                                        class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0" />
+                                        class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
+                                        {{ in_array($category, $selectedCategories) ? 'checked' : '' }}/>
                                     <label for="filter-{{ $category }}">{{ $category }}</label>
                                 </div>
                             @endforeach
@@ -73,17 +74,17 @@
                             <h2 class="text-lg font-bold">Wilayah</h2>
                             <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
                                 <option value="" disabled selected>Pilih Provinsi</option>
-                                <option value="DKI Jakarta">DKI Jakarta</option>
-                                <option value="Jawa Tengah">Jawa Tengah</option>
-                                <option value="Jawa Barat">Jawa Barat</option>
-                                <option value="Jawa Timur">Jawa Timur</option>
+                                <option value="DKI Jakarta" {{ in_array("DKI Jakarta", $selectedProvinces) ? 'selected' : '' }}>DKI Jakarta</option>
+                                <option value="Jawa Tengah" {{ in_array("Jawa Tengah", $selectedProvinces) ? 'selected' : '' }}>Jawa Tengah</option>
+                                <option value="Jawa Barat" {{ in_array("Jawa Barat", $selectedProvinces) ? 'selected' : '' }}>Jawa Barat</option>
+                                <option value="Jawa Timur" {{ in_array("Jawa Timur", $selectedProvinces) ? 'selected' : '' }}>Jawa Timur</option>
                             </select>
                             <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                 <option value="" disabled selected>Pilih Kota</option>
-                                <option value="Jakarta Barat">Jakarta Barat</option>
-                                <option value="Bandung">Bandung</option>
-                                <option value="Surakarta">Surakarta</option>
-                                <option value="Surabaya">Surabaya</option>
+                                <option value="Jakarta Barat"{{ in_array("Jakarta Barat", $selectedCities) ? 'selected' : '' }}>Jakarta Barat</option>
+                                <option value="Bandung"{{ in_array("Bandung", $selectedCities) ? 'selected' : '' }}>Bandung</option>
+                                <option value="Surakarta"{{ in_array("Surakarta", $selectedCities) ? 'selected' : '' }}>Surakarta</option>
+                                <option value="Surabaya"{{ in_array("Surabaya", $selectedCities) ? 'selected' : '' }}>Surabaya</option>
                             </select>
                         </div>
 
@@ -91,12 +92,12 @@
                             <h2 class="text-lg font-bold">Rentang Harga</h2>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-min">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="min-price"
+                                <input class="w-full rounded-lg border-none" type="number" name="min-price" value="{{$minPrice}}"
                                     id="filter-harga-min" placeholder="Harga Minimum">
                             </div>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-max">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="max-price"
+                                <input class="w-full rounded-lg border-none" type="number" name="max-price" value="{{$maxPrice}}"
                                     id="filter-harga-max" placeholder="Harga Maksimum">
                             </div>
                         </div>

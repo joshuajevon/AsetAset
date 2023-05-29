@@ -73,26 +73,8 @@ class HomeController extends Controller
 
         $assets->appends(['filter' => $selectedFilter]);
 
-        return view('welcome',  compact('assets','categories','result','selectedFilter'));
+        return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
     }
-
-    // public function getProducts(Request $request)
-    // {
-    //     $sortOption = $request->input('sort');
-
-    //     // Lakukan pengurutan data produk berdasarkan $sortOption
-
-    //     // Contoh pengurutan sederhana
-    //     if ($sortOption === 'termurah') {
-    //         $assets = Asset::orderBy('price', 'asc')->get();
-    //     } elseif ($sortOption === 'termahal') {
-    //         $assets = Asset::orderBy('price', 'desc')->get();
-    //     } else {
-    //         $assets = Asset::all();
-    //     }
-
-    //     return response()->json($assets);
-    // }
 
     public function assetById($id){
         $asset = Asset::findOrFail($id);
