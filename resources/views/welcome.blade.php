@@ -14,7 +14,7 @@
     {{-- Search Bar --}}
     <section class="c-container pt-32 pb-16 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2 text-base">
+            <form class="w-full gap-2 text-base" >
                 <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
                     <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite" id="search"
                         name="search" placeholder="Pencarian...">
@@ -61,15 +61,6 @@
             <h1 class="text-4xl font-bold text-cGold">Galeri Aset</h1>
             <div class="flex-1 h-1 bg-cGold"></div>
         </div>
-
-        {{-- @if ($found > 0) --}}
-        <div class="p-8 bg-cDarkGrey rounded-lg">
-            <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
-        </div>
-        {{-- @else
-            tidak ada
-        @endif --}}
-
 
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
@@ -155,6 +146,10 @@
                         <button class="gold-btn">OK</button>
                     </form>
                 </dialog>
+
+                @if ($assets->count() == 0)
+                    not found
+                @endif
 
                 {{-- Items --}}
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">

@@ -37,7 +37,6 @@ Route::middleware('isAdmin')->group(function(){
         // CRUD assets
         Route::prefix('/asset')->group(function(){
             Route::get('/', [AssetController::class, 'view'])->name('view-asset');
-            // Route::get('/view/{region}', [AssetController::class, 'filterRegion']);
             Route::get('/create', [AssetController::class, 'create'])->name('create-asset');
             Route::post('/store', [AssetController::class, 'store'])->name('store-asset');
             Route::get('/edit/{id}', [AssetController::class, 'edit'])->name('edit-asset');
