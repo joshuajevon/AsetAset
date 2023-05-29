@@ -10,18 +10,18 @@
             <h1 class="text-lg font-medium">Quick Link</h1>
             <span class="h-0.5 w-12 bg-cGold mb-2"></span>
             <div class="flex flex-col gap-2">
-                <a class="transition hover:text-cGold" href="#">Beranda</a>
-                <a class="transition hover:text-cGold" href="#">Aset</a>
-                <a class="transition hover:text-cGold" href="#">Tentang Kami</a>
-                <a class="transition hover:text-cGold" href="#">Panduan</a>
-                <a class="transition hover:text-cGold" href="#">Hubungi Kami</a>
+                <a class="transition hover:text-cGold" href="/">Beranda</a>
+                <a class="transition hover:text-cGold" href="/asset">Aset</a>
+                <a class="transition hover:text-cGold" href="/tentang-kami">Tentang Kami</a>
+                <a class="transition hover:text-cGold" href="/panduan">Panduan</a>
+                <a class="transition hover:text-cGold" href="/hubungi-kami">Hubungi Kami</a>
             </div>
         </div>
         <div class="flex flex-col justify-start items-start gap-1">
             <h1 class="text-lg font-medium">Media Sosial</h1>
             <span class="h-0.5 w-12 bg-cGold mb-2"></span>
             <div class="flex flex-col gap-2">
-                <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                <a class="flex items-center gap-3 transition hover:text-cGold" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                         class="bi bi-instagram" viewBox="0 0 16 16">
                         <path

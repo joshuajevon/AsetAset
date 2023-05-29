@@ -11,6 +11,25 @@
 @section('body')
     <x-navigation-bar page="beranda" />
 
+    {{-- Search Bar --}}
+    <section class="c-container pt-32 pb-16 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+        <div class="self-center w-full max-w-[800px] ">
+            <form class="w-full gap-2 text-base">
+                <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
+                    <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite" id="search"
+                        name="search" placeholder="Pencarian...">
+                    <button type="button" class="flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     {{-- Carousel Top --}}
     <section class="pt-20 bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
@@ -43,24 +62,6 @@
             <div class="flex-1 h-1 bg-cGold"></div>
         </div>
 
-        {{-- Search Bar --}}
-        <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2 text-base">
-                <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
-                    <input type="text"
-                        class="w-full bg-transparent border-none placeholder:text-cWhite"
-                        id="search" name="search" placeholder="Pencarian...">
-                    <button type="button" class="flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </button>
-                </div>
-            </form>
-        </div>
-
         {{-- @if ($found > 0) --}}
         <div class="p-8 bg-cDarkGrey rounded-lg">
             <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
@@ -77,13 +78,15 @@
                     <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
                 </div>
 
-                <form action="{{route('welcome')}}" method="get">
+                <form action="{{ route('welcome') }}" method="get">
                     <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8">
                         <div class="flex flex-col gap-2">
                             <h2 class="text-lg font-bold">Jenis Aset</h2>
-                            @foreach($categories as $category)
+                            @foreach ($categories as $category)
                                 <div class="text-base flex items-center gap-2">
-                                    <input id="filter-{{ $category }}" type="checkbox" name="categories[]" value="{{ $category }}" class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0" />
+                                    <input id="filter-{{ $category }}" type="checkbox" name="categories[]"
+                                        value="{{ $category }}"
+                                        class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0" />
                                     <label for="filter-{{ $category }}">{{ $category }}</label>
                                 </div>
                             @endforeach
@@ -97,25 +100,27 @@
                                 <option value="saab">Saab</option>
                                 <option value="mercedes">Mercedes</option>
                                 <option value="audi">Audi</option>
-                              </select>
+                            </select>
                             <select class="cursor-pointer rounded-md" name="kota" id="kota">
                                 <option value="" disabled selected>Pilih Kota</option>
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="mercedes">Mercedes</option>
                                 <option value="audi">Audi</option>
-                              </select>
+                            </select>
                         </div>
 
                         <div class="flex flex-col gap-2">
                             <h2 class="text-lg font-bold">Rentang Harga</h2>
                             <div class="flex items-center border rounded-md pl-4">
-                                <span>Rp.</span>
-                                <input class="w-full rounded-lg border-none" type="number" name="harga-min" id="filter-harga-min" placeholder="Harga Minimum">
+                                <label for="filter-harga-min">Rp.</label>
+                                <input class="w-full rounded-lg border-none" type="number" name="harga-min"
+                                    id="filter-harga-min" placeholder="Harga Minimum">
                             </div>
                             <div class="flex items-center border rounded-md pl-4">
-                                <span>Rp.</span>
-                                <input class="w-full rounded-lg border-none" type="number" name="harga-max" id="filter-harga-max" placeholder="Harga Maksimum">
+                                <label for="filter-harga-max">Rp.</label>
+                                <input class="w-full rounded-lg border-none" type="number" name="harga-max"
+                                    id="filter-harga-max" placeholder="Harga Maksimum">
                             </div>
                         </div>
                     </div>
@@ -134,17 +139,19 @@
 
                 {{-- Mobile filter button --}}
                 <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
-                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                      </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-filter" viewBox="0 0 16 16">
+                        <path
+                            d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg>
                     Filter</button>
                 {{-- Mobile Filter Popup --}}
                 <dialog id="dialog-filter">
                     <p>Filter</p>
                     <form method="dialog">
-                      <button class="gold-btn">OK</button>
+                        <button class="gold-btn">OK</button>
                     </form>
-                  </dialog>
+                </dialog>
 
                 {{-- Items --}}
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
