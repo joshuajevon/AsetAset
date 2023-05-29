@@ -94,32 +94,32 @@
 
                         <div class="flex flex-col gap-2">
                             <h2 class="text-lg font-bold">Wilayah</h2>
-                            <select class="cursor-pointer rounded-md" name="provinsi" id="provinsi">
+                            <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
                                 <option value="" disabled selected>Pilih Provinsi</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                            <select class="cursor-pointer rounded-md" name="kota" id="kota">
+                                <option value="DKI Jakarta">DKI Jakarta</option>
+                                <option value="Jawa Tengah">Jawa Tengah</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                                <option value="Jawa Timur">Jawa Timur</option>
+                              </select>
+                            <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                 <option value="" disabled selected>Pilih Kota</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
+                                <option value="Jakarta Barat">Jakarta Barat</option>
+                                <option value="Bandung">Bandung</option>
+                                <option value="Surakarta">Surakarta</option>
+                                <option value="Surabaya">Surabaya</option>
+                              </select>
                         </div>
 
                         <div class="flex flex-col gap-2">
                             <h2 class="text-lg font-bold">Rentang Harga</h2>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-min">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="harga-min"
+                                <input class="w-full rounded-lg border-none" type="number" name="min-price"
                                     id="filter-harga-min" placeholder="Harga Minimum">
                             </div>
                             <div class="flex items-center border rounded-md pl-4">
                                 <label for="filter-harga-max">Rp.</label>
-                                <input class="w-full rounded-lg border-none" type="number" name="harga-max"
+                                <input class="w-full rounded-lg border-none" type="number" name="max-price"
                                     id="filter-harga-max" placeholder="Harga Maksimum">
                             </div>
                         </div>
@@ -134,6 +134,9 @@
             {{-- Aset galeri --}}
             <div class="flex flex-col gap-8 col-span-3">
                 <div class="">
+                    <select name="" id="">
+                        <option value="">A</option>
+                    </select>
                     {{ $assets->links() }}
                 </div>
 

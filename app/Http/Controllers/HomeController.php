@@ -16,12 +16,36 @@ class HomeController extends Controller
 
         $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
 
+        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+
+        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+
         $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
 
         $query = Asset::query();
 
         if (!empty($selectedCategories)) {
             $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
         }
 
         if($request->input('search')){

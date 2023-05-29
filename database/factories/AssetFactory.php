@@ -17,11 +17,14 @@ class AssetFactory extends Factory
     public function definition(): array
     {
         $category_name = $this->faker->randomElement(['Rumah','Ruko','Gedung','Gudang','Apartemen','Tanah','Barang','Kendaraan','Alat berat','Lain-lain']);
+        $province_name = $this->faker->randomElement(['DKI Jakarta', 'Jawa Tengah', 'Jawa Barat', 'Jawa Timur']);
+        $city_name = $this->faker->randomElement(['Jakarta Barat','Surakarta','Bandung','Surabaya']);
+
         return [
             'name' => $this->faker->name(),
             'category' => $category_name,
-            'province' => $this->faker->text(10),
-            'city' => $this->faker->city(),
+            'province' => $province_name,
+            'city' => $city_name,
             'price' => $this->faker->numberBetween(123456789,20000000),
             'seller_id' => $this->faker->numberBetween(1,5),
             'owner_id' => $this->faker->numberBetween(1,5),
