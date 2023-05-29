@@ -11,12 +11,7 @@
 
 #thumbnail-carousel  .splide__slide.is-active {
     opacity: 1;
-}
-
-table#asset-detail tr{
-    text-align: start;
-    border-bottom: 1px solid #D9D9D9;
-    padding-top: 1rem;
+    border-color: #C5AF66;
 }
 
 table#asset-detail th{
@@ -29,4 +24,5 @@ table#asset-detail td{
     text-align: start;
     width: 75%;
     padding-top: 1rem;
+    padding-left: 1rem ;
 }

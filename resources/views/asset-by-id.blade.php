@@ -12,22 +12,8 @@
     <x-navigation-bar page="beranda" />
 
     {{-- Search Bar --}}
-    <section class="c-container pt-32 pb-16 flex flex-col gap-8 lg:gap-12 xl:gap-16">
-        <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2 text-base">
-                <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
-                    <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite" id="search"
-                        name="search" placeholder="Pencarian...">
-                    <button type="button" class="flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </button>
-                </div>
-            </form>
-        </div>
+    <section class="c-container flex justify-center items-center pt-32 pb-16">
+        <x-search-bar />
     </section>
 
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
@@ -36,7 +22,7 @@
             <div class="flex-1 h-1 bg-cGold"></div>
         </div>
 
-        <div class="grid grid-cols-2 gap-16">
+        <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
             <div class="col-span-1">
                 <div id="main-carousel" class="splide">
                     <div class="splide__track">
@@ -54,7 +40,7 @@
                     </div>
                 </div>
 
-                <div id="thumbnail-carousel" class="splide">
+                <div id="thumbnail-carousel" class="mt-2 splide">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
@@ -70,49 +56,77 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-1 flex flex-col gap-16">
+            <div class="col-span-1 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
                 <h1 class="font-bold text-4xl">{{ $asset->name }}</h1>
 
                 <div class="w-full flex flex-col">
                     <h2 class="font-bold text-xl">Nilai:</h2>
-                    <p class="text-5xl font-bold text-cGold">@currency ($asset->price)</p>
+                    <p class="text-4xl md:text-5xl font-bold text-cGold">@currency ($asset->price)</p>
                 </div>
 
                 <div class="w-full">
-                    <table id="asset-detail" class="w-full">
-                        <tr>
-                          <th>Jenis aset</th>
-                          <td>{{ $asset->category }}</td>
+                    <table border="0" cellspacing="0" cellpadding="0" id="asset-detail" class="w-full text-sm sm:text-base">
+                        <tr class="table-row">
+                            <th>Jenis aset</th>
+                            <td>{{ $asset->category }}</td>
+                        </tr>
+                        <tr class="table-row">
+                            <th>Lokasi</th>
+                            <td>{{ $asset->province }}, {{ $asset->city }}</td>
                         </tr>
                         <tr>
-                          <th>Lokasi</th>
-                          <td>{{ $asset->province }}, {{ $asset->city }}</td>
+                            <th colspan="2">Detail Pemilik Aset</th>
+                        </tr>
+                        <tr class="bg-cDarkGrey rounded-t-xl">
+                            <th class="pl-4 rounded-tl-lg">Nama</th>
+                            <td class="rounded-tr-lg">{{ $asset->owner->owner_name }}</td>
+                        </tr>
+                        <tr class="bg-cDarkGrey">
+                            <th class="pl-4">Alamat</th>
+                            <td>{{ $asset->owner->owner_address }}</td>
                         </tr>
                         <tr>
-                          <th>Detail Pemilik Aset</th>
-                          <td>Temporary</td>
+                            <th class="bg-cDarkGrey pb-4 pl-4 rounded-bl-lg">Telepon</th>
+                            <td class="bg-cDarkGrey pb-4 rounded-br-lg">{{ $asset->owner->owner_phone }}</td>
+                        </tr>
+                        <tr class="h-5 border-b-[1px] border-b-cDarkGrey">
+
                         </tr>
                         <tr>
-                          <th>Detail Penjual Aset</th>
-                          <td>Temporary</td>
+                            <th colspan="2">Detail Penjual Aset</th>
+                        </tr>
+                        <tr class="bg-cDarkGrey rounded-t-xl">
+                            <th class="pl-4 rounded-tl-lg">Nama</th>
+                            <td class="rounded-tr-lg">{{ $asset->seller->seller_name }}</td>
+                        </tr>
+                        <tr class="bg-cDarkGrey">
+                            <th class="pl-4">Alamat</th>
+                            <td>{{ $asset->seller->seller_address }}</td>
                         </tr>
                         <tr>
-                          <th>Uraian</th>
-                          <td>{{ $asset->status }}</td>
+                            <th class="bg-cDarkGrey pb-4 pl-4 rounded-bl-lg">Telepon</th>
+                            <td class="bg-cDarkGrey pb-4 rounded-br-lg">{{ $asset->seller->seller_phone }}</td>
                         </tr>
-                        <tr>
-                          <th>Status Aset</th>
-                          <td>{{ $asset->status }}</td>
+                        <tr class="h-5 border-b-[1px] border-b-cDarkGrey">
+
                         </tr>
-                        <tr>
-                          <th>Lampiran</th>
-                          <td>{{ $asset->attachment }}</td>
+                        <tr class="table-row mt-4">
+                            <th>Uraian</th>
+                            <td>{{ $asset->status }}</td>
+                        </tr>
+                        <tr class="table-row">
+                            <th>Status Aset</th>
+                            <td>{{ $asset->status }}</td>
+                        </tr>
+                        <tr class="table-row">
+                            <th>Lampiran</th>
+                            <td>{{ $asset->attachment }}</td>
                         </tr>
                     </table>
                 </div>
 
-                <div class="w-full flex flex-col justify-center items-center gap-2">
-                    <button class="gold-btn font-medium">Anda berminat? Segera hubungi kami</button>
+                <div class="w-full flex flex-col justify-center items-center gap-2 text-sm sm:text-base">
+                    <button class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</button>
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>
             </div>

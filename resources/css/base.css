@@ -28,4 +28,8 @@
     .white-btn{
         @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold
     }
+
+    .table-row{
+        @apply text-center border-b-[1px] border-b-cDarkGrey pt-4
+    }
 }
