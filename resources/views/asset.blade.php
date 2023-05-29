@@ -38,9 +38,11 @@
             <div class="flex-1 h-1 bg-cGold"></div>
         </div>
 
-        <div class="p-8 bg-cDarkGrey rounded-lg">
-            <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
-        </div>
+        @if ($result)
+            <div class="p-8 bg-cDarkGrey rounded-lg">
+                <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+            </div>
+        @endif
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
             <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
