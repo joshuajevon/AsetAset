@@ -65,7 +65,8 @@
                 </div>
 
                 <div class="w-full">
-                    <table border="0" cellspacing="0" cellpadding="0" id="asset-detail" class="w-full text-sm sm:text-base">
+                    <table border="0" cellspacing="0" cellpadding="0" id="asset-detail"
+                        class="w-full text-sm sm:text-base">
                         <tr class="table-row">
                             <th>Jenis aset</th>
                             <td>{{ $asset->category }}</td>

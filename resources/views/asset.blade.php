@@ -5,7 +5,6 @@
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
     {{-- css --}}
-    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}?t={{ env('VERSION_TIME') }}">
 @endsection
 
 @section('body')
@@ -96,21 +95,23 @@
             {{-- Aset galeri --}}
             <div class="flex flex-col gap-8 col-span-3">
                 @if ($assets->count() == 0)
-                    <div class="p-8 text-red-700 bg-red-200 rounded-lg">
+                    <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
                         <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia. <a
                                 href="/" class="underline text-blue-500">Klik disini</a> untuk kembali ke Beranda</h1>
                     </div>
                 @else
                     @if ($result)
-                        <div class="p-8 bg-cDarkGrey rounded-lg">
+                        <div class="p-4 sm:p-6 lg:p-8 bg-cDarkGrey rounded-lg">
                             <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
                         </div>
                     @endif
 
+                    @if ($assets->count() > 16)
                     {{-- Top Pagination --}}
                     <div id="top-pagination" class="pagination">
                         {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                     </div>
+                    @endif
 
                     {{-- Sort and Mobile Filter --}}
                     <div class="flex justify-between sm:justify-start items-center gap-4">
@@ -158,8 +159,8 @@
                         @foreach ($assets as $asset)
                             <a href="{{ route('asset-by-id', $asset->id) }}"
                                 class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" class="aspect-square object-cover"
-                                        alt="asset">
+                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"
+                                    class="aspect-square object-cover" alt="asset">
 
                                 <div
                                     class="relative bg-white flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
@@ -182,10 +183,12 @@
                     </div>
                 @endif
 
+                @if ($assets->count() > 16)
                 {{-- Bottom pagination --}}
                 <div id="bottom-pagination" class="pagination">
                     {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                 </div>
+                @endif
             </div>
         </div>
 
@@ -196,5 +199,4 @@
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script src="{{ asset('js/beranda.js') }}?t={{ env('VERSION_TIME') }}"></script>
 @endsection
