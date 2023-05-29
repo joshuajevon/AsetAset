@@ -119,7 +119,18 @@
             </div>
 
             {{-- Aset galeri --}}
-            <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-3">
+            <div class="flex flex-col gap-8 col-span-3">
+                @if ($assets->count() == 0)
+                    <div class="p-8 text-red-700 bg-red-200 rounded-lg">
+                        <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia. <a
+                                href="/" class="underline text-blue-500">Klik disini</a> untuk kembali ke Beranda</h1>
+                    </div>
+                @else
+                    @if ($result)
+                        <div class="p-8 bg-cDarkGrey rounded-lg">
+                            <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+                        </div>
+                    @endif
                 {{-- Top Pagination --}}
                 <div id="top-pagination" class="pagination">
                     {{ $assets->appends(['filter' => $selectedFilter])->links() }}
@@ -164,11 +175,6 @@
                     </dialog>
                 </div>
 
-
-                @if ($assets->count() == 0)
-                    not found
-                @endif
-
                 {{-- Items --}}
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4" id="assetsContainer">
                     @foreach ($assets as $asset)
@@ -198,7 +204,7 @@
                         </div>
                     @endforeach
                 </div>
-
+                @endif
                 {{-- Bottom pagination --}}
                 <div id="bottom-pagination" class="pagination">
                     {{ $assets->appends(['filter' => $selectedFilter])->links() }}
