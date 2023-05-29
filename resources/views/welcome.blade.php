@@ -13,11 +13,11 @@
 
     {{-- Search Bar --}}
     <section class="c-container pt-32 pb-16 flex flex-col gap-8 lg:gap-12 xl:gap-16">
-        <div class="self-center w-full max-w-[800px] ">
-            <form class="w-full gap-2 text-base" >
-                <div class="py-3 px-6 flex rounded-full bg-cGold text-cWhite">
-                    <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite" id="search"
-                        name="search" placeholder="Pencarian...">
+        <div class="self-center w-full max-w-[800px]">
+            <form class="w-full gap-2 text-base">
+                <div class="py-1 sm:py-2 lg:py-3 px-6 sm:px-7 lg:px-8 flex rounded-full bg-cGold text-cWhite">
+                    <input type="text" class="w-full bg-transparent border-none placeholder:text-cWhite px-0"
+                        id="search" name="search" placeholder="Pencarian...">
                     <button type="button" class="flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-search" viewBox="0 0 16 16">
@@ -31,7 +31,7 @@
     </section>
 
     {{-- Carousel Top --}}
-    <section class="pt-20 bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
+    <section class="bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
             <div id="top-splide" class="splide" role="group">
                 {{-- <ul class="splide__pagination"></ul> --}}
@@ -57,9 +57,9 @@
     {{-- Asets --}}
     <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <div class="flex justify-center items-center gap-8">
-            <h1 class="text-4xl font-bold text-cGold">Galeri Aset</h1>
-            <div class="flex-1 h-1 bg-cGold"></div>
+        <div class="flex justify-center items-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-8">
+            <h1 class="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-cGold">Galeri Aset</h1>
+            <div class="flex-1 h-0.5 bg-cGold"></div>
         </div>
 
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
@@ -91,14 +91,14 @@
                                 <option value="Jawa Tengah">Jawa Tengah</option>
                                 <option value="Jawa Barat">Jawa Barat</option>
                                 <option value="Jawa Timur">Jawa Timur</option>
-                              </select>
+                            </select>
                             <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                 <option value="" disabled selected>Pilih Kota</option>
                                 <option value="Jakarta Barat">Jakarta Barat</option>
                                 <option value="Bandung">Bandung</option>
                                 <option value="Surakarta">Surakarta</option>
                                 <option value="Surabaya">Surabaya</option>
-                              </select>
+                            </select>
                         </div>
 
                         <div class="flex flex-col gap-2">
@@ -123,29 +123,40 @@
             </div>
 
             {{-- Aset galeri --}}
-            <div class="flex flex-col gap-8 col-span-3">
-                <div class="">
-                    <select name="" id="">
-                        <option value="">A</option>
-                    </select>
+            <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-3">
+                <div>
                     {{ $assets->links() }}
                 </div>
+                {{-- Sort and Mobile Filter --}}
+                <div class="flex justify-between sm:justify-start items-center gap-4">
+                    {{-- Sorting --}}
+                    <div class="flex justify-start items-center gap-2">
+                        <label class="hidden sm:block text-lg font-bold" for="sort-aset">Urutkan:</label>
+                        <select class="cursor-pointer rounded-md" name="sort-aset" id="sort-aset">
+                            <option value="Terbaru">Terbaru</option>
+                            <option value="Nilai Termahal">Nilai Termahal</option>
+                            <option value="Nilai Termurah">Nilai Termurah</option>
+                        </select>
+                    </div>
 
-                {{-- Mobile filter button --}}
-                <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit" onclick="openFilter()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-filter" viewBox="0 0 16 16">
-                        <path
-                            d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                    Filter</button>
-                {{-- Mobile Filter Popup --}}
-                <dialog id="dialog-filter">
-                    <p>Filter</p>
-                    <form method="dialog">
-                        <button class="gold-btn">OK</button>
-                    </form>
-                </dialog>
+                    {{-- Mobile filter button --}}
+                    <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit py-2 rounded-md"
+                        onclick="openFilter()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-filter" viewBox="0 0 16 16">
+                            <path
+                                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                        Filter</button>
+                    {{-- Mobile Filter Popup --}}
+                    <dialog id="dialog-filter">
+                        <p>Filter</p>
+                        <form method="dialog">
+                            <button class="gold-btn">OK</button>
+                        </form>
+                    </dialog>
+                </div>
+
 
                 @if ($assets->count() == 0)
                     not found
@@ -179,6 +190,10 @@
                             </div>
                         </a>
                     @endforeach
+                </div>
+
+                <div id="bottom-pagination">
+                    {{ $assets->links() }}
                 </div>
             </div>
         </div>

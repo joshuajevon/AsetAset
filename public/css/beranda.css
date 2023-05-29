@@ -11,3 +11,7 @@
 #top-splide .splide__pagination__page.is-active{
     background-color: #C5AF66;
 }
+
+#bottom-pagination span{
+    gap: 0.5rem;
+}
