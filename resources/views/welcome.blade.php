@@ -111,18 +111,21 @@
             {{-- Aset galeri --}}
             <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8 col-span-3">
                 <div id="top-pagination" class="pagination">
-                    {{ $assets->links() }}
+                    {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                 </div>
                 {{-- Sort and Mobile Filter --}}
                 <div class="flex justify-between sm:justify-start items-center gap-4">
                     {{-- Sorting --}}
                     <div class="flex justify-start items-center gap-2">
-                        <label class="hidden sm:block text-lg font-bold" for="sort-aset">Urutkan:</label>
-                        <select class="cursor-pointer rounded-md" name="sort-aset" id="sort-aset">
-                            <option value="Terbaru">Terbaru</option>
-                            <option value="Nilai Termahal">Nilai Termahal</option>
-                            <option value="Nilai Termurah">Nilai Termurah</option>
-                        </select>
+                        <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
+                        <form action="{{ route('welcome') }}" method="GET">
+                            <select class="cursor-pointer rounded-md" name="filter" id="filter" onchange="this.form.submit()">
+                                <option value="" selected disabled>-- Pilih Filter --</option>
+                                <option value="latest" {{ Request::query('filter') === 'latest' ? 'selected' : '' }}>Terbaru</option>
+                                <option value="price_low_high" {{ Request::query('filter') === 'price_low_high' ? 'selected' : '' }}>Nilai Termurah</option>
+                                <option value="price_high_low" {{ Request::query('filter') === 'price_high_low' ? 'selected' : '' }}>Nilai Termahal</option>
+                            </select>
+                        </form>
                     </div>
 
                     {{-- Mobile filter button --}}
@@ -149,8 +152,9 @@
                 @endif
 
                 {{-- Items --}}
-                <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4" id="assetsContainer">
                     @foreach ($assets as $asset)
+                    <div id="asset-item">
                         <a href="{{ route('asset-by-id', $asset->id) }}"
                             class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
                             <div class="relative aspect-square flex justify-center items-center border border-cDarkGrey">
@@ -175,11 +179,13 @@
                                 </div>
                             </div>
                         </a>
+                    </div>
                     @endforeach
                 </div>
 
+
                 <div id="bottom-pagination" class="pagination">
-                    {{ $assets->links() }}
+                    {{ $assets->appends(['filter' => $selectedFilter])->links() }}
                 </div>
             </div>
         </div>
@@ -192,4 +198,10 @@
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="{{ asset('js/beranda.js') }}?t={{ env('VERSION_TIME') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+    </script>
+
+
 @endsection

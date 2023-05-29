@@ -31,6 +31,8 @@ Route::get('/hubungi-kami',[HomeController::class, 'hubungiKami'])->name('hubung
 
 Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
 
+
+
 Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');

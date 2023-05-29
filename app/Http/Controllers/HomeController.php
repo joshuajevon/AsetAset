@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(Request $request){
-
-        // $assets = Asset::orderBy('created_at', 'desc')->simplePaginate(16);
-        // $assets = Asset::paginate(16);
 
         $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
 
@@ -48,16 +46,53 @@ class HomeController extends Controller
 
         $result = $request->input('search');
 
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
         if($request->input('search')){
             $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
             return view('asset',compact('assets','categories','result'));
-        }else{
-            $assets = $query->paginate(16);
         }
 
+        $assets = $query->paginate(16);
 
-        return view('welcome',  compact('assets','categories','result'));
+        session(['selected_filter' => $selectedFilter]);
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('welcome',  compact('assets','categories','result','selectedFilter'));
     }
+
+    // public function getProducts(Request $request)
+    // {
+    //     $sortOption = $request->input('sort');
+
+    //     // Lakukan pengurutan data produk berdasarkan $sortOption
+
+    //     // Contoh pengurutan sederhana
+    //     if ($sortOption === 'termurah') {
+    //         $assets = Asset::orderBy('price', 'asc')->get();
+    //     } elseif ($sortOption === 'termahal') {
+    //         $assets = Asset::orderBy('price', 'desc')->get();
+    //     } else {
+    //         $assets = Asset::all();
+    //     }
+
+    //     return response()->json($assets);
+    // }
 
     public function assetById($id){
         $asset = Asset::findOrFail($id);
