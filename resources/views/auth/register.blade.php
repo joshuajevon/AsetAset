@@ -48,6 +48,24 @@
             @enderror
         </div>
 
+        <!-- gender  -->
+        <div>
+            <label for="gender" >gender </label>
+            <div class="male">
+                <input type="radio" id="male" name="gender" value="Laki-laki" @if (old('gender') == "Laki-laki") checked @endif>
+                <label for="male">Laki-laki</label>
+            </div>
+
+            <div class="female">
+                <input type="radio" id="female" name="gender" value="Perempuan" @if (old('gender') == "Perempuan") checked @endif>
+                <label for="female">Perempuan</label>
+            </div>
+
+            @error('gender')
+                <div class="alert alert-danger" role="alert">{{$message}}</div>
+            @enderror
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <label for="password" >pass </label>
