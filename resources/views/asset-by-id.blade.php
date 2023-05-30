@@ -161,54 +161,19 @@
                 </div>
 
                 <div class="w-full flex flex-col justify-center items-center gap-2 text-sm sm:text-base">
+                    @guest
+                    <a href="/login" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
+                    @endguest
+                    @auth
                     <button class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</button>
+                    --wa--
+                    @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>
             </div>
         </div>
     </section>
 
-
-    {{-- <table style="border:1px solid black">
-        <th>
-        <td>name</td>
-        <td>category</td>
-        <td>province</td>
-        <td>city</td>
-        <td>price</td>
-        <td>seller name</td>
-        <td>seller add</td>
-        <td>seller phone</td>
-        <td>owner name</td>
-        <td>owner add</td>
-        <td>owner phone</td>
-        <td>description</td>
-        <td>status</td>
-        <td>attachment</td>
-        <td>image</td>
-        </th>
-        <tr>
-
-            <td>{{ $asset->name }}</td>
-            <td>{{ $asset->category }}</td>
-            <td>{{ $asset->province }}</td>
-            <td>{{ $asset->city }}</td>
-            <td>@currency ($asset->price)</td>
-            <td>{{ $asset->seller->seller_name }}</td>
-            <td>{{ $asset->seller->seller_address }}</td>
-            <td>{{ $asset->seller->seller_phone }}</td>
-            <td>{{ $asset->owner->owner_name }}</td>
-            <td>{{ $asset->owner->owner_address }}</td>
-            <td>{{ $asset->owner->owner_phone }}</td>
-            <td>{{ $asset->description }}</td>
-            <td>{{ $asset->status }}</td>
-            <td>{{ $asset->attachment }}</td>
-            <td>
-                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"
-                    class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-            </td>
-        </tr>
-    </table> --}}
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
