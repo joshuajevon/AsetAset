@@ -62,7 +62,7 @@
                                         value="{{ $category }}"
                                         class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
                                         {{ in_array($category, $selectedCategories) ? 'checked' : '' }} />
-                                    <label for="filter-{{ $category }}">{{ $category }}</label>
+                                    <label class="cursor-pointer" for="filter-{{ $category }}">{{ $category }}</label>
                                 </div>
                             @endforeach
                         </div>

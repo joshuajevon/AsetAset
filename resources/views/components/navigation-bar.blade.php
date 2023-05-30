@@ -48,12 +48,12 @@
             <div class="flex items-center gap-4">
                 @guest
                     <div class="lg:gap-4 hidden lg:flex">
-                        <a class="block rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75"
+                        <a class="gold-btn"
                             href="/login">
                             Login
                         </a>
 
-                        <a class="hidden rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 sm:block border border-cGold"
+                        <a class="white-btn"
                             href="/register">
                             Daftar
                         </a>

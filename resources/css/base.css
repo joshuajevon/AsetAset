@@ -3,12 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-    [type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea {
+    [type='url'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea {
         @apply border-cDarkGrey focus:border-none focus:ring-0
+    }
+
+    [type='text'],[type='email'],[type="password"] {
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0
     }
 
     select {
         @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
+    }
+
+    input:-internal-autofill-selected{
+        @apply bg-transparent text-white
     }
 }
 
@@ -22,14 +30,18 @@
     }
 
     .gold-btn{
-        @apply flex justify-center items-center rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-cGold/75
+        @apply flex justify-center items-center rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]
     }
 
     .white-btn{
-        @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-cWhite/75 border border-cGold
+        @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] border border-cGold
     }
 
     .table-row{
         @apply text-center border-b-[1px] border-b-cDarkGrey pt-4
+    }
+
+    .login-input{
+        @apply focus:border-cGold
     }
 }
