@@ -2,7 +2,6 @@
 
 @section('head')
     {{-- css --}}
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}?t={{ env('VERSION_TIME') }}">
 
     <!-- javascript -->
 @endsection
@@ -37,7 +36,7 @@
             <div class="w-full px-4">
                 <x-input-label for="password-login" :value="__('Password')" />
 
-                <x-text-input id="password-login" class="mt-1 w-full" type="password" name="password" />
+                <x-text-input id="password-login" class="mt-1 w-full" placeholder="Masukkan password" type="password" name="password" />
             </div>
 
             <!-- Remember Me -->
