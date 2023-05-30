@@ -18,10 +18,7 @@
     {{-- Asets --}}
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <div class="flex justify-center items-center gap-8">
-            <h1 class="text-4xl font-bold text-cGold">Galeri Aset</h1>
-            <div class="flex-1 h-1 bg-cGold"></div>
-        </div>
+        <x-page-title title="Pencarian Aset" />
 
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}

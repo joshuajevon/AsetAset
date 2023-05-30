@@ -17,10 +17,8 @@
     </section>
 
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
-        <div class="flex justify-center items-center gap-8">
-            <h1 class="text-4xl font-bold text-cGold">Detail Aset</h1>
-            <div class="flex-1 h-1 bg-cGold"></div>
-        </div>
+        {{-- Title --}}
+        <x-page-title title="Detail Aset" />
 
         <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
             <div class="col-span-1">
