@@ -43,10 +43,7 @@
     {{-- Asets --}}
     <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <div class="flex justify-center items-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-8">
-            <h1 class="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-cGold">Galeri Aset</h1>
-            <div class="flex-1 h-0.5 bg-cGold"></div>
-        </div>
+        <x-page-title title="Galeri Aset" />
 
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
