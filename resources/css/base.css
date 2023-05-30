@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-    [type='url'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea {
+    [type='url'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple] {
         @apply border-cDarkGrey focus:border-none focus:ring-0
     }
 
-    [type='text'],[type='email'],[type="password"] {
+    [type='text'],[type='email'],[type="password"],textarea {
         @apply border-cDarkGrey focus:border-cGold focus:ring-0
     }
 
