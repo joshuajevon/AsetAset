@@ -11,7 +11,7 @@
     <x-navigation-bar page="login" />
 
     {{-- Title --}}
-    <section class="c-container pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+    <section class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         <x-page-title title="Login Pengguna" />
 
 
@@ -19,11 +19,11 @@
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <form id="form-login" method="POST" action="{{ route('login') }}"
-            class="bg-cWhite py-32 px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
+            class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
             onsubmit="submitLoginForm(event)">
             @csrf
             <div class="w-full border-b-2 border-b-cGold px-4 pb-5">
-                <h1 class="text-7xl">Bergabunglah dengan <span class="text-cGold">asetaset.com</span></h1>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">Bergabunglah dengan <span class="text-cGold">asetaset.com</span></h1>
             </div>
 
             <!-- Email Address -->
@@ -43,9 +43,9 @@
             <!-- Remember Me -->
             <div class="px-4 flex justify-start items-center gap-2">
                 <input id="remember-me-login" type="checkbox"
-                    class="rounded-sm border-cDarkGrey appearance-none text-cGold focus:ring-0 focus:ring-offset-0 w-5 h-5"
+                    class="rounded-sm border-cDarkGrey appearance-none text-cGold focus:ring-0 focus:ring-offset-0 w-4 sm:w-5 h-4 sm:h-5"
                     name="remember">
-                <label for="remember-me-login" class="text-base text-cBlack">{{ __('Remember me') }}</label>
+                <label for="remember-me-login" class="text-sm sm:text-base text-cBlack">{{ __('Remember me') }}</label>
             </div>
 
             {{-- Error Message --}}
