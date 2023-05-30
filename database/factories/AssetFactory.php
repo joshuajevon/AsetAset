@@ -30,8 +30,8 @@ class AssetFactory extends Factory
             'owner_id' => $this->faker->numberBetween(1,5),
             'description' => $this->faker->text(50),
             'status' => 'dijamin oleh bank a',
-            'attachment' => 'asset.png',
-            'image' => 'asset.png'
+            'attachment1' => 'asset.png',
+            'image1' => 'asset.png'
         ];
     }
 }

@@ -19,8 +19,16 @@ class Asset extends Model
         'owner_id',
         'description',
         'status',
-        'attachment',
-        'image'
+        'attachment1',
+        'attachment2',
+        'attachment3',
+        'attachment4',
+        'attachment5',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+        'image5',
     ];
 
     public function seller(){

@@ -185,7 +185,7 @@
                             <div id="asset-item">
                                 <a href="{{ route('asset-by-id', $asset->id) }}"
                                     class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
-                                    <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"
+                                    <img src="{{ asset('/storage/asset/image1/'.$asset->image1) }}"
                                         class="aspect-square object-cover" alt="asset">
 
                                     <div

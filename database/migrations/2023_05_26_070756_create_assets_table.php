@@ -24,8 +24,14 @@ return new class extends Migration
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade')->onUpdate('cascade');
             $table->string('description');
             $table->string('status');
-            $table->string('attachment');
-            $table->string('image');
+            $table->string('attachment1');
+            for ($i = 2; $i <= 5; $i++) {
+                $table->string('attachment' . $i)->nullable();
+            }
+            $table->string('image1');
+            for ($j = 2; $j <= 5; $j++) {
+                $table->string('image' . $j)->nullable();
+            }
             $table->timestamps();
         });
     }

@@ -28,14 +28,18 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"" alt="">
+                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
                             </li>
+                            @if ($asset->image2)
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" alt="">
+                                <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
                             </li>
+                            @endif
+                            @if ($asset->image3)
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" alt="">
+                                <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -44,13 +48,13 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"" alt="">
+                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" alt="">
+                                <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image/' . $asset->image) }}" alt="">
+                                <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
                             </li>
                         </ul>
                     </div>
@@ -121,7 +125,39 @@
                         </tr>
                         <tr class="table-row">
                             <th>Lampiran</th>
-                            <td>{{ $asset->attachment }}</td>
+                            <td>
+                                <a href="{{ asset('/storage/asset/attachment1/'.$asset->attachment1) }}" download>
+                                    <button class="">Lampiran 1</button>
+                                </a>
+
+                                <br/>
+
+                                @if ($asset->attachment2)
+                                <a href="{{ asset('/storage/asset/attachment2/'.$asset->attachment2) }}" download>
+                                    <button class="">Lampiran 2</button>
+                                </a>
+                                @endif
+
+                                <br/>
+
+                                @if ($asset->attachment3)
+                                <a href="{{ asset('/storage/asset/attachment3/'.$asset->attachment3) }}" download>
+                                    <button class="">Lampiran 3</button>
+                                </a>
+                                @endif
+
+                                @if ($asset->attachment4)
+                                <a href="{{ asset('/storage/asset/attachment4/'.$asset->attachment4) }}" download>
+                                    <button class="">Lampiran 4</button>
+                                </a>
+                                @endif
+
+                                @if ($asset->attachment5)
+                                <a href="{{ asset('/storage/asset/attachment5/'.$asset->attachment5) }}" download>
+                                    <button class="">Lampiran 5</button>
+                                </a>
+                                @endif
+                            </td>
                         </tr>
                     </table>
                 </div>

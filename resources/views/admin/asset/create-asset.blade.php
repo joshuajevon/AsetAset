@@ -107,25 +107,79 @@
                 <div class="alert alert-danger" role="alert">{{$message}}</div>
             @enderror
 
-            <div>
-                <label for="" class="form-label">Attachment</label>
-                <input type="file" class="form-control @error('attachment') is-invalid @enderror" id="" name="attachment" value="{{old('attachment')}}">
-            </div>
+            <label for="total_attachments">Jumlah Attachment:</label>
+            <input type="number" name="total_attachments" id="total_attachments">
 
-            @error('attachment')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+            <div id="attachment_container"></div>
 
-            <div>
-                <label for="" class="form-label">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="" name="image" value="{{old('image')}}">
-            </div>
+            <label for="total_images">Jumlah Image:</label>
+            <input type="number" name="total_images" id="total_images">
 
-            @error('image')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+            <div id="image_container"></div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('total_attachments').addEventListener('change', function() {
+            var totalAttachments = parseInt(this.value);
+            totalAttachments = Math.min(totalAttachments, 5);
+
+            var attachmentContainer = document.getElementById('attachment_container');
+            attachmentContainer.innerHTML = ''; // Menghapus elemen sebelumnya
+
+            for (var i = 1; i <= totalAttachments; i++) {
+                var label = document.createElement('label');
+                label.setAttribute('for', 'attachment' + i);
+                label.innerText = 'Attachment ' + i + ':';
+
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('name', 'attachment' + i);
+                input.setAttribute('id', 'attachment' + i);
+                input.classList.add('form-control');
+
+                var errorContainer = document.createElement('div');
+                errorContainer.classList.add('alert', 'alert-danger');
+                errorContainer.setAttribute('role', 'alert');
+                errorContainer.setAttribute('id', 'error_attachment' + i);
+
+                attachmentContainer.appendChild(label);
+                attachmentContainer.appendChild(input);
+                attachmentContainer.appendChild(errorContainer);
+            }
+        });
+
+        document.getElementById('total_images').addEventListener('change', function() {
+            var totalImages = parseInt(this.value);
+            totalImages = Math.min(totalImages, 5);
+
+            var imageContainer = document.getElementById('image_container');
+            imageContainer.innerHTML = ''; // Menghapus elemen sebelumnya
+
+            for (var i = 1; i <= totalImages; i++) {
+                var label = document.createElement('label');
+                label.setAttribute('for', 'image' + i);
+                label.innerText = 'Image ' + i + ':';
+
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('name', 'image' + i);
+                input.setAttribute('id', 'image' + i);
+                input.classList.add('form-control');
+
+                var errorContainer = document.createElement('div');
+                errorContainer.classList.add('alert', 'alert-danger');
+                errorContainer.setAttribute('role', 'alert');
+                errorContainer.setAttribute('id', 'error_image' + i);
+
+                imageContainer.appendChild(label);
+                imageContainer.appendChild(input);
+                imageContainer.appendChild(errorContainer);
+            }
+        });
+    </script>
+
+
 @endsection

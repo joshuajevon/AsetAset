@@ -33,13 +33,29 @@ class AssetController extends Controller
         //     'BookImg' => 'required|mimes:png,jpg',
         // ]);
 
-        $image_name = time().'-'.Str::random(10).'-'. $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('/public/asset/image', $image_name);
+        $images = [];
+        $attachments = [];
 
-        $attachment_name = time().'-'.Str::random(10).'-'. $request->file('attachment')->getClientOriginalName();
-        $request->file('attachment')->storeAs('/public/asset/attachment', $attachment_name);
+        for ($i = 1; $i <= 5; $i++) {
+            $imageKey = 'image' . $i;
+            $attachmentKey = 'attachment' . $i;
 
-        Asset::create([
+            if ($request->hasFile($imageKey)) {
+                $image = $request->file($imageKey);
+                $imageName = time() . '-' . Str::random(10) . '-' . $image->getClientOriginalName();
+                $image->storeAs('/public/asset/image' . $i, $imageName);
+                $images[$imageKey] = $imageName;
+            }
+
+            if ($request->hasFile($attachmentKey)) {
+                $attachment = $request->file($attachmentKey);
+                $attachmentName = time() . '-' . Str::random(10) . '-' . $attachment->getClientOriginalName();
+                $attachment->storeAs('/public/asset/attachment' . $i, $attachmentName);
+                $attachments[$attachmentKey] = $attachmentName;
+            }
+        }
+
+        $assetData = [
             'name' => $request->name,
             'category' => $request->category,
             'province' => $request->province,
@@ -49,9 +65,11 @@ class AssetController extends Controller
             'owner_id' => $request->owner_name,
             'description' => $request->description,
             'status' => $request->status,
-            'attachment' => $attachment_name,
-            'image' => $image_name,
-            ]);
+        ];
+
+        $assetData = array_merge($assetData, $attachments, $images);
+
+        Asset::create($assetData);
         return redirect(route('view-asset'));
     }
 
