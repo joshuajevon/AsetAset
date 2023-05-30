@@ -19,7 +19,8 @@
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <form id="form-login" method="POST" action="{{ route('login') }}"
-            class="bg-cWhite py-32 px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6" onsubmit="submitLoginForm(event)">
+            class="bg-cWhite py-32 px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
+            onsubmit="submitLoginForm(event)">
             @csrf
             <div class="w-full border-b-2 border-b-cGold px-4 pb-5">
                 <h1 class="text-7xl">Bergabunglah dengan <span class="text-cGold">asetaset.com</span></h1>
@@ -28,9 +29,8 @@
             <!-- Email Address -->
             <div class="w-full px-4">
                 <x-input-label for="email-login" :value="__('Alamat Email')" />
-                <x-text-input autocomplete="false" placeholder="Masukkan alamat email" id="email-login"
-                    class="mt-1 w-full" type="text" name="email" :value="old('email')" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <x-text-input autocomplete="false" placeholder="Masukkan alamat email" id="email-login" class="mt-1 w-full"
+                    type="text" name="email" :value="old('email')" />
             </div>
 
             <!-- Password -->
@@ -38,23 +38,21 @@
                 <x-input-label for="password-login" :value="__('Password')" />
 
                 <x-text-input id="password-login" class="mt-1 w-full" type="password" name="password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Remember Me -->
-            <div class="block px-4">
-                <label for="remember-me-login" class="inline-flex items-center">
-                    <input id="remember-me-login" type="checkbox"
-                        class="rounded-sm border-cDarkGrey appearance-none text-cGold focus:ring-0 focus:ring-offset-0 w-5 h-5"
-                        name="remember">
-                    <span class="ml-2 text-base text-cBlack">{{ __('Remember me') }}</span>
-                </label>
+            <div class="px-4 flex justify-start items-center gap-2">
+                <input id="remember-me-login" type="checkbox"
+                    class="rounded-sm border-cDarkGrey appearance-none text-cGold focus:ring-0 focus:ring-offset-0 w-5 h-5"
+                    name="remember">
+                <label for="remember-me-login" class="text-base text-cBlack">{{ __('Remember me') }}</label>
             </div>
 
             {{-- Error Message --}}
             <div class="px-4">
                 <p id="error-message-login" class="text-base text-red-600"></p>
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <div class="px-4">
@@ -65,13 +63,11 @@
 
             <div class="px-4 flex flex-col items-start justify-center text-base gap-4">
                 @if (Route::has('password.request'))
-                    <a class=""
-                        href="{{ route('password.request') }}">
+                    <a class="" href="{{ route('password.request') }}">
                         Lupa password?
                     </a>
                 @endif
-                <span class=""
-                    href="/register">
+                <span class="" href="/register">
                     Belum punya akun? <a href="/register" class="font-bold underline">Daftar di sini</a>
                 </span>
             </div>
