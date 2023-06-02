@@ -9,7 +9,7 @@
 @section('body')
     <x-navigation-bar page="register" />
 
-    {{-- Title --}}
+    {{-- Title
     <section
         class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         <x-page-title title="Pendaftaran Pengguna Baru" />
@@ -34,7 +34,7 @@
             <div class="px-4 w-full grid grid-cols-2 gap-16">
                 <div class="col-span-1 flex flex-col justify-start items-start gap-6">
                     {{-- Nama Lengkap --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="nama-lengkap-register" :value="__('Nama Lengkap')" />
                             <span class="text-red-500">*</span>
@@ -45,10 +45,10 @@
                         @error('name')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- Alamat Email --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="email-register" :value="__('Alamat Email')" />
                             <span class="text-red-500">*</span>
@@ -59,10 +59,10 @@
                         @error('email')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- Password --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="password-register" :value="__('Password')" />
                             <span class="text-red-500">*</span>
@@ -73,10 +73,10 @@
                         @error('password')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- Jenis Kelamin --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="jenis-kelamin-register" :value="__('Jenis Kelamin')" />
                             <span class="text-red-500">*</span>
@@ -100,7 +100,7 @@
 
                 <div class="col-span-1 flex flex-col justify-start items-start gap-6">
                     {{-- Nama Panggilan --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="nama-panggilan-register" :value="__('Nama Panggilan')" />
                             <span class="text-red-500">*</span>
@@ -110,10 +110,10 @@
                         @error('nama-panggilan')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> - --}}
 
                     {{-- Nomer Handphone --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="nomer-handphone-register" :value="__('Nomer Handphone')" />
                             <span class="text-red-500">*</span>
@@ -124,10 +124,10 @@
                         @error('nomer-handphone')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- Ulangi Password --}}
-                    <div class="w-full">
+                    {{-- <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
                             <x-input-label for="ulangi-password-register" :value="__('Ulangi Password')" />
                             <span class="text-red-500">*</span>
@@ -144,10 +144,10 @@
 
             <div class="px-4 self-end">
                 <p class="text-red-500 text-base sm:text-lg">*Wajib diisi</p>
-            </div>
+            </div> --}}
 
             {{-- Error Message --}}
-            <div class="px-4">
+            {{-- <div class="px-4">
                 <p id="error-message-login" class="text-base text-red-600"></p>
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -164,105 +164,170 @@
                 </x-primary-button>
             </div>
         </form>
-    </section>
+    </section> --}}
 
     {{-- Scripts --}}
-    <script src="{{ asset('js/register.js') }}?t={{ env('VERSION_TIME') }}"></script>
+    {{-- <script src="{{ asset('js/register.js') }}?t={{ env('VERSION_TIME') }}"></script> --}} --}}
 
 
-    {{-- <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <section
+        class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+        <x-page-title title="Pendaftaran Pengguna Baru" />
 
-        <!-- Name -->
-        <div>
-            <label for="name">Name </label>
-            <input id="name" class="block mt-1 w-full" type="text" name="name" value="{{old('name')}}" required autofocus autocomplete="name" />
-            @error('name')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
-        </div>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Nick Name -->
-        <div>
-            <label for="nickname">panggilan </label>
-            <input id="nickname" class="block mt-1 w-full" type="text" name="nickname" value="{{old('nickname')}}" required autofocus autocomplete="nickname" />
-            @error('nickname')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
-        </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <label for="email" >email </label>
-            <input id="email" class="block mt-1 w-full" type="email" name="email" value="{{old('email')}}" required autocomplete="username" />
-            @error('email')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
-        </div>
-
-
-        <!-- no Hp  -->
-        <div>
-            <label for="phone_number" >hp </label>
-            <input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" value="{{old('phone_number')}}" required autofocus autocomplete="phone_number" />
-            @error('phone_number')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
-        </div>
-
-        <!-- gender  -->
-        <div>
-            <label for="gender" >gender </label>
-            <div class="male">
-                <input type="radio" id="male" name="gender" value="Laki-laki" @if (old('gender') == 'Laki-laki') checked @endif>
-                <label for="male">Laki-laki</label>
+        <form action="{{ route('register') }}" id="form-login" method="POST"
+        class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
+            onsubmit="submitLoginForm(event)">
+            @csrf
+            <div class="w-full flex flex-col justify-center items-start gap-4 border-b-2 border-b-cGold px-4 pb-5">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">Daftarkan Diri Anda di
+                    <span class="text-cGold">asetaset.com</span>
+                </h1>
+                <p class="text-base sm:text-lg">Silakan lengkapi form pendaftaran berikut. Akun pengguna yang didaftarkan
+                    <span class="font-bold underline">harus atas nama perorangan</span>.
+                </p>
             </div>
 
-            <div class="female">
-                <input type="radio" id="female" name="gender" value="Perempuan" @if (old('gender') == 'Perempuan') checked @endif>
-                <label for="female">Perempuan</label>
+            <div class="px-4 w-full grid grid-cols-2 gap-16">
+                <div class="col-span-1 flex flex-col justify-start items-start gap-6">
+                    {{-- Nama Lengkap --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="nama-lengkap-register" :value="__('Nama Lengkap')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false"
+                            placeholder="Masukkan nama Anda sesuai yang tertera pada KTP (Tanpa Gelar)"
+                            id="nama-lengkap-register" class="mt-1 w-full" type="text" name="name" value="{{old('name')}}" />
+                        @error('name')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Alamat Email --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="email-register" :value="__('Alamat Email')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false"
+                            placeholder="Masukkan alamat email yang valid dan dapat dihubungi" id="email-register"
+                            class="mt-1 w-full" type="text" name="email" value="{{old('email')}}"/>
+                        @error('email')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Password --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="password-register" :value="__('Password')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false"
+                            placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
+                            id="password-register" class="mt-1 w-full" type="password" name="password" value="{{old('password')}}"/>
+                        @error('password')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Jenis Kelamin --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="jenis-kelamin-register" :value="__('Jenis Kelamin')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
+                            <div class="flex justify-center items-center gap-2">
+                                <input type="radio" id="laki-laki" name="gender" value="Laki-laki" @if (old('gender') == "Laki-laki") checked="checked" @endif>
+                                <label for="laki-laki">Laki-laki</label>
+                            </div>
+
+                            <div class="flex justify-center items-center gap-2">
+                                <input type="radio" id="laki-perempuan" name="gender" value="Perempuan" @if (old('gender') == "Perempuan") checked="checked" @endif>
+                                <label for="perempuan">Perempuan</label>
+                            </div>
+                        </div>
+                        @error('gender')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-span-1 flex flex-col justify-start items-start gap-6">
+                    {{-- Nama Panggilan --}}
+                     <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="nama-panggilan-register" :value="__('Nama Panggilan')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false" placeholder="Masukkan nama panggilan Anda"
+                            id="nama-panggilan-register" class="mt-1 w-full" type="text" name="nickname" value="{{old('nickname')}}"/>
+                        @error('nickname')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Nomer Handphone --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="nomer-handphone-register" :value="__('Nomer Handphone')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false"
+                            placeholder="Pastikan nomor handphone Anda aktif dan dapat dihubungi"
+                            id="nomer-handphone-register" class="mt-1 w-full" type="text" name="phone_number" value="{{old('phone_number')}}"/>
+                        @error('phone_number')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Ulangi Password --}}
+                    <div class="w-full">
+                        <div class="flex gap-1 text-base sm:text-lg">
+                            <x-input-label for="ulangi-password-register" :value="__('Ulangi Password')" />
+                            <span class="text-red-500">*</span>
+                        </div>
+                        <x-text-input autocomplete="false"
+                            placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
+                            id="ulangi-password-register" class="mt-1 w-full" type="password" name="password_confirmation" value="{{old('password_confirmation')}}"/>
+                        @error('password_confirmation')
+                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
-            @error('gender')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+            <div class="px-4 self-end">
+                <p class="text-red-500 text-base sm:text-lg">*Wajib diisi</p>
+            </div>
+
+            {{-- Error Message --}}
+             {{-- <div class="px-4">
+                <p id="error-message-login" class="text-base text-red-600"></p>
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+            </div> --}}
+
+            <div class="px-4">
+                <p class="text-sm sm:text-base">Dengan menekan tombol Daftar, anda sudah bersedia dan menyetujui <a href="#"
+                        class="font-bold underline">syarat dan ketentuan</a></p>
+            </div>
+
+            <div class="px-4">
+                <x-primary-button>
+                    {{ __('Daftar') }}
+                </x-primary-button>
+            </div>
+            </form>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <label for="password" >pass </label>
-
-            <input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-                            @error('password')
-                            <div class="alert alert-danger" role="alert">{{$message}}</div>
-                        @enderror
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <label for="password_confirmation" >conf pass </label>
-
-            <input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-                            @error('password_confirmation')
-                            <div class="alert alert-danger" role="alert">{{$message}}</div>
-                        @enderror
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form> --}}
+    </section>
 @endsection
