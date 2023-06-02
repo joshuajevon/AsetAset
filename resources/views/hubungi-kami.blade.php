@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-span-1">
-                <form id="form-hubungi-kami" method="POST" action=""
+                <form id="form-hubungi-kami" method="POST" action="{{route('contact')}}"
                     class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 flex flex-col justify-center items-start gap-6"
                     onsubmit="submitLoginForm(event)">
                     @csrf
@@ -57,7 +57,7 @@
                         </div>
                         <x-text-input autocomplete="false"
                             placeholder="Nama Anda"
-                            id="nama-hubungi-kami" class="mt-1 w-full" type="text" name="nama" />
+                            id="nama-hubungi-kami" class="mt-1 w-full" type="text" name="name" />
                         @error('name')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
@@ -85,8 +85,8 @@
                         </div>
                         <x-text-input autocomplete="false"
                             placeholder="Judul Pesan Anda"
-                            id="subjek-hubungi-kami" class="mt-1 w-full" type="text" name="subjek" />
-                        @error('name')
+                            id="subjek-hubungi-kami" class="mt-1 w-full" type="text" name="subject" />
+                        @error('subject')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
                     </div>
@@ -98,8 +98,10 @@
                             <span class="text-red-500">*</span>
                         </div>
 
-                        <textarea placeholder="Isi Pesan Anda" class="w-full mt-1 resize-none p-4 border border-cDarkGrey rounded-md text-sm sm:text-base bg-cWhite autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]" name="" id="pesan-hubungi-kami" rows="8"></textarea>
-                        @error('name')
+                        <textarea name="mail" placeholder="Isi Pesan Anda" class="w-full mt-1 resize-none p-4 border border-cDarkGrey rounded-md text-sm sm:text-base bg-cWhite autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"  id="pesan-hubungi-kami" rows="8">
+
+                        </textarea>
+                        @error('message')
                             <div class="alert alert-danger" role="alert">{{ $message }}</div>
                         @enderror
                     </div>
@@ -113,7 +115,7 @@
 
 
                     <div class="px-4">
-                        <a href="/" class="gold-btn px-12">Kirim Pesan</a>
+                        <button type="submit" class="gold-btn px-12">Kirim Pesan</button>
                     </div>
                 </form>
             </div>

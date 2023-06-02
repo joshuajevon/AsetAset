@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use App\Models\Asset;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -162,5 +164,23 @@ class HomeController extends Controller
 
     public function dashboard(){
         return view('admin.admin-dashboard');
+    }
+
+    public function contact(Request $request){
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'mail' => 'required|string',
+        ]);
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $mail = $request->input('mail');
+
+        Mail::to('tfvtfyfvjyf@gmail.com')->send(new ContactFormMail($name, $email, $subject, $mail));
+
+        return redirect()->back();
     }
 }
