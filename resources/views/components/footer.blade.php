@@ -1,6 +1,6 @@
 <footer class="c-container q-full bg-cBlack text-cWhite py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 flex flex-col lg:flex-row justify-between gap-16 sm:gap-20 md:gap-24 lg:gap-28 xl:gap-32 2xl:gap-36">
-    <div class="flex flex-col justify-start items-start gap-4 w-full lg:w-80">
-        <h1>Logo</h1>
+    <div class="flex flex-col justify-start items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-80">
+        <img class="w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
         <p class="text-justify">asetaset.com memberikan akses yang lebih luas dan transparan dalam proses mencari aset yang tersedia, baik
             untuk masyarakat umum maupun pihak-pihak yang berkepentingan.
         </p>
