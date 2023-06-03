@@ -49,7 +49,7 @@
                 @guest
                     <div class="lg:gap-4 hidden lg:flex">
                         <a class="gold-btn" href="/login">
-                            Login
+                            Masuk
                         </a>
 
                         <a class="white-btn" href="/register">

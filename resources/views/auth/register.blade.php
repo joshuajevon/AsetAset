@@ -20,16 +20,14 @@
         class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
             onsubmit="submitLoginForm(event)">
             @csrf
-            <div class="w-full flex flex-col justify-center items-start gap-4 border-b-2 border-b-cGold px-4 pb-5">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">Daftarkan Diri Anda di
-                    <span class="text-cGold">asetaset.com</span>
+            <div class="w-full flex flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Daftar Diri Anda di <span class="text-cGold">asetaset.com</span>
                 </h1>
-                <p class="text-base sm:text-lg">Silakan lengkapi form pendaftaran berikut. Akun pengguna yang didaftarkan
-                    <span class="font-bold underline">harus atas nama perorangan</span>.
+                <p class="text-base sm:text-lg">Silakan lengkapi form pendaftaran berikut. Akun pengguna yang didaftarkan <span class="font-bold">harus atas nama perorangan</span>.</span>.
                 </p>
             </div>
 
-            <div class="px-4 w-full grid grid-cols-2 gap-16">
+            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 pt-2">
                 <div class="col-span-1 flex flex-col justify-start items-start gap-6">
                     {{-- Nama Lengkap --}}
                     <div class="w-full">
@@ -41,7 +39,7 @@
                             placeholder="Masukkan nama Anda sesuai yang tertera pada KTP (Tanpa Gelar)"
                             id="nama-lengkap-register" class="mt-1 w-full" type="text" name="name" value="{{old('name')}}" />
                         @error('name')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -55,7 +53,7 @@
                             placeholder="Masukkan alamat email yang valid dan dapat dihubungi" id="email-register"
                             class="mt-1 w-full" type="text" name="email" value="{{old('email')}}"/>
                         @error('email')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -69,7 +67,7 @@
                             placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
                             id="password-register" class="mt-1 w-full" type="password" name="password" value="{{old('password')}}"/>
                         @error('password')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -91,7 +89,7 @@
                             </div>
                         </div>
                         @error('gender')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -106,7 +104,7 @@
                         <x-text-input autocomplete="false" placeholder="Masukkan nama panggilan Anda"
                             id="nama-panggilan-register" class="mt-1 w-full" type="text" name="nickname" value="{{old('nickname')}}"/>
                         @error('nickname')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -120,7 +118,7 @@
                             placeholder="Pastikan nomor handphone Anda aktif dan dapat dihubungi"
                             id="nomer-handphone-register" class="mt-1 w-full" type="text" name="phone_number" value="{{old('phone_number')}}"/>
                         @error('phone_number')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -134,14 +132,14 @@
                             placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
                             id="ulangi-password-register" class="mt-1 w-full" type="password" name="password_confirmation" value="{{old('password_confirmation')}}"/>
                         @error('password_confirmation')
-                            <div class="alert alert-danger" style="color: red" role="alert">{{ $message }}</div>
+                            <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
             </div>
 
             <div class="px-4 self-end">
-                <p class="text-red-500 text-base sm:text-lg">*Wajib diisi</p>
+                <p class="text-red-500 text-sm sm:text-base lg:text-lg">*Wajib diisi</p>
             </div>
 
             {{-- Error Message --}}

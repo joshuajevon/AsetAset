@@ -44,4 +44,8 @@
     .login-input{
         @apply focus:border-cGold
     }
+
+    .error-message{
+        @apply text-red-500 text-sm
+    }
 }
