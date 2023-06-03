@@ -34,7 +34,7 @@
         <div class="flex flex-col justify-start items-start gap-1">
             <h1 class="text-lg font-medium">Hubungi Kami</h1>
             <span class="h-0.5 w-12 bg-cGold mb-2"></span>
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8">
                 <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                         class="bi bi-envelope" viewBox="0 0 16 16">
