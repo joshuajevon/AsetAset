@@ -29,14 +29,14 @@
                                 <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
                             </li>
                             @if ($asset->image2)
-                            <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
-                            </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
+                                </li>
                             @endif
                             @if ($asset->image3)
-                            <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
-                            </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
+                                </li>
                             @endif
                         </ul>
                     </div>
@@ -68,7 +68,7 @@
 
                 <div class="w-full">
                     <table border="0" cellspacing="0" cellpadding="0" id="asset-detail"
-                        class="w-full text-sm sm:text-base">
+                        class="asset-table w-full text-sm sm:text-base">
                         <tr class="table-row">
                             <th>Jenis aset</th>
                             <td>{{ $asset->category }}</td>
@@ -123,37 +123,51 @@
                         </tr>
                         <tr class="table-row">
                             <th>Lampiran</th>
-                            <td>
-                                <a href="{{ asset('/storage/asset/attachment1/'.$asset->attachment1) }}" download>
-                                    <button class="">Lampiran 1</button>
+                            <td class="flex flex-col gap-1.5">
+
+                                <a class="flex items-center gap-1 w-fit"
+                                    href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                    </svg> Lampiran 1
                                 </a>
 
-                                <br/>
+
+
+                                <a class="flex items-center gap-1 w-fit"
+                                    href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                    </svg> Lampiran 1
+                                </a>
+
 
                                 @if ($asset->attachment2)
-                                <a href="{{ asset('/storage/asset/attachment2/'.$asset->attachment2) }}" download>
-                                    <button class="">Lampiran 2</button>
-                                </a>
+                                    <a href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>
+                                        <button class="">Lampiran 2</button>
+                                    </a>
                                 @endif
 
-                                <br/>
-
                                 @if ($asset->attachment3)
-                                <a href="{{ asset('/storage/asset/attachment3/'.$asset->attachment3) }}" download>
-                                    <button class="">Lampiran 3</button>
-                                </a>
+                                    <a href="{{ asset('/storage/asset/attachment3/' . $asset->attachment3) }}" download>
+                                        <button class="">Lampiran 3</button>
+                                    </a>
                                 @endif
 
                                 @if ($asset->attachment4)
-                                <a href="{{ asset('/storage/asset/attachment4/'.$asset->attachment4) }}" download>
-                                    <button class="">Lampiran 4</button>
-                                </a>
+                                    <a href="{{ asset('/storage/asset/attachment4/' . $asset->attachment4) }}" download>
+                                        <button class="">Lampiran 4</button>
+                                    </a>
                                 @endif
 
                                 @if ($asset->attachment5)
-                                <a href="{{ asset('/storage/asset/attachment5/'.$asset->attachment5) }}" download>
-                                    <button class="">Lampiran 5</button>
-                                </a>
+                                    <a href="{{ asset('/storage/asset/attachment5/' . $asset->attachment5) }}" download>
+                                        <button class="">Lampiran 5</button>
+                                    </a>
                                 @endif
                             </td>
                         </tr>
@@ -162,11 +176,12 @@
 
                 <div class="w-full flex flex-col justify-center items-center gap-2 text-sm sm:text-base">
                     @guest
-                    <a href="/login" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
+                        <a href="/login" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi
+                            kami</a>
                     @endguest
                     @auth
-                    <button class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</button>
-                    --wa--
+                        <button class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</button>
+                        --wa--
                     @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>
