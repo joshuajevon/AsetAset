@@ -35,7 +35,7 @@
             <div class="col-span-1 flex justify-center items-center">
                 <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8">
                     <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Informasi
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Informasi
                         Tentang Kami?</span>
                     </h1>
                     <p class="text-base sm:text-lg">Hubungi kami melalui email atau whatsapp yang ada dibawah ini dan
@@ -84,7 +84,7 @@
                     @csrf
                     <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
                         <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Jangan
+                        <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Jangan
                             Ragu Untuk Menghubungi Kami</span>
                         </h1>
                         <p class="text-base sm:text-lg">Silahkan isi data diri anda, dan tim kami akan segera menghubungi

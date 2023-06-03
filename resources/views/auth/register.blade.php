@@ -21,13 +21,13 @@
             onsubmit="submitLoginForm(event)">
             @csrf
             <div class="w-full flex flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Daftar Diri Anda di <span class="text-cGold">asetaset.com</span>
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Daftar Diri Anda di <span class="text-cGold">asetaset.com</span>
                 </h1>
                 <p class="text-base sm:text-lg">Silakan lengkapi form pendaftaran berikut. Akun pengguna yang didaftarkan <span class="font-bold">harus atas nama perorangan</span>.</span>.
                 </p>
             </div>
 
-            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 pt-2">
+            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 mt-2">
                 <div class="col-span-1 flex flex-col justify-start items-start gap-6">
                     {{-- Nama Lengkap --}}
                     <div class="w-full">

@@ -1,9 +1,9 @@
 window.addEventListener("load", function () {
     setTimeout(function () {
-        var inputFields = document.querySelectorAll("input");
+        let inputFields = document.querySelectorAll("input");
 
-        for (var i = 0; i < inputFields.length; i++) {
+        for (let i = 0; i < inputFields.length; i++) {
             inputFields[i].value = "";
         }
-    }, 400); // Delay in milliseconds (adjust if needed)
+    }, 800); // Delay in milliseconds (adjust if needed)
 });

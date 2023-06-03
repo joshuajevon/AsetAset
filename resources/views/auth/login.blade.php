@@ -20,11 +20,11 @@
         onsubmit="submitLoginForm(event)">
             @csrf
             <div class="w-full border-b-2 border-b-cGold px-4 pb-5">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">Bergabunglah dengan <span class="text-cGold">asetaset.com</span></h1>
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center pb-2 font-medium">Bergabunglah dengan <span class="text-cGold">asetaset.com</span></h1>
             </div>
 
                     <!-- Email Address -->
-            <div class="w-full px-4">
+            <div class="w-full px-4 mt-2">
                 <x-input-label for="email-login" :value="__('Alamat Email')" />
                 <x-text-input autocomplete="false" placeholder="Masukkan alamat email" id="email-login" class="mt-1 w-full"
                     type="text" name="email" :value="old('email')" />

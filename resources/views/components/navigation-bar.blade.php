@@ -150,31 +150,31 @@
         </a>
 
         <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'aset') underline @endif"
-            href="/">
+            href="/asset">
             ASET
         </a>
 
         <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'tentang-kami') underline @endif"
-            href="/">
+            href="/tentang-kami">
             TENTANG KAMI
         </a>
 
         <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'panduan') underline @endif"
-            href="/">
+            href="/panduan">
             PANDUAN
         </a>
 
         <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'hubungi-kami') underline @endif"
-            href="/">
+            href="/hubungi-kami">
             HUBUNGI KAMI
         </a>
 
         <div class="c-container py-3 flex border-b-2 border-cGold gap-2">
-            <a class="gold-btn" href="/">
+            <a class="gold-btn" href="/login">
                 Masuk
             </a>
 
-            <a class="white-btn" href="/">
+            <a class="white-btn" href="/register">
                 Daftar
             </a>
 
