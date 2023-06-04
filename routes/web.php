@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
@@ -89,16 +90,8 @@ Route::middleware('isAdmin')->group(function(){
 
 });
 
-Route::get('/dashboard', function () {
-    $user = Auth::user();
 
-    if($user->isAdmin == 1){
-        return redirect(route('admin-dashboard'));
-    }else{
-        return view('dashboard');
-    }
-
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
