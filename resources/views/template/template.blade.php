@@ -36,7 +36,6 @@
     <x-footer />
 
     <script src="{{ asset('js/navigation-bar.js') }}?t={{ env('VERSION_TIME') }}"></script>
-    <script src="{{ asset('js/clear-form.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 
 </html>
