@@ -23,17 +23,11 @@
                 {{-- <ul class="splide__pagination"></ul> --}}
                 <div class="splide__track">
                     <ul class="splide__list">
+                        @foreach ($carousels as $carousel)
                         <li class="splide__slide" alt="">
-                            <img class="w-full h-full object-contain"
-                                src="https://images.unsplash.com/photo-1679678691328-54929d271c3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                                alt="">
+                            <img src="{{ asset('storage/asset/slideshow/'.$carousel->slideshow) }}" class="w-full h-full object-contain">
                         </li>
-                        <li class="splide__slide"><img class="w-full h-full object-contain"
-                                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"
-                                alt=""></li>
-                        <li class="splide__slide"><img class="w-full h-full object-contain"
-                                src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                                alt=""></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

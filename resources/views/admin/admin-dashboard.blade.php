@@ -12,6 +12,8 @@
     <a href="{{route('view-asset')}}">CRUD aset</a>
     <a href="{{route('view-seller')}}">CRUD seler</a>
     <a href="{{route('view-owner')}}">CRUD owner</a>
+    <a href="{{route('view-carousel')}}">CRUD carousel</a>
+    <a href="{{route('user')}}">View user</a>
     <div class="p-2">
         <form method="POST" action="{{ route('logout') }}">
             @csrf

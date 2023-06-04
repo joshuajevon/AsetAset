@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
@@ -64,6 +65,25 @@ Route::middleware('isAdmin')->group(function(){
             Route::get('/edit/{id}', [OwnerController::class, 'edit'])->name('edit-owner');
             Route::patch('/update/{id}', [OwnerController::class, 'update'])->name('update-owner');
             Route::delete('/delete/{id}', [OwnerController::class, 'delete'])->name('delete-owner');
+        });
+
+        // view upate delete user
+        Route::prefix('/user')->group(function(){
+            Route::get('/', [HomeController::class, 'user'])->name('user');
+            Route::get('/view/{id}', [HomeController::class, 'view'])->name('view-user');
+            Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit-user');
+            Route::patch('/update/{id}', [HomeController::class, 'update'])->name('update-user');
+            Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('delete-user');
+        });
+
+        // CRUD image carousel
+        Route::prefix('/carousel')->group(function(){
+            Route::get('/', [CarouselController::class, 'view'])->name('view-carousel');
+            Route::get('/create', [CarouselController::class, 'create'])->name('create-carousel');
+            Route::post('/store', [CarouselController::class, 'store'])->name('store-carousel');
+            Route::get('/edit/{id}', [CarouselController::class, 'edit'])->name('edit-carousel');
+            Route::patch('/update/{id}', [CarouselController::class, 'update'])->name('update-carousel');
+            Route::delete('/delete/{id}', [CarouselController::class, 'delete'])->name('delete-carousel');
         });
     });
 

@@ -85,7 +85,7 @@
 
             <div class="mb-3">
                 <label for="exampleInputAuthor" class="form-label">Owner</label>
-                <select class="form-select" aria-label="Default select example" name="seller_name">
+                <select class="form-select" aria-label="Default select example" name="owner_name">
                     @foreach ($owners as $owner)
                         <option value="{{$owner->id}}" @if ($asset->owner_id == $owner->id)
                             selected
@@ -104,24 +104,46 @@
             @enderror
 
             <div>
-                <label for="" class="form-label">Attachment</label>
-                <input type="file" class="form-control @error('attachment') is-invalid @enderror" id="" name="attachment" value="{{$asset->attachment}}">
+                <label for="" class="form-label">Status</label>
+                <input type="text" class="form-control @error('status') is-invalid @enderror" id="" name="status" value="{{$asset->status}}">
             </div>
 
-            @error('attachment')
+            @error('status')
                 <div class="alert alert-danger" role="alert">{{$message}}</div>
             @enderror
 
-            <div>
-                <label for="" class="form-label">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="" name="image" value="{{$asset->image}}">
-            </div>
+            <h1>{{$asset->attachment1}}</h1>
+            <label for="total_attachments">Attachment 1:</label>
+            <input type="file" name="attachment1"  value="{{$asset->attachment1}}">
 
-            @error('image')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+            <h1>{{$asset->attachment2}}</h1>
+            <label for="total_attachments">Attachment 2:</label>
+            <input type="file" name="attachment2"  value="{{$asset->attachment2}}">
 
+            <h1>{{$asset->attachment3}}</h1>
+            <label for="total_attachments">Attachment 3:</label>
+            <input type="file" name="attachment3"  value="{{$asset->attachment3}}">
+
+            <h1>{{$asset->attachment4}}</h1>
+            <label for="total_attachments">Attachment 4:</label>
+            <input type="file" name="attachment4"  value="{{$asset->attachment4}}">
+
+            <h1>{{$asset->attachment5}}</h1>
+            <label for="total_attachments">Attachment 5:</label>
+            <input type="file" name="attachment5"  value="{{$asset->attachment5}}">
+
+            <br>
+
+            @for ($i = 1; $i <= 5; $i++)
+                <img src="{{ asset('storage/asset/image'.$i.'/'.$asset->{'image'.$i}) }}" style="width:300px" alt="">
+                <label for="image{{$i}}">Image {{$i}}:</label>
+                <input type="file" name="image{{$i}}" value="{{ $asset->{'image'.$i} }}">
+            @endfor
+
+            <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+
 @endsection

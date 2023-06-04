@@ -9,7 +9,15 @@
 @endsection
 
 @section('body')
+
     <x-navigation-bar page="beranda" />
+    <br><br><br><br>
+    @guest
+    Gagal Beli Aset
+    Anda diharuskan login terlebih dahulu untuk membeli aset ini.  Klik disini untuk login atau klik disini untuk mendaftar.
+    @endguest
+
+    @auth
 
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
@@ -38,6 +46,16 @@
                                     <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
                                 </li>
                             @endif
+                            @if ($asset->image4)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image4/' . $asset->image4) }}" alt="">
+                                </li>
+                            @endif
+                            @if ($asset->image5)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image5/' . $asset->image5) }}" alt="">
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -48,12 +66,26 @@
                             <li class="splide__slide">
                                 <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
                             </li>
-                            <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
-                            </li>
+                            @if ($asset->image2)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}" alt="">
+                                </li>
+                            @endif
+                            @if ($asset->image3)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}" alt="">
+                                </li>
+                            @endif
+                            @if ($asset->image4)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image4/' . $asset->image4) }}" alt="">
+                                </li>
+                            @endif
+                            @if ($asset->image5)
+                                <li class="splide__slide">
+                                    <img src="{{ asset('/storage/asset/image5/' . $asset->image5) }}" alt="">
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -188,6 +220,7 @@
             </div>
         </div>
     </section>
+    @endauth
 
 
     {{-- Scripts --}}

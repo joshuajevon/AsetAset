@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
 use App\Models\Asset;
+use App\Models\Carousel;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -11,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public function home(Request $request){
+
+        $carousels = Carousel::all();
 
         $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
 
@@ -75,7 +79,7 @@ class HomeController extends Controller
 
         $assets->appends(['filter' => $selectedFilter]);
 
-        return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels'));
     }
 
     public function assetById($id){
@@ -183,4 +187,40 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
+    // user
+    public function user(){
+        $users = User::all();
+        return view('admin.user.user', compact('users'));
+    }
+
+    public function view($id){
+        $user = User::findOrFail($id);
+        return view('admin.user.view-user', compact('user'));
+    }
+
+    public function edit($id){
+        $user = User::findOrFail($id);
+        return view('admin.user.update-user', compact('user'));
+    }
+
+    public function update(Request $request, $id){
+
+        User::findOrFail($id)->update([
+            'name' => $request->name,
+            'nickname' => $request->nickname,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'gender' => $request->gender,
+        ]);
+        return redirect(route('view-user'));
+    }
+
+    public function delete($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back();
+    }
+
+
 }

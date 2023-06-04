@@ -81,38 +81,46 @@ class AssetController extends Controller
     }
 
     public function update(Request $request, $id){
-        $image = $request->file('image');
-        $attachment = $request->file('attachment');
-        $asset = Asset::findOrFail($id);
+        $asset = Asset::find($id);
 
-        if($image){
-            Storage::delete('public/asset/image/'.$asset->image);
-            $image_name = time().'-'.Str::random(10).'-'. $request->file('image')->getClientOriginalName();
-            $image->storeAs('/public/asset/image/', $image_name);
-            $asset->update([
-                'image' => $image_name
-            ]);
+        $images = [];
+        $attachments = [];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $imageKey = 'image' . $i;
+            $attachmentKey = 'attachment' . $i;
+
+            if ($request->hasFile($imageKey)) {
+                $image = $request->file($imageKey);
+                $imageName = time() . '-' . Str::random(10) . '-' . $image->getClientOriginalName();
+                $image->storeAs('/public/asset/image' . $i, $imageName);
+                $images[$imageKey] = $imageName;
+            }
+
+            if ($request->hasFile($attachmentKey)) {
+                $attachment = $request->file($attachmentKey);
+                $attachmentName = time() . '-' . Str::random(10) . '-' . $attachment->getClientOriginalName();
+                $attachment->storeAs('/public/asset/attachment' . $i, $attachmentName);
+                $attachments[$attachmentKey] = $attachmentName;
+            }
         }
 
-        if($attachment){
-            Storage::delete('public/asset/attachment/'.$asset->attachment);
-            $attachment_name = time().'-'.Str::random(10).'-'. $request->file('attachment')->getClientOriginalName();
-            $attachment->storeAs('/public/asset/attachment/', $attachment_name);
-            $asset->update([
-                'attachment' => $attachment_name
-            ]);
-        }
-
-        Asset::findOrFail($id)->update([
+        $assetData = [
             'name' => $request->name,
             'category' => $request->category,
             'province' => $request->province,
             'city' => $request->city,
             'price' => $request->price,
             'seller_id' => $request->seller_name,
+            'owner_id' => $request->owner_name,
             'description' => $request->description,
             'status' => $request->status,
-        ]);
+        ];
+
+        $assetData = array_merge($assetData, $attachments, $images);
+
+        $asset->update($assetData);
+
         return redirect(route('view-asset'));
     }
 
