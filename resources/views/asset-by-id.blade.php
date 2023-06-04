@@ -166,39 +166,47 @@
                                     </svg> Lampiran 1
                                 </a>
 
-
-
+                                @if ($asset->attachment2)
                                 <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
+                                    href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
                                         class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
                                         <path
                                             d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 1
+                                    </svg> Lampiran 2
                                 </a>
-
-
-                                @if ($asset->attachment2)
-                                    <a href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>
-                                        <button class="">Lampiran 2</button>
-                                    </a>
                                 @endif
 
                                 @if ($asset->attachment3)
-                                    <a href="{{ asset('/storage/asset/attachment3/' . $asset->attachment3) }}" download>
-                                        <button class="">Lampiran 3</button>
+                                    <a class="flex items-center gap-1 w-fit"
+                                    href="{{ asset('/storage/asset/attachment3/' . $asset->attachment3) }}" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                    </svg> Lampiran 3
                                     </a>
                                 @endif
 
                                 @if ($asset->attachment4)
-                                    <a href="{{ asset('/storage/asset/attachment4/' . $asset->attachment4) }}" download>
-                                        <button class="">Lampiran 4</button>
+                                    <a class="flex items-center gap-1 w-fit"
+                                    href="{{ asset('/storage/asset/attachment4/' . $asset->attachment4) }}" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                    </svg> Lampiran 4
                                     </a>
                                 @endif
 
                                 @if ($asset->attachment5)
-                                    <a href="{{ asset('/storage/asset/attachment5/' . $asset->attachment5) }}" download>
-                                        <button class="">Lampiran 5</button>
+                                    <a class="flex items-center gap-1 w-fit"
+                                    href="{{ asset('/storage/asset/attachment5/' . $asset->attachment5) }}" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                    </svg> Lampiran 5
                                     </a>
                                 @endif
                             </td>
