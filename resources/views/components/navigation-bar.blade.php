@@ -90,7 +90,7 @@
                             class="absolute end-0 z-10 mt-2 w-56 divide-y divide-cGold border border-cGold bg-cWhite rounded-lg text-base hidden"
                             role="menu">
                             <div class="p-2">
-                                <a href="/profile"
+                                <a href="/dashboard"
                                     class="flex items-center w-full  gap-2 px-4 py-2 hover:bg-cLightGrey rounded-lg"
                                     role="menuitem">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
