@@ -32,7 +32,7 @@
         <x-page-title title="Tentang Kami" />
 
         <div class="flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 sm:w-4/5 self-end">
-            <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl">asetaset.com</h2>
+            <img class="w-40 sm:w-44 lg:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
             <p class="text-justify text-sm sm:text-lg lg:text-xl font-normal">
                 asetaset.com adalah solusi daring yang inovatif untuk mempermudah akses dan transparansi dalam mencari aset yang sedang dalam tahap pra-pailit di Indonesia. Kami hadir dengan tujuan memberikan layanan yang luas dan terpercaya kepada masyarakat umum serta pihak-pihak yang berkepentingan. Dengan menggunakan platform kami, Anda akan merasakan efisiensi dan kehandalan dalam mengelola proses pembelian aset, baik untuk keperluan perusahaan maupun individu. Melalui asetaset.com, Anda dapat dengan mudah mengakses informasi detail tentang aset yang tersedia, serta berkomunikasi langsung dengan pihak yang terkait untuk memulai proses pembelian. Kami menyediakan sistem yang memudahkan Anda untuk menemukan dan memperoleh aset yang diinginkan dengan cepat dan tanpa kesulitan. Dengan fokus pada transparansi dan kemudahan komunikasi, kami berkomitmen untuk memberikan pengalaman yang memuaskan dalam menjalankan proses pembelian aset Anda. Saatnya menciptakan efisiensi dan keterbukaan dalam mencari aset yang tepat. Bergabunglah dengan asetaset.com sekarang dan temukan solusi yang andal untuk kebutuhan aset Anda.
             </p>
