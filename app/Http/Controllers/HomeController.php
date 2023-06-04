@@ -155,7 +155,8 @@ class HomeController extends Controller
     }
 
     public function tentangKami(){
-        return view('tentang-kami');
+        $carousels = Carousel::all();
+        return view('tentang-kami',compact('carousels'));
     }
 
     public function panduan(){
