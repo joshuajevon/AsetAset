@@ -172,12 +172,22 @@ class HomeController extends Controller
     }
 
     public function contact(Request $request){
-        $request->validate([
+        $rules = [
             'name' => 'required|string',
             'email' => 'required|email',
             'subject' => 'required|string',
             'mail' => 'required|string',
-        ]);
+        ];
+
+        $messages = [
+            'name.required' => 'Nama harus diisi',
+            'email.required' => 'Alamat email harus diisi',
+            'email.email' => 'Alamat email harus valid',
+            'subject.required' => 'Subjek harus diisi',
+            'mail.required' => 'Pesan harus diisi',
+        ];
+
+        $request->validate($rules, $messages);
 
         $name = $request->input('name');
         $email = $request->input('email');
@@ -186,7 +196,7 @@ class HomeController extends Controller
 
         Mail::to('tfvtfyfvjyf@gmail.com')->send(new ContactFormMail($name, $email, $subject, $mail));
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Email sudah terkirim, silakan menunggu balasan di email kalian');
     }
 
     // user
