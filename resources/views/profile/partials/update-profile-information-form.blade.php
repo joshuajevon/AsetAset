@@ -24,6 +24,12 @@
         </div>
 
         <div>
+            <x-input-label for="nickname" :value="__('Nickname')" />
+            <x-text-input id="nickname" name="nickname" type="text" class="mt-1 block w-full" :value="old('nickname', $user->nickname)" required autofocus autocomplete="nickname" />
+            <x-input-error class="mt-2" :messages="$errors->get('nickname')" />
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -45,6 +51,32 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <div>
+            <x-input-label for="phone_number" :value="__('Phone Number')" />
+            <x-text-input id="phone_number" name="phone_number" type="text" class="mt-1 block w-full" :value="old('phone_number', $user->phone_number)" required autofocus autocomplete="phone_number" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
+        </div>
+
+        <div class="w-full">
+            <div class="flex gap-1 text-base sm:text-lg">
+                <x-input-label for="jenis-kelamin-register" :value="__('Jenis Kelamin')" />
+            </div>
+            <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
+                <div class="flex justify-center items-center gap-2">
+                    <input type="radio" id="laki-laki" name="gender" value="Laki-laki" @if ($user->gender == "Laki-laki") checked="checked" @endif>
+                    <label for="laki-laki">Laki-laki</label>
+                </div>
+
+                <div class="flex justify-center items-center gap-2">
+                    <input type="radio" id="laki-perempuan" name="gender" value="Perempuan" @if ($user->gender == "Perempuan") checked="checked" @endif>
+                    <label for="perempuan">Perempuan</label>
+                </div>
+            </div>
+            @error('gender')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="flex items-center gap-4">
