@@ -40,7 +40,8 @@ Route::middleware('isAdmin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');
         // CRUD assets
         Route::prefix('/asset')->group(function(){
-            Route::get('/', [AssetController::class, 'view'])->name('view-asset');
+            Route::get('/', [AssetController::class, 'asset'])->name('asset');
+            Route::get('/view/{id}', [AssetController::class, 'view'])->name('view-asset');
             Route::get('/create', [AssetController::class, 'create'])->name('create-asset');
             Route::post('/store', [AssetController::class, 'store'])->name('store-asset');
             Route::get('/edit/{id}', [AssetController::class, 'edit'])->name('edit-asset');
@@ -50,7 +51,8 @@ Route::middleware('isAdmin')->group(function(){
 
         //CRUD seller
         Route::prefix('/seller')->group(function(){
-            Route::get('/', [SellerController::class, 'view'])->name('view-seller');
+            Route::get('/', [SellerController::class, 'seller'])->name('seller');
+            Route::get('/view/{id}', [SellerController::class, 'view'])->name('view-seller');
             Route::get('/create', [SellerController::class, 'create'])->name('create-seller');
             Route::post('/store', [SellerController::class, 'store'])->name('store-seller');
             Route::get('/edit/{id}', [SellerController::class, 'edit'])->name('edit-seller');
@@ -60,7 +62,8 @@ Route::middleware('isAdmin')->group(function(){
 
         //CRUD owner
         Route::prefix('/owner')->group(function(){
-            Route::get('/', [OwnerController::class, 'view'])->name('view-owner');
+            Route::get('/', [OwnerController::class, 'owner'])->name('owner');
+            Route::get('/view/{id}', [OwnerController::class, 'view'])->name('view-owner');
             Route::get('/create', [OwnerController::class, 'create'])->name('create-owner');
             Route::post('/store', [OwnerController::class, 'store'])->name('store-owner');
             Route::get('/edit/{id}', [OwnerController::class, 'edit'])->name('edit-owner');
@@ -79,7 +82,8 @@ Route::middleware('isAdmin')->group(function(){
 
         // CRUD image carousel
         Route::prefix('/carousel')->group(function(){
-            Route::get('/', [CarouselController::class, 'view'])->name('view-carousel');
+            Route::get('/', [CarouselController::class, 'carousel'])->name('carousel');
+            Route::get('/view/{id}', [CarouselController::class, 'view'])->name('view-carousel');
             Route::get('/create', [CarouselController::class, 'create'])->name('create-carousel');
             Route::post('/store', [CarouselController::class, 'store'])->name('store-carousel');
             Route::get('/edit/{id}', [CarouselController::class, 'edit'])->name('edit-carousel');

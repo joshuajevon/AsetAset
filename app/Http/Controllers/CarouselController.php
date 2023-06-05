@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
-    public function view(){
+    public function carousel(){
         $carousels = Carousel::all();
-        return view('admin.carousel.view-carousel', compact('carousels'));
+        return view('admin.carousel.carousel', compact('carousels'));
+    }
+
+    public function view($id){
+        $carousel = Carousel::findOrFail($id);
+        return view('admin.carousel.view-carousel', compact('carousel'));
     }
 
     public function create(){
@@ -18,14 +23,16 @@ class CarouselController extends Controller
     }
 
     public function store(Request $request){
-        $file_name = time() . $request->file('slideshow')->getClientOriginalName();
+        $file_name =  $request->title.'-'.$request->file('slideshow')->getClientOriginalName();
         $request->file('slideshow')->storeAs('/public/asset/slideshow/', $file_name);
 
         Carousel::create([
+            'title' => $request->title,
             'slideshow' => $file_name,
+            'link' => $request->link,
         ]);
 
-        return redirect(route('view-carousel'));
+        return redirect(route('carousel'));
     }
 
     public function edit($id){
@@ -39,13 +46,19 @@ class CarouselController extends Controller
 
         if($image){
             Storage::delete('/public/asset/slideshow/'.$carousel->slideshow);
-            $file_name = $image->getClientOriginalName();
+            $file_name = $request->title.'-'.$image->getClientOriginalName();
             $image->storeAs('/public/asset/slideshow/', $file_name);
             $carousel->update([
                 'image' => $file_name
             ]);
         }
-        return redirect(route('view-carousel'));
+
+        Carousel::findOrFail($id)->update([
+            'title' => $request->title,
+            'link' => $request->link,
+        ]);
+
+        return redirect(route('carousel'));
     }
 
     public function delete($id){

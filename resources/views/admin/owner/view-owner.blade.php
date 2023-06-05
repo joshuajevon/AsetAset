@@ -11,7 +11,6 @@
     <h1 class="text-3xl font-bold underline">
         View owner
     </h1>
-    <a href="{{route('create-owner')}}">Add</a>
 
     <table style="border:1px solid black">
         <th>
@@ -20,7 +19,6 @@
             <td>phone</td>
             <td>action</td>
         </th>
-        @foreach ($owners as $owner)
             <tr>
 
                 <td>{{ $owner->owner_name }}</td>
@@ -35,6 +33,5 @@
                     </form>
                 </td>
             </tr>
-        @endforeach
     </table>
 @endsection

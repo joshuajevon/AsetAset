@@ -9,10 +9,10 @@
 
 @section('body')
 
-    <a href="{{route('view-asset')}}">CRUD aset</a>
-    <a href="{{route('view-seller')}}">CRUD seler</a>
-    <a href="{{route('view-owner')}}">CRUD owner</a>
-    <a href="{{route('view-carousel')}}">CRUD carousel</a>
+    <a href="{{route('asset')}}">Manage asset</a>
+    <a href="{{route('seller')}}">Manage seller</a>
+    <a href="{{route('owner')}}">Manage owner</a>
+    <a href="{{route('carousel')}}">Manage carousel</a>
     <a href="{{route('user')}}">View user</a>
     <div class="p-2">
         <form method="POST" action="{{ route('logout') }}">

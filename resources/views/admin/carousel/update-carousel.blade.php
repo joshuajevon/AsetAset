@@ -17,6 +17,15 @@
             @csrf
             @method('patch')
 
+            <div>
+                <label for="" class="form-label">Judul</label>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="" name="title" value="{{$carousel->title}}">
+            </div>
+
+            @error('title')
+                <div class="alert alert-danger" role="alert">{{$message}}</div>
+            @enderror
+
             <img src="{{ asset('storage/asset/slideshow/'.$carousel->slideshow) }}" style="width:300px" alt="">
             <div>
                 <label for="" class="form-label">Image</label>
@@ -24,6 +33,15 @@
             </div>
 
             @error('slideshow')
+                <div class="alert alert-danger" role="alert">{{$message}}</div>
+            @enderror
+
+            <div>
+                <label for="" class="form-label">Link (optional)</label>
+                <input type="text" class="form-control @error('link') is-invalid @enderror" id="" name="link" value="{{$carousel->link}}">
+            </div>
+
+            @error('link')
                 <div class="alert alert-danger" role="alert">{{$message}}</div>
             @enderror
 
