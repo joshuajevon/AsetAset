@@ -15,6 +15,10 @@
         @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
     }
 
+    [type='radio'] {
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
+    }
+
     input:-internal-autofill-selected{
         @apply bg-transparent text-white
     }

@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-semibold text-cBlack">
+        <h2 class="text-2xl font-semibold text-cBlack">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+        <p class="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -19,13 +19,13 @@
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
             <x-input-label for="nickname" :value="__('Nickname')" />
-            <x-text-input id="nickname" name="nickname" type="text" class="mt-1 block w-full" :value="old('nickname', $user->nickname)" required autofocus autocomplete="nickname" />
+            <x-text-input id="nickname" name="nickname" type="text" class="mt-1 block w-full" :value="old('nickname', $user->nickname)" required autocomplete="nickname" />
             <x-input-error class="mt-2" :messages="$errors->get('nickname')" />
         </div>
 
@@ -55,7 +55,7 @@
 
         <div>
             <x-input-label for="phone_number" :value="__('Phone Number')" />
-            <x-text-input id="phone_number" name="phone_number" type="text" class="mt-1 block w-full" :value="old('phone_number', $user->phone_number)" required autofocus autocomplete="phone_number" />
+            <x-text-input id="phone_number" name="phone_number" type="text" class="mt-1 block w-full" :value="old('phone_number', $user->phone_number)" required autocomplete="phone_number" />
             <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
         </div>
 
@@ -65,12 +65,12 @@
             </div>
             <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
                 <div class="flex justify-center items-center gap-2">
-                    <input type="radio" id="laki-laki" name="gender" value="Laki-laki" @if ($user->gender == "Laki-laki") checked="checked" @endif>
+                    <input class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0" type="radio" id="laki-laki" name="gender" value="Laki-laki" @if ($user->gender == "Laki-laki") checked="checked" @endif>
                     <label for="laki-laki">Laki-laki</label>
                 </div>
 
                 <div class="flex justify-center items-center gap-2">
-                    <input type="radio" id="laki-perempuan" name="gender" value="Perempuan" @if ($user->gender == "Perempuan") checked="checked" @endif>
+                    <input class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0" type="radio" id="perempuan" name="gender" value="Perempuan" @if ($user->gender == "Perempuan") checked="checked" @endif>
                     <label for="perempuan">Perempuan</label>
                 </div>
             </div>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
