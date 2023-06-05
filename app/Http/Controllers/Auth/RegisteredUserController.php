@@ -30,14 +30,34 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'nickname' => ['required', 'string','min:3', 'max:255'],
+        $rules = [
+            'name' => ['required', 'max:255'],
+            'nickname' => ['required','min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/', Rules\Password::defaults()],
+            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Rules\Password::defaults(),'confirmed'],
+            'password_confirmation' => ['required'],
             'phone_number' => ['required', 'numeric'],
             'gender' => ['required'],
-        ]);
+        ];
+
+        $messages = [
+            'name.required' => 'Nama Lengkap harus diisi',
+            'nickname.required' => 'Nama Panggilan harus diisi',
+            'nickname.min' => 'Nama Panggilan harus diisi minimal 3 huruf',
+            'email.required' => 'Alamat email harus diisi',
+            'email.email' => 'Alamat email harus valid',
+            'email.unique' => 'Alamat email sudah terdaftar',
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password harus diisi minimal 8 huruf',
+            'password.regex' => 'Password tidak memenuhi syarat',
+            'password.confirmed' => 'Konfirmasi Password tidak sama',
+            'password_confirmation.required' => 'Konfirmasi Password harus diisi',
+            'phone_number.required' => 'Nomor Handphone harus diisi',
+            'phone_number.numeric' => 'Nomor Handphone harus dalam angka',
+            'gender.required' => 'Jenis Kelamin harus diisi'
+        ];
+
+        $request->validate($rules, $messages);
 
         $user = User::create([
             'name' => $request->name,

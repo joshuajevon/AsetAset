@@ -28,13 +28,14 @@
                 <x-input-label for="email-login" :value="__('Alamat Email')" />
                 <x-text-input autocomplete="false" placeholder="Masukkan alamat email" id="email-login" class="mt-1 w-full"
                     type="text" name="email" :value="old('email')" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <!-- Password -->
             <div class="w-full px-4">
                 <x-input-label for="password-login" :value="__('Password')" />
-
                 <x-text-input id="password-login" class="mt-1 w-full" placeholder="Masukkan password" type="password" name="password" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Remember Me -->
@@ -43,13 +44,6 @@
                     class="rounded-sm border-cDarkGrey appearance-none text-cGold focus:ring-0 focus:ring-offset-0 w-4 sm:w-5 h-4 sm:h-5"
                     name="remember">
                 <label for="remember-me-login" class="text-sm sm:text-base text-cBlack">{{ __('Remember me') }}</label>
-            </div>
-
-            {{-- Error Message --}}
-            <div class="px-4">
-                <p id="error-message-login" class="text-base text-red-600"></p>
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <div class="px-4">

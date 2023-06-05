@@ -65,7 +65,7 @@
                         </div>
                         <x-text-input autocomplete="false"
                             placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
-                            id="password-register" class="mt-1 w-full" type="password" name="password" value="{{old('password')}}"/>
+                            id="password-register" class="mt-1 w-full" type="password" name="password" value="{{old('password')}}" />
                         @error('password')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -130,7 +130,7 @@
                         </div>
                         <x-text-input autocomplete="false"
                             placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
-                            id="ulangi-password-register" class="mt-1 w-full" type="password" name="password_confirmation" value="{{old('password_confirmation')}}"/>
+                            id="ulangi-password-register" class="mt-1 w-full" type="password" name="password_confirmation" value="{{old('password_confirmation')}}" />
                         @error('password_confirmation')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
