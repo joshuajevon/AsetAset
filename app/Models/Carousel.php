@@ -10,6 +10,8 @@ class Carousel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'slideshow'
+        'title',
+        'slideshow',
+        'link'
     ];
 }

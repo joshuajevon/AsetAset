@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 class SellerController extends Controller
 {
 
-    public function view(){
+    public function seller(){
         $sellers = Seller::all();
-        return view('admin.seller.view-seller', compact('sellers'));
+        return view('admin.seller.seller', compact('sellers'));
+    }
+
+    public function view($id){
+        $seller = Seller::findOrFail($id);
+        return view('admin.seller.view-seller', compact('seller'));
     }
 
     public function create(){
@@ -30,7 +35,7 @@ class SellerController extends Controller
             'seller_address' => $request->seller_address,
             'seller_phone' => $request->seller_phone,
             ]);
-        return redirect(route('view-seller'));
+        return redirect(route('seller'));
     }
 
     public function edit($id){
@@ -45,7 +50,7 @@ class SellerController extends Controller
             'seller_address' => $request->seller_address,
             'seller_phone' => $request->seller_phone,
         ]);
-        return redirect(route('view-seller'));
+        return redirect(route('seller'));
     }
 
     public function delete($id){

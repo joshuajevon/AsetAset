@@ -12,8 +12,6 @@
         View Asset
     </h1>
 
-    <a href="{{route('create-asset')}}">Add</a>
-
     <table style="border:1px solid black">
         <th>
             <td>name</td>
@@ -28,7 +26,6 @@
             <td>attachment</td>
             <td>image</td>
         </th>
-        @foreach ($assets as $asset)
             <tr>
 
                 <td>{{ $asset->name }}</td>
@@ -53,7 +50,6 @@
                     </form>
                 </td>
             </tr>
-        @endforeach
     </table>
 
 @endsection

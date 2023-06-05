@@ -141,13 +141,13 @@
                         @enderror
                     </div>
 
-                    {{-- Error Message --}}
-                    {{-- <div class="px-4">
-                        <p id="error-message-login" class="text-base text-red-600"></p>
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div> --}}
-
+                    <div class="px-4 w-full">
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
 
                     <div class="px-4">
                         <button type="submit" class="gold-btn px-12">Kirim Pesan</button>

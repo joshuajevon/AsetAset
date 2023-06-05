@@ -32,6 +32,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages(){
+        return [
+            'email.required' => 'Alamat email harus diisi',
+            'email.email' => 'Alamat email harus valid',
+            'password.required' => 'Password harus diisi',
+        ];
+    }
+
+
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -45,7 +54,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'password' => 'Alamat email dan/atau password tidak valid',
             ]);
         }
 

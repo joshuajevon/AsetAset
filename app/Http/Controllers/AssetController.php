@@ -12,10 +12,16 @@ use Illuminate\Support\Str;
 class AssetController extends Controller
 {
 
-    public function view(){
+    public function asset(){
         $assets = Asset::all();
-        return view('admin.asset.view-asset', compact('assets'));
+        return view('admin.asset.asset', compact('assets'));
     }
+
+    public function view($id){
+        $asset = Asset::findOrFail($id);
+        return view('admin.asset.view-asset', compact('asset'));
+    }
+
 
     public function create(){
         $sellers = Seller::all();
@@ -70,7 +76,7 @@ class AssetController extends Controller
         $assetData = array_merge($assetData, $attachments, $images);
 
         Asset::create($assetData);
-        return redirect(route('view-asset'));
+        return redirect(route('asset'));
     }
 
     public function edit($id){
@@ -121,7 +127,7 @@ class AssetController extends Controller
 
         $asset->update($assetData);
 
-        return redirect(route('view-asset'));
+        return redirect(route('asset'));
     }
 
     public function delete($id){
