@@ -7,27 +7,37 @@
 @endsection
 
 @section('body')
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+    <x-navigation-bar page="login" />
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <section class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+        <x-page-title title="Lupa Password" />
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <form action="{{ route('password.email') }}" id="form-login" method="POST"
+        class="bg-cWhite py-4 sm:py-6 md:py-8 lg:py-10 xl:py-14 2xl:py-16 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6">
+            @csrf
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
+            <!-- Email Address -->
+            <div class="w-full px-4 mt-2">
+                <x-input-label for="email-login" :value="__('Alamat Email')" />
+                <x-text-input autocomplete="false" placeholder="Masukkan alamat email" id="email-login" class="mt-1 w-full"
+                    type="text" name="email" :value="old('email')" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
+
+            <div class="px-4">
+                <x-primary-button>
+                    {{ __('Pulihkan Akun Saya') }}
+                </x-primary-button>
+            </div>
+            <div class="px-4 flex flex-col items-start justify-center text-base gap-4">
+                <span class="" href="/register">
+                    Belum punya akun? <a href="/register" class="font-bold underline">Daftar di sini</a>
+                </span>
+            </div>
+        </form>
+
+    </section>
 @endsection

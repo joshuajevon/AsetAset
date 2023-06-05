@@ -29,11 +29,24 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $rules = [
             'token' => ['required'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Rules\Password::defaults(),'confirmed'],
+            'password_confirmation' => ['required'],
+        ];
+
+        $messages = [
+            'email.required' => 'Alamat email harus diisi',
+            'email.email' => 'Alamat email harus valid',
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password harus diisi minimal 8 huruf',
+            'password.regex' => 'Password tidak memenuhi syarat',
+            'password.confirmed' => 'Konfirmasi Password tidak sama',
+            'password_confirmation.required' => 'Konfirmasi Password harus diisi',
+        ];
+
+        $request->validate($rules, $messages);
 
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the

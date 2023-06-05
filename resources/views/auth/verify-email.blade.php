@@ -7,9 +7,14 @@
 @endsection
 
 @section('body')
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+    <x-navigation-bar page="login" />
+
+    <section class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+        <x-page-title title="Verifikasi Email" />
+
+        <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        </div>
 
     @if (Auth::user()->hasVerifiedEmail())
     <span class="text-success">Verified</span>
@@ -42,4 +47,5 @@
             </button>
         </form>
     </div>
+    </section>
 @endsection
