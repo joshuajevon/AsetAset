@@ -25,9 +25,16 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $rules = [
             'email' => ['required', 'email'],
-        ]);
+        ];
+
+        $messages = [
+            'email.required' => 'Alamat email harus diisi',
+            'email.email' => 'Alamat email harus valid',
+        ];
+
+        $request->validate($rules, $messages);
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
@@ -39,6 +46,6 @@ class PasswordResetLinkController extends Controller
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+                            ->withErrors(['email' => "Alamat email tidak terdaftar"]);
     }
 }
