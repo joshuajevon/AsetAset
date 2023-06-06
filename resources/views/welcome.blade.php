@@ -103,8 +103,9 @@
                         </div>
                     </div>
 
-                    <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex justify-center items-center rounded-b-lg">
+                    <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-col justify-center items-center gap-4 rounded-b-lg">
                         <button class="gold-btn w-full" type="submit">Terapkan</button>
+                        <button class="white-btn w-full" type="submit" onClick="window.location.reload();">Hapus Filter</button>
                     </div>
                 </form>
             </div>
