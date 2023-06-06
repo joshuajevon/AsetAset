@@ -167,6 +167,10 @@ class HomeController extends Controller
         return view('hubungi-kami');
     }
 
+    public function error(){
+        return view('asset-error');
+    }
+
     public function dashboard(){
         return view('admin.admin-dashboard');
     }

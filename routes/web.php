@@ -35,6 +35,8 @@ Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-i
 
 Route::post('/contact', [HomeController::class, 'contact'])->name('contact');
 
+Route::get('/asset-error', [HomeController::class, 'error'])->name('error');
+
 Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');

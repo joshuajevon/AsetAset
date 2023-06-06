@@ -12,12 +12,7 @@
 
     <x-navigation-bar page="beranda" />
     <br><br><br><br>
-    @guest
-    Gagal Beli Aset
-    Anda diharuskan login terlebih dahulu untuk membeli aset ini.  Klik disini untuk login atau klik disini untuk mendaftar.
-    @endguest
 
-    @auth
 
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
@@ -216,7 +211,7 @@
 
                 <div class="w-full flex flex-col justify-center items-center gap-2 text-sm sm:text-base">
                     @guest
-                        <a href="/login" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi
+                        <a href="/asset-error" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi
                             kami</a>
                     @endguest
                     @auth
@@ -228,7 +223,6 @@
             </div>
         </div>
     </section>
-    @endauth
 
 
     {{-- Scripts --}}
