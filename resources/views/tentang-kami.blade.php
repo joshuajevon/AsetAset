@@ -41,7 +41,7 @@
 
     <section class="bg-cover bg-center bg-[url('/public/assets/tentang-kami/tentang-kami-bg-2.png')]">
         <div
-            class="c-container py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16  flex flex-col justify-center items-start h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2 sm:gap-4 lg:gap-6 bg-cWhite/20">
+            class="c-container py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16  flex flex-col justify-center items-start h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2 sm:gap-4 lg:gap-6">
             <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
             <h1 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h1>
             <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
