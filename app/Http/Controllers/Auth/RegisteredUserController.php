@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'max:255'],
             'nickname' => ['required','min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Rules\Password::defaults(),'confirmed'],
+            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/', Rules\Password::defaults(),'confirmed'],
             'password_confirmation' => ['required'],
             'phone_number' => ['required', 'numeric'],
             'gender' => ['required'],

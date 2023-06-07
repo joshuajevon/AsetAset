@@ -32,7 +32,7 @@ class NewPasswordController extends Controller
         $rules = [
             'token' => ['required'],
             'email' => ['required', 'email'],
-            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Rules\Password::defaults(),'confirmed'],
+            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/', Rules\Password::defaults(),'confirmed'],
             'password_confirmation' => ['required'],
         ];
 
