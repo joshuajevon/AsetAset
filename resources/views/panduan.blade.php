@@ -79,11 +79,11 @@
                         Memperoleh Aset yang Sesuai dengan Keinginan Anda</h1>
                 </div>
 
-                {{-- <iframe src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}"
-                    class="w-full h-[1000px]"></iframe> --}}
+                <iframe src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}"
+                    class="w-full h-[1000px]"></iframe>
 
-                <embed src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}" class="w-full h-[1000px]"
-                    type="">
+                {{-- <embed src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}" class="w-full h-[1000px]"
+                    type=""> --}}
             </div>
         </div>
     </section>
