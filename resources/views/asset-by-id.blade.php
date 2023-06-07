@@ -139,7 +139,7 @@
                         </tr>
                         <tr class="table-row mt-4">
                             <th>Uraian</th>
-                            <td>{{ $asset->status }}</td>
+                            <td>{{ $asset->description }}</td>
                         </tr>
                         <tr class="table-row">
                             <th>Status Aset</th>
