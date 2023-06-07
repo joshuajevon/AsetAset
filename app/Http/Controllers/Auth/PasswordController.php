@@ -15,17 +15,23 @@ class PasswordController extends Controller
      */
     public function update(Request $request): RedirectResponse
     {
-        $validated = $request->validateWithBag('updatePassword', [
+        $rules = [
             'current_password' => ['required', 'current_password'],
-            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Password::defaults(), 'confirmed'],
-        ],[
+            'password' => ['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/', Password::defaults(), 'confirmed'],
+            'password_confirmation' => ['required']
+        ];
+
+        $messages = [
             'current_password.required' => 'Password lama harus diisi',
             'current_password.current_password' => 'Password lama yang anda tulis salah',
             'password.required' => 'Password baru harus diisi',
             'password.min' => 'Password minimal 8 huruf',
-            'password.regex' => 'Password tidak memenuhi syarat',
+            'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, dan angka',
             'password.confirmed' => 'Konfirmasi password tidak sama',
-        ]);
+            'password_confirmation.required' => 'Konfirmasi Password baru harus diisi',
+        ];
+
+        $validated = $request->validateWithBag('updatePassword',$rules, $messages);
 
         $request->user()->update([
             'password' => Hash::make($validated['password']),
