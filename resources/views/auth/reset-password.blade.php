@@ -12,7 +12,7 @@
     <section class="c-container pt-28 sm:pt-32 md:pt-36 lg:pt-40 xl:pt-44 2xl:pt-48 pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         <x-page-title title="Pulihkan Akun" />
 
-        <form method="POST" action="{{ route('password.store') }}"  class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6">
+        <form method="POST" action="{{ route('password.store') }}" class="bg-cWhite py-4 sm:py-6 md:py-8 lg:py-10 xl:py-14 2xl:py-16 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6">
             @csrf
 
             <!-- Password Reset Token -->
@@ -26,7 +26,7 @@
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
-            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 mt-2">
+            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16 mt-2">
                 <div class="col-span-1 flex flex-col justify-start items-start gap-6">
                     {{-- Password --}}
                     <div class="w-full">
