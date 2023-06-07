@@ -59,6 +59,9 @@
                     </div>
                 </div>
             </div>
+            <div class="px-4 self-end">
+                <p class="text-red-500 text-sm sm:text-base lg:text-lg">*Wajib diisi</p>
+            </div>
 
             <div class="px-4">
                 <x-primary-button>
