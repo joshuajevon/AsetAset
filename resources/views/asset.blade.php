@@ -155,14 +155,14 @@
                         <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                             @foreach ($assets as $asset)
                                 <a href="{{ route('asset-by-id', $asset->id) }}"
-                                    class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4">
+                                    class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
                                     <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                         class="aspect-square object-cover" alt="asset">
 
                                     <div
-                                        class="relative bg-white flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
+                                        class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
                                         <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                        <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold">
+                                        <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite transition">
                                             @currency ($asset->price)
                                         </h3>
                                         <div class="flex justify-center items-center gap-1">

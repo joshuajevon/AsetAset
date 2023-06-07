@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    *{
+        @apply break-all
+    }
+
     [type='url'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple] {
         @apply border-cDarkGrey focus:border-none focus:ring-0
     }
