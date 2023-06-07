@@ -20,7 +20,7 @@
         {{-- Title --}}
         <x-page-title title="Pencarian Aset" />
 
-        <form action="{{ route('asset') }}" method="get">
+        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -125,7 +125,7 @@
                             {{-- Sorting --}}
                             <div class="flex justify-start items-center gap-2">
                                 <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
-                                <form action="{{ route('asset') }}" method="GET">
+                                <form action="{{ route('assets') }}" method="GET">
                                     <select class="cursor-pointer rounded-md" name="filter" id="filter"
                                         onchange="this.form.submit()">
                                         <option value="" selected disabled>-- Pilih Filter --</option>

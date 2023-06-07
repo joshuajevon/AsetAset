@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
-Route::get('/asset',[HomeController::class, 'asset'])->name('asset');
+Route::get('/asset',[HomeController::class, 'asset'])->name('assets');
 
 Route::get('/tentang-kami',[HomeController::class, 'tentangKami'])->name('tentangKami');
 
@@ -41,7 +41,7 @@ Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');
         // CRUD assets
-        Route::prefix('/asset')->group(function(){
+        Route::prefix('/assets')->group(function(){
             Route::get('/', [AssetController::class, 'asset'])->name('asset');
             Route::get('/view/{id}', [AssetController::class, 'view'])->name('view-asset');
             Route::get('/create', [AssetController::class, 'create'])->name('create-asset');
