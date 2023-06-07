@@ -4,7 +4,7 @@
             {{ __('Update Password') }}
         </h2>
 
-        <p class="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
+        <p class="mt-1 text-sm sm:text-base text-gray-500">
             {{ __('Pastikan password Anda terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka') }}
         </p>
     </header>

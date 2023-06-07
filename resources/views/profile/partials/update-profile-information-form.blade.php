@@ -4,7 +4,7 @@
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
+        <p class="mt-1 text-sm sm:text-base text-gray-500">
             {{ __("Perbarui informasi profil dan alamat email Anda.") }}
         </p>
     </header>

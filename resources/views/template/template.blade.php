@@ -13,6 +13,7 @@
 
     <!-- vite-->
     @vite('resources/css/base.css')
+    @vite('resources/js/app.js')
 
     {{-- Google Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +27,6 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <!-- css & js-->
-    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}?t={{ env('VERSION_TIME') }}">
     @yield('head')
 </head>
 
