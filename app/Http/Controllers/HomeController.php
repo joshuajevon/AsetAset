@@ -154,17 +154,144 @@ class HomeController extends Controller
         return view('asset',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
     }
 
-    public function tentangKami(){
+    public function tentangKami(Request $request){
         $carousels = Carousel::all();
-        return view('tentang-kami',compact('carousels'));
+
+        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+
+        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+
+        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+
+        $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        $result = $request->input('search');
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        }
+
+        $assets = $query->paginate(16);
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('tentang-kami',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels'));
     }
 
     public function panduan(){
         return view('panduan');
     }
 
-    public function hubungiKami(){
-        return view('hubungi-kami');
+    public function hubungiKami(Request $request){
+        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+
+        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+
+        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+
+        $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        $result = $request->input('search');
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        }
+
+        $assets = $query->paginate(16);
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('hubungi-kami',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
     }
 
     public function error(){
