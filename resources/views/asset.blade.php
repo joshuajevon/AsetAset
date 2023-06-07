@@ -47,34 +47,23 @@
                                 <h2 class="text-lg font-bold">Wilayah</h2>
                                 <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
                                     <option value="" disabled selected>Pilih Provinsi</option>
-                                    <option value="DKI Jakarta"
-                                        {{ in_array('DKI Jakarta', $selectedProvinces) ? 'selected' : '' }}>DKI Jakarta
-                                    </option>
-                                    <option value="Jawa Tengah"
-                                        {{ in_array('Jawa Tengah', $selectedProvinces) ? 'selected' : '' }}>Jawa Tengah
-                                    </option>
-                                    <option value="Jawa Barat"
-                                        {{ in_array('Jawa Barat', $selectedProvinces) ? 'selected' : '' }}>Jawa Barat
-                                    </option>
-                                    <option value="Jawa Timur"
-                                        {{ in_array('Jawa Timur', $selectedProvinces) ? 'selected' : '' }}>Jawa Timur
-                                    </option>
+                                    @foreach ($provinces as $province)
+                                        <option value="{{ $province }}" {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
+                                            {{ $province }}
+                                        </option>
+                                    @endforeach
                                 </select>
+
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                     <option value="" disabled selected>Pilih Kota</option>
-                                    <option
-                                        value="Jakarta Barat"{{ in_array('Jakarta Barat', $selectedCities) ? 'selected' : '' }}>
-                                        Jakarta Barat</option>
-                                    <option value="Bandung"{{ in_array('Bandung', $selectedCities) ? 'selected' : '' }}>
-                                        Bandung
-                                    </option>
-                                    <option
-                                        value="Surakarta"{{ in_array('Surakarta', $selectedCities) ? 'selected' : '' }}>
-                                        Surakarta</option>
-                                    <option value="Surabaya"{{ in_array('Surabaya', $selectedCities) ? 'selected' : '' }}>
-                                        Surabaya</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city }}" {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
+                                            {{ $city }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
+
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Rentang Harga</h2>
