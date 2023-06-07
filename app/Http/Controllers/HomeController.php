@@ -12,15 +12,147 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    public function getAllProvinces(){
+        return [
+            'Aceh',
+            'Sumatera Utara',
+            'Sumatera Barat',
+            'Riau',
+            'Jambi',
+            'Sumatera Selatan',
+            'Bengkulu',
+            'Lampung',
+            'Kepulauan Bangka Belitung',
+            'Kepulauan Riau',
+            'DKI Jakarta',
+            'Jawa Barat',
+            'Jawa Tengah',
+            'DI Yogyakarta',
+            'Jawa Timur',
+            'Banten',
+            'Bali',
+            'Nusa Tenggara Barat',
+            'Nusa Tenggara Timur',
+            'Kalimantan Barat',
+            'Kalimantan Tengah',
+            'Kalimantan Selatan',
+            'Kalimantan Timur',
+            'Kalimantan Utara',
+            'Sulawesi Utara',
+            'Sulawesi Tengah',
+            'Sulawesi Selatan',
+            'Sulawesi Tenggara',
+            'Gorontalo',
+            'Sulawesi Barat',
+            'Maluku',
+            'Maluku Utara',
+            'Papua Barat',
+            'Papua'
+        ];
+    }
+
+    public function getAllCities(){
+        return [
+            'Ambon',
+            'Balikpapan',
+            'Banda Aceh',
+            'Bandar Lampung',
+            'Bandung',
+            'Banjar',
+            'Banjarmasin',
+            'Batam',
+            'Bekasi',
+            'Bengkulu',
+            'Bima',
+            'Binjai',
+            'Bitung',
+            'Blitar',
+            'Bogor',
+            'Cilegon',
+            'Cimahi',
+            'Cirebon',
+            'Denpasar',
+            'Depok',
+            'Dumai',
+            'Gorontalo',
+            'Jakarta',
+            'Jambi',
+            'Jayapura',
+            'Jember',
+            'Karawang',
+            'Kediri',
+            'Kendari',
+            'Kupang',
+            'Lhokseumawe',
+            'Lubuklinggau',
+            'Madiun',
+            'Magelang',
+            'Makassar',
+            'Malang',
+            'Manado',
+            'Mataram',
+            'Medan',
+            'Mojokerto',
+            'Padang',
+            'Padangsidempuan',
+            'Pagar Alam',
+            'Palangkaraya',
+            'Palembang',
+            'Palopo',
+            'Palu',
+            'Pangkalpinang',
+            'Parepare',
+            'Pariaman',
+            'Pasuruan',
+            'Payakumbuh',
+            'Pekalongan',
+            'Pekanbaru',
+            'Pematangsiantar',
+            'Pontianak',
+            'Prabumulih',
+            'Probolinggo',
+            'Ruteng',
+            'Salatiga',
+            'Samarinda',
+            'Sawahlunto',
+            'Semarang',
+            'Serang',
+            'Sibolga',
+            'Singkawang',
+            'Solok',
+            'Sorong',
+            'Subulussalam',
+            'Sukabumi',
+            'Sumedang',
+            'Surabaya',
+            'Surakarta',
+            'Tangerang',
+            'Tanjungbalai',
+            'Tanjungpinang',
+            'Tarakan',
+            'Tasikmalaya',
+            'Tegal',
+            'Ternate',
+            'Tidore Kepulauan',
+            'Tomohon',
+            'Tual',
+            'Yogyakarta',
+        ];
+    }
+
+    public function getAllCategories(){
+        return ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+    }
+
     public function home(Request $request){
 
         $carousels = Carousel::all();
 
-        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+        $categories = $this->getAllCategories();
 
-        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+        $cities = $this->getAllCities();
 
-        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+        $provinces = $this->getAllProvinces();
 
         $selectedCategories = $request->input('categories', []);
         $selectedProvinces = $request->input('provinces', []);
@@ -70,7 +202,7 @@ class HomeController extends Controller
 
         if($request->input('search')){
             $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
         $assets = $query->paginate(16);
@@ -79,7 +211,7 @@ class HomeController extends Controller
 
         $assets->appends(['filter' => $selectedFilter]);
 
-        return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels'));
+        return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels','provinces','cities'));
     }
 
     public function assetById($id){
@@ -88,11 +220,11 @@ class HomeController extends Controller
     }
 
     public function asset(Request $request){
-        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+        $categories = $this->getAllCategories();
 
-        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+        $cities = $this->getAllCities();
 
-        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+        $provinces = $this->getAllProvinces();
 
         $selectedCategories = $request->input('categories', []);
         $selectedProvinces = $request->input('provinces', []);
@@ -142,7 +274,7 @@ class HomeController extends Controller
 
         if($request->input('search')){
             $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
         $assets = $query->paginate(16);
@@ -151,17 +283,17 @@ class HomeController extends Controller
 
         $assets->appends(['filter' => $selectedFilter]);
 
-        return view('asset',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        return view('asset',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
     }
 
     public function tentangKami(Request $request){
         $carousels = Carousel::all();
 
-        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+        $categories = $this->getAllCategories();
 
-        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
+        $cities = $this->getAllCities();
 
-        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+        $provinces = $this->getAllProvinces();
 
         $selectedCategories = $request->input('categories', []);
         $selectedProvinces = $request->input('provinces', []);
@@ -211,7 +343,7 @@ class HomeController extends Controller
 
         if($request->input('search')){
             $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
         $assets = $query->paginate(16);
@@ -223,16 +355,12 @@ class HomeController extends Controller
         return view('tentang-kami',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels'));
     }
 
-    public function panduan(){
-        return view('panduan');
-    }
+    public function panduan(Request $request){
+        $categories = $this->getAllCategories();
 
-    public function hubungiKami(Request $request){
-        $categories = ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+        $cities = $this->getAllCities();
 
-        $cities = ['Jakarta Barat','Surakarta','Surabaya','Bandung'];
-
-        $provinces = ['DKI Jakarta', 'Jawa Tengah','Jawa Timur','Jawa Barat'];
+        $provinces = $this->getAllProvinces();
 
         $selectedCategories = $request->input('categories', []);
         $selectedProvinces = $request->input('provinces', []);
@@ -282,7 +410,74 @@ class HomeController extends Controller
 
         if($request->input('search')){
             $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+        }
+
+        $assets = $query->paginate(16);
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('panduan',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+    }
+
+    public function hubungiKami(Request $request){
+        $categories = $this->getAllCategories();
+
+        $cities = $this->getAllCities();
+
+        $provinces = $this->getAllProvinces();
+
+        $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        $result = $request->input('search');
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
         $assets = $query->paginate(16);
