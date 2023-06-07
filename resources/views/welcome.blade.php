@@ -182,12 +182,12 @@
                                             class="aspect-square object-cover" alt="asset">
 
                                         <div
-                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
+                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite transition">
                                             <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
                                             <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite transition">
                                                 @currency ($asset->price)
                                             </h3>
-                                            <div class="flex justify-center items-center gap-1">
+                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite transition">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                     <path
