@@ -1,50 +1,59 @@
-@extends('template.template')
+@extends('template.admin-template')
 
 @section('head')
     {{-- css --}}
 
     <!-- javascript -->
-
 @endsection
 
 @section('body')
-    <h1 class="text-3xl font-bold underline">
-        Edit seller
-    </h1>
+    <div class="flex">
+        <x-admin-navigation-bar page="manage-sellers" />
 
-    <div class="m-5">
-        <form action="{{route('update-seller', $seller->id)}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            @method('patch')
+        <div
+            class="flex flex-col justify-center items-start gap-8 sm:gap-12 lg:gap-16 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
 
-            <div>
-                <label for="" class="form-label">Seller Name</label>
-                <input type="text" class="form-control @error('seller_name') is-invalid @enderror" id="" name="seller_name" value="{{$seller->seller_name}}">
-            </div>
+            <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Edit Seller</h1>
 
-            @error('seller_name')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
 
-            <div>
-                <label for="" class="form-label">Seller Address</label>
-                <input type="text" class="form-control @error('seller_address') is-invalid @enderror" id="" name="seller_address" value="{{$seller->seller_address}}">
-            </div>
+                <div class="m-5">
+                    <form action="{{ route('update-seller', $seller->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('patch')
 
-            @error('seller_address')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+                        <div>
+                            <label for="" class="form-label">Seller Name</label>
+                            <input type="text" class="form-control @error('seller_name') is-invalid @enderror"
+                                id="" name="seller_name" value="{{ $seller->seller_name }}">
+                        </div>
 
-            <div>
-                <label for="" class="form-label">Seller Phone</label>
-                <input type="number" class="form-control @error('seller_phone') is-invalid @enderror" id="" name="seller_phone" value="{{$seller->seller_phone}}">
-            </div>
+                        @error('seller_name')
+                            <div class="alert alert-danger" role="alert">{{ $message }}</div>
+                        @enderror
 
-            @error('seller_phone')
-                <div class="alert alert-danger" role="alert">{{$message}}</div>
-            @enderror
+                        <div>
+                            <label for="" class="form-label">Seller Address</label>
+                            <input type="text" class="form-control @error('seller_address') is-invalid @enderror"
+                                id="" name="seller_address" value="{{ $seller->seller_address }}">
+                        </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                        @error('seller_address')
+                            <div class="alert alert-danger" role="alert">{{ $message }}</div>
+                        @enderror
+
+                        <div>
+                            <label for="" class="form-label">Seller Phone</label>
+                            <input type="number" class="form-control @error('seller_phone') is-invalid @enderror"
+                                id="" name="seller_phone" value="{{ $seller->seller_phone }}">
+                        </div>
+
+                        @error('seller_phone')
+                            <div class="alert alert-danger" role="alert">{{ $message }}</div>
+                        @enderror
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+        </div>
     </div>
 @endsection

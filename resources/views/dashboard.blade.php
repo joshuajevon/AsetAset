@@ -53,7 +53,7 @@
 
                 <nav aria-label="Main Nav" class="mt-6 flex flex-col items-center gap-2">
                     <a href="/"
-                        class="flex items-center gap-2 rounded-lg px-2 lg:px-4 py-2 text-cWhite hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] w-fit lg:w-full">
+                        class="flex items-center gap-2.5 rounded-lg px-2 lg:px-4 py-2 lg:py-3 text-cWhite hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] w-fit lg:w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -64,7 +64,7 @@
                     </a>
 
                     <a href="#"
-                        class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 lg:px-4 py-2 text-cGold w-fit lg:w-full">
+                        class="flex items-center gap-2.5 bg-gray-100 rounded-lg px-2 lg:px-4 py-2 lg:py-3 text-cGold w-fit lg:w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -78,7 +78,7 @@
                     <form class="w-fit lg:w-full" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
-                            class="text-red-700 bg-red-100 w-full flex items-center gap-2 rounded-lg px-2 lg:px-4 py-2 hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
+                            class="text-red-700 bg-red-100 w-full flex items-center gap-2.5 rounded-lg px-2 lg:px-4 py-2 lg:py-3 hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -94,7 +94,7 @@
 
         {{-- Profile --}}
         <div
-            class="flex flex-col justify-center items-start gap-8 sm:gap-12 lg:gap-16 w-full c-container py-4 sm:py-8 md:py-12 lg:py-16 xl:py-20 2xl:py-24 ml-[72px] lg:ml-[18rem] mt-16">
+            class="flex flex-col justify-center items-start gap-8 sm:gap-12 lg:gap-16 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Pengaturan Akun</h1>
 

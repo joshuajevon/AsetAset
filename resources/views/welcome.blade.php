@@ -70,7 +70,8 @@
                                 <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
                                     <option value="" disabled selected>Pilih Provinsi</option>
                                     @foreach ($provinces as $province)
-                                        <option value="{{ $province }}" {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
+                                        <option value="{{ $province }}"
+                                            {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
                                             {{ $province }}
                                         </option>
                                     @endforeach
@@ -79,7 +80,8 @@
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
                                     <option value="" disabled selected>Pilih Kota</option>
                                     @foreach ($cities as $city)
-                                        <option value="{{ $city }}" {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
+                                        <option value="{{ $city }}"
+                                            {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
                                             {{ $city }}
                                         </option>
                                     @endforeach
@@ -157,8 +159,8 @@
                             {{-- Mobile filter button --}}
                             <button class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit py-2 rounded-md"
                                 onclick="openFilter()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-filter" viewBox="0 0 16 16">
                                     <path
                                         d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                                 </svg>
@@ -183,12 +185,13 @@
                                             class="aspect-square object-cover" alt="asset">
 
                                         <div
-                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite transition">
+                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite">
                                             <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                            <h3 class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite transition">
+                                            <h3
+                                                class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
                                                 @currency ($asset->price)
                                             </h3>
-                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite transition">
+                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                     <path
