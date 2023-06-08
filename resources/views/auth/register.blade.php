@@ -79,12 +79,12 @@
                         </div>
                         <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
                             <div class="flex justify-center items-center gap-2">
-                                <input type="radio" id="laki-laki" name="gender" value="Laki-laki" @if (old('gender') == "Laki-laki") checked="checked" @endif>
+                                <input class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0" type="radio" id="laki-laki" name="gender" value="Laki-laki" @if (old('gender') == "Laki-laki") checked="checked" @endif>
                                 <label for="laki-laki">Laki-laki</label>
                             </div>
 
                             <div class="flex justify-center items-center gap-2">
-                                <input type="radio" id="laki-perempuan" name="gender" value="Perempuan" @if (old('gender') == "Perempuan") checked="checked" @endif>
+                                <input class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0" type="radio" id="perempuan" name="gender" value="Perempuan" @if (old('gender') == "Perempuan") checked="checked" @endif>
                                 <label for="perempuan">Perempuan</label>
                             </div>
                         </div>
