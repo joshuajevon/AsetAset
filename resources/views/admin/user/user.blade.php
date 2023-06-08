@@ -10,6 +10,11 @@
     <div class="flex">
         <x-admin-navigation-bar page="manage-users" />
 
+        {{-- Search Bar --}}
+    {{-- <section class="c-container flex justify-center items-center pt-32 pb-16">
+        <x-search-bar />
+    </section> --}}
+
         <div
             class="flex flex-col justify-center items-start gap-8 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
 

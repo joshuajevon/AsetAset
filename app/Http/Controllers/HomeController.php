@@ -453,8 +453,13 @@ class HomeController extends Controller
     }
 
     // user
-    public function user(){
-        $users = User::all();
+    public function user(Request $request){
+
+        if($request->input('search')){
+            $users = User::where('name','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $users = User::simplePaginate(10);
+        }
         return view('admin.user.user', compact('users'));
     }
 
@@ -477,7 +482,7 @@ class HomeController extends Controller
             'phone_number' => $request->phone_number,
             'gender' => $request->gender,
         ]);
-        return redirect(route('view-user'));
+        return redirect(route('user'));
     }
 
     public function delete($id){
