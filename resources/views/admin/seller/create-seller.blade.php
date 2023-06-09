@@ -23,9 +23,32 @@
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Add Seller</h1>
 
-            <form action="{{ route('store-seller') }}" method="POST">
+            <form
+                class="w-full bg-cWhite p-8 shadow-[0px_4.7451px_41.5196px_rgba(41,82,144,0.25)] flex flex-col justify-center items-start gap-6"
+                action="{{ route('store-seller') }}" method="POST">
                 @csrf
-                <div>
+                <div class="w-full">
+                    <x-input-label for="seller-name" :value="__('Nama')" />
+                    <x-text-input id="seller-name" class="mt-1 w-full" placeholder="Masukkan nama seller" name="seller_name"
+                        value="{{ old('seller_name') }}" />
+                    <x-input-error :messages="$errors->get('seller_name')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
+                    <x-input-label for="seller-address" :value="__('Alamat')" />
+                    <x-text-input id="seller-address" class="mt-1 w-full" placeholder="Masukkan alamat seller"
+                        name="seller_address" value="{{ old('seller_address') }}" />
+                    <x-input-error :messages="$errors->get('seller_address')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
+                    <x-input-label for="seller-phone" :value="__('Nomor Handphone')" />
+                    <x-text-input id="seller-phone" class="mt-1 w-full" placeholder="Masukkan nomor handphone seller"
+                        name="seller_phone" value="{{ old('seller_phone') }}" />
+                    <x-input-error :messages="$errors->get('seller_phone')" class="mt-2" />
+                </div>
+
+                {{-- <div>
                     <label for="" class="form-label">Seller Name</label>
                     <input type="text" class="form-control @error('seller_name') is-invalid @enderror" id=""
                         name="seller_name" value="{{ old('seller_name') }}">
@@ -53,9 +76,9 @@
 
                 @error('seller_phone')
                     <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                @enderror
+                @enderror --}}
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="gold-btn px-12">Submit</button>
             </form>
         </div>
     </div>
