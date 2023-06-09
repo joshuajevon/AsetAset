@@ -456,9 +456,9 @@ class HomeController extends Controller
     public function user(Request $request){
 
         if($request->input('search')){
-            $users = User::where('name','like','%' .request('search'). '%')->simplePaginate(10);
+            $users = User::where('name','like','%' .request('search'). '%')->paginate(10);
         }else{
-            $users = User::simplePaginate(10);
+            $users = User::paginate(10);
         }
         return view('admin.user.user', compact('users'));
     }
