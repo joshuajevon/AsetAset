@@ -60,10 +60,6 @@
                         </svg>
                     </a>
                 </div>
-            {{-- Top Pagination --}}
-            <div id="top-pagination" class="pagination">
-                {{ $users->onEachSide(0.5)->links() }}
-            </div>
 
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
@@ -100,5 +96,11 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- Top Pagination --}}
+        <div id="top-pagination" class="pagination">
+            {{ $users->onEachSide(0.5)->links() }}
+        </div>
+        
     </div>
 @endsection
