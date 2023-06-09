@@ -31,54 +31,24 @@
 
                 <div class="w-full">
                     <x-input-label for="seller-name" :value="__('Nama')" />
-                    <x-text-input id="seller-name" class="mt-1 w-full" placeholder="Masukkan nama seller" name="seller_name"
+                    <x-text-input type="text" id="seller-name" class="mt-1 w-full" placeholder="Masukkan nama seller" name="seller_name"
                         value="{{ $seller->seller_name }}" />
                     <x-input-error :messages="$errors->get('seller_name')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="seller-address" :value="__('Alamat')" />
-                    <x-text-input id="seller-address" class="mt-1 w-full" placeholder="Masukkan alamat seller"
+                    <x-text-input type="text" id="seller-address" class="mt-1 w-full" placeholder="Masukkan alamat seller"
                         name="seller_address" value="{{ $seller->seller_address }}" />
                     <x-input-error :messages="$errors->get('seller_address')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="seller-phone" :value="__('Nomor Handphone')" />
-                    <x-text-input id="seller-phone" class="mt-1 w-full" placeholder="Masukkan nomor handphone seller"
+                    <x-text-input type="text" id="seller-phone" class="mt-1 w-full" placeholder="Masukkan nomor handphone seller"
                         name="seller_phone" value="{{ $seller->seller_phone }}" />
                     <x-input-error :messages="$errors->get('seller_phone')" class="mt-2" />
                 </div>
-
-                {{-- <div>
-                    <label for="" class="form-label">Seller Name</label>
-                    <input type="text" class="form-control @error('seller_name') is-invalid @enderror" id=""
-                        name="seller_name" value="{{ $seller->seller_name }}">
-                </div>
-
-                @error('seller_name')
-                    <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                @enderror
-
-                <div>
-                    <label for="" class="form-label">Seller Address</label>
-                    <input type="text" class="form-control @error('seller_address') is-invalid @enderror" id=""
-                        name="seller_address" value="{{ $seller->seller_address }}">
-                </div>
-
-                @error('seller_address')
-                    <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                @enderror
-
-                <div>
-                    <label for="" class="form-label">Seller Phone</label>
-                    <input type="number" class="form-control @error('seller_phone') is-invalid @enderror" id=""
-                        name="seller_phone" value="{{ $seller->seller_phone }}">
-                </div>
-
-                @error('seller_phone')
-                    <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                @enderror --}}
 
                 <button type="submit" class="gold-btn px-12">Submit</button>
             </form>

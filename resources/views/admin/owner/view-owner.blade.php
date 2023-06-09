@@ -11,32 +11,53 @@
         <x-admin-navigation-bar page="manage-owners" />
 
         <div
-            class="flex flex-col justify-center items-start gap-8 sm:gap-12 lg:gap-16 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
+            class="flex flex-col justify-center items-start gap-8 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
+
+            <a href="{{ route('owner') }}" class="gold-btn flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                    class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+
+                Kembali</a>
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">View Owner</h1>
 
-            <table style="border:1px solid black">
-                <th>
-                <td>name</td>
-                <td>address</td>
-                <td>phone</td>
-                <td>action</td>
-                </th>
-                <tr>
+            <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
+                <thead class="text-left text-base">
+                    <tr>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Name
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Address
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Phone Number
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
 
-                    <td>{{ $owner->owner_name }}</td>
-                    <td>{{ $owner->owner_address }}</td>
-                    <td>{{ $owner->owner_phone }}</td>
-                    <td>
-                        <a href="{{ route('edit-owner', ['id' => $owner->id]) }}"><button type="submit"
-                                class="btn btn-success">Edit</button></a>
-                        <form action="{{ route('delete-owner', ['id' => $owner->id]) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                <tbody class="divide-y divide-cGold text-sm">
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-2">{{ $owner->owner_name }}</td>
+                        <td class="whitespace-nowrap px-4 py-2">{{ $owner->owner_address }}</td>
+                        <td class="whitespace-nowrap px-4 py-2">{{ $owner->owner_phone }}</td>
+                        <td class="whitespace-nowrap px-4 py-2">
+                            <a href="{{ route('edit-owner', ['id' => $owner->id]) }}"><button type="submit"
+                                    class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2">Edit</button></a>
+                            <form class="inline" action="{{ route('delete-owner', ['id' => $owner->id]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"
+                                    class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
