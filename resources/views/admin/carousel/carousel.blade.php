@@ -10,9 +10,10 @@
     <div class="flex">
         <x-admin-navigation-bar page="manage-slideshows" />
 
-        <div class="flex flex-col justify-center items-start gap-8 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
+        <div
+            class="flex flex-col justify-center items-start gap-8 w-full c-container py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14 ml-[72px] lg:ml-[18rem] mt-16">
 
-            <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Manage Sellers</h1>
+            <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Manage Slideshows</h1>
 
             {{-- Search Bar --}}
             <div class="self-center w-full">
@@ -31,6 +32,14 @@
                     </div>
                 </form>
             </div>
+
+            <a class="gold-btn flex justify-center items-center gap-2" href="{{ route('create-carousel') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                </svg>
+                Add</a>
 
             {{-- Sort and refresh --}}
             <div class="flex w-full gap-2">
@@ -62,42 +71,38 @@
                         </svg>
                     </a>
                 </div>
-
-                <a class="gold-btn flex justify-center items-center gap-2" href="{{ route('create-carousel') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
-                    </svg>
-                    Add</a>
             </div>
 
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
                     <tr>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">id</th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">title</th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">action</th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">Id</th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">Title</th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-cGold text-sm">
-                @foreach ($carousels as $carousel)
-                    <tr class="odd:bg-gray-100">
-                        <td class="whitespace-nowrap px-4 py-2">{{ $carousel->id }}</td>
-                        <td class="whitespace-nowrap px-4 py-2">{{ $carousel->title }}</td>
-                        <td class="whitespace-nowrap px-4 py-2">
-                            <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2" href="{{ route('view-carousel', ['id' => $carousel->id]) }}"><button type="submit"
-                                    class="btn btn-success">View</button></a>
-                            <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2" href="{{ route('edit-carousel', ['id' => $carousel->id]) }}"><button type="submit"
-                                    class="btn btn-success">Edit</button></a>
-                            <form class="inline" action="{{ route('delete-carousel', ['id' => $carousel->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($carousels as $carousel)
+                        <tr class="odd:bg-gray-100">
+                            <td class="whitespace-nowrap px-4 py-2">{{ $carousel->id }}</td>
+                            <td class="whitespace-nowrap px-4 py-2">{{ $carousel->title }}</td>
+                            <td class="whitespace-nowrap px-4 py-2">
+                                <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                    href="{{ route('view-carousel', ['id' => $carousel->id]) }}"><button type="submit"
+                                        class="btn btn-success">View</button></a>
+                                <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                    href="{{ route('edit-carousel', ['id' => $carousel->id]) }}"><button type="submit"
+                                        class="btn btn-success">Edit</button></a>
+                                <form class="inline" action="{{ route('delete-carousel', ['id' => $carousel->id]) }}"
+                                    method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit"
+                                        class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
