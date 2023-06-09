@@ -455,12 +455,36 @@ class HomeController extends Controller
     // user
     public function user(Request $request){
 
-        if($request->input('search')){
-            $users = User::where('name','like','%' .request('search'). '%')->paginate(10);
-        }else{
-            $users = User::paginate(10);
+        $query = User::query();
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'oldest':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'updated':
+                    $query->orderBy('updated_at', 'desc');
+                    break;
+            }
         }
-        return view('admin.user.user', compact('users'));
+
+        if($request->input('search')){
+            $users = User::where('name','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $users = $query->paginate(10);
+        }
+
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $users->appends(['filter' => $selectedFilter]);
+
+        return view('admin.user.user', compact('users','selectedFilter'));
     }
 
     public function view($id){

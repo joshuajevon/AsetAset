@@ -39,14 +39,16 @@
                 {{-- Sorting --}}
                 <div class="flex justify-start items-center gap-2">
                     <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
-                    <form action="{{ route('welcome') }}" method="GET">
+                    <form action="{{ route('user') }}" method="GET">
                         <select class="cursor-pointer rounded-md" name="filter" id="filter"
                             onchange="this.form.submit()">
                             <option value="" selected disabled>-- Pilih Filter --</option>
                             <option value="latest" {{ Request::query('filter') === 'latest' ? 'selected' : '' }}>
                                 Terbaru</option>
-                            <option value="latest" {{ Request::query('filter') === 'latest' ? 'selected' : '' }}>
+                            <option value="oldest" {{ Request::query('filter') === 'oldest' ? 'selected' : '' }}>
                                 Terlama</option>
+                            <option value="updated" {{ Request::query('filter') === 'updated' ? 'selected' : '' }}>
+                                Baru Update</option>
                         </select>
                     </form>
                 </div>
@@ -102,7 +104,7 @@
 
             {{-- Top Pagination --}}
             <div id="top-pagination" class="pagination">
-                {{ $users->onEachSide(0.5)->links() }}
+                {{ $users->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
             </div>
 
         </div>
