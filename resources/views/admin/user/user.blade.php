@@ -2,7 +2,7 @@
 
 @section('head')
     {{-- css --}}
-    <link rel="stylesheet" href="{{asset('css/pagination.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
 
     <!-- javascript -->
 @endsection
@@ -34,6 +34,7 @@
                 </form>
             </div>
 
+            {{-- Sort and refresh --}}
             <div class="flex w-full gap-2">
                 {{-- Sorting --}}
                 <div class="flex justify-start items-center gap-2">
@@ -52,7 +53,8 @@
 
                 {{-- refresh --}}
                 <div>
-                    <a href="{{ route('user') }}" class="flex justify-center items-center p-2 bg-cGold text-cWhite rounded-md transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
+                    <a href="{{ route('user') }}"
+                        class="flex justify-center items-center p-2 bg-cGold text-cWhite rounded-md transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -60,6 +62,7 @@
                         </svg>
                     </a>
                 </div>
+            </div>
 
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
@@ -94,13 +97,13 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
-        </div>
 
-        {{-- Top Pagination --}}
-        <div id="top-pagination" class="pagination">
-            {{ $users->onEachSide(0.5)->links() }}
+            </table>
+
+            {{-- Top Pagination --}}
+            <div id="top-pagination" class="pagination">
+                {{ $users->onEachSide(0.5)->links() }}
+            </div>
+
         </div>
-        
-    </div>
-@endsection
+    @endsection
