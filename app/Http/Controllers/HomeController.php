@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
 use App\Models\Asset;
+use App\Models\Owner;
+use App\Models\Seller;
 use App\Models\Carousel;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -421,7 +423,13 @@ class HomeController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.admin-dashboard');
+        $asset_count = Asset::count();
+        $user_count = User::count();
+        $owner_count = Owner::count();
+        $seller_count = Seller::count();
+        $carousel_count = Carousel::count();
+
+        return view('admin.admin-dashboard',compact('asset_count','user_count','owner_count','seller_count','carousel_count'));
     }
 
     public function contact(Request $request){

@@ -15,5 +15,20 @@
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Dashboard</h1>
         </div>
+        <h1>Total Users:</h1>
+        {{ $user_count }}
+
+        <h1>Total Asset:</h1>
+        {{ $owner_count }}
+
+        <h1>Total Seller:</h1>
+        {{ $seller_count }}
+
+        <h1>Total Asset:</h1>
+        {{ $asset_count }}
+
+        <h1>Total Slideshow:</h1>
+        {{ $carousel_count }}
+
     </div>
 @endsection

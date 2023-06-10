@@ -78,11 +78,50 @@
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->owner->owner_name }}</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->description }}</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->status }}</td>
-                        <td class="whitespace-nowrap px-4 py-2">{{ $asset->attachment }}</td>
                         <td class="whitespace-nowrap px-4 py-2">
-                            <img src="{{ asset('/storage/asset/image/' . $asset->image) }}"
-                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                            {{ $asset->attachment1 }}
+                            <br/>
+                            @if($asset->attachment2)
+                            {{ $asset->attachment2 }}
+                            @endif
+                            <br/>
+                            @if($asset->attachment3)
+                            {{ $asset->attachment3 }}
+                            @endif
+                            <br/>
+                            @if($asset->attachment4)
+                            {{ $asset->attachment4 }}
+                            @endif
+                            <br/>
+                            @if($asset->attachment5)
+                            {{ $asset->attachment5 }}
+                            @endif
                         </td>
+
+                        <td class="whitespace-nowrap px-4 py-2">
+                            <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
+                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                        @if($asset->image2)
+                                <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}"
+                                    class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+
+                        @endif
+                        @if($asset->image3)
+                            <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}"
+                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+
+                        @endif
+                        @if($asset->image4)
+                            <img src="{{ asset('/storage/asset/image4/' . $asset->image4) }}"
+                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+
+                        @endif
+                        @if($asset->image5)
+                            <img src="{{ asset('/storage/asset/image5/' . $asset->image5) }}"
+                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                        @endif
+                        </td>
+
                         <td class="whitespace-nowrap px-4 py-2">
                             <a href="{{ route('edit-asset', ['id' => $asset->id]) }}"><button type="submit"
                                     class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2">Edit</button></a>
