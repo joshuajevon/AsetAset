@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-input:-webkit-autofill,
-*:-webkit-autofill {
+input#searchbar:-webkit-autofill{
   -webkit-text-fill-color: white !important;
   caret-color: white !important;
   font-size: 16px;
