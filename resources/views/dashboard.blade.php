@@ -98,19 +98,16 @@
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Pengaturan Akun</h1>
 
-            @if(Auth::user()->gender == 'Laki-laki')
-                <h1>
-                    Bapak,
-                </h1>
-            @else
-                <h1>
-                    Ibu,
-                </h1>
-            @endif
-            <h1>
-                {{ Auth::user()->name }}
-            </h1>
-            
+            <div class="flex flex-col gap-4">
+                @if (Auth::user()->gender == 'Laki-laki')
+                    <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-cGold">Bapak,</h1>
+                @else
+                    <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-cGold">Ibu,</h1>
+                @endif
+
+                <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-cBlack">{{ Auth::user()->name }}</h1>
+            </div>
+
             <div class="flex flex-col gap-16 w-full">
                 <div class="p-4 sm:p-8 bg-cWhite sm:rounded-lg">
                     <div class="">
