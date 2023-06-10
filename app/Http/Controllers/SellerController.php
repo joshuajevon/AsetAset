@@ -8,9 +8,36 @@ use Illuminate\Http\Request;
 class SellerController extends Controller
 {
 
-    public function seller(){
-        $sellers = Seller::all();
-        return view('admin.seller.seller', compact('sellers'));
+    public function seller(Request $request){
+        $query = Seller::query();
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'oldest':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'updated':
+                    $query->orderBy('updated_at', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $sellers = Seller::where('seller_name','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $sellers = $query->paginate(10);
+        }
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $sellers->appends(['filter' => $selectedFilter]);
+
+        return view('admin.seller.seller', compact('sellers','selectedFilter'));
     }
 
     public function view($id){

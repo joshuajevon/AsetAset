@@ -102,7 +102,7 @@
 
             </table>
 
-            {{-- Top Pagination --}}
+            {{-- Bottom Pagination --}}
             <div id="top-pagination" class="pagination">
                 {{ $users->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
             </div>

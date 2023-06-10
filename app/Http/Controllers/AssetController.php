@@ -12,9 +12,37 @@ use Illuminate\Support\Str;
 class AssetController extends Controller
 {
 
-    public function asset(){
-        $assets = Asset::all();
-        return view('admin.asset.asset', compact('assets'));
+    public function asset(Request $request){
+
+        $query = Asset::query();
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'oldest':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'updated':
+                    $query->orderBy('updated_at', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $assets = $query->paginate(10);
+        }
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('admin.asset.asset', compact('assets','selectedFilter'));
     }
 
     public function view($id){

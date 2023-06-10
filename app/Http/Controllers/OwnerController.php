@@ -7,9 +7,36 @@ use Illuminate\Http\Request;
 
 class OwnerController extends Controller
 {
-    public function owner(){
-        $owners = Owner::all();
-        return view('admin.owner.owner', compact('owners'));
+    public function owner(Request $request){
+        $query = Owner::query();
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'oldest':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'updated':
+                    $query->orderBy('updated_at', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $owners = Owner::where('owner_name','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $owners = $query->paginate(10);
+        }
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $owners->appends(['filter' => $selectedFilter]);
+
+        return view('admin.owner.owner', compact('owners','selectedFilter'));
     }
 
     public function view($id){

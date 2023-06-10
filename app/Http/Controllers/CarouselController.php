@@ -8,9 +8,36 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
-    public function carousel(){
-        $carousels = Carousel::all();
-        return view('admin.carousel.carousel', compact('carousels'));
+    public function carousel(Request $request){
+        $query = Carousel::query();
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'oldest':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'updated':
+                    $query->orderBy('updated_at', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $carousels = Carousel::where('title','like','%' .request('search'). '%')->simplePaginate(10);
+        }else{
+            $carousels = $query->paginate(10);
+        }
+
+        session(['selected_filter' => $selectedFilter]);
+
+        $carousels->appends(['filter' => $selectedFilter]);
+
+        return view('admin.carousel.carousel', compact('carousels','selectedFilter'));
     }
 
     public function view($id){

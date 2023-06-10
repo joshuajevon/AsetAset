@@ -2,7 +2,7 @@
 
 @section('head')
     {{-- css --}}
-
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
     <!-- javascript -->
 @endsection
 
@@ -76,7 +76,6 @@
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
                     <tr>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">Id</th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium">Title</th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium">Action</th>
                     </tr>
@@ -84,7 +83,6 @@
                 <tbody class="divide-y divide-cGold text-sm">
                     @foreach ($carousels as $carousel)
                         <tr class="odd:bg-gray-100">
-                            <td class="whitespace-nowrap px-4 py-2">{{ $carousel->id }}</td>
                             <td class="whitespace-nowrap px-4 py-2">{{ $carousel->title }}</td>
                             <td class="whitespace-nowrap px-4 py-2">
                                 <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
@@ -105,6 +103,11 @@
                     @endforeach
                 </tbody>
             </table>
+            {{-- Bottom Pagination --}}
+            <div id="top-pagination" class="pagination">
+                {{ $carousels->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
+            </div>
         </div>
+
     </div>
 @endsection

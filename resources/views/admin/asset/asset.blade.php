@@ -2,7 +2,7 @@
 
 @section('head')
     {{-- css --}}
-
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
     <!-- javascript -->
 @endsection
 
@@ -46,7 +46,7 @@
                 {{-- Sorting --}}
                 <div class="flex justify-start items-center gap-2">
                     <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
-                    <form action="{{ route('assets') }}" method="GET">
+                    <form action="{{ route('asset') }}" method="GET">
                         <select class="cursor-pointer rounded-md" name="filter" id="filter"
                             onchange="this.form.submit()">
                             <option value="" selected disabled>-- Pilih Filter --</option>
@@ -62,7 +62,7 @@
 
                 {{-- refresh --}}
                 <div>
-                    <a href="{{ route('assets') }}"
+                    <a href="{{ route('asset') }}"
                         class="flex justify-center items-center p-2 bg-cGold text-cWhite rounded-md transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" class="w-6 h-6">
@@ -105,6 +105,11 @@
                     @endforeach
                 </tbody>
             </table>
+            {{-- Bottom Pagination --}}
+            <div id="top-pagination" class="pagination">
+                {{ $assets->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
+            </div>
         </div>
+
     </div>
 @endsection
