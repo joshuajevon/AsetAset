@@ -17,6 +17,8 @@
         <x-search-bar />
     </section>
 
+    <div id="google_element"></div>
+
     {{-- Carousel Top --}}
     <section class="bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
@@ -170,7 +172,8 @@
                             {{-- Mobile Filter Popup --}}
                             <div id="dialog-filter"
                                 class="flex flex-col fixed z-50 inset-0 h-screen w-screen justify-center items-center rounded-md bg-cBlack/50 c-container hidden">
-                                <div class="p-4 sm:p-6 md:p-8 bg-cLightGrey flex justify-between items-center gap-2 rounded-t-md w-full">
+                                <div
+                                    class="p-4 sm:p-6 md:p-8 bg-cLightGrey flex justify-between items-center gap-2 rounded-t-md w-full">
                                     <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="2" stroke="currentColor" class="w-7 h-7" onclick="closeFilter()">
@@ -291,4 +294,15 @@
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="{{ asset('js/beranda.js') }}?t={{ env('VERSION_TIME') }}"></script>
+
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                includedLanguages: 'en,id'
+                // layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, "google_element");
+        }
+    </script>
 @endsection
