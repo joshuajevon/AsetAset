@@ -50,7 +50,7 @@
                         </a>
                     </div>
 
-                    <img class="w-40 sm:w-44 lg:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Bantuan?</span>
                     </h1>
                     <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
@@ -73,7 +73,7 @@
 
             <div class="col-span-1 flex flex-col justify-center items-center gap-8">
                 <div class="flex flex-col justify-center items-center gap-4">
-                    <img class="w-40 sm:w-44 lg:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-center">Panduan Lengkap Penggunaan
                         asetaset.com
                         Memperoleh Aset yang Sesuai dengan Keinginan Anda</h1>

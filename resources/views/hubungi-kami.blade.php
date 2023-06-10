@@ -34,7 +34,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-24 xl:gap-28 2xl:gap-32">
             <div class="col-span-1 flex justify-center items-center">
                 <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8">
-                    <img class="w-40 sm:w-44 lg:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Informasi
                         Tentang Kami?</span>
                     </h1>
