@@ -72,7 +72,8 @@
                     onsubmit="submitLoginForm(event)">
                     @csrf
                     <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
-                        <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
+                        <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
+                        src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                         <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Jangan
                             Ragu Untuk Menghubungi Kami</span>
                         </h1>
