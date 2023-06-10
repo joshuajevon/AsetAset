@@ -1,7 +1,7 @@
 <section>
     <header>
         <h2 class="text-2xl font-semibold text-cBlack">
-            {{ __('Update Password') }}
+            {{ __('Perbarui Password') }}
         </h2>
 
         <p class="mt-1 text-sm sm:text-base text-gray-500">
