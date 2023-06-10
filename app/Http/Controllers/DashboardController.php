@@ -43,6 +43,9 @@ class DashboardController extends Controller
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
+        ],[
+            'password.required' => 'Password harus diisi',
+            'password.current_password' => 'Password anda salah'
         ]);
 
         $user = $request->user();
@@ -54,6 +57,6 @@ class DashboardController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+         return redirect('/');
     }
 }
