@@ -107,7 +107,7 @@
 
                         {{-- Top Pagination --}}
                         <div id="top-pagination" class="pagination">
-                            {{ $assets->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
+                            {{ $assets->onEachSide(0.5)->links() }}
                         </div>
 
                         {{-- Sort and Mobile Filter --}}
@@ -184,7 +184,7 @@
 
                     {{-- Bottom pagination --}}
                     <div id="bottom-pagination" class="pagination">
-                        {{ $assets->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
+                        {{ $assets->onEachSide(0.5)->links() }}
                     </div>
                 </div>
             </div>

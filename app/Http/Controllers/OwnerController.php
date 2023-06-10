@@ -35,8 +35,8 @@ class OwnerController extends Controller
         session(['selected_filter' => $selectedFilter]);
 
         $owners->appends(['filter' => $selectedFilter]);
-
-        return view('admin.owner.owner', compact('owners','selectedFilter'));
+        $result = $request->input('search');
+        return view('admin.owner.owner', compact('owners','selectedFilter','result'));
     }
 
     public function view($id){

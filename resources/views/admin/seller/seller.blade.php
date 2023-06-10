@@ -74,6 +74,18 @@
                 </div>
             </div>
 
+            @if ($sellers->count() == 0)
+            <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
+                <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia.
+                </h1>
+            </div>
+        @else
+            @if ($result)
+                <div class="p-4 sm:p-6 lg:p-8 bg-cDarkGrey rounded-lg">
+                    <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+                </div>
+            @endif
+
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
                     <tr>
@@ -109,9 +121,11 @@
                     @endforeach
                 </tbody>
             </table>
+
+            @endif
             {{-- Bottom Pagination --}}
             <div id="top-pagination" class="pagination">
-                {{ $sellers->appends(['filter' => $selectedFilter])->onEachSide(0.5)->links() }}
+                {{ $sellers->onEachSide(0.5)->links() }}
             </div>
         </div>
 

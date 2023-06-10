@@ -32,12 +32,12 @@ class SellerController extends Controller
         }else{
             $sellers = $query->paginate(10);
         }
-
+        $result = $request->input('search');
         session(['selected_filter' => $selectedFilter]);
 
         $sellers->appends(['filter' => $selectedFilter]);
 
-        return view('admin.seller.seller', compact('sellers','selectedFilter'));
+        return view('admin.seller.seller', compact('sellers','selectedFilter','result'));
     }
 
     public function view($id){

@@ -36,8 +36,8 @@ class CarouselController extends Controller
         session(['selected_filter' => $selectedFilter]);
 
         $carousels->appends(['filter' => $selectedFilter]);
-
-        return view('admin.carousel.carousel', compact('carousels','selectedFilter'));
+        $result = $request->input('search');
+        return view('admin.carousel.carousel', compact('carousels','selectedFilter','result'));
     }
 
     public function view($id){

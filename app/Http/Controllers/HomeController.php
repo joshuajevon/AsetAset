@@ -487,12 +487,13 @@ class HomeController extends Controller
             $users = $query->paginate(10);
         }
 
+        $result = $request->input('search');
 
         session(['selected_filter' => $selectedFilter]);
 
         $users->appends(['filter' => $selectedFilter]);
 
-        return view('admin.user.user', compact('users','selectedFilter'));
+        return view('admin.user.user', compact('users','selectedFilter','result'));
     }
 
     public function view($id){
