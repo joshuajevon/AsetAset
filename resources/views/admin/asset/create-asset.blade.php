@@ -40,43 +40,45 @@
                         id="asset-category" name="category" value="{{ old('category') }}"
                         aria-label="Default select example" name="category">
                         <option value="" selected disabled>-- Pilih Categori --</option>
-                        <option value="Rumah">Rumah</option>
-                        <option value="Gedung">Gedung</option>
-                        <option value="Gudang">Gudang</option>
-                        <option value="Apartemen">Apartemen</option>
-                        <option value="Tanah">Tanah</option>
-                        <option value="Barang">Barang</option>
-                        <option value="Kendaraan">Kendaraan</option>
-                        <option value="Alat berat">Alat berat</option>
-                        <option value="Lain-lain">Lain-lain</option>
+                        <option value="Rumah" @if(old('category') == "Rumah") selected @endif>Rumah</option>
+                        <option value="Gedung" @if(old('category') == "Gedung") selected @endif>Gedung</option>
+                        <option value="Gudang" @if(old('category') == "Gudang") selected @endif>Gudang</option>
+                        <option value="Apartemen" @if(old('category') == "Apartemen") selected @endif>Apartemen</option>
+                        <option value="Tanah" @if(old('category') == "Tanah") selected @endif>Tanah</option>
+                        <option value="Barang" @if(old('category') == "Barang") selected @endif>Barang</option>
+                        <option value="Kendaraan" @if(old('category') == "Kendaraan") selected @endif>Kendaraan</option>
+                        <option value="Alat berat" @if(old('category') == "Alat berat") selected @endif>Alat berat</option>
+                        <option value="Lain-lain" @if(old('category') == "Lain-lain") selected @endif>Lain-lain</option>
                     </select>
                     <x-input-error :messages="$errors->get('category')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Provinsi')" />
-                    <select  class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi">
+                    <select  class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi" value="{{ old('province') }}">
                         <option value="" disabled selected>--Pilih Provinsi--</option>
                         @foreach ($provinces as $province)
                             <option value="{{ $province }}"
-                                {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
+                                @if(old('provinces') == $province) selected @endif>
                                 {{ $province }}
                             </option>
                         @endforeach
                     </select>
+                    <x-input-error :messages="$errors->get('province')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Kota')" />
-                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota">
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota" value="{{ old('city') }}">
                         <option value="" disabled selected>--Pilih Kota--</option>
                         @foreach ($cities as $city)
                             <option value="{{ $city }}"
-                                {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
+                                @if(old('cities') == $city) selected @endif>
                                 {{ $city }}
                             </option>
                         @endforeach
                     </select>
+                    <x-input-error :messages="$errors->get('city')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -88,24 +90,24 @@
 
                 <div class="w-full">
                     <x-input-label for="asset-seller" :value="__('Penjual')" />
-                    <select id="asset-seller" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="seller_name">
+                    <select id="asset-seller" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="seller_name" value="{{ old('seller_id') }}">
                         <option value="" selected disabled>-- Pilih Penjual --</option>
                         @foreach ($sellers as $seller)
-                            <option value="{{ $seller->id }}">{{ $seller->seller_name }}</option>
+                            <option value="{{ $seller->id }}" @if(old('seller_name') == $seller->id) selected @endif>{{ $seller->seller_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('seller_name')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('seller_id')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-owner" :value="__('Pemilik')" />
-                    <select id="asset-owner" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="owner_name">
+                    <select id="asset-owner" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="owner_name" value="{{ old('owner_id') }}">
                         <option value="" selected disabled>-- Pilih Pemilik --</option>
                         @foreach ($owners as $owner)
-                            <option value="{{ $owner->id }}">{{ $owner->owner_name }}</option>
+                            <option value="{{ $owner->id }}" @if(old('owner_name') == $owner->id) selected @endif>{{ $owner->owner_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('owner_name')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('owner_id')" class="mt-2" />
                 </div>
 
                 <div class="w-full">

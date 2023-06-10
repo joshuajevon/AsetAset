@@ -33,7 +33,11 @@ class CarouselController extends Controller
             $carousels = $query->paginate(10);
         }
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $carousels->appends(['filter' => $selectedFilter]);
         $result = $request->input('search');
@@ -50,6 +54,12 @@ class CarouselController extends Controller
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'title' => 'required|string',
+            'slideshow' => 'required',
+        ]);
+
         $file_name =  $request->title.'-'.$request->file('slideshow')->getClientOriginalName();
         $request->file('slideshow')->storeAs('/public/asset/slideshow/', $file_name);
 

@@ -92,7 +92,11 @@ class AssetController extends Controller
             $assets = $query->paginate(10);
         }
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $assets->appends(['filter' => $selectedFilter]);
         $result = $request->input('search');
@@ -129,13 +133,19 @@ class AssetController extends Controller
 
     public function store(Request $request){
 
-        // $request->validate([
-        //     'Name' => 'required|string',
-        //     'PublicationDate' => 'required',
-        //     'Stock' => 'required|numeric|gt:5',
-        //     'Author' => 'required|string|min:5',
-        //     'BookImg' => 'required|mimes:png,jpg',
-        // ]);
+        $request->validate([
+            'name' => 'required|string',
+            'category' => 'required',
+            'provinces' => 'required',
+            'cities' => 'required',
+            'price' => 'required',
+            'seller_name' => 'required',
+            'owner_name' => 'required',
+            'description' => 'required|string',
+            'status' => 'required|string',
+            'image1' => 'required|',
+            'attachment1' => 'required|',
+        ]);
 
         $images = [];
         $attachments = [];
@@ -190,8 +200,8 @@ class AssetController extends Controller
     }
 
     public function update(Request $request, $id){
-        $asset = Asset::find($id);
 
+        $asset = Asset::find($id);
         $images = [];
         $attachments = [];
 

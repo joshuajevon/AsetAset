@@ -136,7 +136,11 @@ class HomeController extends Controller
 
         $assets = $query->paginate(16);
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $assets->appends(['filter' => $selectedFilter]);
 
@@ -208,7 +212,11 @@ class HomeController extends Controller
 
         $assets = $query->paginate(16);
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $assets->appends(['filter' => $selectedFilter]);
 
@@ -275,13 +283,7 @@ class HomeController extends Controller
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
-        $assets = $query->paginate(16);
-
-        session(['selected_filter' => $selectedFilter]);
-
-        $assets->appends(['filter' => $selectedFilter]);
-
-        return view('tentang-kami',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels'));
+        return view('tentang-kami',  compact('carousels'));
     }
 
     public function panduan(Request $request){
@@ -342,13 +344,7 @@ class HomeController extends Controller
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
-        $assets = $query->paginate(16);
-
-        session(['selected_filter' => $selectedFilter]);
-
-        $assets->appends(['filter' => $selectedFilter]);
-
-        return view('panduan',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        return view('panduan');
     }
 
     public function hubungiKami(Request $request){
@@ -409,13 +405,7 @@ class HomeController extends Controller
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
-        $assets = $query->paginate(16);
-
-        session(['selected_filter' => $selectedFilter]);
-
-        $assets->appends(['filter' => $selectedFilter]);
-
-        return view('hubungi-kami',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice'));
+        return view('hubungi-kami');
     }
 
     public function error(){
@@ -489,7 +479,11 @@ class HomeController extends Controller
 
         $result = $request->input('search');
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $users->appends(['filter' => $selectedFilter]);
 

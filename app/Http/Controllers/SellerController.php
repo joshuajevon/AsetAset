@@ -33,7 +33,12 @@ class SellerController extends Controller
             $sellers = $query->paginate(10);
         }
         $result = $request->input('search');
-        session(['selected_filter' => $selectedFilter]);
+        
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $sellers->appends(['filter' => $selectedFilter]);
 

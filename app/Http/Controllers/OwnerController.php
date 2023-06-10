@@ -32,7 +32,11 @@ class OwnerController extends Controller
             $owners = $query->paginate(10);
         }
 
-        session(['selected_filter' => $selectedFilter]);
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
 
         $owners->appends(['filter' => $selectedFilter]);
         $result = $request->input('search');
