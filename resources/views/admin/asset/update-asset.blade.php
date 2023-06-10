@@ -55,17 +55,29 @@
                 </div>
 
                 <div class="w-full">
-                    <x-input-label for="asset-city" :value="__('Kota')" />
-                    <x-text-input type="text" id="asset-city" class="mt-1 w-full" placeholder="Masukkan kota asset"
-                        name="city" value="{{ $asset->city }}" />
-                    <x-input-error :messages="$errors->get('city')" class="mt-2" />
+                    <x-input-label for="asset-category" :value="__('Provinsi')" />
+                    <select  class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi">
+                        <option value="" disabled selected>--Pilih Provinsi--</option>
+                        @foreach ($provinces as $province)
+                        <option value="{{ $province }}"
+                            {{ $asset->province == $province ? 'selected' : '' }}>
+                                {{ $province }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="w-full">
-                    <x-input-label for="asset-province" :value="__('Provinsi')" />
-                    <x-text-input type="text" id="asset-province" class="mt-1 w-full"
-                        placeholder="Masukkan provinsi asset" name="province" value="{{ $asset->province }}" />
-                    <x-input-error :messages="$errors->get('province')" class="mt-2" />
+                    <x-input-label for="asset-category" :value="__('Kota')" />
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota">
+                        <option value="" disabled selected>--Pilih Kota--</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city }}"
+                            {{ $asset->city == $city ? 'selected' : '' }}>
+                                {{ $city }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="w-full">

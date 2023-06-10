@@ -11,6 +11,60 @@ use Illuminate\Support\Str;
 
 class AssetController extends Controller
 {
+    public function getAllProvinces(){
+        return [
+            'Aceh',
+            'Sumatera Utara',
+            'Sumatera Barat',
+            'Riau',
+            'Jambi',
+            'Sumatera Selatan',
+            'Bengkulu',
+            'Lampung',
+            'Kepulauan Bangka Belitung',
+            'Kepulauan Riau',
+            'DKI Jakarta',
+            'Jawa Barat',
+            'Jawa Tengah',
+            'DI Yogyakarta',
+            'Jawa Timur',
+            'Banten',
+            'Bali',
+            'Nusa Tenggara Barat',
+            'Nusa Tenggara Timur',
+            'Kalimantan Barat',
+            'Kalimantan Tengah',
+            'Kalimantan Selatan',
+            'Kalimantan Timur',
+            'Kalimantan Utara',
+            'Sulawesi Utara',
+            'Sulawesi Tengah',
+            'Sulawesi Selatan',
+            'Sulawesi Tenggara',
+            'Gorontalo',
+            'Sulawesi Barat',
+            'Maluku',
+            'Maluku Utara',
+            'Papua Barat',
+            'Papua'
+        ];
+    }
+
+    public function getAllCities(){
+        return [
+            'Ambon', 'Balikpapan', 'Banda Aceh', 'Bandar Lampung', 'Bandung', 'Banjar', 'Banjarbaru', 'Banjarmasin',
+            'Batam', 'Batu', 'Bau-Bau', 'Bekasi', 'Bengkulu', 'Bima', 'Binjai', 'Bitung', 'Blitar', 'Bogor', 'Bontang',
+            'Bukittinggi', 'Cilegon', 'Cimahi', 'Cirebon', 'Denpasar', 'Depok', 'Dumai', 'Gorontalo', 'Jakarta', 'Jambi',
+            'Jayapura', 'Jember', 'Kediri', 'Kendari', 'Ketapang', 'Kupang', 'Langsa', 'Lhokseumawe', 'Lubuklinggau',
+            'Madiun', 'Magelang', 'Makassar', 'Malang', 'Manado', 'Mataram', 'Medan', 'Metro', 'Mojokerto', 'Padang',
+            'Padang Panjang', 'Padangsidempuan', 'Pagar Alam', 'Palangkaraya', 'Palembang', 'Palopo', 'Palu',
+            'Pangkalpinang', 'Parepare', 'Pariaman', 'Pasuruan', 'Payakumbuh', 'Pekalongan', 'Pekanbaru',
+            'Pematangsiantar', 'Pontianak', 'Prabumulih', 'Probolinggo', 'Ruteng', 'Salatiga', 'Samarinda', 'Sawahlunto',
+            'Semarang', 'Serang', 'Sibolga', 'Singkawang', 'Solok', 'Sorong', 'Subulussalam', 'Sukabumi', 'Sumedang',
+            'Surabaya', 'Surakarta', 'Tangerang', 'Tanjungbalai', 'Tanjungpinang', 'Tarakan', 'Tasikmalaya', 'Tegal',
+            'Ternate', 'Tidore Kepulauan', 'Tomohon', 'Tual', 'Yogyakarta'
+        ];
+    }
 
     public function asset(Request $request){
 
@@ -51,10 +105,26 @@ class AssetController extends Controller
     }
 
 
-    public function create(){
+    public function create(Request $request){
         $sellers = Seller::all();
         $owners = Owner::all();
-        return view('admin.asset.create-asset', compact('sellers','owners'));
+
+        $cities = $this->getAllCities();
+
+        $provinces = $this->getAllProvinces();
+
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        return view('admin.asset.create-asset', compact('sellers','owners','selectedProvinces','provinces','cities','selectedCities'));
     }
 
     public function store(Request $request){
@@ -92,8 +162,8 @@ class AssetController extends Controller
         $assetData = [
             'name' => $request->name,
             'category' => $request->category,
-            'province' => $request->province,
-            'city' => $request->city,
+            'province' => $request->provinces,
+            'city' => $request->cities,
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
@@ -107,11 +177,16 @@ class AssetController extends Controller
         return redirect(route('asset'));
     }
 
-    public function edit($id){
+    public function edit(Request $request, $id){
         $asset = Asset::findOrFail($id);
         $sellers = Seller::all();
         $owners = Owner::all();
-        return view('admin.asset.update-asset', compact('asset','sellers','owners'));
+
+        $cities = $this->getAllCities();
+
+        $provinces = $this->getAllProvinces();
+
+        return view('admin.asset.update-asset', compact('asset','sellers','owners','provinces','cities'));
     }
 
     public function update(Request $request, $id){
@@ -142,8 +217,8 @@ class AssetController extends Controller
         $assetData = [
             'name' => $request->name,
             'category' => $request->category,
-            'province' => $request->province,
-            'city' => $request->city,
+            'province' => $request->provinces,
+            'city' => $request->cities,
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
