@@ -247,6 +247,6 @@ class AssetController extends Controller
         $asset = Asset::findOrFail($id);
         $asset->delete();
         Storage::delete('public/image/structure'.$asset->image);
-        return redirect()->back();
+        return redirect(route('asset'));
     }
 }

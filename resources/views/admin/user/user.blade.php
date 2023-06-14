@@ -67,51 +67,51 @@
             </div>
 
             @if ($users->count() == 0)
-                        <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
-                            <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia.
-                            </h1>
-                        </div>
-                    @else
-                        @if ($result)
-                            <div class="p-4 sm:p-6 lg:p-8 bg-cDarkGrey rounded-lg">
-                                <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
-                            </div>
-                        @endif
+                <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
+                    <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia.
+                    </h1>
+                </div>
+            @else
+                @if ($result)
+                    <div class="p-4 sm:p-6 lg:p-8 bg-cDarkGrey rounded-lg">
+                        <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
+                    </div>
+                @endif
 
-            <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
-                <thead class="text-left text-base">
-                    <tr>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Name
-                        </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody class="divide-y divide-cGold text-sm">
-                    @foreach ($users as $user)
-                        <tr class="odd:bg-gray-100">
-                            <td class="whitespace-nowrap px-4 py-2">{{ $user->name }}</td>
-                            <td class="whitespace-nowrap px-4 py-2">
-                                <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
-                                    href="{{ route('view-user', ['id' => $user->id]) }}">View</a>
-                                <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
-                                    href="{{ route('edit-user', ['id' => $user->id]) }}"><button
-                                        type="submit">Edit</button></a>
-                                <form class="inline" action="{{ route('delete-user', ['id' => $user->id]) }}"
-                                    method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit"
-                                        class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
-                                </form>
-                            </td>
+                <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
+                    <thead class="text-left text-base">
+                        <tr>
+                            <th class="whitespace-nowrap px-4 py-2 font-medium">
+                                Name
+                            </th>
+                            <th class="whitespace-nowrap px-4 py-2 font-medium">
+                                Action
+                            </th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody class="divide-y divide-cGold text-sm">
+                        @foreach ($users as $user)
+                            <tr class="odd:bg-gray-100">
+                                <td class="whitespace-nowrap px-4 py-2">{{ $user->name }}</td>
+                                <td class="whitespace-nowrap px-4 py-2">
+                                    <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                        href="{{ route('view-user', ['id' => $user->id]) }}">View</a>
+                                    <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                        href="{{ route('edit-user', ['id' => $user->id]) }}"><button
+                                            type="submit">Edit</button></a>
+                                    <form class="inline" action="{{ route('delete-user', ['id' => $user->id]) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @endif
 
             {{-- Bottom Pagination --}}
@@ -120,4 +120,31 @@
             </div>
 
         </div>
-    @endsection
+
+        <x-modal name="confirm-user-deletion" id="confirm-delete-user" :show="$errors->userDeletion->isNotEmpty()" focusable>
+            <form method="post" action="{{ route('delete-user', ['id' => $user->id]) }}" class="p-4 sm:p-8">
+                @csrf
+                @method('delete')
+
+                <h2 class="text-2xl font-semibold text-cBlack">
+                    {{ __('Anda yakin ingin menghapus user ini?') }}
+                </h2>
+
+                <p class="mt-1 text-sm sm:text-base text-gray-500">
+                    {{ __('
+                    Setelah user ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                </p>
+
+                <div class="mt-6 flex justify-end">
+                    <x-secondary-button x-on:click="$dispatch('close')">
+                        {{ __('Batal') }}
+                    </x-secondary-button>
+
+                    <x-danger-button class="ml-3">
+                        {{ __('Hapus User') }}
+                    </x-danger-button>
+                </div>
+            </form>
+        </x-modal>
+    </div>
+@endsection

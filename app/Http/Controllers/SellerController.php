@@ -33,7 +33,7 @@ class SellerController extends Controller
             $sellers = $query->paginate(10);
         }
         $result = $request->input('search');
-        
+
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
         }else if ($selectedFilter) {
@@ -88,6 +88,6 @@ class SellerController extends Controller
     public function delete($id){
         $asset = Seller::findOrFail($id);
         $asset->delete();
-        return redirect()->back();
+        return redirect(route('seller'));
     }
 }

@@ -102,6 +102,6 @@ class CarouselController extends Controller
         $carousel = Carousel::findOrFail($id);
         $carousel->delete();
         Storage::delete('/public/asset/slideshow/'.$carousel->slideshow);
-        return redirect()->back();
+        return redirect(route('carousel'));
     }
 }

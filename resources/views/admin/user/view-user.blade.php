@@ -54,15 +54,43 @@
                         <td class="whitespace-nowrap px-4 py-2">{{ $user->gender }}</td>
                         <td class="whitespace-nowrap px-4 py-2">
                             <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2" href="{{ route('edit-user', ['id' => $user->id]) }}"><button type="submit">Edit</button></a>
+
                             <form class="inline" action="{{ route('delete-user', ['id' => $user->id]) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
+                                <button type="submit" class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]" x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">Delete</button>
                             </form>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <x-modal name="confirm-user-deletion" id="confirm-delete-user" :show="$errors->userDeletion->isNotEmpty()" focusable>
+            <form method="post" action="{{ route('delete-user', ['id' => $user->id]) }}" class="p-4 sm:p-8">
+                @csrf
+                @method('delete')
+
+                <h2 class="text-2xl font-semibold text-cBlack">
+                    {{ __('Anda yakin ingin menghapus user ini?') }}
+                </h2>
+
+                <p class="mt-1 text-sm sm:text-base text-gray-500">
+                    {{ __('
+                    Setelah user ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                </p>
+
+                <div class="mt-6 flex justify-end">
+                    <x-secondary-button x-on:click="$dispatch('close')">
+                        {{ __('Batal') }}
+                    </x-secondary-button>
+
+                    <x-danger-button class="ml-3">
+                        {{ __('Hapus User') }}
+                    </x-danger-button>
+                </div>
+            </form>
+        </x-modal>
     </div>
 @endsection

@@ -515,7 +515,7 @@ class HomeController extends Controller
     public function delete($id){
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->back();
+        return redirect(route('user'));
     }
 
 

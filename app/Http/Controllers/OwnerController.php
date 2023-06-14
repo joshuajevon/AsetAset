@@ -86,6 +86,6 @@ class OwnerController extends Controller
     public function delete($id){
         $asset = Owner::findOrFail($id);
         $asset->delete();
-        return redirect()->back();
+        return redirect(route('owner'));
     }
 }
