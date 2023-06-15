@@ -27,9 +27,18 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($carousels as $carousel)
-                            <li class="splide__slide" alt="">
-                                <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                    class="w-full h-full object-contain">
+                            <li class="splide__slide bg-cBlack" alt="">
+                                <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
+                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
+                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50">
+                                    <div
+                                        class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
+                                        <p
+                                            class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
+                                            {{ $carousel->title }}
+                                        </p>
+                                    </div>
+                                </a>
                             </li>
                         @endforeach
                     </ul>
@@ -162,8 +171,8 @@
                             <button type="button"
                                 class="xl:hidden gold-btn flex justify-center items-center gap-2 w-fit py-2 rounded-md"
                                 onclick="openFilter()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                    class="bi bi-filter" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
                                     <path
                                         d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                                 </svg>
