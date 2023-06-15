@@ -80,65 +80,86 @@
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->status }}</td>
                         <td class="whitespace-nowrap px-4 py-2">
                             {{ $asset->attachment1 }}
-                            <br/>
-                            @if($asset->attachment2)
-                            {{ $asset->attachment2 }}
+                            <br />
+                            @if ($asset->attachment2)
+                                {{ $asset->attachment2 }}
                             @endif
-                            <br/>
-                            @if($asset->attachment3)
-                            {{ $asset->attachment3 }}
+                            <br />
+                            @if ($asset->attachment3)
+                                {{ $asset->attachment3 }}
                             @endif
-                            <br/>
-                            @if($asset->attachment4)
-                            {{ $asset->attachment4 }}
+                            <br />
+                            @if ($asset->attachment4)
+                                {{ $asset->attachment4 }}
                             @endif
-                            <br/>
-                            @if($asset->attachment5)
-                            {{ $asset->attachment5 }}
+                            <br />
+                            @if ($asset->attachment5)
+                                {{ $asset->attachment5 }}
                             @endif
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-2">
                             <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                 class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-                        @if($asset->image2)
+                            @if ($asset->image2)
                                 <img src="{{ asset('/storage/asset/image2/' . $asset->image2) }}"
                                     class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-
-                        @endif
-                        @if($asset->image3)
-                            <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}"
-                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-
-                        @endif
-                        @if($asset->image4)
-                            <img src="{{ asset('/storage/asset/image4/' . $asset->image4) }}"
-                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-
-                        @endif
-                        @if($asset->image5)
-                            <img src="{{ asset('/storage/asset/image5/' . $asset->image5) }}"
-                                class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
-                        @endif
+                            @endif
+                            @if ($asset->image3)
+                                <img src="{{ asset('/storage/asset/image3/' . $asset->image3) }}"
+                                    class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                            @endif
+                            @if ($asset->image4)
+                                <img src="{{ asset('/storage/asset/image4/' . $asset->image4) }}"
+                                    class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                            @endif
+                            @if ($asset->image5)
+                                <img src="{{ asset('/storage/asset/image5/' . $asset->image5) }}"
+                                    class="object-fit-contain rounded card-img-top" style="width: 50px" alt="asset">
+                            @endif
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-2">
                             <a href="{{ route('edit-asset', ['id' => $asset->id]) }}"><button type="submit"
                                     class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2">Edit</button></a>
-                            <form class="inline" action="{{ route('delete-asset', ['id' => $asset->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit"
-                                    class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
-                            </form>
+                            <button onclick="deleteAsset({{ $asset->id }})"
+                                class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 </tbody>
-                <tr>
-
-
-                </tr>
             </table>
         </div>
+
+        {{-- Modal --}}
+        <div id="modal" class="flex items-center justify-center w-screen h-screen bg-[#67676780] z-10 fixed hidden">
+            <div class="flex flex-col items-center bg-cWhite rounded-xl px-8 py-16">
+                <div class="flex flex-col items-center justify-center">
+                    <img class="w-20 mb-4" src="{{ asset('assets/admin/trash.svg') }}" alt="">
+                    <h2 class="text-2xl font-semibold text-cBlack">
+                        {{ __('Anda yakin ingin menghapus asset ini?') }}
+                    </h2>
+                    <p class="mt-1 text-sm sm:text-base text-gray-500">
+                        {{ __('Setelah asset ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                    </p>
+                    <div class="mt-6 flex justify-end">
+                        <x-secondary-button onclick="closeModal()">
+                            {{ __('Batal') }}
+                        </x-secondary-button>
+
+                        <form action="" id="confirmDelete" method="POST">
+                            @csrf
+                            @method('delete')
+                            <x-danger-button class="ml-3">
+                                {{ __('Hapus Asset') }}
+                            </x-danger-button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="{{ asset('js/delete-modal.js') }}"></script>
 @endsection

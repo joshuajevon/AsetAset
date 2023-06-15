@@ -49,16 +49,45 @@
                         <td class="whitespace-nowrap px-4 py-2">
                             <a href="{{ route('edit-owner', ['id' => $owner->id]) }}"><button type="submit"
                                     class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2">Edit</button></a>
-                            <form class="inline" action="{{ route('delete-owner', ['id' => $owner->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit"
-                                    class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">Delete</button>
-                            </form>
+                            <button onclick="deleteOwner({{ $owner->id }})"
+                                class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        {{-- Modal --}}
+        <div id="modal" class="flex items-center justify-center w-screen h-screen bg-[#67676780] z-10 fixed hidden">
+            <div class="flex flex-col items-center bg-cWhite rounded-xl px-8 py-16">
+                <div class="flex flex-col items-center justify-center">
+                    <img class="w-20 mb-4" src="{{ asset('assets/admin/trash.svg') }}" alt="">
+                    <h2 class="text-2xl font-semibold text-cBlack">
+                        {{ __('Anda yakin ingin menghapus owner ini?') }}
+                    </h2>
+                    <p class="mt-1 text-sm sm:text-base text-gray-500">
+                        {{ __('
+                                                                                                Setelah owner ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                    </p>
+                    <div class="mt-6 flex justify-end">
+                        <x-secondary-button onclick="closeModal()">
+                            {{ __('Batal') }}
+                        </x-secondary-button>
+
+                        <form action="" id="confirmDelete" method="POST">
+                            @csrf
+                            @method('delete')
+                            <x-danger-button class="ml-3">
+                                {{ __('Hapus Owner') }}
+                            </x-danger-button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="{{ asset('js/delete-modal.js') }}"></script>
 @endsection
