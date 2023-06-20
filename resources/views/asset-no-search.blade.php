@@ -5,54 +5,23 @@
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
     {{-- css --}}
-    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}?t={{ env('VERSION_TIME') }}">
     <link rel="stylesheet" href="{{ asset('css/pagination.css') }}?t={{ env('VERSION_TIME') }}">
 @endsection
 
 @section('body')
-    <x-navigation-bar page="beranda" />
+    <x-navigation-bar page="aset" />
 
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
         <x-search-bar />
     </section>
 
-    <div id="google_element"></div>
-
-    {{-- Carousel Top --}}
-    <section class="bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
-        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
-            <div id="top-splide" class="splide" role="group">
-                {{-- <ul class="splide__pagination"></ul> --}}
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($carousels as $carousel)
-                            <li class="splide__slide bg-cBlack" alt="">
-                                <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50">
-                                    <div
-                                        class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
-                                        <p
-                                            class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
-                                            {{ $carousel->title }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     {{-- Asets --}}
-    <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+    <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <x-page-title title="Galeri Aset" />
+        <x-page-title title="Pencarian Aset" />
 
-        <form action="{{ route('welcome') }}" method="get">
+        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -70,8 +39,7 @@
                                             value="{{ $category }}"
                                             class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
                                             {{ in_array($category, $selectedCategories) ? 'checked' : '' }} />
-                                        <label class="cursor-pointer"
-                                            for="filter-{{ $category }}">{{ $category }}</label>
+                                        <label for="filter-{{ $category }}">{{ $category }}</label>
                                     </div>
                                 @endforeach
                             </div>
@@ -99,6 +67,7 @@
                                 </select>
                             </div>
 
+
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Rentang Harga</h2>
                                 <div class="flex items-center border rounded-md pl-4">
@@ -117,7 +86,7 @@
                         <div
                             class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-col justify-center items-center gap-4 rounded-b-lg">
                             <button class="gold-btn w-full" type="submit">Terapkan</button>
-                            <a href="/" class="white-btn w-full">Hapus
+                            <a href="/asset" class="white-btn w-full">Hapus
                                 Filter</a>
                         </div>
                     </div>
@@ -126,7 +95,7 @@
                 {{-- Aset galeri --}}
                 <div class="flex flex-col gap-8 col-span-3">
                     @if ($assets->count() == 0)
-                        <div class="p-8 text-red-700 bg-red-200 rounded-lg">
+                        <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
                             <h1>Aset tidak tersedia.
                             </h1>
                         </div>
@@ -154,7 +123,7 @@
                             </a>
                         </div>
                     @else
-
+                        
                         {{-- Top Pagination --}}
                         <div id="top-pagination" class="pagination">
                             {{ $assets->onEachSide(0.5)->links() }}
@@ -165,7 +134,7 @@
                             {{-- Sorting --}}
                             <div class="flex justify-start items-center gap-2">
                                 <label class="hidden sm:block text-lg font-bold" for="sortOption">Urutkan:</label>
-                                <form action="{{ route('welcome') }}" method="GET">
+                                <form action="{{ route('assets') }}" method="GET">
                                     <select class="cursor-pointer rounded-md" name="filter" id="filter"
                                         onchange="this.form.submit()">
                                         <option value="" selected disabled>-- Pilih Filter --</option>
@@ -275,35 +244,33 @@
                         </div>
 
                         {{-- Items --}}
-                        <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4"
-                            id="assetsContainer">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                             @foreach ($assets as $asset)
-                                <div id="asset-item">
-                                    <a href="{{ route('asset-by-id', $asset->id) }}"
-                                        class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
-                                        <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
-                                            class="aspect-square object-cover" alt="asset">
+                                <a href="{{ route('asset-by-id', $asset->id) }}"
+                                    class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
+                                    <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
+                                        class="aspect-square object-cover" alt="asset">
 
-                                        <div
-                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite">
-                                            <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                            <h3
-                                                class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
-                                                @currency ($asset->price)
-                                            </h3>
-                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                                    <path
-                                                        d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                                </svg>
-                                                <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
-                                            </div>
+                                    <div
+                                        class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
+                                        <p class="text-center text-xs sm:text-base group-hover:text-cWhite">
+                                            {{ $asset->name }}</p>
+                                        <h3
+                                            class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
+                                            @currency ($asset->price)
+                                        </h3>
+                                        <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                                <path
+                                                    d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                            </svg>
+                                            <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
                                         </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             @endforeach
                         </div>
                     @endif
@@ -318,8 +285,5 @@
     </section>
 
     {{-- Scripts --}}
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script src="{{ asset('js/beranda.js') }}?t={{ env('VERSION_TIME') }}"></script>
-
-
+    <script src="{{ asset('js/asset.js') }}?t={{ env('VERSION_TIME') }}"></script>
 @endsection

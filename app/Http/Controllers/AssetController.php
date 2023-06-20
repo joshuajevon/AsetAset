@@ -120,13 +120,13 @@ class AssetController extends Controller
         $selectedProvinces = $request->input('provinces', []);
         $selectedCities = $request->input('cities', []);
 
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
+        // if (!empty($selectedCities)) {
+        //     $query->whereIn('city', $selectedCities);
+        // }
 
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
+        // if (!empty($selectedProvinces)) {
+        //     $query->whereIn('province', $selectedProvinces);
+        // }
 
         return view('admin.asset.create-asset', compact('sellers','owners','selectedProvinces','provinces','cities','selectedCities'));
     }

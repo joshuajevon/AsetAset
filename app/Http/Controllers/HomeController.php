@@ -130,7 +130,7 @@ class HomeController extends Controller
         }
 
         if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
@@ -187,8 +187,6 @@ class HomeController extends Controller
             $query->where('price', '>=', $minPrice);
         }
 
-        $result = $request->input('search');
-
         $selectedFilter = $request->query('filter', session('selected_filter'));
 
         if ($selectedFilter) {
@@ -205,9 +203,17 @@ class HomeController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+        $result = $request->input('search');
+        $assets = Asset::where('name','like','%' .$result. '%')->paginate(16);
+
+        if($result && $assets->count() > 0){
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+
+        }elseif ($result && $assets->count() === 0) {
+            return view('asset-no-result',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+
+        }else {
+            return view('asset-no-search',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
         $assets = $query->paginate(16);
@@ -279,7 +285,7 @@ class HomeController extends Controller
         }
 
         if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
@@ -340,7 +346,7 @@ class HomeController extends Controller
         }
 
         if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
@@ -401,7 +407,7 @@ class HomeController extends Controller
         }
 
         if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(16);
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
             return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
@@ -472,7 +478,7 @@ class HomeController extends Controller
         }
 
         if($request->input('search')){
-            $users = User::where('name','like','%' .request('search'). '%')->simplePaginate(10);
+            $users = User::where('name','like','%' .request('search'). '%')->paginate(10);
         }else{
             $users = $query->paginate(10);
         }
