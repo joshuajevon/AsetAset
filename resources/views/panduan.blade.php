@@ -71,7 +71,7 @@
 
             </div>
 
-            <div class="col-span-1 flex flex-col justify-start items-start gap-8">
+            <div class="col-span-1 flex flex-col justify-start items-center gap-8">
                 <div class="flex flex-col justify-center items-center gap-4">
                     <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-center">Panduan Lengkap Penggunaan
