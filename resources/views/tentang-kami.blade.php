@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <section class="bg-cover bg-center bg-[url('/public/assets/tentang-kami/tentang-kami-bg-2.png')]">
+    <section class="bg-cover bg-center bg-[url('/assets/tentang-kami/tentang-kami-bg-2.png')]">
         <div
             class="c-container py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16  flex flex-col justify-center items-start h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2 sm:gap-4 lg:gap-6">
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"

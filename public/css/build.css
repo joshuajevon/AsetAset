@@ -1824,6 +1824,14 @@ input:-internal-autofill-selected {
   background-image: url('assets/tentang-kami/tentang-kami-bg-1.png');
 }
 
+.bg-\[url\(\'\/assets\/beranda\/carousel-bg\.png\'\)\] {
+  background-image: url('/assets/beranda/carousel-bg.png');
+}
+
+.bg-\[url\(\'assets\/hubungi-kami\/hubungi-kami-bg\.png\'\)\] {
+  background-image: url('assets/hubungi-kami/hubungi-kami-bg.png');
+}
+
 .bg-cover {
   background-size: cover;
 }

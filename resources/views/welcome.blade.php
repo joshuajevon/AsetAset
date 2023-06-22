@@ -20,7 +20,7 @@
     <div id="google_element"></div>
 
     {{-- Carousel Top --}}
-    <section class="bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/beranda/carousel-bg.png')]">
+    <section class="bg-cLightGrey bg-cover bg-center bg-[url('/assets/beranda/carousel-bg.png')]">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
             <div id="top-splide" class="splide" role="group">
                 {{-- <ul class="splide__pagination"></ul> --}}
