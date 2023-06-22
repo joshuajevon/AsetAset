@@ -17,7 +17,7 @@
     </section>
 
     <section
-        class="c-container bg-cover bg-center bg-[url('/assets/hubungi-kami/hubungi-kami-bg.png')] py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center">
+        class="c-container bg-cLightGrey bg-cover bg-center bg-[url('/assets/hubungi-kami/hubungi-kami-bg.png')] py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center">
         <div
             class="flex flex-col justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2">
             <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>

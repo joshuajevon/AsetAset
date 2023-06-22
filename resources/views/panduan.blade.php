@@ -16,7 +16,7 @@
         <x-search-bar />
     </section>
 
-    <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+    <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
         <x-page-title title="Hubungi Kami" />
 
