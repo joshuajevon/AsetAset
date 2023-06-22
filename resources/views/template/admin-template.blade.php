@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/build.css') }}?t={{ env('VERSION_TIME') }}">
 
     <!-- vite-->
-    @vite('resources/css/base.css')
+    @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
     {{-- Google Font --}}
