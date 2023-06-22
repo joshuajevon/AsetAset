@@ -1820,6 +1820,10 @@ input:-internal-autofill-selected {
   background-image: url('/assets/tentang-kami/tentang-kami-bg-2.png');
 }
 
+.bg-\[url\(\'assets\/tentang-kami\/tentang-kami-bg-1\.png\'\)\] {
+  background-image: url('assets/tentang-kami/tentang-kami-bg-1.png');
+}
+
 .bg-cover {
   background-size: cover;
 }
