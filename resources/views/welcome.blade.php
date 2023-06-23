@@ -28,7 +28,7 @@
                         @foreach ($carousels as $carousel)
                             <li class="splide__slide bg-cBlack" alt="">
                                 <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
+                                    <img src="{{ asset('/storage/asset/slideshow/' . $carousel->slideshow) }}"
                                         class="w-full h-full object-cover transition-opacity group-hover:opacity-50">
                                     <div
                                         class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
