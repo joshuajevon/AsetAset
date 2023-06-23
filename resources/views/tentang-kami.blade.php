@@ -17,7 +17,7 @@
     </section>
 
     <section
-        class="c-container bg-cLightGrey bg-cover bg-center bg-[url('/public/assets/tentang-kami/tentang-kami-bg-1.png')] py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center">
+        class="c-container bg-cLightGrey bg-cover bg-center py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center" style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-1.png') }}')">
         <div
             class="flex flex-col justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2">
             <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <section class="bg-cover bg-center bg-[url('/public/assets/tentang-kami/tentang-kami-bg-2.png')]">
+    <section class="bg-cover bg-center" style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-2.png') }}')">
         <div
             class="c-container py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16  flex flex-col justify-center items-start h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2 sm:gap-4 lg:gap-6">
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
@@ -75,6 +75,7 @@
     </section>
 
     {{-- Carousel --}}
+    @if ($carousels->count() != 0)
     <section class="my-8 lg:my-16 xl:my-32  bg-cLightGrey">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
             <div id="bottom-splide" class="splide" role="group">
@@ -102,6 +103,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
