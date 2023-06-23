@@ -17,10 +17,9 @@
         <x-search-bar />
     </section>
 
-    <div id="google_element"></div>
-
     {{-- Carousel Top --}}
-    <section class="bg-cLightGrey bg-cover bg-center bg-[url('/assets/beranda/carousel-bg.png')]">
+    @if ($carousels->count() > 0)
+    <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32" style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
             <div id="top-splide" class="splide" role="group">
                 {{-- <ul class="splide__pagination"></ul> --}}
@@ -46,9 +45,10 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- Asets --}}
-    <section class="c-container py-8 lg:py-16 xl:py-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+    <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
         <x-page-title title="Galeri Aset" />
 
