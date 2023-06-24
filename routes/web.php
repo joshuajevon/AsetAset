@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+
 Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
 Route::get('/asset',[HomeController::class, 'asset'])->name('assets');
