@@ -2061,6 +2061,14 @@ input:-internal-autofill-selected {
   line-height: 1rem;
 }
 
+.text-\[1\.7rem\] {
+  font-size: 1.7rem;
+}
+
+.text-\[1\.75rem\] {
+  font-size: 1.75rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2099,6 +2107,14 @@ input:-internal-autofill-selected {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-8 {
+  line-height: 2rem;
+}
+
+.leading-9 {
+  line-height: 2.25rem;
 }
 
 .tracking-wider {
