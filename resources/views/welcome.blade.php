@@ -17,10 +17,8 @@
         <x-search-bar />
     </section>
 
-    <div id="google_element"></div>
-
     {{-- Carousel Top --}}
-    @if ($carousels->count() != 0)
+    @if ($carousels->count() > 0)
     <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32" style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
         <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
             <div id="top-splide" class="splide" role="group">
@@ -28,10 +26,10 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($carousels as $carousel)
-                            <li class="splide__slide bg-cBlack" alt="">
+                            <li class="splide__slide bg-cBlack">
                                 <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50">
+                                    <img src="{{ Storage::url("asset/slideshow/" . $carousel->slideshow) }}"
+                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50" alt="{{ $carousel->title }}">
                                     <div
                                         class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
                                         <p

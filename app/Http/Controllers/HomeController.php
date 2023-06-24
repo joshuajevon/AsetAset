@@ -451,7 +451,7 @@ class HomeController extends Controller
         $subject = $request->input('subject');
         $mail = $request->input('mail');
 
-        Mail::to('tfvtfyfvjyf@gmail.com')->send(new ContactFormMail($name, $email, $subject, $mail));
+        Mail::to('info@asetaset.com')->send(new ContactFormMail($name, $email, $subject, $mail));
 
         return redirect()->back()->with('success', 'Email sudah terkirim, silakan menunggu balasan di email kalian');
     }

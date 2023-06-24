@@ -16,9 +16,9 @@ class AdminSeeder extends Seeder
         DB::table('users')->insert([
             'name'=>'admin',
             'nickname'=>'ad',
-            'email'=> 'admin@gmail.com',
+            'email'=> 'admin@asetaset.com',
             'email_verified_at' => '2023-06-04 07:30:35',
-            'password' =>bcrypt('admin1234'),
+            'password' =>bcrypt('@AdminAsetAset123'),
             'phone_number'=> 123456789,
             'gender'=> 'Laki-laki',
             'isAdmin'=> true,
