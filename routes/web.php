@@ -20,11 +20,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/linkstorage', function () {
-    Artisan::call('storage:link');
-});
-
 Route::get('/',[HomeController::class, 'home'])->name('welcome');
 
 Route::get('/asset',[HomeController::class, 'asset'])->name('assets');
