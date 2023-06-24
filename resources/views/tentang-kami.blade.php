@@ -56,7 +56,7 @@
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
                 alt="logo">
             <h1 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-cBlack">Butuh Bantuan?</h1>
-            {{-- <h2 class="text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2> --}}
+            <h2 class="hidden xl:block text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2>
             <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
                 href="/hubungi-kami">
                 <span class="absolute -end-full transition-all group-hover:end-4">
@@ -77,17 +77,16 @@
     {{-- Carousel --}}
     @if ($carousels->count() > 0)
     <section class="my-8 lg:my-16 xl:my-32  bg-cLightGrey">
-        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
+        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
             <div id="bottom-splide" class="splide" role="group">
-                {{-- <ul class="splide__pagination"></ul> --}}
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($carousels as $carousel)
-                            <li class="splide__slide bg-cBlack" alt="">
+                            <li class="splide__slide" alt="">
                                 <a href="{{ $carousel->link }}" target="_blank" class="group relative"
                                     rel="noopener noreferrer">
                                     <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50">
+                                        class="w-full h-full object-contain transition-opacity group-hover:opacity-80">
                                     <div
                                         class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
                                         <p

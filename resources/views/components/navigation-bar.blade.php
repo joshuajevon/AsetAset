@@ -8,31 +8,36 @@
             <div aria-label="Site Nav" class="hidden lg:block gap-6">
                 <ul class="flex justify-center items-center gap-6 w-full">
                     <li>
-                        <a class="nav-link @if ($page == 'beranda') underline @endif" href="/">
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'beranda') before:scale-x-100 @endif"
+                            href="/">
                             BERANDA
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'aset') underline @endif" href="/asset">
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'aset') before:scale-x-100 @endif"
+                            href="/asset">
                             ASET
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'tentang-kami') underline @endif" href="/tentang-kami">
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'tentang-kami') before:scale-x-100 @endif"
+                            href="/tentang-kami">
                             TENTANG KAMI
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'panduan') underline @endif" href="/panduan">
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'panduan') before:scale-x-100 @endif"
+                            href="/panduan">
                             PANDUAN
                         </a>
                     </li>
 
                     <li>
-                        <a class="nav-link @if ($page == 'hubungi-kami') underline @endif" href="/hubungi-kami">
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'hubungi-kami') before:scale-x-100 @endif"
+                            href="/hubungi-kami">
                             HUBUNGI KAMI
                         </a>
                     </li>
@@ -65,7 +70,7 @@
                             </svg>
 
                             <span class="py-2 truncate max-w-[100px] font-medium text-base">
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->nickname }}
                             </span>
 
 
@@ -136,32 +141,42 @@
 
     {{-- Mobile Links --}}
     <div id="mobile-nav-links" class="bg-cWhite hidden">
-        <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'beranda') underline @endif"
-            href="/">
-            BERANDA
+        <a href="/" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'beranda') before:scale-x-100 @endif">
+                BERANDA
+            </span>
         </a>
 
-        <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'aset') underline @endif"
-            href="/asset">
-            ASET
+        <a href="/asset" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'aset') before:scale-x-100 @endif">
+                ASET
+            </span>
         </a>
 
-        <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'tentang-kami') underline @endif"
-            href="/tentang-kami">
-            TENTANG KAMI
+        <a href="/tentang-kami" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'tentang-kami') before:scale-x-100 @endif">
+                TENTANG KAMI
+            </span>
         </a>
 
-        <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'panduan') underline @endif"
-            href="/panduan">
-            PANDUAN
+        <a href="/panduan" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'panduan') before:scale-x-100 @endif">
+                PANDUAN
+            </span>
         </a>
 
-        <a class="c-container py-3 block border-b-2 border-cGold nav-link @if ($page == 'hubungi-kami') underline @endif"
-            href="/hubungi-kami">
-            HUBUNGI KAMI
+        <a href="/hubungi-kami" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'hubungi-kami') before:scale-x-100 @endif">
+                HUBUNGI KAMI
+            </span>
         </a>
 
-        <div class="c-container py-3 flex border-b-2 border-cGold gap-2">
+        <div class="c-container py-3 flex border-b-[1px] border-cGold gap-2">
             <a class="gold-btn" href="/login">
                 Masuk
             </a>

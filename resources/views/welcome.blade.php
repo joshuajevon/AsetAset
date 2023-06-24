@@ -19,32 +19,35 @@
 
     {{-- Carousel Top --}}
     @if ($carousels->count() > 0)
-    <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32" style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
-        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
-            <div id="top-splide" class="splide" role="group">
-                {{-- <ul class="splide__pagination"></ul> --}}
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($carousels as $carousel)
-                            <li class="splide__slide bg-cBlack">
-                                <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50" alt="{{ $carousel->title }}">
-                                    <div
-                                        class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
-                                        <p
-                                            class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
-                                            {{ $carousel->title }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+        <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32"
+            style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
+            <div
+                class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
+                <div id="top-splide" class="splide" role="group">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($carousels as $carousel)
+                                <li class="splide__slide">
+                                    <a href="{{ $carousel->link }}" target="_blank" class="group relative"
+                                        rel="noopener noreferrer">
+                                        <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
+                                            class="w-full h-full object-contain transition-opacity group-hover:opacity-80"
+                                            alt="{{ $carousel->title }}">
+                                        <div
+                                            class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
+                                            <p
+                                                class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
+                                                {{ $carousel->title }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     {{-- Asets --}}
@@ -154,7 +157,6 @@
                             </a>
                         </div>
                     @else
-
                         {{-- Top Pagination --}}
                         <div id="top-pagination" class="pagination">
                             {{ $assets->onEachSide(0.5)->links() }}
