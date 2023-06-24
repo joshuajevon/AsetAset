@@ -1796,14 +1796,6 @@ input:-internal-autofill-selected {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/assets\/tentang-kami\/tentang-kami-bg-1\.png\'\)\] {
-  background-image: url('/assets/tentang-kami/tentang-kami-bg-1.png');
-}
-
-.bg-\[url\(\'\/assets\/tentang-kami\/tentang-kami-bg-2\.png\'\)\] {
-  background-image: url('/assets/tentang-kami/tentang-kami-bg-2.png');
-}
-
 .bg-\[url\(\'\/public\/assets\/beranda\/carousel-bg\.png\'\)\] {
   background-image: url('/public/assets/beranda/carousel-bg.png');
 }
@@ -1818,14 +1810,6 @@ input:-internal-autofill-selected {
 
 .bg-\[url\(\'\/public\/assets\/tentang-kami\/tentang-kami-bg-2\.png\'\)\] {
   background-image: url('/public/assets/tentang-kami/tentang-kami-bg-2.png');
-}
-
-.bg-\[url\(\'\/assets\/beranda\/carousel-bg\.png\'\)\] {
-  background-image: url('/assets/beranda/carousel-bg.png');
-}
-
-.bg-\[url\(\'\/assets\/hubungi-kami\/hubungi-kami-bg\.png\'\)\] {
-  background-image: url('/assets/hubungi-kami/hubungi-kami-bg.png');
 }
 
 .bg-cover {
@@ -3158,12 +3142,12 @@ input#searchbar:-webkit-autofill{
     margin-bottom: 4rem;
   }
 
-  .lg\:ml-\[18rem\] {
-    margin-left: 18rem;
-  }
-
   .lg\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .lg\:ml-\[18rem\] {
+    margin-left: 18rem;
   }
 
   .lg\:block {
