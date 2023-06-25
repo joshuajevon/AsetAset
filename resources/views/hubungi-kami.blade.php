@@ -89,7 +89,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="Nama Anda" id="nama-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="name" />
+                            class="mt-1 w-full" type="text" name="name" value="{{old('name')}}"/>
                         @error('name')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -102,7 +102,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="contoh@gmail.com" id="email-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="email" />
+                            class="mt-1 w-full" type="text" name="email" value="{{old('email')}}"/>
                         @error('email')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -115,7 +115,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="Judul Pesan Anda" id="subjek-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="subject" />
+                            class="mt-1 w-full" type="text" name="subject" value="{{old('subject')}}"/>
                         @error('subject')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -130,7 +130,7 @@
 
                         <textarea name="mail" placeholder="Isi Pesan Anda"
                             class="w-full mt-1 resize-none p-4 border border-cDarkGrey rounded-md text-sm sm:text-base bg-cWhite autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
-                            id="pesan-hubungi-kami" rows="8"></textarea>
+                            id="pesan-hubungi-kami" rows="8">{{old('mail')}}</textarea>
                         @error('mail')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
