@@ -921,6 +921,11 @@ input:-internal-autofill-selected {
   right: 0px;
 }
 
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
 .-end-full {
   inset-inline-end: -100%;
 }
@@ -943,6 +948,10 @@ input:-internal-autofill-selected {
 
 .right-0 {
   right: 0px;
+}
+
+.right-5 {
+  right: 1.25rem;
 }
 
 .top-0 {
@@ -990,6 +999,11 @@ input:-internal-autofill-selected {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .-ml-px {
@@ -1973,6 +1987,10 @@ input:-internal-autofill-selected {
   padding-left: 1rem;
 }
 
+.pr-14 {
+  padding-right: 3.5rem;
+}
+
 .pr-4 {
   padding-right: 1rem;
 }
@@ -2339,6 +2357,12 @@ input:-internal-autofill-selected {
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+input::-ms-reveal,
+input::-ms-clear
+{
+  display: none !important;
 }
 
 input#searchbar:-webkit-autofill{
