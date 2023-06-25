@@ -21,8 +21,7 @@
     @if ($carousels->count() > 0)
         <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32"
             style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
-            <div
-                class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
+            <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
                 <div id="top-splide" class="splide" role="group">
                     <div class="splide__track">
                         <ul class="splide__list">
@@ -283,17 +282,24 @@
                                 <div id="asset-item">
                                     <a href="{{ route('asset-by-id', $asset->id) }}"
                                         class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
+
                                         <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                             class="aspect-square object-cover" alt="asset">
 
                                         <div
-                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite">
-                                            <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                            <h3
-                                                class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
-                                                @currency ($asset->price)
-                                            </h3>
-                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
+                                            class="flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite w-full">
+                                            <div class="flex justify-center items-center w-full">
+                                                <p class="text-center text-xs sm:text-base whitespace-nowrap truncate">{{ $asset->name }}</p>
+                                            </div>
+
+                                            <div class="flex justify-center items-center w-full">
+                                                <h3
+                                                    class="text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite whitespace-nowrap truncate">
+                                                    @currency ($asset->price)
+                                                </h3>
+                                            </div>
+
+                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                     <path
@@ -301,7 +307,7 @@
                                                     <path
                                                         d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                                 </svg>
-                                                <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
+                                                <p class="text-center text-xs sm:text-sm whitespace-nowrap truncate">{{ $asset->province }}</p>
                                             </div>
                                         </div>
                                     </a>

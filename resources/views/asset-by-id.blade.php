@@ -21,6 +21,7 @@
         <x-page-title title="Detail Aset" />
 
         <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
+            {{-- Carousel --}}
             <div class="col-span-1">
                 <div id="main-carousel" class="splide">
                     <div class="splide__track">
@@ -82,12 +83,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-span-1 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
-                <h1 class="font-bold text-4xl">{{ $asset->name }}</h1>
+                <h1 class="font-bold text-3xl md:text-4xl break-all">{{ $asset->name }}</h1>
 
                 <div class="w-full flex flex-col">
-                    <h2 class="font-bold text-xl">Nilai:</h2>
-                    <p class="text-4xl md:text-5xl font-bold text-cGold">@currency ($asset->price)</p>
+                    <h2 class="font-bold text-lg md:text-xl">Nilai:</h2>
+                    <p class="text-4xl md:text-5xl font-bold text-cGold break-all">Rp. 500.000.000.000.000.000.000</p>
                 </div>
 
                 <div class="w-full">
@@ -212,8 +214,9 @@
                             kami</a>
                     @endguest
                     @auth
-                        <a href="https://wa.me/6287876731950?text=Mau%20beli%20batagor%20donk" target="_blank" rel="noopener noreferrer"
-                            class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
+                        <a href="https://wa.me/6287876731950?text=Mau%20beli%20batagor%20donk" target="_blank"
+                            rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera
+                            hubungi kami</a>
                     @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>
