@@ -26,7 +26,7 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
+                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}" alt="">
                             </li>
                             @if ($asset->image2)
                                 <li class="splide__slide">
@@ -56,7 +56,7 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"" alt="">
+                                <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}" alt="">
                             </li>
                             @if ($asset->image2)
                                 <li class="splide__slide">
@@ -159,46 +159,46 @@
                                 </a>
 
                                 @if ($asset->attachment2)
-                                <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
-                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 2
-                                </a>
+                                    <a class="flex items-center gap-1 w-fit"
+                                        href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                            class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                        </svg> Lampiran 2
+                                    </a>
                                 @endif
 
                                 @if ($asset->attachment3)
                                     <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment3/' . $asset->attachment3) }}" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
-                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 3
+                                        href="{{ asset('/storage/asset/attachment3/' . $asset->attachment3) }}" download>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="#C5AF66" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                        </svg> Lampiran 3
                                     </a>
                                 @endif
 
                                 @if ($asset->attachment4)
                                     <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment4/' . $asset->attachment4) }}" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
-                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 4
+                                        href="{{ asset('/storage/asset/attachment4/' . $asset->attachment4) }}" download>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="#C5AF66" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                        </svg> Lampiran 4
                                     </a>
                                 @endif
 
                                 @if ($asset->attachment5)
                                     <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment5/' . $asset->attachment5) }}" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
-                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 5
+                                        href="{{ asset('/storage/asset/attachment5/' . $asset->attachment5) }}" download>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="#C5AF66" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                        </svg> Lampiran 5
                                     </a>
                                 @endif
                             </td>
@@ -212,7 +212,8 @@
                             kami</a>
                     @endguest
                     @auth
-                        <a href="https://wa.me/0818995628" target="_blank" rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
+                        <a href="https://wa.me/6287876731950?text=Mau%20beli%20batagor%20donk" target="_blank" rel="noopener noreferrer"
+                            class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
                     @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>
