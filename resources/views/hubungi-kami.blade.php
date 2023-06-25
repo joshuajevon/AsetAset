@@ -45,7 +45,7 @@
                     <h2 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-cBlack">Kontak Bisnis</h2>
 
                     <div class="flex flex-col gap-4 sm:gap-5 lg:gap-6">
-                        <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                        <a class="flex items-center gap-3 transition hover:text-cGold" href="mailto:info@asetaset.com">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-envelope" viewBox="0 0 16 16">
                                 <path
@@ -53,7 +53,7 @@
                             </svg>
                             info@asetaset.com
                         </a>
-                        <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                        <a href="https://wa.me/0818995628" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path

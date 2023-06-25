@@ -212,8 +212,7 @@
                             kami</a>
                     @endguest
                     @auth
-                        <button class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</button>
-                        --wa--
+                        <a href="https://wa.me/0818995628" target="_blank" rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera hubungi kami</a>
                     @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
                 </div>

@@ -24,7 +24,7 @@
             <div class="col-span-1 flex justify-center items-center">
                 <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8">
                     <div class="flex flex-col gap-4 sm:gap-5 lg:gap-6 mb-8">
-                        <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                        <a class="flex items-center gap-3 transition hover:text-cGold" href="mailto:info@asetaset.com">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-envelope" viewBox="0 0 16 16">
                                 <path
@@ -32,15 +32,15 @@
                             </svg>
                             info@asetaset.com
                         </a>
-                        <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                        <a href="https://wa.me/0818995628" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-telephone-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                             </svg>
-                            (021) 778112
+                            0818995628
                         </a>
-                        <a class="flex items-center gap-3 transition hover:text-cGold" href="#">
+                        <a href="https://wa.me/0818995628" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
