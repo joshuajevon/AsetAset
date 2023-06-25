@@ -35,12 +35,12 @@
     <div class="flex">
         <nav class="fixed flex flex-col lg:w-72 shrink-0 min-h-screen bg-cGold">
             <div class="flex items-center justify-center lg:justify-start gap-3 bg-white p-2 lg:p-4">
-                <img alt="Man"
+                {{-- <img alt="Man"
                     src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    class="h-12 w-12 rounded-full object-cover" />
+                    class="h-12 w-12 rounded-full object-cover" /> --}}
                 <div class="hidden lg:flex flex-col">
-                    <p class="text-base font-bold truncate max-w-[200px]">{{ Auth::user()->name }}</p>
-                    <span class="block text-sm truncate max-w-[200px]">{{ Auth::user()->email }}</span>
+                    <p class="text-base font-bold truncate max-w-[250px]">{{ Auth::user()->name }}</p>
+                    <span class="block text-sm truncate max-w-[250px]">{{ Auth::user()->email }}</span>
                 </div>
             </div>
 
