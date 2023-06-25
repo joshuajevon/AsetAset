@@ -54,7 +54,7 @@
         {{-- Title --}}
         <x-page-title title="Galeri Aset" />
 
-        <form action="{{ route('welcome') }}" method="get">
+        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
