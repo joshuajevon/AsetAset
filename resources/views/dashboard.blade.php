@@ -129,6 +129,9 @@
             </div>
         </div>
     </div>
+
+    {{-- Scripts --}}
+    <script src="{{ asset('js/user-dashboard.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 
 </html>

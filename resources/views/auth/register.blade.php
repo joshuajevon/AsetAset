@@ -67,10 +67,11 @@
                             <x-input-label for="password-register" :value="__('Password')" />
                             <span class="text-red-500">*</span>
                         </div>
-                        <x-text-input autocomplete="false"
+                        <x-password-input autocomplete="false"
                             placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
                             id="password-register" class="mt-1 w-full" type="password" name="password"
-                            value="{{ old('password') }}" />
+                            value="{{ old('password') }}" onclick="togglePassword()" id_eye="eye-1"
+                            id_eye_slash="eye-slash-1" />
                         @error('password')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -141,10 +142,11 @@
                             <x-input-label for="ulangi-password-register" :value="__('Ulangi Password')" />
                             <span class="text-red-500">*</span>
                         </div>
-                        <x-text-input autocomplete="false"
+                        <x-password-input autocomplete="false"
                             placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
                             id="ulangi-password-register" class="mt-1 w-full" type="password"
-                            name="password_confirmation" value="{{ old('password_confirmation') }}" />
+                            name="password_confirmation" value="{{ old('password_confirmation') }}"
+                            onclick="toggleConfirmPassword()" id_eye="eye-2" id_eye_slash="eye-slash-2" />
                         @error('password_confirmation')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -181,4 +183,7 @@
         </form>
         </div>
     </section>
+
+    {{-- Scripts --}}
+    <script src="{{ asset('js/register.js') }}?t={{ env('VERSION_TIME') }}"></script>
 @endsection

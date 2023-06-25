@@ -15,22 +15,25 @@
 
         <div>
             <x-input-label for="current_password" :value="__('Password Lama')" />
-            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full"
-                placeholder="Masukkan password Anda" />
+            <x-password-input autocomplete="false" id="current_password" name="current_password" type="password"
+                class="mt-1 block w-full" placeholder="Masukkan password Anda" onclick="toggleOldPassword()"
+                id_eye="eye-1" id_eye_slash="eye-slash-1" />
             <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         </div>
 
         <div>
             <x-input-label for="password" :value="__('Password Baru')" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full"
-                placeholder="Masukkan password baru Anda" />
+            <x-password-input id="password" name="password" type="password" class="mt-1 block w-full"
+                placeholder="Masukkan password baru Anda" onclick="toggleNewPassword()" id_eye="eye-2"
+                id_eye_slash="eye-slash-2" />
             <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 
         <div>
             <x-input-label for="password_confirmation" :value="__('Ulangi Password Baru')" />
-            <x-text-input id="password_confirmation" name="password_confirmation" type="password"
-                class="mt-1 block w-full" placeholder="Masukkan password baru Anda lagi" />
+            <x-password-input id="password_confirmation" name="password_confirmation" type="password"
+                class="mt-1 block w-full" placeholder="Masukkan password baru Anda lagi"
+                onclick="toggleConfirmNewPassword()" id_eye="eye-3" id_eye_slash="eye-slash-3" />
             <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </div>
 
