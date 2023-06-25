@@ -206,13 +206,10 @@ class HomeController extends Controller
         $result = $request->input('search');
         $assets = Asset::where('name','like','%' .$result. '%')->paginate(16);
 
-        if($result && $assets->count() > 0){
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-
-        }elseif ($result && $assets->count() === 0) {
+        if ($result && $assets->count() === 0) {
             return view('asset-no-result',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
 
-        }else {
+        }else if($assets->count() == 0) {
             return view('asset-no-search',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
