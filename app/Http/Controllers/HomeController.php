@@ -147,9 +147,150 @@ class HomeController extends Controller
         return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels','provinces','cities'));
     }
 
-    public function assetById($id){
+    public function assetById($id, Request $request){
         $asset = Asset::findOrFail($id);
+
+        $categories = $this->getAllCategories();
+
+        $cities = $this->getAllCities();
+
+        $provinces = $this->getAllProvinces();
+
+        $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        $result = $request->input('search');
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+        }
+
+        $assets = $query->paginate(16);
+
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
+
+        $assets->appends(['filter' => $selectedFilter]);
+
         return view('asset-by-id', compact('asset'));
+    }
+
+    public function asetById($id, Request $request){
+        $asset = Asset::findOrFail($id);
+
+        $categories = $this->getAllCategories();
+
+        $cities = $this->getAllCities();
+
+        $provinces = $this->getAllProvinces();
+
+        $selectedCategories = $request->input('categories', []);
+        $selectedProvinces = $request->input('provinces', []);
+        $selectedCities = $request->input('cities', []);
+        $maxPrice = $request->input('max-price',null);
+        $minPrice = $request->input('min-price',null);
+
+        $query = Asset::query();
+
+        if (!empty($selectedCategories)) {
+            $query->whereIn('category', $selectedCategories);
+        }
+
+        if (!empty($selectedCities)) {
+            $query->whereIn('city', $selectedCities);
+        }
+
+        if (!empty($selectedProvinces)) {
+            $query->whereIn('province', $selectedProvinces);
+        }
+
+        if (!empty($maxPrice)) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if (!empty($minPrice)) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        $result = $request->input('search');
+
+        $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if ($selectedFilter) {
+            switch ($selectedFilter) {
+                case 'latest':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
+        }
+
+        if($request->input('search')){
+            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
+            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+        }
+
+        $assets = $query->paginate(16);
+
+        if (!$request->has('filter')) {
+            session()->remove('selected_filter');
+        }else if ($selectedFilter) {
+            session(['selected_filter' => $selectedFilter]);
+        }
+
+        $assets->appends(['filter' => $selectedFilter]);
+
+        return view('aset-by-id', compact('asset'));
     }
 
     public function asset(Request $request){
@@ -206,13 +347,10 @@ class HomeController extends Controller
         $result = $request->input('search');
         $assets = Asset::where('name','like','%' .$result. '%')->paginate(16);
 
-        if($result && $assets->count() > 0){
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-
-        }elseif ($result && $assets->count() === 0) {
+        if ($result && $assets->count() === 0) {
             return view('asset-no-result',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
 
-        }else {
+        }else if($assets->count() == 0) {
             return view('asset-no-search',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
@@ -453,7 +591,7 @@ class HomeController extends Controller
 
         Mail::to('info@asetaset.com')->send(new ContactFormMail($name, $email, $subject, $mail));
 
-        return redirect()->back()->with('success', 'Email sudah terkirim, silakan menunggu balasan di email kalian');
+        return redirect()->back()->with('success', 'Terima kasih telah menghubungi kami. Tim kami akan segera menghubungi anda');
     }
 
     // user

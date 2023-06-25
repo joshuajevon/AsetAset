@@ -21,7 +21,9 @@
             onsubmit="submitLoginForm(event)">
             @csrf
             <div class="w-full border-b-2 border-b-cGold px-4 pb-5">
-                <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center pb-2 font-medium">Bergabunglah dengan
+                <h1
+                    class="text-[1.75rem] leading-9 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center pb-2 font-medium">
+                    Bergabunglah dengan
                     <span class="text-cGold">asetaset.com</span>
                 </h1>
             </div>
@@ -37,8 +39,9 @@
             <!-- Password -->
             <div class="w-full px-4">
                 <x-input-label for="password-login" :value="__('Password')" />
-                <x-text-input id="password-login" class="mt-1 w-full" placeholder="Masukkan password" type="password"
-                    name="password" />
+                <x-password-input autocomplete="false" id="password-login" class="mt-1 w-full"
+                    placeholder="Masukkan password" name="password" onclick="togglePassword()" id_eye="eye"
+                    id_eye_slash="eye-slash" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
@@ -68,4 +71,7 @@
             </div>
         </form>
     </section>
+
+    {{-- Scripts --}}
+    <script src="{{ asset('js/login.js') }}?t={{ env('VERSION_TIME') }}"></script>
 @endsection

@@ -15,13 +15,13 @@
 
             <h1 class="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-cGold">Manage Owners</h1>
 
-            <a class="gold-btn flex justify-center items-center gap-2" href="{{ route('create-owner') }}">
+            <a class="gold-btn flex justify-center items-center gap-1 pr-8" href="{{ route('create-owner') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
-                Add</a>
+                Add
+            </a>
 
             {{-- Search Bar --}}
             <div class="self-center w-full">
@@ -73,18 +73,6 @@
                 </div>
             </div>
 
-            @if ($owners->count() == 0)
-                <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
-                    <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia.
-                    </h1>
-                </div>
-            @else
-                @if ($result)
-                    <div class="p-4 sm:p-6 lg:p-8 bg-cDarkGrey rounded-lg">
-                        <h1>Hasil pencarian aset dengan kata kunci "{{ $result }}"</h1>
-                    </div>
-                @endif
-
                 <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                     <thead class="text-left text-base">
                         <tr>
@@ -115,7 +103,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            @endif
+            
             {{-- Bottom Pagination --}}
             <div id="top-pagination" class="pagination">
                 {{ $owners->onEachSide(0.5)->links() }}
@@ -133,7 +121,7 @@
                     </h2>
                     <p class="mt-1 text-sm sm:text-base text-gray-500">
                         {{ __('
-                                                Setelah owner ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                                                                                                Setelah owner ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
                     </p>
                     <div class="mt-6 flex justify-end">
                         <x-secondary-button onclick="closeModal()">

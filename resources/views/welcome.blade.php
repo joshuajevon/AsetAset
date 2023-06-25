@@ -19,32 +19,34 @@
 
     {{-- Carousel Top --}}
     @if ($carousels->count() > 0)
-    <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32" style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
-        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-12 sm:px-16 md:px-20 lg:px-24 xl:px-28 2xl:px-32">
-            <div id="top-splide" class="splide" role="group">
-                {{-- <ul class="splide__pagination"></ul> --}}
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($carousels as $carousel)
-                            <li class="splide__slide bg-cBlack">
-                                <a href="{{ $carousel->link }}" target="_blank" class="group relative" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-cover transition-opacity group-hover:opacity-50" alt="{{ $carousel->title }}">
-                                    <div
-                                        class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
-                                        <p
-                                            class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
-                                            {{ $carousel->title }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+        <section class="bg-cLightGrey bg-cover bg-center mb-8 lg:mb-16 xl:mb-32"
+            style="background-image: url('{{ asset('assets/beranda/carousel-bg.png') }}')">
+            <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
+                <div id="top-splide" class="splide" role="group">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($carousels as $carousel)
+                                <li class="splide__slide">
+                                    <a href="{{ $carousel->link }}" target="_blank" class="group relative"
+                                        rel="noopener noreferrer">
+                                        <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
+                                            class="w-full h-full object-contain transition-opacity group-hover:opacity-80"
+                                            alt="{{ $carousel->title }}">
+                                        <div
+                                            class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
+                                            <p
+                                                class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
+                                                {{ $carousel->title }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     {{-- Asets --}}
@@ -52,7 +54,7 @@
         {{-- Title --}}
         <x-page-title title="Galeri Aset" />
 
-        <form action="{{ route('welcome') }}" method="get">
+        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -154,7 +156,6 @@
                             </a>
                         </div>
                     @else
-
                         {{-- Top Pagination --}}
                         <div id="top-pagination" class="pagination">
                             {{ $assets->onEachSide(0.5)->links() }}
@@ -281,17 +282,26 @@
                                 <div id="asset-item">
                                     <a href="{{ route('asset-by-id', $asset->id) }}"
                                         class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
+
                                         <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                             class="aspect-square object-cover" alt="asset">
 
                                         <div
-                                            class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite">
-                                            <p class="text-center text-xs sm:text-base">{{ $asset->name }}</p>
-                                            <h3
-                                                class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
-                                                @currency ($asset->price)
-                                            </h3>
-                                            <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
+                                            class="flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite w-full">
+                                            <div class="flex justify-center items-center w-full">
+                                                <p class="text-center text-xs sm:text-base whitespace-nowrap truncate">
+                                                    {{ $asset->name }}</p>
+                                            </div>
+
+                                            <div class="flex justify-center items-center w-full">
+                                                <h3
+                                                    class="text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite whitespace-nowrap truncate">
+                                                    @currency ($asset->price)
+                                                </h3>
+                                            </div>
+
+                                            <div
+                                                class="flex justify-center items-center gap-1 group-hover:text-cWhite w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                     <path
@@ -299,7 +309,8 @@
                                                     <path
                                                         d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                                 </svg>
-                                                <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
+                                                <p class="text-center text-xs sm:text-sm whitespace-nowrap truncate">
+                                                    {{ $asset->province }}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -320,6 +331,4 @@
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="{{ asset('js/beranda.js') }}?t={{ env('VERSION_TIME') }}"></script>
-
-
 @endsection

@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\Owner::factory(15)->create();
-        // \App\Models\Seller::factory(15)->create();
-        // \App\Models\User::factory(15)->create();
-        // \App\Models\Asset::factory(200)->create();
+        \App\Models\Owner::factory(15)->create();
+        \App\Models\Seller::factory(15)->create();
+        \App\Models\User::factory(15)->create();
+        \App\Models\Asset::factory(20)->create();
         // \App\Models\Carousel::factory(25)->create();
 
         $this->call([
             AdminSeeder::class,
-            // UserSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

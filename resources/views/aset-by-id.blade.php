@@ -9,7 +9,7 @@
 @endsection
 
 @section('body')
-    <x-navigation-bar page="beranda" />
+    <x-navigation-bar page="aset" />
 
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">

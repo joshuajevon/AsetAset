@@ -32,6 +32,8 @@ Route::get('/hubungi-kami',[HomeController::class, 'hubungiKami'])->name('hubung
 
 Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
 
+Route::get('/aset/{id}',[HomeController::class, 'asetById'])->name('asetId');
+
 Route::post('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/asset-error', [HomeController::class, 'error'])->name('error');

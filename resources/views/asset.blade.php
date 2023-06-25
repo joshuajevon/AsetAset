@@ -252,7 +252,7 @@
                         {{-- Items --}}
                         <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                             @foreach ($assets as $asset)
-                                <a href="{{ route('asset-by-id', $asset->id) }}"
+                                <a href="/aset/{{$asset->id}}"
                                     class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
                                     <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                         class="aspect-square object-cover" alt="asset">
