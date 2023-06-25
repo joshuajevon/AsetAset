@@ -450,7 +450,7 @@ class HomeController extends Controller
 
         Mail::to('info@asetaset.com')->send(new ContactFormMail($name, $email, $subject, $mail));
 
-        return redirect()->back()->with('success', 'Email sudah terkirim, silakan menunggu balasan di email kalian');
+        return redirect()->back()->with('success', 'Terima kasih telah menghubungi kami. Tim kami akan segera menghubungi anda');
     }
 
     // user
