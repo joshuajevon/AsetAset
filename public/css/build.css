@@ -962,6 +962,18 @@ input:-internal-autofill-selected {
   top: 0.125rem;
 }
 
+.top-4 {
+  top: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1195,6 +1207,14 @@ input:-internal-autofill-selected {
   height: 100vh;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
 .max-h-\[70\%\] {
   max-height: 70%;
 }
@@ -1266,6 +1286,10 @@ input:-internal-autofill-selected {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .max-w-6xl {
@@ -1856,6 +1880,10 @@ input:-internal-autofill-selected {
   padding: 2rem;
 }
 
+.p-16 {
+  padding: 4rem;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -1949,6 +1977,21 @@ input:-internal-autofill-selected {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.py-32 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .pb-1 {
@@ -3142,8 +3185,24 @@ input#searchbar:-webkit-autofill{
     height: 300px;
   }
 
+  .md\:h-32 {
+    height: 8rem;
+  }
+
+  .md\:h-12 {
+    height: 3rem;
+  }
+
   .md\:w-36 {
     width: 9rem;
+  }
+
+  .md\:w-32 {
+    width: 8rem;
+  }
+
+  .md\:w-12 {
+    width: 3rem;
   }
 
   .md\:gap-10 {
@@ -3199,6 +3258,11 @@ input#searchbar:-webkit-autofill{
     padding-bottom: 2rem;
   }
 
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .md\:pt-36 {
     padding-top: 9rem;
   }
@@ -3221,6 +3285,11 @@ input#searchbar:-webkit-autofill{
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -3379,6 +3448,11 @@ input#searchbar:-webkit-autofill{
     padding-bottom: 0.75rem;
   }
 
+  .lg\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
   .lg\:pb-16 {
     padding-bottom: 4rem;
   }
@@ -3524,6 +3598,11 @@ input#searchbar:-webkit-autofill{
     padding-bottom: 8rem;
   }
 
+  .xl\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
   .xl\:pb-32 {
     padding-bottom: 8rem;
   }
@@ -3606,6 +3685,11 @@ input#searchbar:-webkit-autofill{
   .\32xl\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .\32xl\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 
   .\32xl\:pt-48 {

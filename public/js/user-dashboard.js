@@ -42,3 +42,11 @@ function toggleConfirmNewPassword() {
         eye.classList.remove("hidden");
     }
 }
+
+function closeProfileModal() {
+    $("#profile-modal").fadeOut(200);
+}
+
+function closePasswordModal() {
+    $("#password-modal").fadeOut(200);
+}

@@ -41,8 +41,30 @@
             <x-primary-button>{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
-                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-green-600 font-bold">{{ __('Sukses.') }}</p>
+                <div id="password-modal"
+                    class="fixed h-screen w-screen bg-[#67676780] flex justify-center items-center top-0 left-0 z-50 c-container">
+                    <div
+                        class="flex flex-col items-center bg-cWhite rounded-xl px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 relative">
+                        <div class="flex flex-col items-center justify-center gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                                stroke="currentColor" class="w-24 h-24 md:w-32 md:h-32 text-cGold">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+
+                            <h2 class="text-xl md:text-2xl text-cBlack text-center">
+                                Simpan Perubahan Berhasil
+                            </h2>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor"
+                                class="w-8 h-8 md:w-12 md:h-12 absolute top-5 right-5 cursor-pointer text-cGold"
+                                onclick="closePasswordModal()">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     </form>
