@@ -1292,10 +1292,6 @@ input:-internal-autofill-selected {
   max-width: 100px;
 }
 
-.max-w-\[200px\] {
-  max-width: 200px;
-}
-
 .max-w-\[250px\] {
   max-width: 250px;
 }

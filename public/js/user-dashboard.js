@@ -4,12 +4,12 @@ function toggleOldPassword() {
     eyeSlash = document.querySelector("#eye-slash-1");
     if (inputCurrentPassword.type === "password") {
         inputCurrentPassword.type = "text";
-        eye.classList.add("hidden");
-        eyeSlash.classList.remove("hidden");
-    } else {
-        inputCurrentPassword.type = "password";
         eyeSlash.classList.add("hidden");
         eye.classList.remove("hidden");
+    } else {
+        inputCurrentPassword.type = "password";
+        eye.classList.add("hidden");
+        eyeSlash.classList.remove("hidden");
     }
 }
 
@@ -19,12 +19,12 @@ function toggleNewPassword() {
     eyeSlash = document.querySelector("#eye-slash-2");
     if (inputNewPassword.type === "password") {
         inputNewPassword.type = "text";
-        eye.classList.add("hidden");
-        eyeSlash.classList.remove("hidden");
-    } else {
-        inputNewPassword.type = "password";
         eyeSlash.classList.add("hidden");
         eye.classList.remove("hidden");
+    } else {
+        inputNewPassword.type = "password";
+        eye.classList.add("hidden");
+        eyeSlash.classList.remove("hidden");
     }
 }
 
@@ -34,12 +34,12 @@ function toggleConfirmNewPassword() {
     eyeSlash = document.querySelector("#eye-slash-3");
     if (inputNewPassword.type === "password") {
         inputNewPassword.type = "text";
-        eye.classList.add("hidden");
-        eyeSlash.classList.remove("hidden");
-    } else {
-        inputNewPassword.type = "password";
         eyeSlash.classList.add("hidden");
         eye.classList.remove("hidden");
+    } else {
+        inputNewPassword.type = "password";
+        eye.classList.add("hidden");
+        eyeSlash.classList.remove("hidden");
     }
 }
 
