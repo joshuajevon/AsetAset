@@ -261,14 +261,20 @@
                                         class="aspect-square object-cover" alt="asset">
 
                                     <div
-                                        class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
-                                        <p class="text-center text-xs sm:text-base group-hover:text-cWhite">
-                                            {{ $asset->name }}</p>
-                                        <h3
-                                            class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
-                                            @currency ($asset->price)
-                                        </h3>
-                                        <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
+                                        class="flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite w-full">
+                                        <div class="flex justify-center items-center w-full">
+                                            <p class="text-center text-xs sm:text-base whitespace-nowrap truncate">
+                                                {{ $asset->name }}</p>
+                                        </div>
+
+                                        <div class="flex justify-center items-center w-full">
+                                            <h3
+                                                class="text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite whitespace-nowrap truncate">
+                                                @currency ($asset->price)
+                                            </h3>
+                                        </div>
+
+                                        <div class="flex justify-center items-center gap-1 group-hover:text-cWhite w-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                 <path
@@ -276,7 +282,8 @@
                                                 <path
                                                     d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                             </svg>
-                                            <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
+                                            <p class="text-center text-xs sm:text-sm whitespace-nowrap truncate">
+                                                {{ $asset->province }}</p>
                                         </div>
                                     </div>
                                 </a>
