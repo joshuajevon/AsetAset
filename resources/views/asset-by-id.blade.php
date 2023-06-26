@@ -150,7 +150,11 @@
                         <tr class="table-row">
                             <th>Lampiran</th>
                             <td class="flex flex-col gap-1.5">
+                                @if(empty($asset->attachment1) && empty($asset->attachment2) && empty($asset->attachment3) && empty($asset->attachment4) && empty($asset->attachment5))
+                                    Tidak ada lampiran
+                                @endif
 
+                                @if ($asset->attachment1)
                                 <a class="flex items-center gap-1 w-fit"
                                     href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
@@ -159,7 +163,7 @@
                                             d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
                                     </svg> Lampiran 1
                                 </a>
-
+                                @endif
                                 @if ($asset->attachment2)
                                     <a class="flex items-center gap-1 w-fit"
                                         href="{{ asset('/storage/asset/attachment2/' . $asset->attachment2) }}" download>

@@ -144,7 +144,7 @@ class AssetController extends Controller
             'description' => 'required|string',
             'status' => 'required|string',
             'image1' => 'required|',
-            'attachment1' => 'required|',
+            'total_images' => 'required'
         ]);
 
         $images = [];

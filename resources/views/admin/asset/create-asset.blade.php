@@ -64,7 +64,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('province')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('provinces')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -78,7 +78,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('city')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('cities')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -96,7 +96,7 @@
                             <option value="{{ $seller->id }}" @if(old('seller_name') == $seller->id) selected @endif>{{ $seller->seller_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('seller_id')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('seller_name')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -107,7 +107,7 @@
                             <option value="{{ $owner->id }}" @if(old('owner_name') == $owner->id) selected @endif>{{ $owner->owner_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('owner_id')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('owner_name')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="w-full">
-                    <x-input-label for="total_attachments" :value="__('Jumlah Lampiran')" />
+                    <x-input-label for="total_attachments" :value="__('Jumlah Lampiran (Optional)')" />
                     <x-text-input type="number" id="total_attachments" class="mt-1 w-full"
                         placeholder="Masukkan jumlah lampiran asset" name="total_attachments"
                         value="{{ old('total_attachments') }}" max="5" />
@@ -143,7 +143,10 @@
                 </div>
 
                 <div id="image_container" class="hidden"></div>
-
+                {{-- <x-input-error :messages="$errors->get('image1')" class="hidden" id="error_image1" /> --}}
+                @for ($i = 1; $i <= old('total_images', 0); $i++)
+                    <x-input-error :messages="$errors->get('image'.$i)" class="mt-2" id="error_image{{$i}}" />
+                @endfor
                 <button type="submit" class="gold-btn px-12">Submit</button>
             </form>
 
@@ -186,39 +189,66 @@
             }
         });
 
-        document.getElementById('total_images').addEventListener('input', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+        let totalImagesInput = document.getElementById('total_images');
+        let imageContainer = document.getElementById('image_container');
+
+        // Fungsi untuk membuat input file
+        function createImageInput(index, oldImage) {
+            let label = document.createElement('label');
+            label.setAttribute('for', 'image' + index);
+            label.innerText = 'Image ' + index + ': ';
+
+            let input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('name', 'image' + index);
+            input.setAttribute('id', 'image' + index);
+            input.classList.add('form-control');
+
+            let errorContainer = document.createElement('div');
+            errorContainer.classList.add('alert', 'alert-danger');
+            errorContainer.setAttribute('role', 'alert');
+            errorContainer.setAttribute('id', 'error_image' + index);
+
+            imageContainer.appendChild(label);
+            imageContainer.appendChild(input);
+            imageContainer.appendChild(errorContainer);
+
+            if (oldImage) {
+                input.setAttribute('value', oldImage);
+            }
+        }
+
+        // Fungsi untuk menambahkan input file berdasarkan total_images
+        function addImageInputs(totalImages) {
+            imageContainer.innerHTML = ''; // Menghapus elemen sebelumnya
+
+            for (let i = 1; i <= totalImages; i++) {
+                let oldImage = '{{ old('image'.$i) }}';
+                createImageInput(i, oldImage);
+            }
+        }
+
+        // Event listener untuk input total_images
+        totalImagesInput.addEventListener('input', function() {
             let totalImages = parseInt(this.value);
             totalImages = Math.min(totalImages, 5);
 
-            let imageContainer = document.getElementById('image_container');
-            imageContainer.innerHTML = ''; // Menghapus elemen sebelumnya
-
             if (totalImages <= 0 || totalImages == '' || isNaN(totalImages)) {
-                imageContainer.style.display = "none";
+                imageContainer.style.display = 'none';
                 return;
             }
 
-            imageContainer.style.display = "block"
-            for (let i = 1; i <= totalImages; i++) {
-                let label = document.createElement('label');
-                label.setAttribute('for', 'image' + i);
-                label.innerText = 'Image ' + i + ': ';
-
-                let input = document.createElement('input');
-                input.setAttribute('type', 'file');
-                input.setAttribute('name', 'image' + i);
-                input.setAttribute('id', 'image' + i);
-                input.classList.add('form-control');
-
-                let errorContainer = document.createElement('div');
-                errorContainer.classList.add('alert', 'alert-danger');
-                errorContainer.setAttribute('role', 'alert');
-                errorContainer.setAttribute('id', 'error_image' + i);
-
-                imageContainer.appendChild(label);
-                imageContainer.appendChild(input);
-                imageContainer.appendChild(errorContainer);
-            }
+            imageContainer.style.display = 'block';
+            addImageInputs(totalImages);
         });
+
+        // Panggil fungsi addImageInputs saat halaman dimuat
+        let initialTotalImages = parseInt(totalImagesInput.value);
+        if (initialTotalImages > 0) {
+            imageContainer.style.display = 'block';
+            addImageInputs(initialTotalImages);
+        }
+    });
     </script>
 @endsection
