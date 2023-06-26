@@ -1,5 +1,6 @@
 var bottomSplide = new Splide("#bottom-splide", {
     autoplay: true,
+    interval: 3500,
     drag: true,
     type: "loop",
     height: "400px",
