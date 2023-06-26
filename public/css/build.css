@@ -966,6 +966,10 @@ input:-internal-autofill-selected {
   top: 1.25rem;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1994,8 +1998,8 @@ input:-internal-autofill-selected {
   padding-left: 1rem;
 }
 
-.pr-14 {
-  padding-right: 3.5rem;
+.pr-12 {
+  padding-right: 3rem;
 }
 
 .pr-4 {
@@ -3245,6 +3249,10 @@ input#searchbar:-webkit-autofill{
 }
 
 @media (min-width: 1024px) {
+  .lg\:right-5 {
+    right: 1.25rem;
+  }
+
   .lg\:my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -3284,6 +3292,10 @@ input#searchbar:-webkit-autofill{
 
   .lg\:w-40 {
     width: 10rem;
+  }
+
+  .lg\:w-6 {
+    width: 1.5rem;
   }
 
   .lg\:w-72 {
@@ -3415,6 +3427,10 @@ input#searchbar:-webkit-autofill{
 
   .lg\:pb-16 {
     padding-bottom: 4rem;
+  }
+
+  .lg\:pr-14 {
+    padding-right: 3.5rem;
   }
 
   .lg\:pt-40 {
