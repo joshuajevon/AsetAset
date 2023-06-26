@@ -12,9 +12,22 @@
 @section('body')
     <x-navigation-bar page="beranda" />
 
+    <form action="{{ route('assets') }}" method="get">
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
-        <x-search-bar />
+        <div class="self-center w-full max-w-[800px]">
+            <div class="py-1 sm:py-2 lg:py-3 px-6 sm:px-7 lg:px-8 flex rounded-full bg-cGold text-cWhite">
+                <input id="searchbar" autocomplete="false" type="text" class="w-full bg-transparent border-none placeholder:text-cWhite px-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(197,175,102)]"
+                    id="search" name="search" placeholder="Pencarian..." value="{{$result}}">
+                <button type="submit" class="flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </section>
 
     {{-- Carousel Top --}}
@@ -54,7 +67,7 @@
         {{-- Title --}}
         <x-page-title title="Galeri Aset" />
 
-        <form action="{{ route('assets') }}" method="get">
+
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -81,7 +94,7 @@
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Wilayah</h2>
                                 <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
-                                    onchange="updateCitySelect()">
+                                onchange="updateCitySelect()">
                                     <option value="" disabled selected>Pilih Provinsi</option>
                                     <option value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
@@ -93,7 +106,7 @@
                                 </select>
 
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
-                                    onchange="updateProvinceSelect()">
+                                onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"

@@ -262,7 +262,7 @@ class HomeController extends Controller
         $selectedCities = $request->input('cities', []);
         $maxPrice = $request->input('max-price',null);
         $minPrice = $request->input('min-price',null);
-
+        $result = $request->input('search',null);
         $query = Asset::query();
 
         if (!empty($selectedCategories)) {
@@ -285,6 +285,10 @@ class HomeController extends Controller
             $query->where('price', '>=', $minPrice);
         }
 
+        if (!empty($result)) {
+            $query->where('name', 'like', '%' . request('search') . '%');
+        }
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
 
         if ($selectedFilter) {
@@ -301,17 +305,15 @@ class HomeController extends Controller
             }
         }
 
-        $result = $request->input('search');
-        $assets = Asset::where('name','like','%' .$result. '%')->paginate(16);
+        $assets = $query->paginate(16);
 
-        if ($result && $assets->count() === 0) {
+        if ($result && $assets->total() === 0) {
             return view('asset-no-result',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
 
-        }else if($assets->count() == 0) {
+        }else if($assets->total() == 0) {
             return view('asset-no-search',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
-        $assets = $query->paginate(16);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -379,12 +381,12 @@ class HomeController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        }
+        // if($request->input('search')){
+        //     $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
+        //     return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+        // }
 
-        return view('tentang-kami',  compact('carousels'));
+        return view('tentang-kami',  compact('categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities','carousels'));
     }
 
     public function panduan(Request $request){
