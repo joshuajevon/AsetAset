@@ -80,7 +80,8 @@
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Wilayah</h2>
-                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
+                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
+                                    onchange="updateCitySelect()">
                                     <option value="" disabled selected>Pilih Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
@@ -90,7 +91,8 @@
                                     @endforeach
                                 </select>
 
-                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
+                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
+                                    onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
