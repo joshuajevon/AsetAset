@@ -42,7 +42,7 @@
 
             @if (session('status') === 'password-updated')
                 <div id="password-modal"
-                    class="fixed h-screen w-screen bg-[#67676780] flex justify-center items-center top-0 left-0 z-50 c-container">
+                    class="fixed h-screen w-screen bg-cBlack/50 flex justify-center items-center top-0 left-0 z-50 c-container">
                     <div
                         class="flex flex-col items-center bg-cWhite rounded-xl px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 relative">
                         <div class="flex flex-col items-center justify-center gap-4">

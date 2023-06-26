@@ -30,127 +30,123 @@
                 </p>
             </div>
 
-            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 mt-2">
-                <div class="col-span-1 flex flex-col justify-start items-start gap-6">
-                    {{-- Nama Lengkap --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="nama-lengkap-register" :value="__('Nama Lengkap')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-text-input autocomplete="false"
-                            placeholder="Masukkan nama Anda sesuai yang tertera pada KTP (Tanpa Gelar)"
-                            id="nama-lengkap-register" class="mt-1 w-full" type="text" name="name"
-                            value="{{ old('name') }}" />
-                        @error('name')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
+            <div class="px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-x-16 lg:gap-y-8 mt-2">
+                {{-- Nama Lengkap --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="nama-lengkap-register" :value="__('Nama Lengkap')" />
+                        <span class="text-red-500">*</span>
                     </div>
-
-                    {{-- Alamat Email --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="email-register" :value="__('Alamat Email')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-text-input autocomplete="false"
-                            placeholder="Masukkan alamat email yang valid dan dapat dihubungi" id="email-register"
-                            class="mt-1 w-full" type="text" name="email" value="{{ old('email') }}" />
-                        @error('email')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- Password --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="password-register" :value="__('Password')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-password-input autocomplete="false"
-                            placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
-                            id="password-register" class="mt-1 w-full" type="password" name="password"
-                            value="{{ old('password') }}" onclick="togglePassword()" id_eye="eye-1"
-                            id_eye_slash="eye-slash-1" />
-                        @error('password')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- Jenis Kelamin --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="jenis-kelamin-register" :value="__('Jenis Kelamin')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
-                            <div class="flex justify-center items-center gap-2">
-                                <input
-                                    class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
-                                    type="radio" id="laki-laki" name="gender" value="Laki-laki"
-                                    @if (old('gender') == 'Laki-laki') checked="checked" @endif>
-                                <label for="laki-laki">Laki-laki</label>
-                            </div>
-
-                            <div class="flex justify-center items-center gap-2">
-                                <input
-                                    class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
-                                    type="radio" id="perempuan" name="gender" value="Perempuan"
-                                    @if (old('gender') == 'Perempuan') checked="checked" @endif>
-                                <label for="perempuan">Perempuan</label>
-                            </div>
-                        </div>
-                        @error('gender')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    <x-text-input autocomplete="false"
+                        placeholder="Masukkan nama Anda sesuai yang tertera pada KTP (Tanpa Gelar)"
+                        id="nama-lengkap-register" class="mt-1 w-full" type="text" name="name"
+                        value="{{ old('name') }}" />
+                    @error('name')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="col-span-1 flex flex-col justify-start items-start gap-6">
-                    {{-- Nama Panggilan --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="nama-panggilan-register" :value="__('Nama Panggilan')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-text-input autocomplete="false" placeholder="Masukkan nama panggilan Anda"
-                            id="nama-panggilan-register" class="mt-1 w-full" type="text" name="nickname"
-                            value="{{ old('nickname') }}" />
-                        @error('nickname')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
+                {{-- Nama Panggilan --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="nama-panggilan-register" :value="__('Nama Panggilan')" />
+                        <span class="text-red-500">*</span>
                     </div>
+                    <x-text-input autocomplete="false" placeholder="Masukkan nama panggilan Anda"
+                        id="nama-panggilan-register" class="mt-1 w-full" type="text" name="nickname"
+                        value="{{ old('nickname') }}" />
+                    @error('nickname')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
 
-                    {{-- Nomor Handphone --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="nomor-handphone-register" :value="__('Nomor Handphone')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-text-input autocomplete="false"
-                            placeholder="Pastikan nomor handphone Anda aktif dan dapat dihubungi"
-                            id="nomor-handphone-register" class="mt-1 w-full" type="text" name="phone_number"
-                            value="{{ old('phone_number') }}" />
-                        @error('phone_number')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
+                {{-- Alamat Email --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="email-register" :value="__('Alamat Email')" />
+                        <span class="text-red-500">*</span>
                     </div>
+                    <x-text-input autocomplete="false" placeholder="Masukkan alamat email yang valid dan dapat dihubungi"
+                        id="email-register" class="mt-1 w-full" type="text" name="email"
+                        value="{{ old('email') }}" />
+                    @error('email')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
 
-                    {{-- Ulangi Password --}}
-                    <div class="w-full">
-                        <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="ulangi-password-register" :value="__('Ulangi Password')" />
-                            <span class="text-red-500">*</span>
-                        </div>
-                        <x-password-input autocomplete="false"
-                            placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
-                            id="ulangi-password-register" class="mt-1 w-full" type="password"
-                            name="password_confirmation" value="{{ old('password_confirmation') }}"
-                            onclick="toggleConfirmPassword()" id_eye="eye-2" id_eye_slash="eye-slash-2" />
-                        @error('password_confirmation')
-                            <div class="error-message">{{ $message }}</div>
-                        @enderror
+                {{-- Nomor Handphone --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="nomor-handphone-register" :value="__('Nomor Handphone')" />
+                        <span class="text-red-500">*</span>
                     </div>
+                    <x-text-input autocomplete="false"
+                        placeholder="Pastikan nomor handphone Anda aktif dan dapat dihubungi"
+                        id="nomor-handphone-register" class="mt-1 w-full" type="text" name="phone_number"
+                        value="{{ old('phone_number') }}" />
+                    @error('phone_number')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Password --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="password-register" :value="__('Password')" />
+                        <span class="text-red-500">*</span>
+                    </div>
+                    <x-password-input autocomplete="false"
+                        placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
+                        id="password-register" class="mt-1 w-full" type="password" name="password"
+                        value="{{ old('password') }}" onclick="togglePassword()" id_eye="eye-1"
+                        id_eye_slash="eye-slash-1" />
+                    @error('password')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Ulangi Password --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="ulangi-password-register" :value="__('Ulangi Password')" />
+                        <span class="text-red-500">*</span>
+                    </div>
+                    <x-password-input autocomplete="false"
+                        placeholder="Ulangi penulisan password dan pastikan tidak ada salah ketik"
+                        id="ulangi-password-register" class="mt-1 w-full" type="password" name="password_confirmation"
+                        value="{{ old('password_confirmation') }}" onclick="toggleConfirmPassword()" id_eye="eye-2"
+                        id_eye_slash="eye-slash-2" />
+                    @error('password_confirmation')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Jenis Kelamin --}}
+                <div class="col-span-1">
+                    <div class="flex gap-1 text-base sm:text-lg">
+                        <x-input-label for="jenis-kelamin-register" :value="__('Jenis Kelamin')" />
+                        <span class="text-red-500">*</span>
+                    </div>
+                    <div class="mt-1 w-full flex justify-start items-center gap-8 text-sm sm:text-base">
+                        <div class="flex justify-center items-center gap-2">
+                            <input
+                                class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
+                                type="radio" id="laki-laki" name="gender" value="Laki-laki"
+                                @if (old('gender') == 'Laki-laki') checked="checked" @endif>
+                            <label for="laki-laki">Laki-laki</label>
+                        </div>
+
+                        <div class="flex justify-center items-center gap-2">
+                            <input
+                                class="cursor-pointer rounded-full appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
+                                type="radio" id="perempuan" name="gender" value="Perempuan"
+                                @if (old('gender') == 'Perempuan') checked="checked" @endif>
+                            <label for="perempuan">Perempuan</label>
+                        </div>
+                    </div>
+                    @error('gender')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 

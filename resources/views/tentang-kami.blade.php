@@ -17,7 +17,8 @@
     </section>
 
     <section
-        class="c-container bg-cLightGrey bg-cover bg-center py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center" style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-1.png') }}')">
+        class="c-container bg-cLightGrey bg-cover bg-center py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center"
+        style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-1.png') }}')">
         <div
             class="flex flex-col justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2">
             <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
@@ -50,7 +51,8 @@
         </div>
     </section>
 
-    <section class="bg-cover bg-center" style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-2.png') }}')">
+    <section class="bg-cover bg-center"
+        style="background-image: url('{{ asset('assets/tentang-kami/tentang-kami-bg-2.png') }}')">
         <div
             class="c-container py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16  flex flex-col justify-center items-start h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2 sm:gap-4 lg:gap-6">
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
@@ -76,32 +78,25 @@
 
     {{-- Carousel --}}
     @if ($carousels->count() > 0)
-    <section class="my-8 lg:my-16 xl:my-32  bg-cLightGrey">
-        <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
-            <div id="bottom-splide" class="splide" role="group">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($carousels as $carousel)
-                            <li class="splide__slide" alt="">
-                                <a href="{{ $carousel->link }}" target="_blank" class="group relative"
-                                    rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                        class="w-full h-full object-contain transition-opacity group-hover:opacity-80">
-                                    <div
-                                        class="absolute inset-0 m-auto translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex justify-center items-end px-4 pb-4 sm:pb-6 lg:pb-8">
-                                        <p
-                                            class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center text-cWhite">
-                                            {{ $carousel->title }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+        <section class="my-8 lg:my-16 xl:my-32  bg-cLightGrey">
+            <div class="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 c-container">
+                <div id="bottom-splide" class="splide" role="group">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($carousels as $carousel)
+                                <li class="splide__slide" alt="">
+                                    <a href="{{ $carousel->link }}" target="_blank" rel="noopener noreferrer">
+                                        <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
+                                            class="w-full h-full object-contain transition-opacity hover:opacity-80"
+                                            alt="{{ $carousel->title }}">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     {{-- Scripts --}}

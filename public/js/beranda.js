@@ -1,5 +1,6 @@
 var topSplide = new Splide("#top-splide", {
     autoplay: true,
+    interval: 3500,
     drag: true,
     type: "loop",
     height: "400px",
@@ -25,13 +26,34 @@ topSplide.mount();
 
 function openFilter() {
     $("#dialog-filter").removeClass("hidden");
+    $("#dialog-filter").addClass(
+        "c-container fixed z-50 h-screen w-screen top-0 left-0 flex justify-center items-center"
+    );
+    $("#form-filter").addClass("max-h-[70%] w-full overflow-scroll");
     document.body.style.overflow = "hidden";
 }
 
 function closeFilter() {
     $("#dialog-filter").addClass("hidden");
+    $("#dialog-filter").removeClass(
+        "c-container fixed z-50 h-screen w-screen top-0 left-0 flex justify-center items-center"
+    );
+    $("#form-filter").removeClass("max-h-[70%] w-full overflow-scroll");
     document.body.style.overflow = "auto";
 }
+
+window.addEventListener(
+    "resize",
+    function (event) {
+        var windowWidth =
+            window.innerWidth || document.documentElement.clientWidth;
+
+        if (windowWidth >= 1280) {
+            closeFilter();
+        }
+    },
+    true
+);
 
 const arrProvinsiKota = {
     Aceh: [
