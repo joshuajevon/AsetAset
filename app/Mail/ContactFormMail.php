@@ -42,7 +42,7 @@ class ContactFormMail extends Mailable
     public function build()
 {
     return $this
-        ->from('info@asetaset.com', $this->name)
+        ->from(env('MAIL_FROM_ADDRESS'), $this->name)
         ->subject($this->subject)
         ->view('email')
         ->with([
