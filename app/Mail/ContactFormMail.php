@@ -29,15 +29,27 @@ class ContactFormMail extends Mailable
         $this->mail = $mail;
     }
 
+    // public function build()
+    // {
+    //     return $this
+    //     ->from($this->email, $this->name)
+    //     ->subject($this->subject)->view('email')->with([
+    //         'email' => $this->email,
+    //         'mail' => $this->mail,
+    //     ]);
+    // }
+
     public function build()
-    {
-        return $this
-        ->from($this->email, $this->name)
-        ->subject($this->subject)->view('email')->with([
+{
+    return $this
+        ->from(env('MAIL_FROM_ADDRESS'), $this->name)
+        ->subject($this->subject)
+        ->view('email')
+        ->with([
             'email' => $this->email,
             'mail' => $this->mail,
         ]);
-    }
+}
 
     // /**
     //  * Get the message envelope.
