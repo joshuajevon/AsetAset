@@ -10,7 +10,8 @@
 
 @section('body')
     <x-navigation-bar page="aset" />
-
+    
+    <form id="form-filter" action="{{ route('assets') }}" method="get" class="bg-cWhite rounded-lg">
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
         <div class="self-center w-full max-w-[800px]">
@@ -37,7 +38,7 @@
         <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
             {{-- Filter --}}
             <div id="dialog-filter" class="hidden xl:block xl:col-span-1 xl:h-fit bg-cBlack/50 xl:bg-transparent">
-                <form id="form-filter" action="{{ route('assets') }}" method="get" class="bg-cWhite rounded-lg">
+
                     <div
                         class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey rounded-t-lg flex justify-between xl:justify-center items-center">
                         <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
