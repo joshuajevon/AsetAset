@@ -89,7 +89,7 @@
 
                 <div class="w-full flex flex-col">
                     <h2 class="font-bold text-lg md:text-xl">Nilai:</h2>
-                    <p class="text-4xl md:text-5xl font-bold text-cGold break-all">Rp. 500.000.000.000.000.000.000</p>
+                    <p class="text-4xl md:text-5xl font-bold text-cGold break-all">@currency($asset->price)</p>
                 </div>
 
                 <div class="w-full">
