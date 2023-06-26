@@ -46,8 +46,10 @@
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Wilayah</h2>
-                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
+                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
+                                    onchange="updateCitySelect()">
                                     <option value="" disabled selected>Pilih Provinsi</option>
+                                    <option value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
                                             {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
@@ -56,7 +58,8 @@
                                     @endforeach
                                 </select>
 
-                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
+                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
+                                    onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
@@ -252,7 +255,7 @@
                         {{-- Items --}}
                         <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                             @foreach ($assets as $asset)
-                                <a href="/aset/{{$asset->id}}"
+                                <a href="/aset/{{ $asset->id }}"
                                     class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
                                     <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                         class="aspect-square object-cover" alt="asset">

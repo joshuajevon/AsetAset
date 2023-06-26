@@ -630,121 +630,15 @@ const arrProvinsiKota = {
     ],
 };
 
+// Provinsi and Kota arrays
 arrProvinsi = Object.keys(arrProvinsiKota);
-
 arrKota = [];
 for (const key in arrProvinsiKota) {
     const kota = arrProvinsiKota[key];
     arrKota.push(...kota);
 }
-
 arrProvinsi.sort();
 arrKota.sort();
-
-// console.log(arrKota.length);
-
-// arr = [];
-// for (let i = 100; i < 150; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 150; i < 200; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 200; i < 250; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 250; i < 300; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 300; i < 350; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 350; i < 400; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 400; i < 450; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 450; i < 500; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-// arr = [];
-// for (let i = 500; i < 550; i++) {
-//     const j = arrKota[i];
-//     arr.push(j);
-// }
-// console.log(arr);
-
-// Function to populate the province select element
-// function populateProvinceSelect() {
-//     const provinceSelect = document.getElementById("provinsi");
-
-//     // Clear existing options
-//     provinceSelect.innerHTML = "";
-
-//     // Add default option
-//     const defaultOption = document.createElement("option");
-//     defaultOption.value = "";
-//     defaultOption.text = "Pilih Provinsi";
-//     defaultOption.selected = true;
-//     defaultOption.disabled = true;
-//     provinceSelect.appendChild(defaultOption);
-
-//     // Add province options
-//     for (const province in arrProvinsi) {
-//         const option = document.createElement("option");
-//         option.value = arrProvinsi[province];
-//         option.text = arrProvinsi[province];
-//         provinceSelect.appendChild(option);
-//     }
-// }
-
-// Function to populate the city select element
-// function populateCitySelect() {
-//     const citySelect = document.getElementById("kota");
-
-//     // Clear existing options
-//     citySelect.innerHTML = "";
-
-//     // Add default option
-//     const defaultOption = document.createElement("option");
-//     defaultOption.value = "";
-//     defaultOption.text = "Pilih Kota";
-//     defaultOption.selected = true;
-//     defaultOption.disabled = true;
-//     citySelect.appendChild(defaultOption);
-
-//     // Add province options
-//     for (const city in arrKota) {
-//         const option = document.createElement("option");
-//         option.value = arrKota[city];
-//         option.text = arrKota[city];
-//         citySelect.appendChild(option);
-//     }
-// }
 
 // Function to update the city select element based on the selected province
 function updateCitySelect() {
@@ -755,15 +649,29 @@ function updateCitySelect() {
     citySelect.innerHTML = "";
 
     // Add default option
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.text = "Pilih Kota";
-    defaultOption.selected = true;
-    defaultOption.disabled = true;
-    citySelect.appendChild(defaultOption);
+    // const defaultOption = document.createElement("option");
+    // defaultOption.value = "";
+    // defaultOption.text = "Pilih Kota";
+    // defaultOption.selected = true;
+    // defaultOption.disabled = true;
+    // citySelect.appendChild(defaultOption);
+
+    // Add all option
+    const allOption = document.createElement("option");
+    allOption.value = "";
+    allOption.text = "Semua Kota";
+    allOption.selected = true;
+    citySelect.appendChild(allOption);
 
     const selectedProvince = provinceSelect.value;
-    if (selectedProvince) {
+    if (selectedProvince == "") {
+        for (const key in arrKota) {
+            const option = document.createElement("option");
+            option.value = arrKota[key];
+            option.text = arrKota[key];
+            citySelect.appendChild(option);
+        }
+    } else if (selectedProvince) {
         const cities = arrProvinsiKota[selectedProvince];
         for (const city of cities) {
             const option = document.createElement("option");
@@ -789,7 +697,3 @@ function updateProvinceSelect() {
         }
     }
 }
-
-// Populate the province select element on page load
-// populateProvinceSelect();
-// populateCitySelect();
