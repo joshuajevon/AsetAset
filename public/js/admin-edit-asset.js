@@ -1,13 +1,3 @@
-function openFilter() {
-    $("#dialog-filter").removeClass("hidden");
-    document.body.style.overflow = "hidden";
-}
-
-function closeFilter() {
-    $("#dialog-filter").addClass("hidden");
-    document.body.style.overflow = "auto";
-}
-
 const arrProvinsiKota = {
     Aceh: [
         "Kabupaten Aceh Barat",
@@ -605,16 +595,6 @@ const arrProvinsiKota = {
     ],
 };
 
-// Provinsi and Kota arrays
-arrProvinsi = Object.keys(arrProvinsiKota);
-arrKota = [];
-for (const key in arrProvinsiKota) {
-    const kota = arrProvinsiKota[key];
-    arrKota.push(...kota);
-}
-arrProvinsi.sort();
-arrKota.sort();
-
 // Function to update the city select element based on the selected province
 function updateCitySelect() {
     const provinceSelect = document.getElementById("provinsi");
@@ -624,29 +604,15 @@ function updateCitySelect() {
     citySelect.innerHTML = "";
 
     // Add default option
-    // const defaultOption = document.createElement("option");
-    // defaultOption.value = "";
-    // defaultOption.text = "Pilih Kota";
-    // defaultOption.selected = true;
-    // defaultOption.disabled = true;
-    // citySelect.appendChild(defaultOption);
-
-    // Add all option
-    const allOption = document.createElement("option");
-    allOption.value = "";
-    allOption.text = "Semua Kota";
-    allOption.selected = true;
-    citySelect.appendChild(allOption);
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.text = "--Pilih Kota--";
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    citySelect.appendChild(defaultOption);
 
     const selectedProvince = provinceSelect.value;
-    if (selectedProvince == "") {
-        for (const key in arrKota) {
-            const option = document.createElement("option");
-            option.value = arrKota[key];
-            option.text = arrKota[key];
-            citySelect.appendChild(option);
-        }
-    } else if (selectedProvince) {
+    if (selectedProvince) {
         const cities = arrProvinsiKota[selectedProvince];
         for (const city of cities) {
             const option = document.createElement("option");

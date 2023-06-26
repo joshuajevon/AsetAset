@@ -121,15 +121,15 @@
                         @enderror
                     </div>
 
-                    {{-- Nomer Handphone --}}
+                    {{-- Nomor Handphone --}}
                     <div class="w-full">
                         <div class="flex gap-1 text-base sm:text-lg">
-                            <x-input-label for="nomer-handphone-register" :value="__('Nomer Handphone')" />
+                            <x-input-label for="nomor-handphone-register" :value="__('Nomor Handphone')" />
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false"
                             placeholder="Pastikan nomor handphone Anda aktif dan dapat dihubungi"
-                            id="nomer-handphone-register" class="mt-1 w-full" type="text" name="phone_number"
+                            id="nomor-handphone-register" class="mt-1 w-full" type="text" name="phone_number"
                             value="{{ old('phone_number') }}" />
                         @error('phone_number')
                             <div class="error-message">{{ $message }}</div>

@@ -54,7 +54,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'password' => 'Alamat email dan/atau password tidak valid',
+                'password' => 'Alamat email dan/atau password salah',
             ]);
         }
 

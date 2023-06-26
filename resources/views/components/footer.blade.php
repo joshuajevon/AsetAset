@@ -1,7 +1,10 @@
-<footer class="c-container q-full bg-cBlack text-cWhite py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 flex flex-col lg:flex-row justify-between gap-16 sm:gap-20 md:gap-24 lg:gap-28 xl:gap-32 2xl:gap-36">
+<footer
+    class="c-container q-full bg-cBlack text-cWhite py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 flex flex-col lg:flex-row justify-between gap-16 sm:gap-20 md:gap-24 lg:gap-28 xl:gap-32 2xl:gap-36">
     <div class="flex flex-col justify-start items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-72">
-        <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
-        <p class="text-justify">asetaset.com memberikan akses yang lebih luas dan transparan dalam proses mencari aset yang tersedia, baik untuk masyarakat umum maupun pihak-pihak yang berkepentingan.
+        <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
+            alt="logo">
+        <p class="text-justify">asetaset.com memberikan akses yang lebih luas dan transparan dalam proses mencari aset
+            yang tersedia, baik untuk masyarakat umum maupun pihak-pihak yang berkepentingan.
         </p>
     </div>
     <div class="flex justify-start sm:justify-between w-full max-w-[800px] flex-wrap gap-16">
@@ -20,7 +23,8 @@
             <h1 class="text-lg font-medium">Media Sosial</h1>
             <span class="h-0.5 w-12 bg-cGold mb-2"></span>
             <div class="flex flex-col gap-2">
-                <a class="flex items-center gap-3 transition hover:text-cGold" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <a class="flex items-center gap-3 transition hover:text-cGold"
+                    href="https://www.instagram.com/asetasetcom/" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                         class="bi bi-instagram" viewBox="0 0 16 16">
                         <path
@@ -42,13 +46,17 @@
                     </svg>
                     info@asetaset.com
                 </a>
-                <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                      </svg>
+                <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-3 transition hover:text-cGold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
                     0818995628
                 </a>
-                <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
+                <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-3 transition hover:text-cGold">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                         class="bi bi-whatsapp" viewBox="0 0 16 16">
                         <path

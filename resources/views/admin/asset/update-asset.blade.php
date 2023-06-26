@@ -56,11 +56,11 @@
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Provinsi')" />
-                    <select  class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi">
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi"
+                        onchange="updateCitySelect()">
                         <option value="" disabled selected>--Pilih Provinsi--</option>
                         @foreach ($provinces as $province)
-                        <option value="{{ $province }}"
-                            {{ $asset->province == $province ? 'selected' : '' }}>
+                            <option value="{{ $province }}" {{ $asset->province == $province ? 'selected' : '' }}>
                                 {{ $province }}
                             </option>
                         @endforeach
@@ -69,11 +69,11 @@
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Kota')" />
-                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota">
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota"
+                        onchange="updateProvinceSelect()">
                         <option value="" disabled selected>--Pilih Kota--</option>
                         @foreach ($cities as $city)
-                            <option value="{{ $city }}"
-                            {{ $asset->city == $city ? 'selected' : '' }}>
+                            <option value="{{ $city }}" {{ $asset->city == $city ? 'selected' : '' }}>
                                 {{ $city }}
                             </option>
                         @endforeach
@@ -120,8 +120,8 @@
 
                 <div class="w-full">
                     <x-input-label for="asset-status" :value="__('Status')" />
-                    <x-text-input type="text" id="asset-status" class="mt-1 w-full" placeholder="Masukkan status asset"
-                        name="status" value="{{ $asset->status }}" />
+                    <x-text-input type="text" id="asset-status" class="mt-1 w-full"
+                        placeholder="Masukkan status asset" name="status" value="{{ $asset->status }}" />
                     <x-input-error :messages="$errors->get('status')" class="mt-2" />
                 </div>
 
@@ -174,4 +174,6 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('js/admin-create-asset.js') }}"></script>
 @endsection

@@ -11,9 +11,22 @@
 @section('body')
     <x-navigation-bar page="aset" />
 
+    <form action="{{ route('assets') }}" method="get">
     {{-- Search Bar --}}
     <section class="c-container flex justify-center items-center pt-32 pb-16">
-        <x-search-bar />
+        <div class="self-center w-full max-w-[800px]">
+            <div class="py-1 sm:py-2 lg:py-3 px-6 sm:px-7 lg:px-8 flex rounded-full bg-cGold text-cWhite">
+                <input id="searchbar" autocomplete="false" type="text" class="w-full bg-transparent border-none placeholder:text-cWhite px-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(197,175,102)]"
+                    id="search" name="search" placeholder="Pencarian..." value="{{$result}}">
+                <button type="submit" class="flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </section>
 
     {{-- Asets --}}
@@ -21,7 +34,6 @@
         {{-- Title --}}
         <x-page-title title="Pencarian Aset" />
 
-        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
@@ -46,8 +58,10 @@
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Wilayah</h2>
-                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
+                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
+                                    onchange="updateCitySelect()">
                                     <option value="" disabled selected>Pilih Provinsi</option>
+                                    <option value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
                                             {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
@@ -56,7 +70,8 @@
                                     @endforeach
                                 </select>
 
-                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
+                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
+                                    onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
@@ -72,13 +87,13 @@
                                 <h2 class="text-lg font-bold">Rentang Harga</h2>
                                 <div class="flex items-center border rounded-md pl-4">
                                     <label for="filter-harga-min">Rp.</label>
-                                    <input class="w-full rounded-lg border-none" type="number" name="min-price"
-                                        value="{{ $minPrice }}" id="filter-harga-min" placeholder="Harga Minimum">
+                                    <input class="w-full rounded-lg border-none" type="number" name="min-price" value={{$minPrice}}
+                                         id="filter-harga-min" placeholder="Harga Minimum">
                                 </div>
                                 <div class="flex items-center border rounded-md pl-4">
                                     <label for="filter-harga-max">Rp.</label>
-                                    <input class="w-full rounded-lg border-none" type="number" name="max-price"
-                                        value="{{ $maxPrice }}" id="filter-harga-max" placeholder="Harga Maksimum">
+                                    <input class="w-full rounded-lg border-none" type="number" name="max-price" value={{$maxPrice}}
+                                        id="filter-harga-max" placeholder="Harga Maksimum">
                                 </div>
                             </div>
                         </div>
@@ -171,7 +186,7 @@
                                 Filter</button>
 
                             {{-- Mobile Filter Popup --}}
-                            <div id="dialog-filter"
+                            {{-- <div id="dialog-filter"
                                 class="flex flex-col fixed z-50 inset-0 h-screen w-screen justify-center items-center rounded-md bg-cBlack/50 c-container hidden">
                                 <div
                                     class="p-4 sm:p-6 md:p-8 bg-cLightGrey flex justify-between items-center gap-2 rounded-t-md w-full">
@@ -227,13 +242,13 @@
                                                 <div class="flex items-center border rounded-md pl-4">
                                                     <label for="filter-harga-min">Rp.</label>
                                                     <input class="w-full rounded-lg border-none" type="number"
-                                                        name="min-price" value="{{ $minPrice }}"
+                                                        name="min-price"
                                                         id="filter-harga-min" placeholder="Harga Minimum">
                                                 </div>
                                                 <div class="flex items-center border rounded-md pl-4">
                                                     <label for="filter-harga-max">Rp.</label>
                                                     <input class="w-full rounded-lg border-none" type="number"
-                                                        name="max-price" value="{{ $maxPrice }}"
+                                                        name="max-price"
                                                         id="filter-harga-max" placeholder="Harga Maksimum">
                                                 </div>
                                             </div>
@@ -246,26 +261,32 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         {{-- Items --}}
                         <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                             @foreach ($assets as $asset)
-                                <a href="/aset/{{$asset->id}}"
+                                <a href="/aset/{{ $asset->id }}"
                                     class="group bg-cWhite border border-cDarkGrey p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center gap-4 hover:bg-cGold transition">
                                     <img src="{{ asset('/storage/asset/image1/' . $asset->image1) }}"
                                         class="aspect-square object-cover" alt="asset">
 
                                     <div
-                                        class="relative flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4">
-                                        <p class="text-center text-xs sm:text-base group-hover:text-cWhite">
-                                            {{ $asset->name }}</p>
-                                        <h3
-                                            class="text-center text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite">
-                                            @currency ($asset->price)
-                                        </h3>
-                                        <div class="flex justify-center items-center gap-1 group-hover:text-cWhite">
+                                        class="flex flex-col justify-center items-center gap-1 sm:gap-2 lg:gap-4 group-hover:text-cWhite w-full">
+                                        <div class="flex justify-center items-center w-full">
+                                            <p class="text-center text-xs sm:text-base whitespace-nowrap truncate">
+                                                {{ $asset->name }}</p>
+                                        </div>
+
+                                        <div class="flex justify-center items-center w-full">
+                                            <h3
+                                                class="text-sm sm:text-lg lg:text-2xl text-cGold font-bold group-hover:text-cWhite whitespace-nowrap truncate">
+                                                @currency ($asset->price)
+                                            </h3>
+                                        </div>
+
+                                        <div class="flex justify-center items-center gap-1 group-hover:text-cWhite w-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                                                 <path
@@ -273,7 +294,8 @@
                                                 <path
                                                     d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                             </svg>
-                                            <p class="text-center text-xs sm:text-sm">{{ $asset->province }}</p>
+                                            <p class="text-center text-xs sm:text-sm whitespace-nowrap truncate">
+                                                {{ $asset->province }}</p>
                                         </div>
                                     </div>
                                 </a>

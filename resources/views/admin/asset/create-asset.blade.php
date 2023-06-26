@@ -40,45 +40,45 @@
                         id="asset-category" name="category" value="{{ old('category') }}"
                         aria-label="Default select example" name="category">
                         <option value="" selected disabled>-- Pilih Categori --</option>
-                        <option value="Rumah" @if(old('category') == "Rumah") selected @endif>Rumah</option>
-                        <option value="Gedung" @if(old('category') == "Gedung") selected @endif>Gedung</option>
-                        <option value="Gudang" @if(old('category') == "Gudang") selected @endif>Gudang</option>
-                        <option value="Apartemen" @if(old('category') == "Apartemen") selected @endif>Apartemen</option>
-                        <option value="Tanah" @if(old('category') == "Tanah") selected @endif>Tanah</option>
-                        <option value="Barang" @if(old('category') == "Barang") selected @endif>Barang</option>
-                        <option value="Kendaraan" @if(old('category') == "Kendaraan") selected @endif>Kendaraan</option>
-                        <option value="Alat berat" @if(old('category') == "Alat berat") selected @endif>Alat berat</option>
-                        <option value="Lain-lain" @if(old('category') == "Lain-lain") selected @endif>Lain-lain</option>
+                        <option value="Rumah" @if (old('category') == 'Rumah') selected @endif>Rumah</option>
+                        <option value="Gedung" @if (old('category') == 'Gedung') selected @endif>Gedung</option>
+                        <option value="Gudang" @if (old('category') == 'Gudang') selected @endif>Gudang</option>
+                        <option value="Apartemen" @if (old('category') == 'Apartemen') selected @endif>Apartemen</option>
+                        <option value="Tanah" @if (old('category') == 'Tanah') selected @endif>Tanah</option>
+                        <option value="Barang" @if (old('category') == 'Barang') selected @endif>Barang</option>
+                        <option value="Kendaraan" @if (old('category') == 'Kendaraan') selected @endif>Kendaraan</option>
+                        <option value="Alat berat" @if (old('category') == 'Alat berat') selected @endif>Alat berat</option>
+                        <option value="Lain-lain" @if (old('category') == 'Lain-lain') selected @endif>Lain-lain</option>
                     </select>
                     <x-input-error :messages="$errors->get('category')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Provinsi')" />
-                    <select  class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi" value="{{ old('province') }}">
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="provinces" id="provinsi"
+                        value="{{ old('province') }}" onchange="updateCitySelect()">
                         <option value="" disabled selected>--Pilih Provinsi--</option>
                         @foreach ($provinces as $province)
-                            <option value="{{ $province }}"
-                                @if(old('provinces') == $province) selected @endif>
+                            <option value="{{ $province }}" @if (old('provinces') == $province) selected @endif>
                                 {{ $province }}
                             </option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('province')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('provinces')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-category" :value="__('Kota')" />
-                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota" value="{{ old('city') }}">
+                    <select class="mt-1 w-full rounded-md p-4 cursor-pointer" name="cities" id="kota"
+                        value="{{ old('city') }}" onchange="updateProvinceSelect()">
                         <option value="" disabled selected>--Pilih Kota--</option>
                         @foreach ($cities as $city)
-                            <option value="{{ $city }}"
-                                @if(old('cities') == $city) selected @endif>
+                            <option value="{{ $city }}" @if (old('cities') == $city) selected @endif>
                                 {{ $city }}
                             </option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('city')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('cities')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -90,24 +90,28 @@
 
                 <div class="w-full">
                     <x-input-label for="asset-seller" :value="__('Penjual')" />
-                    <select id="asset-seller" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="seller_name" value="{{ old('seller_id') }}">
+                    <select id="asset-seller" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="seller_name"
+                        value="{{ old('seller_id') }}">
                         <option value="" selected disabled>-- Pilih Penjual --</option>
                         @foreach ($sellers as $seller)
-                            <option value="{{ $seller->id }}" @if(old('seller_name') == $seller->id) selected @endif>{{ $seller->seller_name }}</option>
+                            <option value="{{ $seller->id }}" @if (old('seller_name') == $seller->id) selected @endif>
+                                {{ $seller->seller_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('seller_id')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('seller_name')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
                     <x-input-label for="asset-owner" :value="__('Pemilik')" />
-                    <select id="asset-owner" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="owner_name" value="{{ old('owner_id') }}">
+                    <select id="asset-owner" class="mt-1 w-full rounded-md p-4 cursor-pointer" name="owner_name"
+                        value="{{ old('owner_id') }}">
                         <option value="" selected disabled>-- Pilih Pemilik --</option>
                         @foreach ($owners as $owner)
-                            <option value="{{ $owner->id }}" @if(old('owner_name') == $owner->id) selected @endif>{{ $owner->owner_name }}</option>
+                            <option value="{{ $owner->id }}" @if (old('owner_name') == $owner->id) selected @endif>
+                                {{ $owner->owner_name }}</option>
                         @endforeach
                     </select>
-                    <x-input-error :messages="$errors->get('owner_id')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('owner_name')" class="mt-2" />
                 </div>
 
                 <div class="w-full">
@@ -125,7 +129,7 @@
                 </div>
 
                 <div class="w-full">
-                    <x-input-label for="total_attachments" :value="__('Jumlah Lampiran')" />
+                    <x-input-label for="total_attachments" :value="__('Jumlah Lampiran (Optional)')" />
                     <x-text-input type="number" id="total_attachments" class="mt-1 w-full"
                         placeholder="Masukkan jumlah lampiran asset" name="total_attachments"
                         value="{{ old('total_attachments') }}" max="5" />
@@ -143,13 +147,17 @@
                 </div>
 
                 <div id="image_container" class="hidden"></div>
-
+                {{-- <x-input-error :messages="$errors->get('image1')" class="hidden" id="error_image1" /> --}}
+                @for ($i = 1; $i <= old('total_images', 0); $i++)
+                    <x-input-error :messages="$errors->get('image' . $i)" class="mt-2" id="error_image{{ $i }}" />
+                @endfor
                 <button type="submit" class="gold-btn px-12">Submit</button>
             </form>
 
         </div>
     </div>
 
+    <script src="{{ asset('js/admin-create-asset.js') }}"></script>
     <script>
         document.getElementById('total_attachments').addEventListener('input', function() {
             let totalAttachments = parseInt(this.value);
@@ -186,38 +194,65 @@
             }
         });
 
-        document.getElementById('total_images').addEventListener('input', function() {
-            let totalImages = parseInt(this.value);
-            totalImages = Math.min(totalImages, 5);
-
+        document.addEventListener('DOMContentLoaded', function() {
+            let totalImagesInput = document.getElementById('total_images');
             let imageContainer = document.getElementById('image_container');
-            imageContainer.innerHTML = ''; // Menghapus elemen sebelumnya
 
-            if (totalImages <= 0 || totalImages == '' || isNaN(totalImages)) {
-                imageContainer.style.display = "none";
-                return;
-            }
-
-            imageContainer.style.display = "block"
-            for (let i = 1; i <= totalImages; i++) {
+            // Fungsi untuk membuat input file
+            function createImageInput(index, oldImage) {
                 let label = document.createElement('label');
-                label.setAttribute('for', 'image' + i);
-                label.innerText = 'Image ' + i + ': ';
+                label.setAttribute('for', 'image' + index);
+                label.innerText = 'Image ' + index + ': ';
 
                 let input = document.createElement('input');
                 input.setAttribute('type', 'file');
-                input.setAttribute('name', 'image' + i);
-                input.setAttribute('id', 'image' + i);
+                input.setAttribute('name', 'image' + index);
+                input.setAttribute('id', 'image' + index);
                 input.classList.add('form-control');
 
                 let errorContainer = document.createElement('div');
                 errorContainer.classList.add('alert', 'alert-danger');
                 errorContainer.setAttribute('role', 'alert');
-                errorContainer.setAttribute('id', 'error_image' + i);
+                errorContainer.setAttribute('id', 'error_image' + index);
 
                 imageContainer.appendChild(label);
                 imageContainer.appendChild(input);
                 imageContainer.appendChild(errorContainer);
+
+                if (oldImage) {
+                    input.setAttribute('value', oldImage);
+                }
+            }
+
+            // Fungsi untuk menambahkan input file berdasarkan total_images
+            function addImageInputs(totalImages) {
+                imageContainer.innerHTML = ''; // Menghapus elemen sebelumnya
+
+                for (let i = 1; i <= totalImages; i++) {
+                    let oldImage = '{{ old('image' . $i) }}';
+                    createImageInput(i, oldImage);
+                }
+            }
+
+            // Event listener untuk input total_images
+            totalImagesInput.addEventListener('input', function() {
+                let totalImages = parseInt(this.value);
+                totalImages = Math.min(totalImages, 5);
+
+                if (totalImages <= 0 || totalImages == '' || isNaN(totalImages)) {
+                    imageContainer.style.display = 'none';
+                    return;
+                }
+
+                imageContainer.style.display = 'block';
+                addImageInputs(totalImages);
+            });
+
+            // Panggil fungsi addImageInputs saat halaman dimuat
+            let initialTotalImages = parseInt(totalImagesInput.value);
+            if (initialTotalImages > 0) {
+                imageContainer.style.display = 'block';
+                addImageInputs(initialTotalImages);
             }
         });
     </script>
