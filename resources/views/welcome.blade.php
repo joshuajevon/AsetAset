@@ -40,10 +40,9 @@
                         <ul class="splide__list">
                             @foreach ($carousels as $carousel)
                                 <li class="splide__slide">
-                                    <a href="{{ $carousel->link }}" target="_blank" class="group relative"
-                                        rel="noopener noreferrer">
+                                    <a href="{{ $carousel->link }}" target="_blank" rel="noopener noreferrer">
                                         <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                            class="w-full h-full object-contain transition-opacity group-hover:opacity-90"
+                                            class="w-full h-full object-contain transition-opacity hover:opacity-80"
                                             alt="{{ $carousel->title }}">
                                     </a>
                                 </li>
