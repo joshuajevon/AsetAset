@@ -96,7 +96,7 @@
                         <span class="text-red-500">*</span>
                     </div>
                     <x-password-input autocomplete="false"
-                        placeholder="8 karakter, huruf besar, huruf kecil, dan angka"
+                        placeholder="Terdiri dari 8 karakter, mengandung huruf besar, huruf kecil, dan angka"
                         id="password-register" class="mt-1 w-full" type="password" name="password"
                         value="{{ old('password') }}" onclick="togglePassword()" id_eye="eye-1"
                         id_eye_slash="eye-slash-1" />
@@ -153,18 +153,6 @@
             <div class="px-4 self-end">
                 <p class="text-red-500 text-sm sm:text-base lg:text-lg">*Wajib diisi</p>
             </div>
-
-            {{-- Error Message --}}
-            {{-- <div class="px-4">
-                <p id="error-message-login" class="text-base text-red-600"></p>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                <x-input-error :messages="$errors->get('gender')" class="mt-2" />
-            </div> --}}
 
             <div class="px-4">
                 <p class="text-sm sm:text-base">Dengan menekan tombol Daftar, anda sudah bersedia dan menyetujui <a
