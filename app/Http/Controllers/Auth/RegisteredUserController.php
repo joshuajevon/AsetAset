@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
             'email.unique' => 'Alamat email sudah terdaftar',
             'password.required' => 'Password harus diisi',
             'password.min' => 'Password harus diisi minimal 8 huruf',
-            'password.regex' => 'Password tidak memenuhi syarat',
+            'password.regex' => 'Password harus terdiri dari huruf besar, kecil dan angka',
             'password.confirmed' => 'Konfirmasi Password tidak sama',
             'password_confirmation.required' => 'Konfirmasi Password harus diisi',
             'phone_number.required' => 'Nomor Handphone harus diisi',
