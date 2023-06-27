@@ -29,7 +29,7 @@
                     <div class="py-1 sm:py-2 lg:py-3 px-6 sm:px-7 lg:px-8 flex rounded-full bg-cGold text-cWhite">
                         <input autocomplete="false" type="text"
                             class="w-full bg-transparent border-none placeholder:text-cWhite px-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(197,175,102)]"
-                            id="search" name="search" placeholder="Pencarian...">
+                            id="search" name="search" placeholder="Pencarian..." value="{{ $result }}">
                         <button type="submit" class="flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
