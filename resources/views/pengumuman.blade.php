@@ -37,6 +37,10 @@
         </a>
     </div>
 
+    @if ($announcements->count() === 0)
+        Tidak ada pengumuman
+    @endif
+
     <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
         <thead class="text-left text-base">
             <tr>
