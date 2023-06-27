@@ -3533,6 +3533,10 @@ input#searchbar:-webkit-autofill{
     justify-content: center;
   }
 
+  .xl\:justify-between {
+    justify-content: space-between;
+  }
+
   .xl\:gap-14 {
     gap: 3.5rem;
   }

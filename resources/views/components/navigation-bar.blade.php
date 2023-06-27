@@ -1,11 +1,11 @@
 <nav id="navbar" class="text-base fixed w-full z-50">
-    <div class="c-container bg-cBlack mx-auto flex h-20 w-full items-center gap-8 ">
-        <a class="block text-cGold mr-8" href="/">
+    <div class="c-container bg-cBlack mx-auto flex h-20 w-full items-center gap-12">
+        <a class="w-fit text-cGold" href="/">
             <img class="h-4" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
         </a>
 
-        <div id="web-nav-links" class="flex flex-1 items-center justify-end lg:justify-between">
-            <div aria-label="Site Nav" class="hidden lg:block gap-6">
+        <div id="web-nav-links" class="flex flex-1 items-center justify-end xl:justify-between gap-8">
+            <div aria-label="Site Nav" class="hidden xl:flex gap-6">
                 <ul class="flex justify-center items-center gap-6 w-full">
                     <li>
                         <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'beranda') before:scale-x-100 @endif"
@@ -49,12 +49,11 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
 
             <div class="flex items-center gap-4">
                 @guest
-                    <div class="lg:gap-4 hidden lg:flex">
+                    <div class="gap-4 hidden xl:flex">
                         <a class="gold-btn" href="/login">
                             Masuk
                         </a>
@@ -66,7 +65,7 @@
                 @endguest
 
                 @auth
-                    <div class="relative text-cGold hidden lg:block">
+                    <div class="relative text-cGold hidden xl:block">
                         <div class="flex justify-center items-center overflow-hidden gap-2 cursor-pointer hover:text-cGold/75"
                             onclick="openProfileWeb()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -130,7 +129,7 @@
                     </div>
                 @endauth
 
-                <button class="block rounded bg-cGold p-2.5 text-cWhite transition hover:text-cWhite lg:hidden"
+                <button class="block rounded bg-cGold p-2.5 text-cWhite transition hover:text-cWhite xl:hidden"
                     onclick="toggleNavbar()">
                     <span class="sr-only">Toggle menu</span>
                     <div class="h-5 w-5 relative">
