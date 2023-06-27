@@ -27,7 +27,25 @@ class HomeController extends Controller
     }
 
     public function getAllCategories(){
-        return ['Rumah', 'Ruko', 'Gedung', 'Gudang', 'Apartemen', 'Tanah', 'Barang', 'Kendaraan', 'Alat berat', 'Lain-lain'];
+        return [
+            "Tanah",
+            "Rumah",
+            "Ruko",
+            "Pabrik",
+            "Hotel dan Villa",
+            "Mobil",
+            "Motor",
+            "Bongkaran",
+            "Besi Tua",
+            "Elektronik",
+            "Kayu",
+            "UMKM",
+            "Inventaris",
+            "Gudang",
+            "Toko",
+            "Apartemen",
+            "Lain-lain"
+        ];
     }
 
     public function home(Request $request){
