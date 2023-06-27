@@ -33,8 +33,7 @@
                 <h2 id="announcement-date" class="text-sm lg:text-base opacity-75"></h2>
                 <h1 id="announcement-title" class="text-2xl lg:text-3xl font-bold"></h1>
                 <p id="announcement-desc" class="text-sm lg:text-lg"></p>
-                <img id="announcement-file" src="" alt="announcement-image">
-                <a href="" download class="gold-btn gap-2 w-fit">
+                <a id="announcement-download" href="" download class="gold-btn gap-2 w-fit">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
