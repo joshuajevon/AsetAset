@@ -18,7 +18,7 @@
 
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <x-page-title title="Detail Aset" />
+        <x-page-title title="Rincian Informasi" />
 
         <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
             {{-- Carousel --}}
@@ -104,7 +104,7 @@
                             <td>{{ $asset->province }}, {{ $asset->city }}</td>
                         </tr>
                         <tr>
-                            <th colspan="2">Detail Pemilik Aset</th>
+                            <th colspan="2">Pemilik dan/atau Pemegang Hak</th>
                         </tr>
                         <tr class="bg-cDarkGrey rounded-t-xl">
                             <th class="pl-4 rounded-tl-lg">Nama</th>
@@ -122,7 +122,7 @@
 
                         </tr>
                         <tr>
-                            <th colspan="2">Detail Penjual Aset</th>
+                            <th colspan="2">Penjual</th>
                         </tr>
                         <tr class="bg-cDarkGrey rounded-t-xl">
                             <th class="pl-4 rounded-tl-lg">Nama</th>
@@ -150,19 +150,23 @@
                         <tr class="table-row">
                             <th>Lampiran</th>
                             <td class="flex flex-col gap-1.5">
-                                @if(empty($asset->attachment1) && empty($asset->attachment2) && empty($asset->attachment3) && empty($asset->attachment4) && empty($asset->attachment5))
+                                @if (empty($asset->attachment1) &&
+                                        empty($asset->attachment2) &&
+                                        empty($asset->attachment3) &&
+                                        empty($asset->attachment4) &&
+                                        empty($asset->attachment5))
                                     Tidak ada lampiran
                                 @endif
 
                                 @if ($asset->attachment1)
-                                <a class="flex items-center gap-1 w-fit"
-                                    href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
-                                        class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
-                                    </svg> Lampiran 1
-                                </a>
+                                    <a class="flex items-center gap-1 w-fit"
+                                        href="{{ asset('/storage/asset/attachment1/' . $asset->attachment1) }}" download>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5AF66"
+                                            class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z" />
+                                        </svg> Lampiran 1
+                                    </a>
                                 @endif
                                 @if ($asset->attachment2)
                                     <a class="flex items-center gap-1 w-fit"

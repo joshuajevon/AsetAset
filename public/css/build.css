@@ -950,6 +950,10 @@ input:-internal-autofill-selected {
   right: 0px;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
 .right-5 {
   right: 1.25rem;
 }
@@ -964,10 +968,6 @@ input:-internal-autofill-selected {
 
 .top-5 {
   top: 1.25rem;
-}
-
-.right-4 {
-  right: 1rem;
 }
 
 .z-0 {

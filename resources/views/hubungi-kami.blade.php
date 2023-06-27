@@ -17,13 +17,14 @@
     </section>
 
     <section
-        class="c-container bg-cLightGrey bg-cover py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center" style="background-image: url('{{ asset('assets/hubungi-kami/hubungi-kami-bg.png') }}')">
+        class="c-container bg-cLightGrey bg-cover py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 flex justify-center items-center"
+        style="background-image: url('{{ asset('assets/hubungi-kami/hubungi-kami-bg.png') }}')">
         <div
             class="flex flex-col justify-center items-center h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] gap-2">
             <h2 class="text-cGold font-medium text-base sm:text-xl lg:text-2xl text-center">asetaset.com</h2>
             <h1
                 class="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-cWhite text-center">
-                Tim AsetAset Siap Membantu Anda</h1>
+                asetaset.com Siap Membantu Anda</h1>
         </div>
     </section>
 
@@ -34,10 +35,11 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-24 xl:gap-28 2xl:gap-32">
             <div class="col-span-1 flex justify-center items-center">
                 <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8">
-                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
-                    <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Informasi
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
+                        src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    {{-- <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Informasi
                         Tentang Kami?</span>
-                    </h1>
+                    </h1> --}}
                     <p class="text-base sm:text-lg">Hubungi kami melalui email atau whatsapp yang ada dibawah ini dan
                         tim kami akan segera menghubungi anda</span>.
                     </p>
@@ -53,7 +55,8 @@
                             </svg>
                             info@asetaset.com
                         </a>
-                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
+                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
@@ -71,11 +74,12 @@
                     class="bg-cWhite py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 flex flex-col justify-center items-start gap-6"
                     onsubmit="submitLoginForm(event)">
                     @csrf
-                    <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
+                    <div
+                        class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8 px-4 pb-5 border-b-2 border-b-cGold">
                         <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
-                        src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Jangan
-                            Ragu Untuk Menghubungi Kami</span>
+                            src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                        {{-- <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Jangan
+                            Ragu Untuk Menghubungi Kami</span> --}}
                         </h1>
                         <p class="text-base sm:text-lg">Silahkan isi data diri anda, dan tim kami akan segera menghubungi
                             untuk membantu anda</span>.
@@ -89,7 +93,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="Nama Anda" id="nama-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="name" value="{{old('name')}}"/>
+                            class="mt-1 w-full" type="text" name="name" value="{{ old('name') }}" />
                         @error('name')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -102,7 +106,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="contoh@gmail.com" id="email-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="email" value="{{old('email')}}"/>
+                            class="mt-1 w-full" type="text" name="email" value="{{ old('email') }}" />
                         @error('email')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -115,7 +119,7 @@
                             <span class="text-red-500">*</span>
                         </div>
                         <x-text-input autocomplete="false" placeholder="Judul Pesan Anda" id="subjek-hubungi-kami"
-                            class="mt-1 w-full" type="text" name="subject" value="{{old('subject')}}"/>
+                            class="mt-1 w-full" type="text" name="subject" value="{{ old('subject') }}" />
                         @error('subject')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
@@ -130,14 +134,14 @@
 
                         <textarea name="mail" placeholder="Isi Pesan Anda"
                             class="w-full mt-1 resize-none p-4 border border-cDarkGrey rounded-md text-sm sm:text-base bg-cWhite autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
-                            id="pesan-hubungi-kami" rows="8">{{old('mail')}}</textarea>
+                            id="pesan-hubungi-kami" rows="8">{{ old('mail') }}</textarea>
                         @error('mail')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="px-4 w-full">
-                        @if(session('success'))
+                        @if (session('success'))
                             <p class="alert alert-success text-sm text-green-600">
                                 {{ session('success') }}
                             </p>

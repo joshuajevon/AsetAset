@@ -127,7 +127,7 @@
                             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
                                 src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                             <h1 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-cBlack">Butuh Bantuan?</h1>
-                            <h2 class="text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2>
+                            {{-- <h2 class="text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2> --}}
                             <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
                                 href="/hubungi-kami">
                                 <span class="absolute -end-full transition-all group-hover:end-4">

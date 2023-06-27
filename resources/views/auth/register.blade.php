@@ -156,7 +156,7 @@
 
             <div class="px-4">
                 <p class="text-sm sm:text-base">Dengan menekan tombol Daftar, anda sudah bersedia dan menyetujui <a
-                        href="#" class="font-bold underline">syarat dan ketentuan</a></p>
+                        href="{{asset('assets/syarat-ketentuan/Syarat dan Ketentuan.pdf')}}" class="font-bold underline" target="_blank" rel="noopener noreferrer">syarat dan ketentuan</a></p>
             </div>
 
             <div class="px-4">

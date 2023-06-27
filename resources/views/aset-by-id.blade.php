@@ -18,7 +18,7 @@
 
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <x-page-title title="Detail Aset" />
+        <x-page-title title="Rincian Informasi" />
 
         <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
             {{-- Carousel --}}
