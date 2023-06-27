@@ -84,6 +84,7 @@
                 </div>
             </div>
 
+            {{-- Detail --}}
             <div class="col-span-1 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
                 <h1 class="font-bold text-3xl md:text-4xl break-all">{{ $asset->name }}</h1>
 
@@ -222,11 +223,56 @@
                             kami</a>
                     @endguest
                     @auth
-                    <a href="https://wa.me/6287876731950?text=Halo%20asetaset.com,%20saya%20{{ Auth::user()->nickname }}%20berminat%20atas:%0D%0AAset:%20{{ $asset->name }}%0D%0ALink:%20https://asetaset.com/beranda/{{ $asset->id }}%0D%0AMohon%20informasinya.%20Terima%20kasih." target="_blank"
-                        rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera
-                        hubungi kami</a>
+                        <a href="https://wa.me/6287876731950?text=Halo%20asetaset.com,%20saya%20{{ Auth::user()->nickname }}%20berminat%20atas:%0D%0AAset:%20{{ $asset->name }}%0D%0ALink:%20https://asetaset.com/beranda/{{ $asset->id }}%0D%0AMohon%20informasinya.%20Terima%20kasih."
+                            target="_blank" rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda
+                            berminat? Segera
+                            hubungi kami</a>
                     @endauth
                     <a class="text-cGold" href="/panduan">Panduan membeli</a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Uraian --}}
+        <div>
+            {{-- Tabs --}}
+            <div class="flex text-center bg-cDarkGrey text-sm sm:text-base">
+                <div class="w-1/3 lg:w-1/4 bg-cLightGrey">
+                    <a class="block border-l border-r border-t-4 border-t-cGold border-l-cDarkGrey border-r-cDarkGrey p-4 font-bold"
+                        href="">
+                        Uraian
+                    </a>
+                </div>
+            </div>
+
+            {{-- content --}}
+            <div class="flex flex-col lg:flex-row border-l border-r border-b border-cDarkGrey p-4 lg:p-8 gap-6 lg:gap-0">
+                <div class="flex flex-col lg:w-1/5">
+                    <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Jenis Barang</h1>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
+                        consectetur
+                        adipisicing
+                        elit. Repudiandae quos vel quisquam. Reiciendis
+                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
+                        molestiae et consequatur dolorem reiciendis.</p>
+                </div>
+                <div class="flex flex-col lg:w-1/5">
+                    <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Bukti Kepemilikan</h1>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
+                        consectetur
+                        adipisicing
+                        elit. Repudiandae quos vel quisquam. Reiciendis
+                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
+                        molestiae et consequatur dolorem reiciendis.</p>
+                </div>
+                <div class="flex flex-col lg:w-3/5">
+                    <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Uraian</h1>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
+                        consectetur
+                        adipisicing
+                        elit. Repudiandae quos vel quisquam. Reiciendis
+                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
+                        molestiae et consequatur dolorem reiciendis.</p>
                 </div>
             </div>
         </div>

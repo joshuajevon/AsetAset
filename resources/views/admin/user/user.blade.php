@@ -66,37 +66,37 @@
                 </div>
             </div>
 
-                <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
-                    <thead class="text-left text-base">
-                        <tr>
-                            <th class="whitespace-nowrap px-4 py-2 font-medium">
-                                Name
-                            </th>
-                            <th class="whitespace-nowrap px-4 py-2 font-medium">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
+            <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
+                <thead class="text-left text-base">
+                    <tr>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Name
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
 
-                    <tbody class="divide-y divide-cGold text-sm">
-                        @foreach ($users as $user)
-                            <tr class="odd:bg-gray-100">
-                                <td class="whitespace-nowrap px-4 py-2">{{ $user->name }}</td>
-                                <td class="whitespace-nowrap px-4 py-2">
-                                    <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
-                                        href="{{ route('view-user', ['id' => $user->id]) }}">View</a>
-                                    <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
-                                        href="{{ route('edit-user', ['id' => $user->id]) }}"><button
-                                            type="submit">Edit</button></a>
-                                    <button onclick="deleteUser({{ $user->id }})"
-                                        class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <tbody class="divide-y divide-cGold text-sm">
+                    @foreach ($users as $user)
+                        <tr class="odd:bg-gray-100">
+                            <td class="whitespace-nowrap px-4 py-2">{{ $user->name }}</td>
+                            <td class="whitespace-nowrap px-4 py-2">
+                                <a class="bg-green-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                    href="{{ route('view-user', ['id' => $user->id]) }}">View</a>
+                                <a class="bg-blue-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] mr-2"
+                                    href="{{ route('edit-user', ['id' => $user->id]) }}"><button
+                                        type="submit">Edit</button></a>
+                                <button onclick="deleteUser({{ $user->id }})"
+                                    class="bg-red-200 py-2 px-4 rounded-lg hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
             {{-- Bottom Pagination --}}
             <div id="top-pagination" class="pagination">
@@ -109,13 +109,13 @@
         <div id="modal" class="flex items-center justify-center w-screen h-screen bg-[#67676780] z-10 fixed hidden">
             <div class="flex flex-col items-center bg-cWhite rounded-xl px-8 py-16">
                 <div class="flex flex-col items-center justify-center">
-                    <img class="w-20 mb-4" src="{{asset('assets/admin/trash.svg')}}" alt="">
+                    <img class="w-20 mb-4" src="{{ asset('assets/admin/trash.svg') }}" alt="">
                     <h2 class="text-2xl font-semibold text-cBlack">
                         {{ __('Anda yakin ingin menghapus user ini?') }}
                     </h2>
                     <p class="mt-1 text-sm sm:text-base text-gray-500">
                         {{ __('
-                        Setelah user ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
+                                                Setelah user ini dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen.') }}
                     </p>
                     <div class="mt-6 flex justify-end">
                         <x-secondary-button onclick="closeModal()">
