@@ -57,7 +57,7 @@ class AssetController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $assets->appends(['filter' => $selectedFilter]);
+        $assets->appends(['filter' => $selectedFilter,'search' => $result]);
 
         return view('admin.asset.asset', compact('assets','selectedFilter','result'));
     }

@@ -41,7 +41,7 @@ class AnnouncementController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $announcements->appends(['filter' => $selectedFilter]);
+        $announcements->appends(['filter' => $selectedFilter,'search' => $result]);
 
         return view('admin.announcement.announcement', compact('announcements','selectedFilter','result'));
     }

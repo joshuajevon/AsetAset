@@ -204,7 +204,7 @@ class HomeController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $assets->appends(['filter' => $selectedFilter]);
+        $assets->appends(['filter' => $selectedFilter ,'search' => $result,'min-price' => $minPrice, 'max-price' => $maxPrice, 'categories' => $selectedCategories, 'provinces' => $selectedProvinces,'cities' => $selectedCities]);
 
         return view('asset',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
     }
@@ -303,7 +303,7 @@ class HomeController extends Controller
         }
 
         $users = $query->paginate(10);
-        
+
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
         }else if ($selectedFilter) {

@@ -40,7 +40,7 @@ class OwnerController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $owners->appends(['filter' => $selectedFilter]);
+        $owners->appends(['filter' => $selectedFilter,'search' => $result]);
 
         return view('admin.owner.owner', compact('owners','selectedFilter','result'));
     }

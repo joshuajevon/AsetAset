@@ -41,7 +41,7 @@ class SellerController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $sellers->appends(['filter' => $selectedFilter]);
+        $sellers->appends(['filter' => $selectedFilter,'search' => $result]);
 
         return view('admin.seller.seller', compact('sellers','selectedFilter','result'));
     }
