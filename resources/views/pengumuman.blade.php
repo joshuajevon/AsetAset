@@ -5,8 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
     {{-- css --}}
-    {{-- <link rel="stylesheet" href="{{ asset('css/beranda.css') }}?t={{ env('VERSION_TIME') }}">
-    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}?t={{ env('VERSION_TIME') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}?t={{ env('VERSION_TIME') }}">
 @endsection
 
 @section('body')
@@ -20,7 +19,7 @@
     {{-- Modal --}}
     <div id="modal-announcement"
         class="fixed top-0 left-0 z-50 c-container w-screen h-screen bg-cBlack/50 flex justify-center items-center hidden">
-        <div class="bg-cWhite w-full h-[70%] rounded-lg flex flex-col">
+        <div class="bg-cWhite w-full h-fit max-h-[70%] rounded-lg flex flex-col">
             <div
                 class="p-5 sm:p-6 md:p-7 lg:p-8 xl:p-9 2xl:p-10 bg-cDarkGrey rounded-t-lg flex justify-between items-center">
                 <h1 class="font-bold text-center text-2xl">Pengumuman</h1>
@@ -30,11 +29,19 @@
                 </svg>
             </div>
 
-            <div class="p-5 sm:p-6 md:p-7 lg:p-8 xl:p-9 2xl:p-10 flex flex-col gap-8 overflow-y-scroll h-full">
-                <h2 id="announcement-date" class="text-base opacity-75"></h2>
-                <h1 id="announcement-title" class="text-3xl font-bold"></h1>
-                <p id="announcement-desc" class="text-lg"></p>
+            <div class="p-5 sm:p-6 md:p-7 lg:p-8 xl:p-9 2xl:p-10 flex flex-col gap-4 lg:gap-8 overflow-y-scroll h-full">
+                <h2 id="announcement-date" class="text-sm lg:text-base opacity-75"></h2>
+                <h1 id="announcement-title" class="text-2xl lg:text-3xl font-bold"></h1>
+                <p id="announcement-desc" class="text-sm lg:text-lg"></p>
                 <img id="announcement-file" src="" alt="announcement-image">
+                <a href="" download class="gold-btn gap-2 w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    Download
+                </a>
             </div>
         </div>
     </div>
@@ -43,7 +50,7 @@
         <x-page-title title="Pengumuman" />
 
         {{-- Filters long --}}
-        <div class="hidden lg:flex item-center gap-8">
+        <div class="hidden lg:flex item-center gap-8 text-lg">
             <a href="{{ url('pengumuman') }}">
                 <button
                     class="@if (request()->is('pengumuman')) announcement-active @else opacity-50 transition-opacity hover:opacity-100 @endif">
@@ -70,7 +77,7 @@
             </a>
         </div>
         {{-- Filter short --}}
-        <div class="lg:hidden flex item-center gap-8">
+        <div class="lg:hidden flex item-center gap-8 text-base">
             <a href="{{ url('pengumuman') }}">
                 <button
                     class="@if (request()->is('pengumuman')) announcement-active @else opacity-50 transition-opacity hover:opacity-100 @endif">
@@ -98,76 +105,43 @@
         </div>
 
         @if ($announcements->count() === 0)
-            Tidak ada pengumuman
+            <div class="p-8 text-red-700 bg-red-200 rounded-lg">
+                <h1>Tidak ada pengumuman.
+                </h1>
+            </div>
         @else
-            <div class="grid grid-rows-1 gap-y-16">
+            <div class="grid grid-rows-1 gap-y-12 lg:gap-y-16">
                 @foreach ($announcements as $announcement)
                     <div class="grid grid-cols-12">
-                        <div class="col-span-1 text-lg flex items-center border-r-2 border-cBlack pr-8">
-                            {{ \Carbon\Carbon::parse($announcement->date)->formatLocalized('%d %B %Y') }}
+                        <div
+                            class="mb-1 lg:mb-0 col-span-12 lg:col-span-1 flex items-center lg:border-r-2 lg:border-cBlack lg:pr-8">
+                            <h3 class="text-sm lg:text-lg">
+                                {{ \Carbon\Carbon::parse($announcement->date)->formatLocalized('%d %B %Y') }}
+                            </h3>
                         </div>
-                        <div class="col-span-11 flex flex-col gap-3 lg:gap-4 pl-8">
-                            <h1 class="font-bold text-base lg:text-lg">
-                                {{ $announcement->title }}
-                            </h1>
-                            <p class="text-sm lg:text-base line-clamp-2 lg:line-clamp-3">
-                                {{ $announcement->description }}
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iste deserunt doloribus
-                                consectetur veritatis expedita odit, impedit quaerat, sapiente necessitatibus cum nam ipsam
-                                nihil voluptas aliquam, modi sunt sit soluta? Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Nostrum tempora eaque quae et, nam aspernatur voluptas minus illum facere
-                                magnam quaerat ipsam aliquam omnis sit natus nesciunt, neque veritatis culpa. Lorem ipsum,
-                                dolor sit amet consectetur adipisicing elit. Magni modi incidunt dolores facilis nobis sint
-                                reiciendis, excepturi tenetur beatae repudiandae eligendi similique fuga iste veritatis,
-                                dicta pariatur eum amet voluptate?
-                            </p>
-                            <button class="gold-btn w-fit text-sm lg:text-base"
+                        <div class="col-span-12 lg:col-span-11 flex flex-col gap-3 lg:gap-4 lg:pl-8">
+                            <div class="flex flex-col gap-1 lg:gap-2 w-full">
+                                <h1 class="font-bold text-base lg:text-lg truncate">
+                                    {{ $announcement->title }}
+                                </h1>
+                                <p class="text-sm lg:text-base line-clamp-2 lg:line-clamp-3 break-all">
+                                    {{ $announcement->description }}
+                                </p>
+                            </div>
+                            <button class="gold-btn w-fit text-sm lg:text-base px-4 lg:px-5 py-2 lg:py-2.5"
                                 onclick="openModal('{{ $announcement->title }}', '{{ $announcement->description }}', '{{ \Carbon\Carbon::parse($announcement->date)->formatLocalized('%d %B %Y') }}', '{{ $announcement->file }}')">Baca
                                 Selengkapnya</button>
                         </div>
                     </div>
                 @endforeach
             </div>
-
-            {{-- <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
-                <thead class="text-left text-base">
-                    <tr>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Title
-                        </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Description
-                        </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Date
-                        </th>
-                        <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            File
-                        </th>
-                    </tr>
-                </thead>
-                @foreach ($announcements as $announcement)
-                    <tbody class="divide-y divide-cGold text-sm">
-                        <tr>
-                            <td class="whitespace-nowrap px-4 py-2">{{ $announcement->title }}</td>
-                            <td class="whitespace-nowrap px-4 py-2">{{ $announcement->description }}</td>
-                            <td class="whitespace-nowrap px-4 py-2">
-                                {{ \Carbon\Carbon::parse($announcement->date)->formatLocalized('%d %B %Y') }}
-                            </td>
-                            <td class="whitespace-nowrap px-4 py-2">
-                                <img src="{{ asset('/storage/asset/announcement/' . $announcement->file) }}"
-                                    class="object-fit-contain rounded card-img-top" style="width: 300px" alt="announcement">
-                            </td>
-                    </tbody>
-                @endforeach
-            </table> --}}
         @endif
 
+        {{-- Bottom Pagination --}}
+        <div id="bottom-pagination" class="pagination">
+            {{ $announcements->onEachSide(0.5)->links() }}
+        </div>
     </section>
-    {{-- Bottom Pagination --}}
-    <div id="top-pagination" class="pagination">
-        {{ $announcements->onEachSide(0.5)->links() }}
-    </div>
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
