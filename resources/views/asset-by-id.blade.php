@@ -222,7 +222,7 @@
                             kami</a>
                     @endguest
                     @auth
-                    <a href="https://wa.me/6287876731950?text=Halo%20asetaset.com,%20saya%20{{ Auth::user()->nickname }}%20berminat%20atas:%0D%0AAset:%20{{ $asset->name }}%0D%0ALink:%20https://asetaset.com/asset/{{ $asset->id }}%0D%0AMohon%20informasinya.%20Terima%20kasih." target="_blank"
+                    <a href="https://wa.me/6287876731950?text=Halo%20asetaset.com,%20saya%20{{ Auth::user()->nickname }}%20berminat%20atas:%0D%0AAset:%20{{ $asset->name }}%0D%0ALink:%20https://asetaset.com/beranda/{{ $asset->id }}%0D%0AMohon%20informasinya.%20Terima%20kasih." target="_blank"
                         rel="noopener noreferrer" class="gold-btn rounded-lg font-medium py-4 px-8">Anda berminat? Segera
                         hubungi kami</a>
                     @endauth
