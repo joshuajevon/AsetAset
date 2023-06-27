@@ -33,6 +33,13 @@ const deleteAsset = (assetId) => {
     document.body.style.overflow = 'hidden';
 }
 
+const deleteAnnouncement = (announcementId) => {
+    var confirm = document.getElementById('confirmDelete');
+    confirm.action = "/admin/announcement/delete/" + announcementId;
+    $("#modal").removeClass("hidden");
+    document.body.style.overflow = 'hidden';
+}
+
 const closeModal = () => {
     $("#modal").addClass("hidden");
     document.body.style.overflow = 'auto';

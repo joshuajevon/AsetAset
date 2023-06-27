@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
+use App\Models\Announcement;
 use App\Models\Asset;
 use App\Models\Owner;
 use App\Models\Seller;
@@ -539,8 +540,9 @@ class HomeController extends Controller
         $owner_count = Owner::count();
         $seller_count = Seller::count();
         $carousel_count = Carousel::count();
+        $announcement_count = Announcement::count();
 
-        return view('admin.admin-dashboard',compact('asset_count','user_count','owner_count','seller_count','carousel_count'));
+        return view('admin.admin-dashboard',compact('asset_count','user_count','owner_count','seller_count','carousel_count','announcement_count'));
     }
 
     public function contact(Request $request){
@@ -569,6 +571,16 @@ class HomeController extends Controller
         Mail::to('info@asetaset.com')->send(new ContactFormMail($name, $email, $subject, $mail));
 
         return redirect()->back()->with('success', 'Terima kasih telah menghubungi kami. Tim kami akan segera menghubungi anda');
+    }
+
+    public function pengumuman(){
+        $announcements = Announcement::orderBy('date', 'desc')->get();
+        return view('pengumuman',compact('announcements'));
+    }
+
+    public function filterPengumuman(Request $request, $type) {
+        $announcements = Announcement::where('type','=', $type)->get();
+        return view('pengumuman', compact('announcements'));
     }
 
     // user

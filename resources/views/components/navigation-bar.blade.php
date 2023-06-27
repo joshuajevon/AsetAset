@@ -41,6 +41,13 @@
                             HUBUNGI KAMI
                         </a>
                     </li>
+
+                    <li>
+                        <a class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold before:transition hover:before:scale-100 @if ($page == 'pengumuman') before:scale-x-100 @endif"
+                            href="/pengumuman">
+                            PENGUMUMAN
+                        </a>
+                    </li>
                 </ul>
 
             </div>
@@ -173,6 +180,13 @@
             <span
                 class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'hubungi-kami') before:scale-x-100 @endif">
                 HUBUNGI KAMI
+            </span>
+        </a>
+
+        <a href="/pengumuman" class="c-container block border-b-[1px] border-cGold py-3">
+            <span
+                class="nav-link relative before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-cGold @if ($page == 'pengumuman') before:scale-x-100 @endif">
+                PENGUMUMAN
             </span>
         </a>
 
