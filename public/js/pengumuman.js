@@ -4,10 +4,7 @@ function openModal(title, desc, date, file) {
     $("#announcement-date").html(date);
     $("#announcement-title").html(title);
     $("#announcement-desc").html(desc);
-    $("#announcement-file").attr(
-        "src",
-        "{{ asset('/storage/asset/announcement/" + file
-    );
+    $("#announcement-file").attr("src", "storage/asset/announcement/" + file);
 }
 
 function closeModal() {

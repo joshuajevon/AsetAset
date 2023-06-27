@@ -34,7 +34,7 @@
                 <h2 id="announcement-date" class="text-base opacity-75"></h2>
                 <h1 id="announcement-title" class="text-3xl font-bold"></h1>
                 <p id="announcement-desc" class="text-lg"></p>
-                <img id="announement-file" src="" alt="announcement-image">
+                <img id="announcement-file" src="" alt="announcement-image">
             </div>
         </div>
     </div>
