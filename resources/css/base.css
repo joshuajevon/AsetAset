@@ -72,4 +72,8 @@ input#searchbar:-webkit-autofill{
     .error-message{
         @apply text-red-500 text-sm
     }
+
+    .announcement-active{
+        @apply underline underline-offset-8 opacity-100
+    }
 }
