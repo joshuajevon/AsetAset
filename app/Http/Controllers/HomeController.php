@@ -123,149 +123,13 @@ class HomeController extends Controller
         return view('welcome',  compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','carousels','provinces','cities'));
     }
 
-    public function assetById($id, Request $request){
+    public function assetById($id){
         $asset = Asset::findOrFail($id);
-
-        $categories = $this->getAllCategories();
-
-        $cities = $this->getAllCities();
-
-        $provinces = $this->getAllProvinces();
-
-        $selectedCategories = $request->input('categories', []);
-        $selectedProvinces = $request->input('provinces', []);
-        $selectedCities = $request->input('cities', []);
-        $maxPrice = $request->input('max-price',null);
-        $minPrice = $request->input('min-price',null);
-
-        $query = Asset::query();
-
-        if (!empty($selectedCategories)) {
-            $query->whereIn('category', $selectedCategories);
-        }
-
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
-
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
-
-        if (!empty($maxPrice)) {
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty($minPrice)) {
-            $query->where('price', '>=', $minPrice);
-        }
-
-        $result = $request->input('search');
-
-        $selectedFilter = $request->query('filter', session('selected_filter'));
-
-        if ($selectedFilter) {
-            switch ($selectedFilter) {
-                case 'latest':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_low_high':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_high_low':
-                    $query->orderBy('price', 'desc');
-                    break;
-            }
-        }
-
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        }
-
-        $assets = $query->paginate(16);
-
-        if (!$request->has('filter')) {
-            session()->remove('selected_filter');
-        }else if ($selectedFilter) {
-            session(['selected_filter' => $selectedFilter]);
-        }
-
-        $assets->appends(['filter' => $selectedFilter]);
-
         return view('asset-by-id', compact('asset'));
     }
 
-    public function asetById($id, Request $request){
+    public function asetById($id){
         $asset = Asset::findOrFail($id);
-
-        $categories = $this->getAllCategories();
-
-        $cities = $this->getAllCities();
-
-        $provinces = $this->getAllProvinces();
-
-        $selectedCategories = $request->input('categories', []);
-        $selectedProvinces = $request->input('provinces', []);
-        $selectedCities = $request->input('cities', []);
-        $maxPrice = $request->input('max-price',null);
-        $minPrice = $request->input('min-price',null);
-
-        $query = Asset::query();
-
-        if (!empty($selectedCategories)) {
-            $query->whereIn('category', $selectedCategories);
-        }
-
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
-
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
-
-        if (!empty($maxPrice)) {
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty($minPrice)) {
-            $query->where('price', '>=', $minPrice);
-        }
-
-        $result = $request->input('search');
-
-        $selectedFilter = $request->query('filter', session('selected_filter'));
-
-        if ($selectedFilter) {
-            switch ($selectedFilter) {
-                case 'latest':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_low_high':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_high_low':
-                    $query->orderBy('price', 'desc');
-                    break;
-            }
-        }
-
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        }
-
-        $assets = $query->paginate(16);
-
-        if (!$request->has('filter')) {
-            session()->remove('selected_filter');
-        }else if ($selectedFilter) {
-            session(['selected_filter' => $selectedFilter]);
-        }
-
-        $assets->appends(['filter' => $selectedFilter]);
-
         return view('aset-by-id', compact('asset'));
     }
 
@@ -347,186 +211,14 @@ class HomeController extends Controller
 
     public function tentangKami(Request $request){
         $carousels = Carousel::all();
-
-        $categories = $this->getAllCategories();
-
-        $cities = $this->getAllCities();
-
-        $provinces = $this->getAllProvinces();
-
-        $selectedCategories = $request->input('categories', []);
-        $selectedProvinces = $request->input('provinces', []);
-        $selectedCities = $request->input('cities', []);
-        $maxPrice = $request->input('max-price',null);
-        $minPrice = $request->input('min-price',null);
-
-        $query = Asset::query();
-
-        if (!empty($selectedCategories)) {
-            $query->whereIn('category', $selectedCategories);
-        }
-
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
-
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
-
-        if (!empty($maxPrice)) {
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty($minPrice)) {
-            $query->where('price', '>=', $minPrice);
-        }
-
-        $result = $request->input('search');
-
-        $selectedFilter = $request->query('filter', session('selected_filter'));
-
-        if ($selectedFilter) {
-            switch ($selectedFilter) {
-                case 'latest':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_low_high':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_high_low':
-                    $query->orderBy('price', 'desc');
-                    break;
-            }
-        }
-
-        // if($request->input('search')){
-        //     $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-        //     return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        // }
-
-        return view('tentang-kami',  compact('categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities','carousels'));
+        return view('tentang-kami',  compact('carousels'));
     }
 
-    public function panduan(Request $request){
-        $categories = $this->getAllCategories();
-
-        $cities = $this->getAllCities();
-
-        $provinces = $this->getAllProvinces();
-
-        $selectedCategories = $request->input('categories', []);
-        $selectedProvinces = $request->input('provinces', []);
-        $selectedCities = $request->input('cities', []);
-        $maxPrice = $request->input('max-price',null);
-        $minPrice = $request->input('min-price',null);
-
-        $query = Asset::query();
-
-        if (!empty($selectedCategories)) {
-            $query->whereIn('category', $selectedCategories);
-        }
-
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
-
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
-
-        if (!empty($maxPrice)) {
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty($minPrice)) {
-            $query->where('price', '>=', $minPrice);
-        }
-
-        $result = $request->input('search');
-
-        $selectedFilter = $request->query('filter', session('selected_filter'));
-
-        if ($selectedFilter) {
-            switch ($selectedFilter) {
-                case 'latest':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_low_high':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_high_low':
-                    $query->orderBy('price', 'desc');
-                    break;
-            }
-        }
-
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        }
-
+    public function panduan(){
         return view('panduan');
     }
 
-    public function hubungiKami(Request $request){
-        $categories = $this->getAllCategories();
-
-        $cities = $this->getAllCities();
-
-        $provinces = $this->getAllProvinces();
-
-        $selectedCategories = $request->input('categories', []);
-        $selectedProvinces = $request->input('provinces', []);
-        $selectedCities = $request->input('cities', []);
-        $maxPrice = $request->input('max-price',null);
-        $minPrice = $request->input('min-price',null);
-
-        $query = Asset::query();
-
-        if (!empty($selectedCategories)) {
-            $query->whereIn('category', $selectedCategories);
-        }
-
-        if (!empty($selectedCities)) {
-            $query->whereIn('city', $selectedCities);
-        }
-
-        if (!empty($selectedProvinces)) {
-            $query->whereIn('province', $selectedProvinces);
-        }
-
-        if (!empty($maxPrice)) {
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty($minPrice)) {
-            $query->where('price', '>=', $minPrice);
-        }
-
-        $result = $request->input('search');
-
-        $selectedFilter = $request->query('filter', session('selected_filter'));
-
-        if ($selectedFilter) {
-            switch ($selectedFilter) {
-                case 'latest':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_low_high':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_high_low':
-                    $query->orderBy('price', 'desc');
-                    break;
-            }
-        }
-
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->paginate(16);
-            return view('asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
-        }
-
+    public function hubungiKami(){
         return view('hubungi-kami');
     }
 
@@ -588,7 +280,13 @@ class HomeController extends Controller
 
         $query = User::query();
 
+        $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('name', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -604,14 +302,8 @@ class HomeController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $users = User::where('name','like','%' .request('search'). '%')->paginate(10);
-        }else{
-            $users = $query->paginate(10);
-        }
-
-        $result = $request->input('search');
-
+        $users = $query->paginate(10);
+        
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
         }else if ($selectedFilter) {

@@ -11,7 +11,13 @@ class CarouselController extends Controller
     public function carousel(Request $request){
         $query = Carousel::query();
 
+        $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('title', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -27,11 +33,7 @@ class CarouselController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $carousels = Carousel::where('title','like','%' .request('search'). '%')->simplePaginate(10);
-        }else{
-            $carousels = $query->paginate(10);
-        }
+        $carousels = $query->paginate(10);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -40,7 +42,7 @@ class CarouselController extends Controller
         }
 
         $carousels->appends(['filter' => $selectedFilter]);
-        $result = $request->input('search');
+        
         return view('admin.carousel.carousel', compact('carousels','selectedFilter','result'));
     }
 

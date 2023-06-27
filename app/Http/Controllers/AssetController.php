@@ -27,7 +27,13 @@ class AssetController extends Controller
 
         $query = Asset::query();
 
+       $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('name', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -43,11 +49,7 @@ class AssetController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(10);
-        }else{
-            $assets = $query->paginate(10);
-        }
+        $assets = $query->paginate(10);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -56,7 +58,7 @@ class AssetController extends Controller
         }
 
         $assets->appends(['filter' => $selectedFilter]);
-        $result = $request->input('search');
+
         return view('admin.asset.asset', compact('assets','selectedFilter','result'));
     }
 

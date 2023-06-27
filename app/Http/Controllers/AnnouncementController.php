@@ -42,7 +42,7 @@ class AnnouncementController extends Controller
         }
 
         $announcements->appends(['filter' => $selectedFilter]);
-        $result = $request->input('search');
+
         return view('admin.announcement.announcement', compact('announcements','selectedFilter','result'));
     }
 
