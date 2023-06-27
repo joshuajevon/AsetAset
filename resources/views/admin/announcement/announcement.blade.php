@@ -75,7 +75,6 @@
                 </div>
             </form>
 
-
             <table class="w-full divide-y-2 divide-cGold bg-white text-sm border border-cGold table-auto">
                 <thead class="text-left text-base">
                     <tr>

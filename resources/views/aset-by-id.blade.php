@@ -105,7 +105,7 @@
                             <td>{{ $asset->province }}, {{ $asset->city }}</td>
                         </tr>
                         <tr>
-                            <th colspan="2">Detail Pemilik Aset</th>
+                            <th colspan="2">Pemilik dan/atau Pemegang Hak</th>
                         </tr>
                         <tr class="bg-cDarkGrey rounded-t-xl">
                             <th class="pl-4 rounded-tl-lg">Nama</th>
@@ -123,7 +123,7 @@
 
                         </tr>
                         <tr>
-                            <th colspan="2">Detail Penjual Aset</th>
+                            <th colspan="2">Penjual</th>
                         </tr>
                         <tr class="bg-cDarkGrey rounded-t-xl">
                             <th class="pl-4 rounded-tl-lg">Nama</th>

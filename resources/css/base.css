@@ -19,11 +19,11 @@ input#searchbar:-webkit-autofill{
         @apply break-all
     }
 
-    [type='url'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple] {
+    [type='url'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple] {
         @apply border-cDarkGrey focus:border-none focus:ring-0
     }
 
-    [type='number'],[type='text'],[type='email'],[type="password"],textarea {
+    [type='number'],[type='text'],[type='email'],[type="password"],[type='date'],textarea {
         @apply border-cDarkGrey focus:border-cGold focus:ring-0
     }
 

@@ -37,8 +37,9 @@
 
                 <div class="w-full">
                     <x-input-label for="announcement-desc" :value="__('Deskripsi')" />
-                    <x-text-input type="text" id="announcement-desc" class="mt-1 w-full" placeholder="Masukkan deskripsi pengumuman"
-                        name="description" value="{{ $announcement->description }}" />
+                    <x-text-input type="text" id="announcement-desc" class="mt-1 w-full"
+                        placeholder="Masukkan deskripsi pengumuman" name="description"
+                        value="{{ $announcement->description }}" />
                     <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 </div>
 
@@ -53,8 +54,8 @@
 
                 <div class="w-full">
                     <x-input-label for="announcement-date" :value="__('Date')" />
-                    <input type="date" class="mt-1 w-full form-control @error('date') is-invalid @enderror" id="date-image"
-                        name="date" value="{{ $announcement->date }}">
+                    <x-text-input type="date" id="announcement-date" class="mt-1 w-full"
+                        placeholder="Masukkan deskripsi pengumuman" name="date" value="{{ $announcement->date }}" />
                     <x-input-error :messages="$errors->get('date')" class="mt-2" />
                 </div>
 
