@@ -36,17 +36,20 @@
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
                 alt="logo">
             <p class="text-justify text-sm sm:text-lg lg:text-xl font-normal">
-                asetaset.com adalah solusi daring yang inovatif untuk mempermudah akses dan transparansi dalam mencari aset
-                yang sedang dalam tahap pra-pailit di Indonesia. Kami hadir dengan tujuan memberikan layanan yang luas dan
-                terpercaya kepada masyarakat umum serta pihak-pihak yang berkepentingan. Dengan menggunakan platform kami,
-                Anda akan merasakan efisiensi dan kehandalan dalam mengelola proses pembelian aset, baik untuk keperluan
-                perusahaan maupun individu. Melalui asetaset.com, Anda dapat dengan mudah mengakses informasi detail tentang
-                aset yang tersedia, serta berkomunikasi langsung dengan pihak yang terkait untuk memulai proses pembelian.
+                asetaset.com adalah solusi daring yang memberikan dan menyediakan informasi aset-aset di mana Debitor atau
+                Pemiliknya atau Pemegang Haknya sedang dalam status Penundaan Kewajiban Pembayaran Utang dan/atau aset yang
+                belum laku setelah dilaksanakannya lelang oleh KPKNL setempat. Kami hadir dengan tujuan memberikan layanan
+                yang luas dan terpercaya kepada masyarakat umum serta pihak-pihak yang berkepentingan.
+                <br><br>
+                Dengan menggunakan <span class="italic">platform</span> kami, Anda akan mendapatkan informasi yang efektif,
+                efisien, dan andal dalam
+                pengelolaan jual beli aset. Melalui asetaset.com, Anda dapat dengan mudah mengakses informasi rinci tentang
+                aset yang tersedia, serta berkomunikasi langsung dengan pihak yang terkait untuk memulai proses jual beli.
                 Kami menyediakan sistem yang memudahkan Anda untuk menemukan dan memperoleh aset yang diinginkan dengan
                 cepat dan tanpa kesulitan. Dengan fokus pada transparansi dan kemudahan komunikasi, kami berkomitmen untuk
-                memberikan pengalaman yang memuaskan dalam menjalankan proses pembelian aset Anda. Saatnya menciptakan
-                efisiensi dan keterbukaan dalam mencari aset yang tepat. Bergabunglah dengan asetaset.com sekarang dan
-                temukan solusi yang andal untuk kebutuhan aset Anda.
+                memberikan pengalaman yang memuaskan dalam menjalankan proses jual beli aset Anda. Saatnya menciptakan
+                efisiensi dan keterbukaan dalam mencari aset yang tepat.
+
             </p>
         </div>
     </section>
