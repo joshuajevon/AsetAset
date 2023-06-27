@@ -266,12 +266,12 @@ class HomeController extends Controller
     }
 
     public function pengumuman(){
-        $announcements = Announcement::orderBy('date', 'desc')->get();
+        $announcements = Announcement::orderBy('date', 'desc')->paginate(5);
         return view('pengumuman',compact('announcements'));
     }
 
     public function filterPengumuman(Request $request, $type) {
-        $announcements = Announcement::where('type','=', $type)->get();
+        $announcements = Announcement::where('type','=', $type)->paginate(5);
         return view('pengumuman', compact('announcements'));
     }
 

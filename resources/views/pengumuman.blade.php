@@ -164,7 +164,10 @@
         @endif
 
     </section>
-
+    {{-- Bottom Pagination --}}
+    <div id="top-pagination" class="pagination">
+        {{ $announcements->onEachSide(0.5)->links() }}
+    </div>
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
