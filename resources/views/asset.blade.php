@@ -107,7 +107,7 @@
                         <div
                             class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-col justify-center items-center gap-4 rounded-b-lg">
                             <button class="gold-btn w-full" type="submit">Terapkan</button>
-                            <a href="/" class="white-btn w-full">Hapus
+                            <a href="/asset" class="white-btn w-full">Hapus
                                 Filter</a>
                         </div>
                     </div>
