@@ -22,6 +22,8 @@ return new class extends Migration
             $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('types', "500");
+            $table->string('proof', "500");
             $table->string('description', "6553");
             $table->string('status');
             for ($i = 1; $i <= 5; $i++) {

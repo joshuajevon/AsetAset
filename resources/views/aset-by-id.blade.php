@@ -140,10 +140,6 @@
                         <tr class="h-5 border-b-[1px] border-b-cDarkGrey">
 
                         </tr>
-                        <tr class="table-row mt-4">
-                            <th>Uraian</th>
-                            <td>{{ $asset->description }}</td>
-                        </tr>
                         <tr class="table-row">
                             <th>Status Aset</th>
                             <td>{{ $asset->status }}</td>
@@ -252,29 +248,17 @@
                 <div class="flex flex-col lg:w-1/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Jenis Barang</h1>
                     <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        consectetur
-                        adipisicing
-                        elit. Repudiandae quos vel quisquam. Reiciendis
-                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
-                        molestiae et consequatur dolorem reiciendis.</p>
+                        {{$asset->types}}</p>
                 </div>
                 <div class="flex flex-col lg:w-1/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Bukti Kepemilikan</h1>
                     <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        consectetur
-                        adipisicing
-                        elit. Repudiandae quos vel quisquam. Reiciendis
-                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
-                        molestiae et consequatur dolorem reiciendis.</p>
+                        {{$asset->proof}}</p>
                 </div>
                 <div class="flex flex-col lg:w-3/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Uraian</h1>
                     <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        consectetur
-                        adipisicing
-                        elit. Repudiandae quos vel quisquam. Reiciendis
-                        quia commodi recusandae hic culpa. Ex quo consequuntur temporibus pariatur similique mollitia
-                        molestiae et consequatur dolorem reiciendis.</p>
+                        {{$asset->description}}</p>
                 </div>
             </div>
         </div>

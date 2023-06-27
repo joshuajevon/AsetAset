@@ -124,6 +124,20 @@
                 </div>
 
                 <div class="w-full">
+                    <x-input-label for="asset-desc" :value="__('Jenis Barang')" />
+                    <x-text-input type="text" id="asset-desc" class="mt-1 w-full" placeholder="Masukkan jenis barang"
+                        name="types" value="{{ old('types') }}" />
+                    <x-input-error :messages="$errors->get('types')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
+                    <x-input-label for="asset-desc" :value="__('Bukti Kepemilikan')" />
+                    <x-text-input type="text" id="asset-desc" class="mt-1 w-full" placeholder="Masukkan bukti kepemilikan"
+                        name="proof" value="{{ old('proof') }}" />
+                    <x-input-error :messages="$errors->get('proof')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
                     <x-input-label for="asset-desc" :value="__('Deskripsi')" />
                     <x-text-input type="text" id="asset-desc" class="mt-1 w-full" placeholder="Masukkan deskripsi asset"
                         name="description" value="{{ old('description') }}" />

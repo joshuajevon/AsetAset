@@ -49,7 +49,13 @@
                             Owner
                         </th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium">
-                            Description
+                            Jenis Barang
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Bukti Kepemilikan
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 font-medium">
+                            Uraian
                         </th>
                         <th class="whitespace-nowrap px-4 py-2 font-medium">
                             Status
@@ -76,6 +82,8 @@
                         <td class="whitespace-nowrap px-4 py-2">@currency ($asset->price)</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->seller->seller_name }}</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->owner->owner_name }}</td>
+                        <td class="whitespace-nowrap px-4 py-2">{{ $asset->types }}</td>
+                        <td class="whitespace-nowrap px-4 py-2">{{ $asset->proof }}</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->description }}</td>
                         <td class="whitespace-nowrap px-4 py-2">{{ $asset->status }}</td>
                         <td class="whitespace-nowrap px-4 py-2">

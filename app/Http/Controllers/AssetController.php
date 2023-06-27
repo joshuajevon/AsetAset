@@ -100,6 +100,8 @@ class AssetController extends Controller
             'price' => 'required',
             'seller_name' => 'required',
             'owner_name' => 'required',
+            'types' => 'required|string',
+            'proof' => 'required|string',
             'description' => 'required|string',
             'status' => 'required|string',
             'image1' => 'required|',
@@ -136,6 +138,8 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
+            'types' => $request->types,
+            'proof' => $request->proof,
             'description' => $request->description,
             'status' => $request->status,
         ];
@@ -191,6 +195,8 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
+            'types' => $request->types,
+            'proof' => $request->proof,
             'description' => $request->description,
             'status' => $request->status,
         ];

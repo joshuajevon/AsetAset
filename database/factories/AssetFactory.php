@@ -50,6 +50,8 @@ class AssetFactory extends Factory
             'price' => $this->faker->numberBetween(123456789,20000000),
             'seller_id' => $this->faker->numberBetween(1,5),
             'owner_id' => $this->faker->numberBetween(1,5),
+            'types' => $this->faker->text(50),
+            'proof' => $this->faker->text(50),
             'description' => $this->faker->text(50),
             'status' => 'dijamin oleh bank a',
             'attachment1' => 'asset.png',
