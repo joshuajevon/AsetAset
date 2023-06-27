@@ -154,21 +154,9 @@
                 <p class="text-red-500 text-sm sm:text-base lg:text-lg">*Wajib diisi</p>
             </div>
 
-            {{-- Error Message --}}
-            {{-- <div class="px-4">
-                <p id="error-message-login" class="text-base text-red-600"></p>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                <x-input-error :messages="$errors->get('gender')" class="mt-2" />
-            </div> --}}
-
             <div class="px-4">
                 <p class="text-sm sm:text-base">Dengan menekan tombol Daftar, anda sudah bersedia dan menyetujui <a
-                        href="#" class="font-bold underline">syarat dan ketentuan</a></p>
+                        href="{{asset('assets/syarat-ketentuan/Syarat dan Ketentuan.pdf')}}" class="font-bold underline" target="_blank" rel="noopener noreferrer">syarat dan ketentuan</a></p>
             </div>
 
             <div class="px-4">

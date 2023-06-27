@@ -15,31 +15,19 @@ function closeFilter() {
     $("#form-filter").removeClass("max-h-[70%] w-full overflow-scroll");
     document.body.style.overflow = "auto";
 }
+
 window.addEventListener(
     "resize",
     function (event) {
         var windowWidth =
             window.innerWidth || document.documentElement.clientWidth;
 
-        if (windowWidth >= 768) {
-            $("#nav-icon-top").removeClass("rotate-45 translate-y-[6px]");
-            $("#nav-icon-bottom").removeClass("-rotate-45 -translate-y-[8px]");
-            $("#nav-icon-mid").removeClass("opacity-0");
-            $("#mobile-nav-links").slideUp();
-            isNavbarOpen = false;
-
-            $("#profile-mobile-arrow").removeClass("rotate-180");
-            $("#profile-mobile-links").slideUp(200);
-            isProfileMobileOpen = false;
-        } else {
-            $("#profile-web-arrow").removeClass("rotate-180");
-            $("#profile-web-links").slideUp(200);
-            isProfileWebOpen = false;
+        if (windowWidth >= 1280) {
+            closeFilter();
         }
     },
     true
 );
-
 const arrProvinsiKota = {
     Aceh: [
         "Kabupaten Aceh Barat",

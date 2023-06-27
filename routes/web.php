@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
@@ -30,7 +31,11 @@ Route::get('/panduan',[HomeController::class, 'panduan'])->name('panduan');
 
 Route::get('/hubungi-kami',[HomeController::class, 'hubungiKami'])->name('hubungiKami');
 
-Route::get('/asset/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
+Route::get('/pengumuman',[HomeController::class, 'pengumuman'])->name('pengumuman');
+
+Route::get('/pengumuman/{type}', [HomeController::class, 'filterPengumuman'])->name('filterPengumuman');
+
+Route::get('/beranda/{id}',[HomeController::class, 'assetById'])->name('asset-by-id');
 
 Route::get('/aset/{id}',[HomeController::class, 'asetById'])->name('asetId');
 
@@ -92,6 +97,17 @@ Route::middleware('isAdmin')->group(function(){
             Route::get('/edit/{id}', [CarouselController::class, 'edit'])->name('edit-carousel');
             Route::patch('/update/{id}', [CarouselController::class, 'update'])->name('update-carousel');
             Route::delete('/delete/{id}', [CarouselController::class, 'delete'])->name('delete-carousel');
+        });
+
+        // CRUD announcement
+        Route::prefix('/announcement')->group(function(){
+            Route::get('/', [AnnouncementController::class, 'announcement'])->name('announcement');
+            Route::get('/view/{id}', [AnnouncementController::class, 'view'])->name('view-announcement');
+            Route::get('/create', [AnnouncementController::class, 'create'])->name('create-announcement');
+            Route::post('/store', [AnnouncementController::class, 'store'])->name('store-announcement');
+            Route::get('/edit/{id}', [AnnouncementController::class, 'edit'])->name('edit-announcement');
+            Route::patch('/update/{id}', [AnnouncementController::class, 'update'])->name('update-announcement');
+            Route::delete('/delete/{id}', [AnnouncementController::class, 'delete'])->name('delete-announcement');
         });
     });
 

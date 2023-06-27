@@ -3,9 +3,9 @@
     <div class="flex flex-col justify-start items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-72">
         <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
             alt="logo">
-        <p class="text-justify">asetaset.com memberikan akses yang lebih luas dan transparan dalam proses mencari aset
+        {{-- <p class="text-justify">asetaset.com memberikan akses yang lebih luas dan transparan dalam proses mencari aset
             yang tersedia, baik untuk masyarakat umum maupun pihak-pihak yang berkepentingan.
-        </p>
+        </p> --}}
     </div>
     <div class="flex justify-start sm:justify-between w-full max-w-[800px] flex-wrap gap-16">
         <div class="flex flex-col justify-start items-start gap-1">

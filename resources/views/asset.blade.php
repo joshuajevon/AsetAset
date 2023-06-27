@@ -37,8 +37,9 @@
 
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
-                <div id="dialog-filter" class="hidden xl:block xl:col-span-1 xl:h-fit bg-cBlack/50 xl:bg-transparent">
-                    <div id="form-filter" class="bg-cWhite rounded-lg">
+                <div id="dialog-filter"
+                    class="hidden xl:block col-span-12 xl:col-span-1 h-screen xl:h-fit bg-cBlack/50 xl:bg-transparent">
+                    <div id="form-filter" class="bg-cWhite rounded-lg h-[70%] xl:h-fit flex flex-col">
                         <div
                             class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey rounded-t-lg flex justify-between xl:justify-center items-center">
                             <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
@@ -48,7 +49,7 @@
                             </svg>
                         </div>
 
-                        <div class="p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8">
+                        <div class="p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8 overflow-y-scroll xl:overflow-y-auto">
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Jenis Aset</h2>
                                 @foreach ($categories as $category)
@@ -105,9 +106,9 @@
                         </div>
 
                         <div
-                            class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-col justify-center items-center gap-4 rounded-b-lg">
-                            <button class="gold-btn w-full" type="submit">Terapkan</button>
-                            <a href="/" class="white-btn w-full">Hapus
+                            class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-row-reverse xl:flex-col justify-center items-center gap-4 rounded-b-lg">
+                            <button class="gold-btn w-full text-center" type="submit">Terapkan</button>
+                            <a href="/" class="white-btn w-full text-center">Hapus
                                 Filter</a>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
                             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
                                 src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                             <h1 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-cBlack">Butuh Bantuan?</h1>
-                            <h2 class="text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2>
+                            {{-- <h2 class="text-xl sm:text-2xl lg:text-3xl text-cBlack">Jangan Ragu Untuk Menghubungi Kami</h2> --}}
                             <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
                                 href="/hubungi-kami">
                                 <span class="absolute -end-full transition-all group-hover:end-4">

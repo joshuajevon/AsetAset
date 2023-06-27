@@ -47,7 +47,7 @@ window.addEventListener(
         var windowWidth =
             window.innerWidth || document.documentElement.clientWidth;
 
-        if (windowWidth >= 768) {
+        if (windowWidth >= 1280) {
             $("#nav-icon-top").removeClass("rotate-45 translate-y-[6px]");
             $("#nav-icon-bottom").removeClass("-rotate-45 -translate-y-[8px]");
             $("#nav-icon-mid").removeClass("opacity-0");

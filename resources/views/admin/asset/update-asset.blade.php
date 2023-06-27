@@ -41,14 +41,22 @@
                         id="asset-category" name="category" value="{{ old('category') }}"
                         aria-label="Default select example" name="category">
                         <option value="" disabled>-- Pilih Categori --</option>
-                        <option value="Rumah" @if ($asset->category == 'Rumah') selected @endif>Rumah</option>
-                        <option value="Gedung" @if ($asset->category == 'Gedung') selected @endif>Gedung</option>
-                        <option value="Gudang" @if ($asset->category == 'Gudang') selected @endif>Gudang</option>
-                        <option value="Apartemen" @if ($asset->category == 'Apartemen') selected @endif>Apartemen</option>
                         <option value="Tanah" @if ($asset->category == 'Tanah') selected @endif>Tanah</option>
-                        <option value="Barang" @if ($asset->category == 'Barang') selected @endif>Barang</option>
-                        <option value="Kendaraan" @if ($asset->category == 'Kendaraan') selected @endif>Kendaraan</option>
-                        <option value="Alat berat" @if ($asset->category == 'Alat Berat') selected @endif>Alat berat</option>
+                        <option value="Rumah" @if ($asset->category == 'Rumah') selected @endif>Rumah</option>
+                        <option value="Ruko" @if ($asset->category == 'Ruko') selected @endif>Ruko</option>
+                        <option value="Pabrik" @if ($asset->category == 'Pabrik') selected @endif>Pabrik</option>
+                        <option value="Hotel dan Villa" @if ($asset->category == 'Hotel dan Villa') selected @endif>Hotel dan Villa</option>
+                        <option value="Mobil" @if ($asset->category == 'Mobil') selected @endif>Mobil</option>
+                        <option value="Motor" @if ($asset->category == 'Motor') selected @endif>Motor</option>
+                        <option value="Bongkaran" @if ($asset->category == 'Bongkaran') selected @endif>Bongkaran</option>
+                        <option value="Besi Tua" @if ($asset->category == 'Besi Tua') selected @endif>Besi Tua</option>
+                        <option value="Elektronik" @if ($asset->category == 'Elektronik') selected @endif>Elektronik</option>
+                        <option value="Kayu" @if ($asset->category == 'Kayu') selected @endif>Kayu</option>
+                        <option value="UMKM" @if ($asset->category == 'UMKM') selected @endif>UMKM</option>
+                        <option value="Inventaris" @if ($asset->category == 'Inventaris') selected @endif>Inventaris</option>
+                        <option value="Gudang" @if ($asset->category == 'Gudang') selected @endif>Gudang</option>
+                        <option value="Toko" @if ($asset->category == 'Toko') selected @endif>Toko</option>
+                        <option value="Apartemen" @if ($asset->category == 'Apartemen') selected @endif>Apartemen</option>
                         <option value="Lain-lain" @if ($asset->category == 'Lain-lain') selected @endif>Lain-lain</option>
                     </select>
                     <x-input-error :messages="$errors->get('category')" class="mt-2" />
@@ -109,6 +117,20 @@
                         @endforeach
                     </select>
                     <x-input-error :messages="$errors->get('owner_name')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
+                    <x-input-label for="asset-desc" :value="__('Jenis Barang')" />
+                    <x-text-input type="text" id="asset-desc" class="mt-1 w-full" placeholder="Masukkan jenis barang"
+                        name="types" value="{{ $asset->types }}" />
+                    <x-input-error :messages="$errors->get('types')" class="mt-2" />
+                </div>
+
+                <div class="w-full">
+                    <x-input-label for="asset-desc" :value="__('Bukti Kepemilikan')" />
+                    <x-text-input type="text" id="asset-desc" class="mt-1 w-full" placeholder="Masukkan bukti kepemilikan"
+                        name="proof" value="{{ $asset->proof }}" />
+                    <x-input-error :messages="$errors->get('proof')" class="mt-2" />
                 </div>
 
                 <div class="w-full">

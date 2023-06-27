@@ -27,7 +27,13 @@ class AssetController extends Controller
 
         $query = Asset::query();
 
+       $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('name', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -43,11 +49,7 @@ class AssetController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $assets = Asset::where('name','like','%' .request('search'). '%')->simplePaginate(10);
-        }else{
-            $assets = $query->paginate(10);
-        }
+        $assets = $query->paginate(10);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -55,8 +57,8 @@ class AssetController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $assets->appends(['filter' => $selectedFilter]);
-        $result = $request->input('search');
+        $assets->appends(['filter' => $selectedFilter,'search' => $result]);
+
         return view('admin.asset.asset', compact('assets','selectedFilter','result'));
     }
 
@@ -98,6 +100,8 @@ class AssetController extends Controller
             'price' => 'required',
             'seller_name' => 'required',
             'owner_name' => 'required',
+            'types' => 'required|string',
+            'proof' => 'required|string',
             'description' => 'required|string',
             'status' => 'required|string',
             'image1' => 'required|',
@@ -134,6 +138,8 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
+            'types' => $request->types,
+            'proof' => $request->proof,
             'description' => $request->description,
             'status' => $request->status,
         ];
@@ -189,6 +195,8 @@ class AssetController extends Controller
             'price' => $request->price,
             'seller_id' => $request->seller_name,
             'owner_id' => $request->owner_name,
+            'types' => $request->types,
+            'proof' => $request->proof,
             'description' => $request->description,
             'status' => $request->status,
         ];

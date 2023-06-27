@@ -10,7 +10,13 @@ class OwnerController extends Controller
     public function owner(Request $request){
         $query = Owner::query();
 
+        $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('owner_name', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -26,11 +32,7 @@ class OwnerController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $owners = Owner::where('owner_name','like','%' .request('search'). '%')->simplePaginate(10);
-        }else{
-            $owners = $query->paginate(10);
-        }
+        $owners = $query->paginate(10);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -38,8 +40,8 @@ class OwnerController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $owners->appends(['filter' => $selectedFilter]);
-        $result = $request->input('search');
+        $owners->appends(['filter' => $selectedFilter,'search' => $result]);
+
         return view('admin.owner.owner', compact('owners','selectedFilter','result'));
     }
 

@@ -17,6 +17,8 @@ class Asset extends Model
         'price',
         'seller_id',
         'owner_id',
+        'types',
+        'proof',
         'description',
         'status',
         'attachment1',

@@ -11,7 +11,13 @@ class SellerController extends Controller
     public function seller(Request $request){
         $query = Seller::query();
 
+        $result = $request->input('search',null);
+
         $selectedFilter = $request->query('filter', session('selected_filter'));
+
+        if (!empty($result)) {
+            $query->where('seller_name', 'like', '%' . request('search') . '%');
+        }
 
         if ($selectedFilter) {
             switch ($selectedFilter) {
@@ -27,12 +33,7 @@ class SellerController extends Controller
             }
         }
 
-        if($request->input('search')){
-            $sellers = Seller::where('seller_name','like','%' .request('search'). '%')->simplePaginate(10);
-        }else{
-            $sellers = $query->paginate(10);
-        }
-        $result = $request->input('search');
+        $sellers = $query->paginate(10);
 
         if (!$request->has('filter')) {
             session()->remove('selected_filter');
@@ -40,7 +41,7 @@ class SellerController extends Controller
             session(['selected_filter' => $selectedFilter]);
         }
 
-        $sellers->appends(['filter' => $selectedFilter]);
+        $sellers->appends(['filter' => $selectedFilter,'search' => $result]);
 
         return view('admin.seller.seller', compact('sellers','selectedFilter','result'));
     }
