@@ -17,6 +17,7 @@
                 <a class="transition hover:text-cGold" href="/tentang-kami">Tentang Kami</a>
                 <a class="transition hover:text-cGold" href="/panduan">Panduan</a>
                 <a class="transition hover:text-cGold" href="/hubungi-kami">Hubungi Kami</a>
+                <a class="transition hover:text-cGold" href="/pengumuman">Pengumuman</a>
             </div>
         </div>
         <div class="flex flex-col justify-start items-start gap-1">

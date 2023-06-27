@@ -9,6 +9,7 @@ function openModal(title, desc, date, file) {
         "storage/asset/announcement/" + file
     );
 
+    const baseURL = document.URL.split("/").slice(0, 3).join("/");
     const fileExtension = file.toLowerCase();
 
     if (
@@ -23,7 +24,7 @@ function openModal(title, desc, date, file) {
         const imgElement = $("<img>", {
             id: "announcement-image",
             alt: "announcement-image",
-            src: "storage/asset/announcement/" + file,
+            src: baseURL + "/storage/asset/announcement/" + file,
         });
 
         imgElement.insertBefore($("#announcement-download"));

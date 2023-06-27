@@ -247,18 +247,18 @@
             <div class="flex flex-col lg:flex-row border-l border-r border-b border-cDarkGrey p-4 lg:p-8 gap-6 lg:gap-0">
                 <div class="flex flex-col lg:w-1/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Jenis Barang</h1>
-                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        {{$asset->types}}</p>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">
+                        {{ $asset->types }}</p>
                 </div>
                 <div class="flex flex-col lg:w-1/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Bukti Kepemilikan</h1>
-                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        {{$asset->proof}}</p>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">
+                        {{ $asset->proof }}</p>
                 </div>
                 <div class="flex flex-col lg:w-3/5">
                     <h1 class="px-2 lg:px-4 py-2 border-b border-b-cDarkGrey font-bold">Uraian</h1>
-                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">Lorem ipsum dolor, sit amet
-                        {{$asset->description}}</p>
+                    <p class="px-2 lg:px-4 py-2 border-t border-t-cDarkGrey break-all">
+                        {{ $asset->description }}</p>
                 </div>
             </div>
         </div>
