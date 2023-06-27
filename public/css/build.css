@@ -2203,6 +2203,10 @@ input:-internal-autofill-selected {
   text-transform: uppercase;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .leading-4 {
   line-height: 1rem;
 }
