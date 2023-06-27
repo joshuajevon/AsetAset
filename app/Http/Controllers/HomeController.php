@@ -71,11 +71,11 @@ class HomeController extends Controller
             $query->whereIn('category', $selectedCategories);
         }
 
-        if (!empty($selectedCities)) {
+        if (!empty($selectedCities) && $selectedCities[0] !== null && $selectedCities[0] !== "") {
             $query->whereIn('city', $selectedCities);
         }
 
-        if (!empty($selectedProvinces)) {
+        if (!empty($selectedProvinces) && $selectedProvinces[0] !== null && $selectedProvinces[0] !== "") {
             $query->whereIn('province', $selectedProvinces);
         }
 
@@ -152,11 +152,11 @@ class HomeController extends Controller
             $query->whereIn('category', $selectedCategories);
         }
 
-        if (!empty($selectedCities)) {
+        if (!empty($selectedCities) && $selectedCities[0] !== null && $selectedCities[0] !== "") {
             $query->whereIn('city', $selectedCities);
         }
 
-        if (!empty($selectedProvinces)) {
+        if (!empty($selectedProvinces) && $selectedProvinces[0] !== null && $selectedProvinces[0] !== "") {
             $query->whereIn('province', $selectedProvinces);
         }
 
