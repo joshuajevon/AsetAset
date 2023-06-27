@@ -125,7 +125,7 @@ class HomeController extends Controller
 
     public function assetById($id){
         $asset = Asset::findOrFail($id);
-        return view('asset-by-id', compact('asset'));
+        return view('beranda-by-id', compact('asset'));
     }
 
     public function asetById($id){
