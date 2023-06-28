@@ -275,6 +275,10 @@ class HomeController extends Controller
         return view('pengumuman', compact('announcements'));
     }
 
+    public function guidebook(){
+        return view('admin.guidebook.admin-guidebook');
+    }
+
     // user
     public function user(Request $request){
 
