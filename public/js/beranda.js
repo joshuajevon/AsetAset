@@ -1,29 +1,64 @@
 if (document.querySelector("#top-splide")) {
-    var topSplide = new Splide("#top-splide", {
-        autoplay: true,
-        interval: 3500,
-        drag: true,
-        type: "loop",
-        height: "400px",
-        breakpoints: {
-            640: {
-                height: "200px",
+    let carouselItem = $(".splide__item");
+    if (carouselItem.length == 1) {
+        var topSplide = new Splide("#top-splide", {
+            drag: false,
+            arrows: false,
+            height: "400px",
+            breakpoints: {
+                640: {
+                    height: "200px",
+                },
+                768: {
+                    height: "250px",
+                },
+                1024: {
+                    height: "300px",
+                },
+                1280: {
+                    height: "350px",
+                },
+                1536: {
+                    height: "400px",
+                },
             },
-            768: {
-                height: "250px",
+        });
+        topSplide.mount();
+    } else {
+        var topSplide = new Splide("#top-splide", {
+            autoplay: true,
+            interval: 3500,
+            drag: true,
+            type: "loop",
+            height: "400px",
+            breakpoints: {
+                640: {
+                    height: "200px",
+                },
+                768: {
+                    height: "250px",
+                },
+                1024: {
+                    height: "300px",
+                },
+                1280: {
+                    height: "350px",
+                },
+                1536: {
+                    height: "400px",
+                },
             },
-            1024: {
-                height: "300px",
-            },
-            1280: {
-                height: "350px",
-            },
-            1536: {
-                height: "400px",
-            },
-        },
+        });
+        topSplide.mount();
+    }
+
+    carouselItem.each(function () {
+        let itemHref = $(this).attr("href");
+        if (itemHref == "") {
+            $(this).removeClass("hover:opacity-80");
+            $(this).addClass("pointer-events-none");
+        }
     });
-    topSplide.mount();
 }
 
 function openFilter() {
