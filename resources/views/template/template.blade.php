@@ -35,7 +35,11 @@
 
     <x-footer />
 
+    <x-developed-by />
+
+    {{-- Scripts --}}
     <script src="{{ asset('js/navigation-bar.js') }}?t={{ env('VERSION_TIME') }}"></script>
+    <script src="{{ asset('js/developed-by.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 
 </html>

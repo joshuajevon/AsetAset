@@ -128,10 +128,16 @@
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="ml-[72px] lg:ml-[18rem]">
+        <x-developed-by />
     </div>
 
     {{-- Scripts --}}
     <script src="{{ asset('js/user-dashboard.js') }}?t={{ env('VERSION_TIME') }}"></script>
+    <script src="{{ asset('js/developed-by.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 
 </html>

@@ -31,7 +31,16 @@
 </head>
 
 <body class="bg-cLightGrey">
-    @yield('body')
+    <div class="min-h-screen">
+        @yield('body')
+    </div>
+
+    <div class="ml-[72px] lg:ml-[18rem]">
+        <x-developed-by />
+    </div>
+
+    {{-- Script --}}
+    <script src="{{ asset('js/developed-by.js') }}?t={{ env('VERSION_TIME') }}"></script>
 </body>
 
 </html>
