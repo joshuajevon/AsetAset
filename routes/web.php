@@ -46,6 +46,9 @@ Route::get('/asset-error', [HomeController::class, 'error'])->name('error');
 Route::middleware('isAdmin')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', [HomeController::class, 'dashboard'])->name('admin-dashboard');
+
+        Route::get('/guidebook', [HomeController::class, 'guidebook'])->name('admin-guidebook');
+
         // CRUD assets
         Route::prefix('/assets')->group(function(){
             Route::get('/', [AssetController::class, 'asset'])->name('asset');
