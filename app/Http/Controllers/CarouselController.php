@@ -88,7 +88,7 @@ class CarouselController extends Controller
             $file_name = $request->title.'-'.$image->getClientOriginalName();
             $image->storeAs('/public/asset/slideshow/', $file_name);
             $carousel->update([
-                'image' => $file_name
+                'slideshow' => $file_name
             ]);
         }
 
