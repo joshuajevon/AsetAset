@@ -19,7 +19,7 @@
     {{-- Modal --}}
     <div id="modal-announcement"
         class="fixed top-0 left-0 z-50 c-container w-screen h-screen bg-cBlack/50 flex justify-center items-center hidden">
-        <div class="bg-cWhite w-full h-fit max-h-[70%] rounded-lg flex flex-col">
+        <div class="bg-cWhite w-[1000px] h-fit max-h-[70%] rounded-lg flex flex-col">
             <div
                 class="p-5 sm:p-6 md:p-7 lg:p-8 xl:p-9 2xl:p-10 bg-cDarkGrey rounded-t-lg flex justify-between items-center">
                 <h1 class="font-bold text-center text-2xl">Pengumuman</h1>
