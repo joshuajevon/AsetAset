@@ -102,7 +102,7 @@
                 <span class="hidden lg:inline text-base font-medium"> Manage Announcements </span>
             </a>
 
-            <a href="{{route('admin-guidebook')}}"  rel="noopener noreferrer"
+            <a href="{{ route('admin-guidebook') }}" rel="noopener noreferrer"
                 class="flex items-center gap-2.5 rounded-lg px-2 lg:px-4 py-2 lg:py-3 w-fit lg:w-full @if ($page == 'guidebook') bg-gray-100 text-cGold @else text-cWhite hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] @endif">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" class="w-6 h-6">

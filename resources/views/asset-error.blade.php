@@ -35,8 +35,8 @@
                             class="underline text-blue-500">Klik disini</a> untuk mendaftar.</p>
                 </div>
 
-                <a href="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}" download
-                    class="gold-btn gap-2 w-fit self-end">
+                <a href="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
+                    target="_blank" rel="noopener noreferrer" class="gold-btn gap-2 w-fit self-end">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
