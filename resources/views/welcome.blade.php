@@ -11,6 +11,7 @@
 
 @section('body')
     <x-navigation-bar page="beranda" />
+
     <form action="{{ route('assets') }}" method="get">
         {{-- Search Bar --}}
         <section class="c-container flex justify-center items-center pt-32 pb-16">
