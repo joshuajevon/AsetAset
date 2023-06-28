@@ -28,6 +28,19 @@ function openModal(title, desc, date, file) {
         });
 
         imgElement.insertBefore($("#announcement-download"));
+    } else if (fileExtension.endsWith(".pdf")) {
+        const divElement = $("<div></div>", {
+            id: "announcement-image",
+        });
+        const iframeElement = $("<iframe></iframe>", {
+            src: baseURL + "/storage/asset/announcement/" + file,
+            class: "w-full h-[500px]",
+            // style: "height: 500px;",
+        });
+
+        iframeElement.appendTo(divElement);
+
+        divElement.insertBefore($("#announcement-download"));
     }
 }
 
