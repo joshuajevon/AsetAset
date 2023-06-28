@@ -1894,10 +1894,6 @@ input:-internal-autofill-selected {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/public\/assets\/tentang-kami\/tentang-kami-bg-2\.png\'\)\] {
-  background-image: url('/public/assets/tentang-kami/tentang-kami-bg-2.png');
-}
-
 .bg-cover {
   background-size: cover;
 }
