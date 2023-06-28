@@ -17,9 +17,9 @@
 
     <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
         {{-- Title --}}
-        <x-page-title title="Hubungi Kami" />
+        <x-page-title title="Panduan" />
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 sm:gap-28 md:gap-32 lg:gap-24 xl:gap-28 2xl:gap-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div class="col-span-1 flex justify-center items-center">
                 <div class="w-full flex flex-col justify-center items-start gap-4 sm:gap-6 lg:gap-8">
                     <div class="flex flex-col gap-4 sm:gap-5 lg:gap-6 mb-8">
@@ -31,7 +31,8 @@
                             </svg>
                             info@asetaset.com
                         </a>
-                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
+                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-telephone-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -39,7 +40,8 @@
                             </svg>
                             0818995628
                         </a>
-                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition hover:text-cGold">
+                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
@@ -49,7 +51,8 @@
                         </a>
                     </div>
 
-                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
+                        src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium">Butuh Bantuan?</span>
                     </h1>
                     <a class="gold-btn group relative inline-flex items-center overflow-hidden px-10 focus:outline-none text-base sm:text-lg lg:text-xl"
@@ -70,18 +73,42 @@
 
             </div>
 
-            <div class="col-span-1 flex flex-col justify-start items-center gap-8">
+            <div class="col-span-1 flex flex-col justify-start items-center gap-12">
                 <div class="flex flex-col justify-center items-center gap-4">
-                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
+                    <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48"
+                        src="{{ asset('assets/logo/asetaset-full.png') }}" alt="logo">
                     <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-center">Panduan Lengkap Penggunaan
                         asetaset.com<br>Memperoleh Aset yang Sesuai dengan Keinginan Anda</h1>
                 </div>
 
-                {{-- <iframe src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}"
-                    class="w-full h-[1000px]"></iframe> --}}
+                <div class="flex flex-col gap-4 w-full">
+                    <iframe src="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
+                        class="w-full h-[500px]"></iframe>
 
-                {{-- <embed src="{{ asset('assets/panduan/panduan.pdf') }}?t={{ env('VERSION_TIME') }}" class="w-full h-[1000px]"
-                    type=""> --}}
+                    <a href="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
+                        download class="gold-btn gap-2 w-fit self-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        Unduh Panduan
+                    </a>
+                </div>
+
+                <div class="flex flex-col gap-4 w-full">
+                    <iframe src="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
+                        class="w-full h-[500px]"></iframe>
+                    <a href="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
+                        download class="gold-btn gap-2 w-fit self-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        Unduh Panduan
+                    </a>
+                </div>
             </div>
         </div>
     </section>

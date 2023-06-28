@@ -1215,6 +1215,10 @@ input:-internal-autofill-selected {
   height: 200px;
 }
 
+.h-\[500px\] {
+  height: 500px;
+}
+
 .h-\[70\%\] {
   height: 70%;
 }
@@ -1246,6 +1250,10 @@ input:-internal-autofill-selected {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-20 {
@@ -1296,10 +1304,6 @@ input:-internal-autofill-selected {
   width: 2rem;
 }
 
-.w-\[500px\] {
-  width: 500px;
-}
-
 .w-auto {
   width: auto;
 }
@@ -1315,10 +1319,6 @@ input:-internal-autofill-selected {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-16 {
-  width: 4rem;
 }
 
 .max-w-6xl {
@@ -1432,6 +1432,10 @@ input:-internal-autofill-selected {
   cursor: pointer;
 }
 
+.cursor-wait {
+  cursor: wait;
+}
+
 .resize-none {
   resize: none;
 }
@@ -1476,10 +1480,6 @@ input:-internal-autofill-selected {
 
 .flex-wrap {
   flex-wrap: wrap;
-}
-
-.place-content-center {
-  place-content: center;
 }
 
 .items-start {
@@ -1552,10 +1552,6 @@ input:-internal-autofill-selected {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .gap-y-12 {
@@ -2050,6 +2046,11 @@ input:-internal-autofill-selected {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -2058,21 +2059,6 @@ input:-internal-autofill-selected {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-96 {
-  padding-top: 24rem;
-  padding-bottom: 24rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.px-7 {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .pb-1 {
@@ -2672,6 +2658,10 @@ input#searchbar:-webkit-autofill{
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 .hover\:opacity-100:hover {
   opacity: 1;
 }
@@ -3037,12 +3027,12 @@ input#searchbar:-webkit-autofill{
     width: 1.25rem;
   }
 
-  .sm\:w-full {
-    width: 100%;
-  }
-
   .sm\:w-\[500px\] {
     width: 500px;
+  }
+
+  .sm\:w-full {
+    width: 100%;
   }
 
   .sm\:max-w-2xl {
@@ -3434,20 +3424,20 @@ input#searchbar:-webkit-autofill{
     display: none;
   }
 
-  .lg\:h-6 {
-    height: 1.5rem;
+  .lg\:h-20 {
+    height: 5rem;
   }
 
-  .lg\:h-\[350px\] {
-    height: 350px;
+  .lg\:h-6 {
+    height: 1.5rem;
   }
 
   .lg\:h-8 {
     height: 2rem;
   }
 
-  .lg\:h-20 {
-    height: 5rem;
+  .lg\:h-\[350px\] {
+    height: 350px;
   }
 
   .lg\:w-1\/4 {
@@ -3456,6 +3446,10 @@ input#searchbar:-webkit-autofill{
 
   .lg\:w-1\/5 {
     width: 20%;
+  }
+
+  .lg\:w-20 {
+    width: 5rem;
   }
 
   .lg\:w-3\/5 {
@@ -3474,16 +3468,12 @@ input#searchbar:-webkit-autofill{
     width: 18rem;
   }
 
-  .lg\:w-full {
-    width: 100%;
-  }
-
   .lg\:w-8 {
     width: 2rem;
   }
 
-  .lg\:w-20 {
-    width: 5rem;
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:grid-cols-2 {
@@ -3522,6 +3512,10 @@ input#searchbar:-webkit-autofill{
     gap: 7rem;
   }
 
+  .lg\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .lg\:gap-4 {
     gap: 1rem;
   }
@@ -3532,10 +3526,6 @@ input#searchbar:-webkit-autofill{
 
   .lg\:gap-8 {
     gap: 2rem;
-  }
-
-  .lg\:gap-3 {
-    gap: 0.75rem;
   }
 
   .lg\:gap-x-16 {
@@ -3900,6 +3890,10 @@ input#searchbar:-webkit-autofill{
 
   .\32xl\:gap-8 {
     gap: 2rem;
+  }
+
+  .\32xl\:gap-24 {
+    gap: 6rem;
   }
 
   .\32xl\:p-10 {

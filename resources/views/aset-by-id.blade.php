@@ -226,7 +226,7 @@
                             berminat? Segera
                             hubungi kami</a>
                     @endauth
-                    <a class="text-cGold" href="/panduan">Panduan membeli</a>
+                    <a class="text-cGold hover:underline" href="/panduan">Panduan membeli</a>
                 </div>
             </div>
         </div>
