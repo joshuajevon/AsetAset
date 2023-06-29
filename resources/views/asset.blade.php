@@ -68,8 +68,8 @@
                                 <h2 class="text-lg font-bold">Wilayah</h2>
                                 <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
                                     onchange="updateCitySelect()">
-                                    <option value="" disabled selected>Pilih Provinsi</option>
-                                    <option value="">Semua Provinsi</option>
+                                    <option id="pilih-provinsi" value="" disabled selected>Pilih Provinsi</option>
+                                    <option id="semua-provinsi" value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
                                             {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
@@ -80,8 +80,8 @@
 
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
                                     onchange="updateProvinceSelect()">
-                                    <option value="" disabled selected>Pilih Kota</option>
-                                    <option value="">Semua Kota</option>
+                                    <option id="pilih-kota" value="" disabled selected>Pilih Kota</option>
+                                    <option id="semua-kota" value="">Semua Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
                                             {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
@@ -109,7 +109,7 @@
                         <div
                             class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-row-reverse xl:flex-col justify-center items-center gap-4 rounded-b-lg">
                             <button class="gold-btn w-full text-center" type="submit">Terapkan</button>
-                            <a href="/" class="white-btn w-full text-center">Hapus
+                            <a href="/asset" class="white-btn w-full text-center">Hapus
                                 Filter</a>
                         </div>
                     </div>
@@ -120,7 +120,8 @@
                     @if ($assets->count() == 0)
                         <div class="p-4 sm:p-6 lg:p-8 text-red-700 bg-red-200 rounded-lg">
                             <h1>Maaf, hasil pencarian aset dengan kata kunci "{{ $result }}" belum tersedia. <a
-                                    href="/" class="underline text-blue-500">Klik disini</a> untuk kembali ke Beranda
+                                    href="/" class="underline text-blue-500">Klik disini</a> untuk kembali ke
+                                Beranda
                             </h1>
                         </div>
 

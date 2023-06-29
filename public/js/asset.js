@@ -28,6 +28,7 @@ window.addEventListener(
     },
     true
 );
+
 const arrProvinsiKota = {
     Aceh: [
         "Kabupaten Aceh Barat",
@@ -647,6 +648,7 @@ function updateCitySelect() {
     const defaultOption = document.createElement("option");
     defaultOption.value = "";
     defaultOption.text = "Pilih Kota";
+    defaultOption.id = "pilih-provinsi";
     defaultOption.selected = true;
     defaultOption.disabled = true;
     citySelect.appendChild(defaultOption);
@@ -655,7 +657,7 @@ function updateCitySelect() {
     const allOption = document.createElement("option");
     allOption.value = "";
     allOption.text = "Semua Kota";
-    // allOption.selected = true;
+    allOption.id = "semua-kota";
     citySelect.appendChild(allOption);
 
     const selectedProvince = provinceSelect.value;
@@ -691,4 +693,33 @@ function updateProvinceSelect() {
             break;
         }
     }
+}
+
+const url = window.location.href;
+const filterSemuaProvinsi = "?search=&provinces%5B%5D=&min-price=&max-price=";
+const filterSemuaKota = "?search=&cities%5B%5D=&min-price=&max-price=";
+const filterSemuaProvinsiKota =
+    "?search=&provinces%5B%5D=&cities%5B%5D=&min-price=&max-price=";
+var selectProvinsiElement = document.getElementById("mySelect");
+
+const optionPilihKota = document.getElementById("pilih-kota");
+const optionSemuaKota = document.getElementById("semua-kota");
+const optionPilihProvinsi = document.getElementById("pilih-provinsi");
+const optionSemuaProvinsi = document.getElementById("semua-provinsi");
+
+if (url.endsWith(filterSemuaProvinsi)) {
+    // Semua provinsi
+    optionPilihProvinsi.selected = false;
+    optionSemuaProvinsi.selected = false;
+} else if (url.endsWith(filterSemuaKota)) {
+    // Semua kota
+    optionPilihKota.selected = false;
+    optionSemuaKota.selected = true;
+} else if (url.endsWith(filterSemuaProvinsiKota)) {
+    // semua provinsi, semua kota
+    optionPilihProvinsi.selected = false;
+    optionSemuaProvinsi.selected = false;
+
+    optionPilihKota.selected = false;
+    optionSemuaKota.selected = true;
 }
