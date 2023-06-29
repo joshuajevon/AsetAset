@@ -34,7 +34,7 @@ function openModal(title, desc, date, file) {
         });
 
         let iframeElement;
-        if ($(window).width() >= 768) {
+        if ($(window).width() >= 1024) {
             iframeElement = $("<iframe></iframe>", {
                 src: baseURL + "/storage/asset/announcement/" + file,
                 width: "100%",
