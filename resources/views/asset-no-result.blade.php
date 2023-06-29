@@ -46,8 +46,10 @@
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Wilayah</h2>
-                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi">
-                                    <option value="" disabled selected>Pilih Provinsi</option>
+                                <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
+                                    onchange="updateCitySelect()">
+                                    <option id="pilih-provinsi" value="" disabled selected>Pilih Provinsi</option>
+                                    <option id="semua-provinsi" value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
                                             {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
@@ -56,8 +58,10 @@
                                     @endforeach
                                 </select>
 
-                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota">
-                                    <option value="" disabled selected>Pilih Kota</option>
+                                <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
+                                    onchange="updateProvinceSelect()">
+                                    <option id="pilih-kota" value="" disabled selected>Pilih Kota</option>
+                                    <option id="semua-kota" value="">Semua Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
                                             {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
@@ -66,7 +70,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
 
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Rentang Harga</h2>
