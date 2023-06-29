@@ -699,7 +699,6 @@ const url = window.location.href;
 const filterSemuaProvinsi = "provinces%5B%5D=&";
 const filterSemuaKota = "cities%5B%5D=&";
 const filterSemuaProvinsiKota = "provinces%5B%5D=&cities%5B%5D=&";
-var selectProvinsiElement = document.getElementById("mySelect");
 
 const optionPilihKota = document.getElementById("pilih-kota");
 const optionSemuaKota = document.getElementById("semua-kota");
