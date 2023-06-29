@@ -82,7 +82,7 @@
                 </div>
 
                 {{-- Web PDF --}}
-                <div class="hidden md:flex flex-col gap-4 w-full">
+                <div class="hidden lg:flex flex-col gap-4 w-full">
                     <iframe src="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
                         width="100%" height="500px">
                         <p>Anda tidak memiliki plugin PDF untuk browser ini, silakan unduh panduan melalui link di bawah</p>
@@ -99,7 +99,7 @@
                     </a>
                 </div>
 
-                <div class="hidden md:flex flex-col gap-4 w-full">
+                <div class="hidden lg:flex flex-col gap-4 w-full">
                     <iframe src="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
                         width="100%" height="500px">
                         <p>Anda tidak memiliki plugin PDF untuk browser ini, silakan unduh panduan melalui link di bawah</p>
@@ -116,7 +116,7 @@
                 </div>
 
                 {{-- Mobile PDF --}}
-                <div class="md:hidden flex flex-col gap-4 w-full">
+                <div class="lg:hidden flex flex-col gap-4 w-full">
                     <iframe
                         src="https://drive.google.com/viewerng/viewer?embedded=true&url={{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
                         width="100%" height="500px">
@@ -133,7 +133,7 @@
                     </a>
                 </div>
 
-                <div class="md:hidden flex flex-col gap-4 w-full">
+                <div class="lg:hidden flex flex-col gap-4 w-full">
                     <iframe
                         src="https://drive.google.com/viewerng/viewer?embedded=true&url={{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
                         width="100%" height="500px">
