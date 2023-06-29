@@ -696,10 +696,9 @@ function updateProvinceSelect() {
 }
 
 const url = window.location.href;
-const filterSemuaProvinsi = "?search=&provinces%5B%5D=&min-price=&max-price=";
-const filterSemuaKota = "?search=&cities%5B%5D=&min-price=&max-price=";
-const filterSemuaProvinsiKota =
-    "?search=&provinces%5B%5D=&cities%5B%5D=&min-price=&max-price=";
+const filterSemuaProvinsi = "provinces%5B%5D=&";
+const filterSemuaKota = "cities%5B%5D=&";
+const filterSemuaProvinsiKota = "provinces%5B%5D=&cities%5B%5D=&";
 var selectProvinsiElement = document.getElementById("mySelect");
 
 const optionPilihKota = document.getElementById("pilih-kota");
@@ -707,19 +706,19 @@ const optionSemuaKota = document.getElementById("semua-kota");
 const optionPilihProvinsi = document.getElementById("pilih-provinsi");
 const optionSemuaProvinsi = document.getElementById("semua-provinsi");
 
-if (url.endsWith(filterSemuaProvinsi)) {
-    // Semua provinsi
-    optionPilihProvinsi.selected = false;
-    optionSemuaProvinsi.selected = false;
-} else if (url.endsWith(filterSemuaKota)) {
-    // Semua kota
-    optionPilihKota.selected = false;
-    optionSemuaKota.selected = true;
-} else if (url.endsWith(filterSemuaProvinsiKota)) {
+if (url.includes(filterSemuaProvinsiKota)) {
     // semua provinsi, semua kota
     optionPilihProvinsi.selected = false;
     optionSemuaProvinsi.selected = false;
 
+    optionPilihKota.selected = false;
+    optionSemuaKota.selected = true;
+} else if (url.includes(filterSemuaProvinsi)) {
+    // Semua provinsi
+    optionPilihProvinsi.selected = false;
+    optionSemuaProvinsi.selected = false;
+} else if (url.includes(filterSemuaKota)) {
+    // Semua kota
     optionPilihKota.selected = false;
     optionSemuaKota.selected = true;
 }
