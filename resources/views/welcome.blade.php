@@ -60,7 +60,6 @@
             {{-- Title --}}
             <x-page-title title="Galeri Aset" />
 
-
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div id="dialog-filter"
@@ -94,8 +93,8 @@
                                 <h2 class="text-lg font-bold">Wilayah</h2>
                                 <select class="cursor-pointer rounded-md" name="provinces[]" id="provinsi"
                                     onchange="updateCitySelect()">
-                                    <option value="" disabled selected>Pilih Provinsi</option>
-                                    <option value="">Semua Provinsi</option>
+                                    <option id="pilih-provinsi" value="" disabled selected>Pilih Provinsi</option>
+                                    <option id="semua-provinsi" value="">Semua Provinsi</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province }}"
                                             {{ in_array($province, $selectedProvinces) ? 'selected' : '' }}>
@@ -106,8 +105,8 @@
 
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
                                     onchange="updateProvinceSelect()">
-                                    <option value="" disabled selected>Pilih Kota</option>
-                                    <option value="">Semua Kota</option>
+                                    <option id="pilih-kota" value="" disabled selected>Pilih Kota</option>
+                                    <option id="semua-kota" value="">Semua Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
                                             {{ in_array($city, $selectedCities) ? 'selected' : '' }}>
@@ -256,12 +255,12 @@
                                 </div>
                             @endforeach
                         </div>
-                    @endif
 
-                    {{-- Bottom pagination --}}
-                    <div id="bottom-pagination" class="pagination">
-                        {{ $assets->onEachSide(0.5)->links() }}
-                    </div>
+                        {{-- Bottom pagination --}}
+                        <div id="bottom-pagination" class="pagination">
+                            {{ $assets->onEachSide(0.5)->links() }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>

@@ -11,26 +11,45 @@
 @section('body')
     <x-navigation-bar page="aset" />
 
-    {{-- Search Bar --}}
-    <section class="c-container flex justify-center items-center pt-32 pb-16">
-        <x-search-bar />
-    </section>
+    <form action="{{ route('assets') }}" method="get">
+        {{-- Search Bar --}}
+        <section class="c-container flex justify-center items-center pt-32 pb-16">
+            <div class="self-center w-full max-w-[800px]">
+                <div class="py-1 sm:py-2 lg:py-3 px-6 sm:px-7 lg:px-8 flex rounded-full bg-cGold text-cWhite">
+                    <input id="searchbar" autocomplete="false" type="text"
+                        class="w-full bg-transparent border-none placeholder:text-cWhite px-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(197,175,102)]"
+                        id="search" name="search" placeholder="Pencarian..." value="{{ $result }}">
+                    <button type="submit" class="flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-    {{-- Asets --}}
-    <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
-        {{-- Title --}}
-        <x-page-title title="Pencarian Aset" />
+        {{-- Asets --}}
+        <section class="c-container pb-8 lg:pb-16 xl:pb-32 flex flex-col gap-8 lg:gap-12 xl:gap-16">
+            {{-- Title --}}
+            <x-page-title title="Pencarian Aset" />
 
-        <form action="{{ route('assets') }}" method="get">
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
-                <div class="hidden xl:flex flex-col bg-cWhite grow col-span-1 h-fit rounded-lg">
-                    <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey rounded-t-lg">
-                        <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
-                    </div>
+                <div id="dialog-filter"
+                    class="hidden xl:block col-span-12 xl:col-span-1 h-screen xl:h-fit bg-cBlack/50 xl:bg-transparent">
+                    <div id="form-filter" class="bg-cWhite rounded-lg h-[70%] xl:h-fit flex flex-col">
+                        <div
+                            class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey rounded-t-lg flex justify-between xl:justify-center items-center">
+                            <h1 class="font-bold text-center text-xl">Filter Pencarian Aset</h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="xl:hidden w-7 h-7" onclick="closeFilter()">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
 
-                    <div>
-                        <div class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8">
+                        <div class="p-5 lg:p-6 xl:p-7 2xl:p-8 flex flex-col gap-8 overflow-y-scroll xl:overflow-y-auto">
                             <div class="flex flex-col gap-2">
                                 <h2 class="text-lg font-bold">Jenis Aset</h2>
                                 @foreach ($categories as $category)
@@ -39,7 +58,8 @@
                                             value="{{ $category }}"
                                             class="cursor-pointer rounded-sm appearance-none text-cGold focus:ring-0 focus:ring-offset-0"
                                             {{ in_array($category, $selectedCategories) ? 'checked' : '' }} />
-                                        <label for="filter-{{ $category }}">{{ $category }}</label>
+                                        <label class="cursor-pointer"
+                                            for="filter-{{ $category }}">{{ $category }}</label>
                                     </div>
                                 @endforeach
                             </div>
@@ -87,9 +107,9 @@
                         </div>
 
                         <div
-                            class="md:p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-col justify-center items-center gap-4 rounded-b-lg">
-                            <button class="gold-btn w-full" type="submit">Terapkan</button>
-                            <a href="/asset" class="white-btn w-full">Hapus
+                            class="p-5 lg:p-6 xl:p-7 2xl:p-8 bg-cDarkGrey flex flex-row-reverse xl:flex-col justify-center items-center gap-4 rounded-b-lg">
+                            <button class="gold-btn w-full text-center" type="submit">Terapkan</button>
+                            <a href="/asset" class="white-btn w-full text-center">Hapus
                                 Filter</a>
                         </div>
                     </div>
@@ -126,7 +146,6 @@
                             </a>
                         </div>
                     @else
-
                         {{-- Top Pagination --}}
                         <div id="top-pagination" class="pagination">
                             {{ $assets->onEachSide(0.5)->links() }}
@@ -276,16 +295,16 @@
                                 </a>
                             @endforeach
                         </div>
-                    @endif
 
-                    {{-- Bottom pagination --}}
-                    <div id="bottom-pagination" class="pagination">
-                        {{ $assets->onEachSide(0.5)->links() }}
-                    </div>
+                        {{-- Bottom pagination --}}
+                        <div id="bottom-pagination" class="pagination">
+                            {{ $assets->onEachSide(0.5)->links() }}
+                        </div>
+                    @endif
                 </div>
             </div>
-        </form>
-    </section>
+        </section>
+    </form>
 
     {{-- Scripts --}}
     <script src="{{ asset('js/asset.js') }}?t={{ env('VERSION_TIME') }}"></script>

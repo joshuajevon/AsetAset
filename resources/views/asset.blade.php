@@ -233,12 +233,12 @@
                                 </a>
                             @endforeach
                         </div>
-                    @endif
 
-                    {{-- Bottom pagination --}}
-                    <div id="bottom-pagination" class="pagination">
-                        {{ $assets->onEachSide(0.5)->links() }}
-                    </div>
+                        {{-- Bottom pagination --}}
+                        <div id="bottom-pagination" class="pagination">
+                            {{ $assets->onEachSide(0.5)->links() }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
