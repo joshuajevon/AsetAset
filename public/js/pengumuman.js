@@ -32,13 +32,25 @@ function openModal(title, desc, date, file) {
         const divElement = $("<div></div>", {
             id: "announcement-image",
         });
-        const iframeElement = $("<iframe></iframe>", {
-            src: baseURL + "/storage/asset/announcement/" + file,
-            // class: "w-full h-[500px]",
-            width: "100%",
-            height: "500px",
-            // style: "height: 500px;",
-        });
+
+        let iframeElement;
+        if ($(window).width() >= 768) {
+            iframeElement = $("<iframe></iframe>", {
+                src: baseURL + "/storage/asset/announcement/" + file,
+                width: "100%",
+                height: "500px",
+            });
+        } else {
+            iframeElement = $("<iframe></iframe>", {
+                src:
+                    "https://drive.google.com/viewerng/viewer?embedded=true&url=" +
+                    baseURL +
+                    "/storage/asset/announcement/" +
+                    file,
+                width: "100%",
+                height: "500px",
+            });
+        }
 
         iframeElement.appendTo(divElement);
 
