@@ -82,8 +82,11 @@
                 </div>
 
                 <div class="flex flex-col gap-4 w-full">
-                    <iframe src="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
-                        class="w-full h-[500px]"></iframe>
+                    <iframe
+                        src="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf#view=fitH') }}?t={{ env('VERSION_TIME') }}"
+                        width="100%" height="500px">
+                        <p>Anda tidak memiliki plugin PDF untuk browser ini, silakan unduh panduan melalui link di bawah</p>
+                    </iframe>
 
                     <a href="{{ asset('assets/panduan/Panduan Cara Membeli Aset.pdf') }}?t={{ env('VERSION_TIME') }}"
                         download class="gold-btn gap-2 w-fit self-end">
@@ -97,8 +100,11 @@
                 </div>
 
                 <div class="flex flex-col gap-4 w-full">
-                    <iframe src="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
-                        class="w-full h-[500px]"></iframe>
+                    <iframe
+                        src="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf#view=fitH') }}?t={{ env('VERSION_TIME') }}"
+                        width="100%" height="500px">
+                        <p>Anda tidak memiliki plugin PDF untuk browser ini, silakan unduh panduan melalui link di bawah</p>
+                    </iframe>
                     <a href="{{ asset('assets/panduan/Panduan Cara Membuat Akun.pdf') }}?t={{ env('VERSION_TIME') }}"
                         download class="gold-btn gap-2 w-fit self-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

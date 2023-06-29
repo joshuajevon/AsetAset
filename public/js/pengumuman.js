@@ -34,7 +34,9 @@ function openModal(title, desc, date, file) {
         });
         const iframeElement = $("<iframe></iframe>", {
             src: baseURL + "/storage/asset/announcement/" + file,
-            class: "w-full h-[500px]",
+            // class: "w-full h-[500px]",
+            width: "100%",
+            height: "500px",
             // style: "height: 500px;",
         });
 
