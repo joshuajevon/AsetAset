@@ -81,6 +81,7 @@
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
                                     onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
+                                    <option value="">Semua Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
                                             {{ in_array($city, $selectedCities) ? 'selected' : '' }}>

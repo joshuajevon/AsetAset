@@ -41,11 +41,10 @@
                             <ul class="splide__list">
                                 @foreach ($carousels as $carousel)
                                     <li class="splide__slide">
-                                        <a class="splide__item transition-opacity hover:opacity-80" href="{{ $carousel->link }}" target="_blank"
-                                            rel="noopener noreferrer">
+                                        <a class="splide__item transition-opacity hover:opacity-80"
+                                            href="{{ $carousel->link }}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('storage/asset/slideshow/' . $carousel->slideshow) }}"
-                                                class="w-full h-full object-contain"
-                                                alt="{{ $carousel->title }}">
+                                                class="w-full h-full object-contain" alt="{{ $carousel->title }}">
                                         </a>
                                     </li>
                                 @endforeach
@@ -108,6 +107,7 @@
                                 <select class="cursor-pointer rounded-md" name="cities[]" id="kota"
                                     onchange="updateProvinceSelect()">
                                     <option value="" disabled selected>Pilih Kota</option>
+                                    <option value="">Semua Kota</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city }}"
                                             {{ in_array($city, $selectedCities) ? 'selected' : '' }}>

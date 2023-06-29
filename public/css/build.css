@@ -1215,10 +1215,6 @@ input:-internal-autofill-selected {
   height: 200px;
 }
 
-.h-\[500px\] {
-  height: 500px;
-}
-
 .h-\[70\%\] {
   height: 70%;
 }
@@ -3251,10 +3247,6 @@ input#searchbar:-webkit-autofill{
 }
 
 @media (min-width: 768px) {
-  .md\:block {
-    display: block;
-  }
-
   .md\:flex {
     display: flex;
   }
