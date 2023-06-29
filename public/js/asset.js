@@ -644,18 +644,18 @@ function updateCitySelect() {
     citySelect.innerHTML = "";
 
     // Add default option
-    // const defaultOption = document.createElement("option");
-    // defaultOption.value = "";
-    // defaultOption.text = "Pilih Kota";
-    // defaultOption.selected = true;
-    // defaultOption.disabled = true;
-    // citySelect.appendChild(defaultOption);
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.text = "Pilih Kota";
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    citySelect.appendChild(defaultOption);
 
     // Add all option
     const allOption = document.createElement("option");
     allOption.value = "";
     allOption.text = "Semua Kota";
-    allOption.selected = true;
+    // allOption.selected = true;
     citySelect.appendChild(allOption);
 
     const selectedProvince = provinceSelect.value;
