@@ -194,7 +194,7 @@ class HomeController extends Controller
             return view('asset-no-result',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
 
         }else if($assets->total() == 0) {
-            return view('asset-no-search',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
+            return view('asset-no-asset',compact('assets','categories','result','selectedFilter','selectedProvinces','selectedCities','selectedCategories','minPrice','maxPrice','provinces','cities'));
         }
 
 
