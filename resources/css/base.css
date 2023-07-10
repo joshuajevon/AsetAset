@@ -3,77 +3,88 @@
 @tailwind utilities;
 
 input::-ms-reveal,
-input::-ms-clear
-{
+input::-ms-clear {
     display: none !important;
 }
 
-input#searchbar:-webkit-autofill{
-  -webkit-text-fill-color: white !important;
-  caret-color: white !important;
-  font-size: 16px;
+input#searchbar:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    font-size: 16px;
 }
 
 @layer base {
-    table{
-        @apply break-all
+    table {
+        @apply break-all;
     }
 
-    [type='url'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple] {
-        @apply border-cDarkGrey focus:border-none focus:ring-0
+    [type="url"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="search"],
+    [type="tel"],
+    [type="time"],
+    [type="week"],
+    [multiple] {
+        @apply border-cDarkGrey focus:border-none focus:ring-0;
     }
 
-    [type='number'],[type='text'],[type='email'],[type="password"],[type='date'],textarea {
-        @apply border-cDarkGrey focus:border-cGold focus:ring-0
+    [type="number"],
+    [type="text"],
+    [type="email"],
+    [type="password"],
+    [type="date"],
+    textarea {
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0;
     }
 
     select {
-        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0;
     }
 
-    [type='radio'] {
-        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0
+    [type="radio"] {
+        @apply border-cDarkGrey focus:border-cGold focus:ring-0 focus:ring-offset-0;
     }
 
-    input:-internal-autofill-selected{
-        @apply bg-transparent text-white
+    input:-internal-autofill-selected {
+        @apply bg-transparent text-white;
     }
 }
 
 @layer components {
     .nav-link {
-        @apply text-cGold transition hover:text-cGold/75 font-bold
+        @apply text-cGold transition hover:text-cGold/75 font-bold;
     }
 
-    .c-container{
-        @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24
+    .c-container {
+        @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
     }
 
-    .gold-btn{
-        @apply flex justify-center items-center rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)]
+    .gold-btn {
+        @apply flex justify-center items-center rounded-md bg-cGold px-5 py-2.5 text-cWhite transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)];
     }
 
-    .white-btn{
-        @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] border border-cGold
+    .white-btn {
+        @apply flex justify-center items-center rounded-md bg-cWhite px-5 py-2.5 text-cGold transition hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] border border-cGold;
     }
 
-    .table-row{
-        @apply text-center border-b-[1px] border-b-cDarkGrey
+    .table-row {
+        @apply text-center border-b-[1px] border-b-cDarkGrey;
     }
 
-    .asset-table th{
-        @apply text-start w-1/4 py-2 align-top
+    .asset-table th {
+        @apply text-start w-1/4 py-2 align-top;
     }
 
-    .asset-table td{
-        @apply text-start pl-4 w-3/4 py-2 align-top
+    .asset-table td {
+        @apply text-start pl-4 w-3/4 py-2 align-top;
     }
 
-    .error-message{
-        @apply text-red-500 text-sm
+    .error-message {
+        @apply text-red-500 text-sm;
     }
 
-    .announcement-active{
-        @apply underline underline-offset-8 opacity-100
+    .announcement-active {
+        @apply underline underline-offset-8 opacity-100;
     }
 }

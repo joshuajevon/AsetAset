@@ -25,9 +25,8 @@
 
 #thumbnail-carousel .splide__slide.is-active {
     opacity: 1;
-    border-color: #C5AF66;
+    border-color: #c5af66;
 }
-
 
 @media (min-width: 640px) {
     #main-carousel .splide__list {

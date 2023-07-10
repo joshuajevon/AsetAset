@@ -35,7 +35,6 @@
             {{-- Title --}}
             <x-page-title title="Pencarian Aset" />
 
-
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-8">
                 {{-- Filter --}}
                 <div id="dialog-filter"

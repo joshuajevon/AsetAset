@@ -5,7 +5,8 @@
         "install:env": "composer install && php artisan key:generate && npm i && npm run dev",
         "dev": "vite",
         "build": "vite build",
-        "tailwind:watch": "npx tailwindcss -i ./resources/css/base.css -o ./public/css/build.css --watch"
+        "tailwind:watch": "npx tailwindcss -i ./resources/css/base.css -o ./public/css/build.css --watch",
+        "tailwind:minify": "npx tailwindcss -i ./resources/css/base.css -o ./public/css/build.css --minify"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

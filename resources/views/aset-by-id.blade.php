@@ -236,10 +236,9 @@
             {{-- Tabs --}}
             <div class="flex text-center bg-cDarkGrey text-sm sm:text-base">
                 <div class="w-1/3 lg:w-1/4 bg-cLightGrey">
-                    <a class="block border-l border-r border-t-4 border-t-cGold border-l-cDarkGrey border-r-cDarkGrey p-4 font-bold"
-                        href="">
+                    <p class="block border-l border-r border-t-4 border-t-cGold border-l-cDarkGrey border-r-cDarkGrey p-4 font-bold">
                         Uraian
-                    </a>
+                    </p>
                 </div>
             </div>
 
