@@ -31,7 +31,7 @@
                             </svg>
                             info@asetaset.com
                         </a>
-                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/62818995628" target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-telephone-fill" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@
                             </svg>
                             0818995628
                         </a>
-                        <a href="https://wa.me/6287876731950" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/62818995628" target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-3 transition hover:text-cGold">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C5AF66"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">
