@@ -36,10 +36,7 @@
             <img class="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-48" src="{{ asset('assets/logo/asetaset-full.png') }}"
                 alt="logo">
             <p class="text-justify text-sm sm:text-lg lg:text-xl font-normal">
-                asetaset.com adalah solusi daring yang memberikan dan menyediakan informasi aset-aset di mana Debitor atau
-                Pemiliknya atau Pemegang Haknya sedang dalam status Penundaan Kewajiban Pembayaran Utang dan/atau aset yang
-                belum laku setelah dilaksanakannya lelang oleh KPKNL setempat. Kami hadir dengan tujuan memberikan layanan
-                yang luas dan terpercaya kepada masyarakat umum serta pihak-pihak yang berkepentingan.
+                asetaset.com adalah solusi daring yang memberikan dan menyediakan informasi aset-aset di mana Debitor atau Pemiliknya atau Pemegang Haknya sedang dalam status Penundaan Kewajiban Pembayaran Utang atau Pailit. Kami hadir dengan tujuan memberikan layanan yang luas dan terpercaya kepada masyarakat umum serta pihak-pihak yang berkepentingan.
                 <br><br>
                 Dengan menggunakan <span class="italic">platform</span> kami, Anda akan mendapatkan informasi yang efektif,
                 efisien, dan andal dalam

@@ -2,12 +2,10 @@
 <html lang="id">
 
 <head>
-
-    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Temukan Aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset dalam Status Penundaan Kewajiban Pembayaran Utang">
+        <meta name="description" content="Temukan Aset-aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset-aset dalam Status Penundaan Kewajiban Pembayaran Utang atau Pailit">
 
         <title>asetaset.com</title>
         <link rel="shortcut icon" href="{{ asset('assets/logo/asetaset-icon.png') }}" type="image/x-icon">
@@ -29,7 +27,6 @@
         {{-- Jquery --}}
         <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    </head>
 </head>
 
 <body class="bg-cLightGrey">
