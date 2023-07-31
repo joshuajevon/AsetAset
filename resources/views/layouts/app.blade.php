@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Temukan Aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset dalam Status Penundaan Kewajiban Pembayaran Utang">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
