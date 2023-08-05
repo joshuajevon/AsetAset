@@ -14,8 +14,6 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="mask-icon" href="/icon.svg" color="#C5AF66">
-
 
     {{-- Build CSS --}}
     <link rel="stylesheet" href="{{ asset('css/build.css') }}?t={{ env('VERSION_TIME') }}">
