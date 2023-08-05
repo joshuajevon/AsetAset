@@ -8,7 +8,12 @@
     <meta name="description" content="Temukan Aset-aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset-aset dalam Status Penundaan Kewajiban Pembayaran Utang atau Pailit">
 
     <title>asetaset.com</title>
-    <link rel="shortcut icon" href="{{ asset('assets/logo/asetaset-icon.png') }}" type="image/x-icon">
+
+    {{-- favicon --}}
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
 
     {{-- Build CSS --}}
     <link rel="stylesheet" href="{{ asset('css/build.css') }}?t={{ env('VERSION_TIME') }}">
