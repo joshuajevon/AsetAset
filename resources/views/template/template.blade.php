@@ -14,7 +14,6 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.webmanifest">
-    <meta name="msapplication-config" content="/browserconfig.xml">
     <link rel="mask-icon" href="/icon.svg" color="#C5AF66">
 
 
