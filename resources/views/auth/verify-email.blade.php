@@ -2,36 +2,40 @@
 <html lang="id">
 
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Temukan Aset-aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset-aset dalam Status Penundaan Kewajiban Pembayaran Utang atau Pailit">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Temukan Aset-aset dengan Mudah di asetaset.com: Layanan Terpercaya untuk Informasi Aset-aset dalam Status Penundaan Kewajiban Pembayaran Utang atau Pailit">
 
-        <title>asetaset.com</title>
-        <link rel="shortcut icon" href="{{ asset('assets/logo/asetaset-icon.png') }}" type="image/x-icon">
+    <title>asetaset.com</title>
 
-        {{-- Build CSS --}}
-        <link rel="stylesheet" href="{{ asset('css/build.css') }}?t={{ env('VERSION_TIME') }}">
+    {{-- favicon --}}
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
 
-        <!-- vite-->
-        @vite('resources/css/app.css')
-        @vite('resources/js/app.js')
+    {{-- Build CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/build.css') }}?t={{ env('VERSION_TIME') }}">
 
-        {{-- Google Font --}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-            rel="stylesheet">
+    <!-- vite-->
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
-        {{-- Jquery --}}
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    {{-- Google Font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-cLightGrey">
-    <section
-        class="min-h-screen c-container flex flex-col justify-center gap-8 lg:gap-12 xl:gap-16">
+    <section class="min-h-screen c-container flex flex-col justify-center gap-8 lg:gap-12 xl:gap-16">
         <x-page-title title="Verifikasi Email" />
 
         <div
@@ -49,9 +53,9 @@
             </p>
 
             @if (Auth::user()->hasVerifiedEmail())
-                <p class="text-green-600 font-bold">Sudah verifikasi</p>
+            <p class="text-green-600 font-bold">Sudah verifikasi</p>
             @else
-                <p class="text-red-600 font-bold">Belum verifikasi</p>
+            <p class="text-red-600 font-bold">Belum verifikasi</p>
             @endif
 
             <div class="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8">
@@ -74,9 +78,9 @@
             </div>
 
             @if (session('status') == 'verification-link-sent')
-                <p class="font-bold text-sm text-green-600">
-                    Kami telah mengirim link verifikasi baru ke alamat email yang Anda berikan saat registrasi.
-                </p>
+            <p class="font-bold text-sm text-green-600">
+                Kami telah mengirim link verifikasi baru ke alamat email yang Anda berikan saat registrasi.
+            </p>
             @endif
         </div>
     </section>
