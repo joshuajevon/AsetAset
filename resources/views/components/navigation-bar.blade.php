@@ -80,15 +80,29 @@
                             </span>
 
 
-                            <button id="profile-web-arrow" class="h-full transition">
-                                <span class="sr-only">Menu</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </button>
+                            <nav class="hidden xl:flex c-container bg-custom-yellow justify-between items-center py-4">
+    <span class="flex justify-center items-center gap-16">
+        <a href="/">
+            <img src="{{ asset('asset/logo/logo-color.png') }}?t={{ env('VERSION_TIME') }}" alt="logo" class="w-32 sm:w-36 md:w-40">
+        </a>
+        <span class="flex justify-center items-center gap-8 sm:gap-10 md:gap-12 font-semibold text-sm sm:text-base md:text-lg">
+            <a href="/" class="hover:text-custom-red transition-colors @if ($page == 'beranda') text-custom-red @endif">Beranda</a>
+
+            <a href="/artikel" class="hover:text-custom-red transition-colors @if ($page == 'artikel') text-custom-red @endif">Artikel</a>
+
+            <a href="/produk" class="hover:text-custom-red transition-colors @if ($page == 'produk') text-custom-red @endif">Produk</a>
+
+            <a href="/kontak-kami" class="hover:text-custom-red transition-colors @if ($page == 'kontak-kami') text-custom-red @endif">Kontak Kami</a>
+        </span>
+    </span>
+    <span class="flex justify-center items-center gap-4 font-semibold text-sm sm:text-base md:text-lg">
+
+        <a href="/login" class="transition-all bg-custom-yellow border text-black border-black hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] active:bg-[linear-gradient(rgb(0_0_0/20%)_0_0)] rounded-full py-3 px-8">Masuk</a>
+
+        <a href="/register" class="transition-all bg-custom-red hover:bg-[linear-gradient(rgb(0_0_0/10%)_0_0)] active:bg-[linear-gradient(rgb(0_0_0/20%)_0_0)] rounded-full text-white py-3 px-8">Daftar</a>
+
+    </span>
+</nav>
 
                         </div>
 

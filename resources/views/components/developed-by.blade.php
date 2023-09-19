@@ -3,7 +3,7 @@
     <p class="text-center">
         Developed with Perfection by
         <span class="font-bold">
-            GCJ
+            WebCreativs
         </span>
     </p>
 </div>
@@ -13,7 +13,7 @@
     <div class="w-full h-full flex justify-center items-center">
         <div class="bg-cWhite h-fit w-full sm:w-[500px] rounded-lg flex flex-col">
             <div class="py-5 px-6 lg:py-6 lg:px-8 bg-cDarkGrey rounded-t-lg flex justify-between items-center">
-                <h1 class="font-bold text-center text-xl lg:text-2xl">GCJ</h1>
+                <h1 class="font-bold text-center text-xl lg:text-2xl">WebCreativs</h1>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" class="w-7 h-7 lg:w-8 lg:h-8 cursor-pointer"
                     onclick="closeDevelopedByModal()">
